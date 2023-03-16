@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Row, Column} from "rengo-ui-kit"
+import {Container, Row, Column, Button} from "rengo-ui-kit"
 const App = () => {
     return (
         <>
@@ -20,6 +20,7 @@ const App = () => {
                 <Row props={{center: 'xs'}}>
                     <Column props={{xs: 6}}>
                         <h1>Test 4</h1>
+                        <Button props={{variant: 'primary', size: 'lg'}}>Test</Button>
                     </Column>
                 </Row>
             </Container>

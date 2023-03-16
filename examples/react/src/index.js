@@ -7,6 +7,8 @@ const root = createRoot(container)
 
 root.render(
     <React.StrictMode>
-        <App />
+        <UiProvider theme={theme.default}>
+            <App />
+        </UiProvider>
     </React.StrictMode>
 )
