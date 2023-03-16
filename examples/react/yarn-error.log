@@ -1,0 +1,51 @@
+Arguments: 
+  /Users/sebastianbarcelona/.nvm/versions/node/v16.14.2/bin/node /Users/sebastianbarcelona/.nvm/versions/node/v16.14.2/bin/yarn install
+
+PATH: 
+  /Users/sebastianbarcelona/.jenv/shims:/Users/sebastianbarcelona/opt/anaconda3/bin:/Users/sebastianbarcelona/.cabal/bin:/Users/sebastianbarcelona/.ghcup/bin:/Users/sebastianbarcelona/.nvm/versions/node/v16.14.2/bin:/Users/sebastianbarcelona/Library/Android/sdk//platform-tools:/Users/sebastianbarcelona/Library/Android/sdk//tools:/Users/sebastianbarcelona/.rbenv/shims:/Users/sebastianbarcelona/opt/anaconda3/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/opt/X11/bin:/Users/sebastianbarcelona/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/sebastianbarcelona/flutter/bin:/Users/sebastianbarcelona/.local/bin:/Users/sebastianbarcelona/.jenv/bin:/emulator:/tools:/tools/bin:/platform-tools:/Users/sebastianbarcelona/go/bin:/usr/local/opt/go/libexec/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.14.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/sebastianbarcelona/Desarrollo/Rengo-UI-Kit/src/providers/CasperUiProvider.tsx' -> '/Users/sebastianbarcelona/Library/Caches/Yarn/v6/npm-rengo-ui-kit-0.0.0-6b298ea8-d783-4ca4-98e5-484db9152b71-1678907094218/node_modules/rengo-ui-kit/Rengo-UI-Kit/src/providers/CasperUiProvider.tsx'
+
+npm manifest: 
+  {
+    "name": "react",
+    "version": "1.0.0",
+    "description": "",
+    "main": "lib/index.js",
+    "module": "lib/index.modern.js",
+    "umd:main": "lib/index.umd.js",
+    "scripts": {
+      "start": "node ../../node_modules/react-scripts/bin/react-scripts.js start",
+      "build": "node ../../node_modules/react-scripts/bin/react-scripts.js build",
+      "test": "node ../../node_modules/react-scripts/bin/react-scripts.js test",
+      "eject": "node ../../node_modules/react-scripts/bin/react-scripts.js eject"
+    },
+    "dependencies": {
+      "rengo-ui-kit": "file:../../..",
+      "react": "file:../../node_modules/react",
+      "react-dom": "file:../../node_modules/react-dom",
+      "react-scripts": "file:../../node_modules/react-scripts"
+    },
+    "browserslist": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

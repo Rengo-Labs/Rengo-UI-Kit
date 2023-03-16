@@ -1,1 +1,1 @@
-export { default } from "./atoms/Button";
+export * from "./atoms";

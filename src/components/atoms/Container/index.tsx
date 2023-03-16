@@ -4,8 +4,7 @@ export interface Props {
     children: React.ReactNode;
     props?: any;
 }
-const Container = ({ children, props }: Props) => {
+export const Container = ({children, props = {}}: Props) => {
     console.log("Container", props);
-  return <Grid {...props}>{children}</Grid>;
+    return <Grid {...props}>{children}</Grid>;
 };
-export default Container;

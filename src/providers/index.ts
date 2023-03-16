@@ -1,6 +1,5 @@
-import CasperUiProvider from './CasperUiProvider'
+import UiProvider from './UiProvider'
 import { darkTheme, defaultTheme } from '../styles'
-import Button from "../components";
 
 interface theme {
     default: any
@@ -12,4 +11,7 @@ const theme: theme = {
     dark: darkTheme
 }
 
-export { Button, CasperUiProvider, theme }
+export {
+    UiProvider,
+    theme
+}

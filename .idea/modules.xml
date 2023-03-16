@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../casperswap-uikit/.idea/casperswap-ui.iml" filepath="$PROJECT_DIR$/../casperswap-uikit/.idea/casperswap-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Rengo-UI-Kit.iml" filepath="$PROJECT_DIR$/.idea/Rengo-UI-Kit.iml" />
     </modules>
   </component>
 </project>
