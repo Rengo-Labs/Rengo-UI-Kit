@@ -20,7 +20,9 @@ const App = () => {
                 <Row props={{center: 'xs'}}>
                     <Column props={{xs: 6}}>
                         <h1>Test 4</h1>
-                        <Button props={{variant: 'primary', size: 'lg'}}>Test</Button>
+                    </Column>
+                    <Column props={{xs: 6}}>
+                        <Button props={{onClick: () => console.log('clicked')}} > button </Button>
                     </Column>
                 </Row>
             </Container>

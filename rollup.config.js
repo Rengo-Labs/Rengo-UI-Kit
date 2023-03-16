@@ -17,12 +17,6 @@ export default {
       file: packageJson.main,
       format: "cjs",
       sourcemap: true,
-      globals: {
-        react: 'React',
-        'styled-components': 'styled',
-        'prop-types': 'PropTypes',
-        'prop-types/checkPropTypes': 'checkPropTypes'
-      },
     },
     {
       file: packageJson.module,
@@ -34,12 +28,6 @@ export default {
       file: 'lib/index.umd.js',
       format: 'umd',
       sourcemap: true,
-      globals: {
-        react: 'React',
-        'styled-components': 'styled',
-        'prop-types': 'PropTypes',
-        'prop-types/checkPropTypes': 'checkPropTypes'
-      },
     }
   ],
   plugins: [
@@ -47,14 +35,7 @@ export default {
       includeDependencies: true,
     }),
     resolve({extensions}),
-    commonjs(
-        {
-          include: ['node_modules/**'],
-          namedExports: {
-            'react-dom': ['createPortal']
-          }
-        }
-    ),
+    commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
     postcss({
         extensions: ['.css']

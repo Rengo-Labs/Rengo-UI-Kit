@@ -1,8 +1,8 @@
 import React from "react";
-interface Props {
+export interface ButtonProps {
     props: any;
 }
-export const Button = (props: Props) => {
+export const Button = ({props={}}: ButtonProps) => {
     return (
         <button {...props}>Button</button>
     );

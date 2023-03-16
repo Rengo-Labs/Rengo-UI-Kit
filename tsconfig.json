@@ -31,6 +31,6 @@
         "**/tests",
         "**/*.test.js",
         "**/stories",
-        "**/*.stories.tsx",
+        "**/**/**/*.stories.js",
     ]
   }

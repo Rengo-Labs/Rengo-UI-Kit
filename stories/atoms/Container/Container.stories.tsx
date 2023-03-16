@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Container from "./";
+import {Container} from "../../../src/components";
 
 export default {
     title: "Components/Container",
@@ -13,6 +13,6 @@ export default {
 // Create a master template for mapping args to render the Container component
 const children = <div>Container</div>;
 const Template: ComponentStory<typeof Container> = (args) => <Container {...args}>{children}</Container>;
-export const xs = Template.bind({});
+export const Default = Template.bind({});
 // @ts-ignore
-xs.args = { "xs": 12};
+Default.args = { "xs": 12};
