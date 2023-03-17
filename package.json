@@ -23,7 +23,11 @@
     "build": "npm run build:esm && npm run build:compile",
     "watch": "rollup -c --watch",
     "build:esm": "babel src  --extensions \".js,.ts,.tsx\" --out-dir build --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "clean": "rm -rf examples/react/node_modules && rm -rf node_modules/",
+    "install-ui-kit": "yarn install && yarn build:compile",
+    "install-react-example": "cd examples/react && yarn install",
+    "setup": "yarn run clean && yarn run install-ui-kit && yarn run start"
   },
   "np": {
     "publish": false,
