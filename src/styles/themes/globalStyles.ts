@@ -1,10 +1,62 @@
 import {createGlobalStyle, css} from 'styled-components'
+
 // @ts-ignore
-import styles from './fonts.css'
+import Epilogue from '../../fonts/Epilogue/Epilogue-Regular.ttf'
+// @ts-ignore
+import EpilogueBold from '../../fonts/Epilogue/Epilogue-Bold.ttf'
+// @ts-ignore
+import EpilogueLight from '../../fonts/Epilogue/Epilogue-Light.ttf'
+// @ts-ignore
+import MyriadPro from '../../fonts/MyriadPro/MyriadPro-Regular.otf'
+// @ts-ignore
+import MyriadProSemiBold from '../../fonts/MyriadPro/MyriadPro-bold.otf'
+// @ts-ignore
+import MyriadProLight from '../../fonts/MyriadPro/MyriadPro-Light.otf'
 
 const customFonts = () => {
     return css`
-        ${styles}
+      @font-face {
+        font-family: "Epilogue";
+        src: url(${Epilogue}) format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "EpilogueBold";
+        src: url(${EpilogueBold}) format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "EpilogueLight";
+        src: url(${EpilogueLight}) format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "MyriadPro";
+        src: url(${MyriadPro}) format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "MyriadProSemiBold";
+        src: url(${MyriadProSemiBold}) format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "MyriadProLight";
+        src: url(${MyriadProLight}) format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
     `
 }
 const createPaddingMargin = () => {

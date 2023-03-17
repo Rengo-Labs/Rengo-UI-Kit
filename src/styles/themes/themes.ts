@@ -104,11 +104,11 @@ export const defaultTheme: theme = {
     },
     typography: {
         primaryFont:
-            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "Epilogue", "MyriadPro", sans-serif;',
         secondaryFont:
-            '-apple-system, BlinkMacSystemFont, "MyriadPro", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "MyriadPro", "MyriadPro", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         buttonFont:
-            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "MyriadPro", "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         inputFont:
             '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         h1: '3rem',
@@ -142,8 +142,8 @@ export const defaultTheme: theme = {
             dark: '#C50000'
         },
         primary: {
-            default: '#0ab',
-            dark: '#0cd'
+            default: '#715FF5',
+            dark: '#715FF5'
         },
         success: {
             lighter: '#D3E5FF',
@@ -185,14 +185,14 @@ export const defaultTheme: theme = {
     texttitleColor: '#111111',
     textColor: '#444444',
     subtextColor: '#888888',
-    primarybtntextColor: '#fff',
-    btntextColor: ' rgb(102, 102, 102)',
+    primarybtntextColor: '#5B4BC9',
+    btntextColor: '#FFFFFF',
     btntextHoverColor: 'rgb(0, 0, 0)',
 
     loadingColor: ' #1e1e1e',
     loadinglabelColor: '#666',
     btndisabledbackgroundColor: 'rgb(250, 250, 250)',
-    btnbackgroundColor: '#ffff',
+    btnbackgroundColor: '#7AEDD4',
     borderHoverColor: 'rgb(0, 0, 0)'
 }
 
@@ -243,8 +243,8 @@ export const darkTheme: theme = {
             dark: '#C50000'
         },
         primary: {
-            default: '#0ab',
-            dark: '#0cd'
+            default: '#715FF5',
+            dark: '#715FF5'
         },
         success: {
             lighter: '#D3E5FF',
@@ -283,11 +283,11 @@ export const darkTheme: theme = {
     texttitleColor: '#ffff',
     textColor: '#f4f4f4',
     subtextColor: '#888888',
-    primarybtntextColor: '#fff',
-    btntextColor: '#fff',
+    primarybtntextColor: '#5B4BC9',
+    btntextColor: '#FFFFFF',
     btntextHoverColor: 'rgb(255, 255, 255)',
     btndisabledbackgroundColor: '#272727',
-    btnbackgroundColor: 'rgb(0, 0, 0)',
+    btnbackgroundColor: '#7AEDD4',
     loadingColor: ' #fff',
     loadinglabelColor: '#f1f1ff1',
     borderHoverColor: 'rgb(255, 255, 255)'

@@ -1,19 +1,70 @@
 import styled from "styled-components";
+
+export const SmallButtonStyled = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 16px;
+  gap: 4px;
+  width: 58px;
+  height: 26px;
+  border-radius: 50px;
+  background-color: ${({theme}) => theme.btnbackgroundColor};
+  color: ${({theme}) => theme.btntextColor};
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  
+  /* text */
+  font-family: ${({theme}) => theme.typography.buttonFont};
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+
+  :hover {
+    background-color: ${({theme}) => theme.btnbackgroundColor};
+  }
+
+  :active {
+    background-color: ${({theme}) => theme.btndisabledbackgroundColor};
+  }
+`;
+
 export const ButtonStyled = styled.button`
-    background-color: ${({ theme }) => theme.color.primary};
-    color: ${({ theme }) => theme.textColor};
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    outline: none;
-    :hover {
-        background-color: ${({ theme }) => theme.defaultColor};
-    }
-    :active {
-        background-color: ${({ theme }) => theme.primaryColor};
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 64px;
+  gap: 4px;
+  width: 222px;
+  height: 56px;
+  border-radius: 8px;
+  background-color: ${({theme}) => theme.btnbackgroundColor};
+  color: ${({theme}) => theme.btntextColor};
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  
+  /* text */
+  font-family: ${({theme}) => theme.typography.buttonFont};
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  :hover {
+    background-color: ${({theme}) => theme.btnbackgroundColor};
+  }
+
+  :active {
+    background-color: ${({theme}) => theme.btndisabledbackgroundColor};
+  }
 `;

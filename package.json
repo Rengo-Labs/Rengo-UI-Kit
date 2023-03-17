@@ -10,19 +10,19 @@
     "lib"
   ],
   "scripts": {
-    "start": "concurrently \" npm run watch \" \" npm run start --prefix examples/react \" ",
+    "start": "concurrently \" npm run build:compile \" \" npm run watch \" \" npm run start --prefix example \" ",
     "prettier": "prettier --write .",
     "test:lint": "eslint src/components/**/*.{js,ts,tsx}",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom --coverage --collectCoverageFrom=src/components/**/*.{js,ts,tsx}",
     "test:watch": "react-scripts test --env=jsdom --coverage --collectCoverageFrom=src/components/**/*.{js,ts,tsx}",
-    "test:build": "run-s build",
-    "test": "run-s test:unit test:lint  test:build",
+    "test:build": "npm run build",
+    "test": "npm run test:unit && npm run test:lint && npm run test:build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build:compile": "rollup -c",
     "build": "npm run build:esm && npm run build:compile",
     "watch": "rollup -c --watch",
-    "build:esm": "babel src  --extensions \".js,.ts,.tsx\" --out-dir build --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
+    "build:esm": "babel src --extensions \".js,.ts,.tsx\" --out-dir build --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
     "prepublishOnly": "yarn build"
   },
   "np": {
@@ -94,6 +94,7 @@
     "styled-components": "^5.3.8"
   },
   "dependencies": {
+    "@rollup/plugin-url": "^8.0.1",
     "classnames": "^2.3.2",
     "react-feather": "^2.0.10",
     "react-styled-flexboxgrid": "^3.2.1",

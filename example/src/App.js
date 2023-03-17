@@ -41,7 +41,8 @@ const App = () => {
                             <h1>Test 4</h1>
                         </Column>
                         <Column props={{xs: 6}}>
-                            <Button props={{onClick: () => console.log('clicked')}}> button </Button>
+                            <Button type="small" props={{onClick: () => console.log('clicked')}}> max </Button>
+                            <Button type="large" props={{onClick: () => console.log('clicked')}}> Swap </Button>
                         </Column>
                     </Row>
                 </Container>

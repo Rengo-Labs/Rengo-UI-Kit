@@ -1,10 +1,14 @@
 import React from "react";
-import {ButtonStyled} from "./styles";
+import {SmallButtonStyled, ButtonStyled} from "./styles";
 export interface ButtonProps {
+    type: "small" | "large";
     props: any;
+    children: React.ReactNode;
 }
-export const Button = ({props={}}: ButtonProps) => {
-    return (
-        <ButtonStyled {...props}>Button</ButtonStyled>
+export const Button = ({type = 'large', props={}, children}: ButtonProps) => {
+    return type === "large" ? (
+        <ButtonStyled {...props}>{children}</ButtonStyled>
+    ) : (
+        <SmallButtonStyled {...props}>{children}</SmallButtonStyled>
     );
 };

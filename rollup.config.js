@@ -7,6 +7,7 @@ import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 import { uglify } from 'rollup-plugin-uglify'
 import copy from 'rollup-plugin-copy'
+import url from '@rollup/plugin-url'
 
 const packageJson = require("./package.json");
 const extensions = ['.js', '.ts', '.tsx']
@@ -60,10 +61,14 @@ export default {
     }),
     uglify(),
     terser(),
-    copy({
-      targets: [
-        { src: "fonts", dest: "lib/fonts" },
-      ],
+    // copy({
+    //   targets: [
+    //     { src: "fonts", dest: "lib/assets" },
+    //   ],
+    // }),
+    url({
+      include: ['**/*.ttf', '**/*.otf'],
+      limit: Infinity,
     }),
   ]
 };
