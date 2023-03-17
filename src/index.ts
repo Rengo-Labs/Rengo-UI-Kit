@@ -3,5 +3,6 @@ export {
     Container,
     Row,
     Column,
-    Button
+    Button,
+    Toggle,
 } from './components';

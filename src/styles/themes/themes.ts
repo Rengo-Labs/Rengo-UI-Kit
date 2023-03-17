@@ -104,13 +104,13 @@ export const defaultTheme: theme = {
     },
     typography: {
         primaryFont:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         secondaryFont:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "MyriadPro", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         buttonFont:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         inputFont:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         h1: '3rem',
         h2: '2.25rem',
         h3: '1.5rem',
@@ -121,7 +121,7 @@ export const defaultTheme: theme = {
         small: '0.875rem'
     },
     color: {
-        background: '#fff',
+        background: '#E5F5FC',
         accent1: '#fafafa',
         accent2: '#EAEAEA',
         accent3: '#999',
@@ -205,13 +205,13 @@ export const darkTheme: theme = {
     },
     typography: {
         primaryFont:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         secondaryFont:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "MyriadPro", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         buttonFont:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         inputFont:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
         h1: '3rem',
         h2: '2.25rem',
         h3: '1.5rem',
@@ -222,7 +222,7 @@ export const darkTheme: theme = {
         small: '0.875rem'
     },
     color: {
-        background: '#000',
+        background: '#241E52',
         accent1: '#111',
         accent2: '#333',
         accent3: '#444',

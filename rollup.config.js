@@ -6,10 +6,22 @@ import postcss from "rollup-plugin-postcss";
 import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 import { uglify } from 'rollup-plugin-uglify'
+import copy from 'rollup-plugin-copy'
 
 const packageJson = require("./package.json");
 const extensions = ['.js', '.ts', '.tsx']
-
+const overrides = {
+  exclude: [
+    "**/stories/**",
+    "**/stories",
+    "**/*.stories.js",
+    "**/__tests__/**",
+    "**/__mocks__/**",
+    "**/fonts",
+    "**/fonts/**",
+    "**/fonts/**/*",
+  ],
+};
 export default {
   input: "src/index.ts",
   output: [
@@ -36,7 +48,7 @@ export default {
     }),
     resolve({extensions}),
     commonjs(),
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({ useTsconfigDeclarationDir: true, tsconfigOverride: overrides, }),
     postcss({
         extensions: ['.css']
     }),
@@ -47,6 +59,11 @@ export default {
       runtimeHelpers: true
     }),
     uglify(),
-    terser()
+    terser(),
+    copy({
+      targets: [
+        { src: "fonts", dest: "lib/fonts" },
+      ],
+    }),
   ]
 };
