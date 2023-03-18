@@ -10,7 +10,7 @@ export const SmallButtonStyled = styled.button`
   width: 58px;
   height: 26px;
   border-radius: 50px;
-  background-color: ${({theme}) => theme.btnbackgroundColor};
+  background-color: ${({theme}) => theme.btnsmallbackgroundColor};
   color: ${({theme}) => theme.btntextColor};
   border: none;
   cursor: pointer;
@@ -26,7 +26,7 @@ export const SmallButtonStyled = styled.button`
   letter-spacing: 0.02em;
 
   :hover {
-    background-color: ${({theme}) => theme.btnbackgroundColor};
+    background-color: ${({theme}) => theme.btnsmallbackgroundColor};
   }
 
   :active {
@@ -45,7 +45,7 @@ export const ButtonStyled = styled.button`
   height: 56px;
   border-radius: 8px;
   background-color: ${({theme}) => theme.btnbackgroundColor};
-  color: ${({theme}) => theme.btntextColor};
+  color: ${({theme}) => theme.primarybtntextColor};
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

@@ -37,11 +37,13 @@ const App = () => {
                 </Container>
                 <Container>
                     <Row props={{center: 'xs'}}>
-                        <Column props={{xs: 6}}>
+                        <Column props={{xs: 4}}>
                             <h1>Test 4</h1>
                         </Column>
-                        <Column props={{xs: 6}}>
+                        <Column props={{xs: 4}}>
                             <Button type="small" props={{onClick: () => console.log('clicked')}}> max </Button>
+                        </Column>
+                        <Column props={{xs: 4}}>
                             <Button type="large" props={{onClick: () => console.log('clicked')}}> Swap </Button>
                         </Column>
                     </Row>

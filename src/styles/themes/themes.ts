@@ -92,6 +92,7 @@ interface theme {
     loadinglabelColor: string
     btndisabledbackgroundColor: string
     btnbackgroundColor: string
+    btnsmallbackgroundColor: string
     borderHoverColor: string
 }
 
@@ -193,6 +194,7 @@ export const defaultTheme: theme = {
     loadinglabelColor: '#666',
     btndisabledbackgroundColor: 'rgb(250, 250, 250)',
     btnbackgroundColor: '#7AEDD4',
+    btnsmallbackgroundColor: '#715FF5',
     borderHoverColor: 'rgb(0, 0, 0)'
 }
 
@@ -288,6 +290,7 @@ export const darkTheme: theme = {
     btntextHoverColor: 'rgb(255, 255, 255)',
     btndisabledbackgroundColor: '#272727',
     btnbackgroundColor: '#7AEDD4',
+    btnsmallbackgroundColor: '#715FF5',
     loadingColor: ' #fff',
     loadinglabelColor: '#f1f1ff1',
     borderHoverColor: 'rgb(255, 255, 255)'
