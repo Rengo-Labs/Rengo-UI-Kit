@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {UiProvider, theme} from "rengo-ui-kit";
-
-import {Container, Row, Column, Button, Toggle} from "rengo-ui-kit"
+import {Container, Row, Column, Button, Toggle, Loader} from "rengo-ui-kit"
 
 const App = () => {
     const [selectedTheme, setSelectedTheme] = useState('default')
@@ -45,6 +44,13 @@ const App = () => {
                         </Column>
                         <Column props={{xs: 4}}>
                             <Button type="large" props={{onClick: () => console.log('clicked')}}> Swap </Button>
+                        </Column>
+                    </Row>
+                </Container>
+                <Container>
+                    <Row>
+                        <Column props={{xs: 12}}>
+                            <Loader/>
                         </Column>
                     </Row>
                 </Container>
