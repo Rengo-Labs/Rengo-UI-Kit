@@ -24,9 +24,9 @@
     "watch": "rollup -c --watch",
     "build:esm": "babel src  --extensions \".js,.ts,.tsx\" --out-dir build --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
     "prepublishOnly": "yarn build",
-    "clean": "rm -rf examples/react/node_modules && rm -rf node_modules/",
+    "clean": "rm -rf example/node_modules && rm -rf node_modules/",
     "install-ui-kit": "yarn install && yarn build:compile",
-    "install-react-example": "cd examples/react && yarn install",
+    "install-react-example": "cd example && yarn install",
     "setup": "yarn run clean && yarn run install-ui-kit && yarn run start"
   },
   "np": {
@@ -98,6 +98,7 @@
     "styled-components": "^5.3.8"
   },
   "dependencies": {
+    "@rollup/plugin-url": "^8.0.1",
     "classnames": "^2.3.2",
     "react-feather": "^2.0.10",
     "react-styled-flexboxgrid": "^3.2.1",
