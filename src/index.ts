@@ -6,4 +6,5 @@ export {
     Button,
     Toggle,
     ButtonIcon,
+    Loader,
 } from './components';

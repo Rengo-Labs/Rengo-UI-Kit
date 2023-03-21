@@ -67,7 +67,7 @@ export default {
     //   ],
     // }),
     url({
-      include: ['**/*.ttf', '**/*.otf'],
+      include: ['**/*.ttf', '**/*.otf', '**/*.svg', '**/**/*.svg'],
       limit: Infinity,
     }),
   ]

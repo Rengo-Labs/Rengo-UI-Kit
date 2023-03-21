@@ -1,5 +1,16 @@
-import React from "react";
+import React from 'react'
+import { Wrapper, AnimatedImg } from './styles'
+// @ts-ignore
+import Logo from './images/Logo.svg'
 
 export const Loader = () => {
-  <div>Loading</div>
+    return (
+        <>
+            <Wrapper>
+                <AnimatedImg>
+                    <img src={Logo} alt="Logo" />
+                </AnimatedImg>
+            </Wrapper>
+        </>
+    )
 }
