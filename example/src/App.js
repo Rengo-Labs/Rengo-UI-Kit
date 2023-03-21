@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import {UiProvider, theme} from "rengo-ui-kit";
-
-import {Container, Row, Column, Button, Toggle} from "rengo-ui-kit"
+import {Container, Row, Column, Button, Toggle, ButtonIcon} from "rengo-ui-kit"
+import ethLogo from './assets/eth-logo.svg'
+import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
 
 const App = () => {
     const [selectedTheme, setSelectedTheme] = useState('default')
@@ -47,6 +48,13 @@ const App = () => {
                             <Button type="large" props={{onClick: () => console.log('clicked')}}> Swap </Button>
                         </Column>
                     </Row>
+                </Container>
+                <Container >
+                  <ButtonIcon
+                    startIcon={ethLogo}
+                    name={'ETH'}
+                    endIcon={downwardsArrowIcon}
+                    actionCallBack={() => console.log('ButtonIcon clicked')} />
                 </Container>
             </>
         </UiProvider>
