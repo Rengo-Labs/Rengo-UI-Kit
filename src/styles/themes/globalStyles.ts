@@ -1,5 +1,4 @@
 import {createGlobalStyle, css} from 'styled-components'
-
 // @ts-ignore
 import Epilogue from '../../fonts/Epilogue/Epilogue-Regular.ttf'
 // @ts-ignore
@@ -56,7 +55,6 @@ const customFonts = () => {
         font-weight: normal;
         font-style: normal;
       }
-
     `
 }
 const createPaddingMargin = () => {
