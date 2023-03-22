@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
 
 // @ts-ignore
-import DefaultSvg from './images/default.svg'
+import DefaultSvg from './images/Default.svg'
 // @ts-ignore
 import Variant2 from './images/Variant2.svg'
 // @ts-ignore
