@@ -98,7 +98,7 @@ interface theme {
 
 export const defaultTheme: theme = {
     layout: {
-        breakpoints: [770, 768, 1024, 1200],
+        breakpoints: [430, 770, 768, 1024, 1200],
         container: [640, 720, 960, 1400],
         columns: 12,
         gutter: '15px'

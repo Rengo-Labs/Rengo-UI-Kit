@@ -5,5 +5,6 @@ export {
     Column,
     Button,
     Toggle,
+    ButtonIcon,
     Loader,
 } from './components';
