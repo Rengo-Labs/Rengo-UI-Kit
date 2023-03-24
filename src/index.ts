@@ -7,4 +7,6 @@ export {
     Toggle,
     ButtonIcon,
     Loader,
+    Header,
+    Tabs,
 } from './components';

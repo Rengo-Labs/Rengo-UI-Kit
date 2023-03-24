@@ -1,15 +1,38 @@
 import React, {useState} from 'react'
 import {UiProvider, theme} from "rengo-ui-kit";
-import {Container, Row, Column, Button, Toggle, ButtonIcon, Loader} from "rengo-ui-kit"
+import {Container, Row, Column, Button, Toggle, ButtonIcon, Loader, Header, Tabs} from "rengo-ui-kit"
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
 
 const App = () => {
     const [selectedTheme, setSelectedTheme] = useState('default')
+    const [tabs, setTabs] = useState([
+        {
+            id: 1,
+            text: 'Price',
+            isActive: true
+        },
+        {
+            id: 2,
+            text: 'More Info',
+            isActive: false
+        }
+    ])
     const handleToggleTheme = () => {
         const theme = selectedTheme === 'default' ? 'dark' : 'default'
         setSelectedTheme(theme)
     };
+
+    const handlerTab = (id) => {
+        setTabs(tabs.map(tab => {
+            if (tab.id === id) {
+                tab.isActive = true
+            } else {
+                tab.isActive = false
+            }
+            return tab
+        }))
+    }
 
     return (
         <UiProvider theme={theme[selectedTheme]}>
@@ -60,6 +83,14 @@ const App = () => {
                     <Row>
                         <Column props={{xs: 12}}>
                             <Loader/>
+                        </Column>
+                    </Row>
+                    <Row>
+                        <Column props={{xs: 12}}>
+                            <Header text='From' balance='2020.0000'/>
+                        </Column>
+                        <Column props={{xs: 12}}>
+                            <Tabs tabs={tabs} onClick={handlerTab}/>
                         </Column>
                     </Row>
                 </Container>
