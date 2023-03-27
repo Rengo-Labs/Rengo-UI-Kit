@@ -13,7 +13,7 @@ export const KeyPairText = ({keyText, valueText, isPorcentage}: KeyPairTextProps
     return (
         <WrapperStyled >
             <KeyStyled>{keyText}</KeyStyled>
-            <ValueStyled isPorcentage={isPorcentage}>${valueText}</ValueStyled>
+            <ValueStyled isPorcentage={isPorcentage}>{!isPorcentage && '$'}{valueText}{isPorcentage && '%'}</ValueStyled>
         </WrapperStyled>
     )
 }

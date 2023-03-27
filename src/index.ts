@@ -9,4 +9,7 @@ export {
     Loader,
     KeyPairText,
     TokenOption,
+    Input,
+    Header,
+    Tabs,
 } from './components';

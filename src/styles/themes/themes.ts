@@ -20,7 +20,7 @@ interface theme {
         small: string
     }
     color: {
-        background: string
+        default: string
         accent1: string
         accent2: string
         accent3: string
@@ -30,10 +30,12 @@ interface theme {
         accent7: string
         accent8: string
         foreground: string
-        border: string
+        grey: string
         borderhover: string
         white: string
         black: string
+        darkGrey: string
+        lavender: string
         error: {
             lighter: string
             light: string
@@ -67,6 +69,13 @@ interface theme {
             tokenOption1Color: string
             tokenOption2Color: string
         }
+        tab: {
+            background: string
+            borderActive: string
+            borderInactive: string
+            textActive: string
+            textInactive: string
+        }
     }
     shadow: {
         small: string
@@ -76,6 +85,25 @@ interface theme {
         hover: string
         custom: string
     }
+    background: {
+      default: string
+      searchInput: string
+      palePink: string
+      lightGray: string
+      teaGreen: string
+    }
+    border: {
+      darkLilac: string
+      greenMantis: string
+      redValencia: string
+      veryLightPurple: string
+      redCinnabar: string
+      greenMalachite: string
+      green: string
+      red: string
+      lightBlue: string
+      default: string
+    },
     defaultColor: string
     primaryColor: string
     secondaryColor: string
@@ -133,7 +161,7 @@ export const defaultTheme: theme = {
         small: '0.875rem'
     },
     color: {
-        background: '#E5F5FC',
+        default: '#545454',
         accent1: '#fafafa',
         accent2: '#EAEAEA',
         accent3: '#999',
@@ -143,14 +171,16 @@ export const defaultTheme: theme = {
         accent7: '#333',
         accent8: '#111',
         foreground: '#000',
-        border: '#eaeaea',
+        grey: '#F9F9F9',
         borderhover: '#000',
-        white: '#fff',
+        white: '#FFFFFF',
         black: '#000',
+        darkGrey: '#545454',
+        lavender: '#E3DFFD',
         error: {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
-            default: '#E00',
+            default: '#ED6767',
             dark: '#C50000'
         },
         primary: {
@@ -160,7 +190,7 @@ export const defaultTheme: theme = {
         success: {
             lighter: '#D3E5FF',
             light: '#3291FF',
-            default: '#0070F3',
+            default: '#8AED67',
             dark: '#0761D1'
         },
         warning: {
@@ -178,7 +208,14 @@ export const defaultTheme: theme = {
             tokenOptionBackgroundColor: '#D9D8E7',
             tokenOptionTextColor: '#080808',
             tokenOption1Color: '#715FF5',
-            tokenOption2Color: '#3DCBAD'
+            tokenOption2Color: '#3DCBAD',
+        },
+        tab: {
+            background: '#fff',
+            borderActive: '#715FF5',
+            borderInactive: '#F5F5F5',
+            textActive: '#715FF5',
+            textInactive: '#767676'
         }
     },
     shadow: {
@@ -188,6 +225,25 @@ export const defaultTheme: theme = {
         sticky: '0 0 0 1px #EAEAEA',
         hover: '0 0 0 1px #000',
         custom: '#EAEAEA 0px 5px 10px'
+    },
+    background: {
+      default: '#F7FCFE',
+      searchInput: '#FFFFFF',
+      palePink: '#E7C1C1',
+      lightGray: '#D9D9D9',
+      teaGreen: '#CCE7C1',
+    },
+    border: {
+      darkLilac: '#8D7FF7',
+      greenMantis: '#73E751',
+      redValencia: '#E75151',
+      veryLightPurple: '#AA9FF9',
+      redCinnabar: '#E83C3C',
+      greenMalachite: '#64E83C',
+      green: '#1DC90A',
+      red: '#C90A0A',
+      lightBlue: '#1FE9D0',
+      default: '#EAEBEC'
     },
     defaultColor: '#ccc',
     primaryColor: '#0ab',
@@ -217,12 +273,12 @@ export const defaultTheme: theme = {
     btndisabledbackgroundColor: 'rgb(250, 250, 250)',
     btnbackgroundColor: '#7AEDD4',
     btnsmallbackgroundColor: '#715FF5',
-    borderHoverColor: 'rgb(0, 0, 0)'
+    borderHoverColor: 'rgb(0, 0, 0)',
 }
 
 export const darkTheme: theme = {
     layout: {
-        breakpoints: [770, 768, 1024, 1200],
+        breakpoints: [430, 770, 768, 1024, 1200],
         container: [640, 720, 960, 1400],
         columns: 12,
         gutter: '15px'
@@ -246,7 +302,7 @@ export const darkTheme: theme = {
         small: '0.875rem'
     },
     color: {
-        background: '#241E52',
+        default: '#FFFFFF',
         accent1: '#111',
         accent2: '#333',
         accent3: '#444',
@@ -256,10 +312,12 @@ export const darkTheme: theme = {
         accent7: '#EAEAEA',
         accent8: '#FAFAFA',
         foreground: '#FFF',
-        border: '#333',
+        grey: '#F9F9F9',
         borderhover: '#FFF',
         white: '#fff',
         black: '#000',
+        darkGrey: '#545454',
+        lavender: '#E3DFFD',
         error: {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
@@ -292,6 +350,13 @@ export const darkTheme: theme = {
             tokenOptionTextColor: '#FFFFFF',
             tokenOption1Color: '#715FF5',
             tokenOption2Color: '#3DCBAD'
+        },
+        tab: {
+            background: '#3A308B',
+            borderActive: '#FFFFFF',
+            borderInactive: '#241E52',
+            textActive: '#FFFFFF',
+            textInactive: '#A99EFB'
         }
     },
     shadow: {
@@ -301,6 +366,25 @@ export const darkTheme: theme = {
         sticky: '0 0 0 1px #333',
         hover: '0 0 0 1px #FFF',
         custom: '#111 0px 5px 10px'
+    },
+    background: {
+      default: '#241E52',
+      searchInput: '#3A308B',
+      palePink: '#E7C1C1',
+      lightGray: '#D9D9D9',
+      teaGreen: '#CCE7C1',
+    },
+    border: {
+      darkLilac: '#8D7FF7',
+      greenMantis: '#73E751',
+      redValencia: '#E75151',
+      veryLightPurple: '#AA9FF9',
+      redCinnabar: '#E83C3C',
+      greenMalachite: '#64E83C',
+      green: '#1DC90A',
+      red: '#C90A0A',
+      lightBlue: '#1FE9D0',
+      default: '#241E52'
     },
     defaultColor: '#fafafa',
     primaryColor: '#0ab',
