@@ -8,4 +8,6 @@ export {
     ButtonIcon,
     Loader,
     Input,
+    Header,
+    Tabs,
 } from './components';
