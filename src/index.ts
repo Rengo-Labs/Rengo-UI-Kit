@@ -7,4 +7,6 @@ export {
     Toggle,
     ButtonIcon,
     Loader,
+    KeyPairText,
+    TokenOption,
 } from './components';

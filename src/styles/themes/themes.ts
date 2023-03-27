@@ -56,6 +56,17 @@ interface theme {
             default: string
             dark: string
         }
+        keyPairText: {
+            keyTextColor: string
+            valueIsPorcentageTextColor: string
+            valueTextColor: string
+        }
+        tokenOption: {
+            tokenOptionBackgroundColor: string
+            tokenOptionTextColor: string
+            tokenOption1Color: string
+            tokenOption2Color: string
+        }
     }
     shadow: {
         small: string
@@ -157,6 +168,17 @@ export const defaultTheme: theme = {
             light: '#F7B955',
             default: '#F5A623',
             dark: '#AB570A'
+        },
+        keyPairText: {
+            keyTextColor: '#080808',
+            valueIsPorcentageTextColor: '#008A0F',
+            valueTextColor: '#715FF5'
+        },
+        tokenOption: {
+            tokenOptionBackgroundColor: '#D9D8E7',
+            tokenOptionTextColor: '#080808',
+            tokenOption1Color: '#715FF5',
+            tokenOption2Color: '#3DCBAD'
         }
     },
     shadow: {
@@ -259,6 +281,17 @@ export const darkTheme: theme = {
             light: '#F7B955',
             default: '#F5A623',
             dark: '#AB570A'
+        },
+        keyPairText: {
+            keyTextColor: '#FFFFFF',
+            valueIsPorcentageTextColor: '#008A0F',
+            valueTextColor: '#715FF5'
+        },
+        tokenOption: {
+            tokenOptionBackgroundColor: '#241E52',
+            tokenOptionTextColor: '#FFFFFF',
+            tokenOption1Color: '#715FF5',
+            tokenOption2Color: '#3DCBAD'
         }
     },
     shadow: {
