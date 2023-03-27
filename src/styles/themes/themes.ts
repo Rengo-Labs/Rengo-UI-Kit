@@ -36,7 +36,6 @@ interface theme {
         borderhover: string
         white: string
         black: string
-        grey: string
         darkGrey: string
         lavender: string
         error: {
@@ -94,6 +93,7 @@ interface theme {
       green: string
       red: string
       lightBlue: string
+      default: string
     },
     defaultColor: string
     primaryColor: string
@@ -168,7 +168,6 @@ export const defaultTheme: theme = {
         borderhover: '#000',
         white: '#FFFFFF',
         black: '#000',
-        grey: '#999999',
         darkGrey: '#545454',
         lavender: '#E3DFFD',
         error: {
@@ -225,7 +224,8 @@ export const defaultTheme: theme = {
       greenMalachite: '#64E83C',
       green: '#1DC90A',
       red: '#C90A0A',
-      lightBlue: '#1FE9D0'
+      lightBlue: '#1FE9D0',
+      default: '#EAEBEC'
     },
     defaultColor: '#ccc',
     primaryColor: '#0ab',
@@ -300,7 +300,6 @@ export const darkTheme: theme = {
         borderhover: '#FFF',
         white: '#fff',
         black: '#000',
-        grey: '#999999',
         darkGrey: '#545454',
         lavender: '#E3DFFD',
         error: {
@@ -357,7 +356,8 @@ export const darkTheme: theme = {
       greenMalachite: '#64E83C',
       green: '#1DC90A',
       red: '#C90A0A',
-      lightBlue: '#1FE9D0'
+      lightBlue: '#1FE9D0',
+      default: '#241E52'
     },
     defaultColor: '#fafafa',
     primaryColor: '#0ab',

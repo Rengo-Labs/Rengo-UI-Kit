@@ -53,8 +53,8 @@ export const HelperText = styled.span<Props>`
   font-family: ${({theme}) => theme.typography.secondaryFont};
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 18px;
   letter-spacing: 0.02em;
   color: ${({status, theme}) => {
     const { color} = theme
@@ -67,7 +67,7 @@ export const HelperText = styled.span<Props>`
       return color.success.default
     }
     
-    return color.grey
+    return color.default
   }}
 `;
 
@@ -117,7 +117,7 @@ export const InputStyled = styled.input<Props>`
     return color.default
   }};
   border: ${({status, theme}) => {
-    const { color } = theme
+    const { color, border } = theme
 
     if (status === Status.Error) {
       return `1px solid ${color.error.default};`
@@ -127,7 +127,7 @@ export const InputStyled = styled.input<Props>`
       return `1px solid ${color.success.default};`
     }
     
-    return `1px solid${color.lavender};`
+    return `1px solid${border.default};`
   }}
 
   ${({ type, iconSize }) => { 
