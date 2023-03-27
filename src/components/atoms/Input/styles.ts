@@ -223,9 +223,6 @@ export const IconWrapper = styled.div<Props>`
     margin: auto 16px;
   }
 
-
-  
-
   background: ${({status, theme, iconSize}) => {
     const { background } = theme
     
@@ -242,4 +239,19 @@ export const IconWrapper = styled.div<Props>`
 
     return background.lightGray
   }}
+`;
+
+export const RightAdornmentWrapper = styled.div`
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: ${({ theme }) => theme.background.default};
+  border-radius: 0 50px 50px 0;
+  border: ${({ theme }) => `1px solid ${theme.border.default}` };
+  border-left: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
 `;

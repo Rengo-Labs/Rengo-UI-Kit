@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { HelperText, IconWrapper, InputInnerWrapper, InputStyled, InputWrapper, LabelStyled } from './styles'
+import { HelperText, IconWrapper, InputInnerWrapper, InputStyled, InputWrapper, LabelStyled, RightAdornmentWrapper } from './styles'
 import { InputProps, TYPES_WITH_HELPER_TEXT, TYPES_WITH_ICON, TYPES_WITH_LABEL } from './types'
 import { useInput } from './useInput'
 
@@ -11,6 +11,7 @@ import { useInput } from './useInput'
  * @param {Type} [type='icon-label-helper-text'] - The type of the input field, one of 'icon-label-helper-text', 'icon-helper-text', 'helper-text-only', 'plain', 'label-helper-text', 'label-icon', 'label-plain' or 'icon-plain'.
  * @param {string} label - The label to display above the input field.
  * @param {string} helperText - The helper text to display below the input field.
+ * @param {React.ReactNode} rightAdornment - The adornment to be display at the right of the input, accepts a component or string
  * @param {React.ReactNode} Icon - The icon component to display inside the input field.
  * @param {IconSize} [iconSize='small'] - The size of the icon, one of 'small' or 'large', necessary if you pass an icon component.
  * @param {function} onChange - A callback function to be called when the input value changes. Should accept a string argument representing the new value of the input field.
@@ -19,7 +20,7 @@ import { useInput } from './useInput'
  * @returns {JSX.Element} The rendered input field.
  */
 
-export const Input = ({ placeholder, status, type, label, helperText, Icon, iconSize, onChange, validator }: InputProps) => {
+export const Input = ({ placeholder, status, type, label, helperText, rightAdornment, Icon, iconSize, onChange, validator }: InputProps) => {
   const { getInputProps } = useInput()
 
   return (
@@ -47,6 +48,13 @@ export const Input = ({ placeholder, status, type, label, helperText, Icon, icon
             iconSize
           })}
          />
+         
+        {rightAdornment && (
+          <RightAdornmentWrapper>
+            {rightAdornment}
+          </RightAdornmentWrapper>
+        )}
+        
       </InputInnerWrapper>
 
         {TYPES_WITH_HELPER_TEXT.includes(type) && (

@@ -1,11 +1,13 @@
-import { ChangeEvent } from "react"
+import { ChangeEvent, ReactNode } from "react"
 import { IconSize, Status, Type } from "./types";
-
-
 interface userInputProps {
   status?: Status;
   type?: Type;
   placeholder?: string
+  label?: string
+  helperText?: string
+  rightAdornment?: ReactNode | string
+  Icon?: ReactNode
   iconSize?: IconSize
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   validator?: (e: ChangeEvent<HTMLInputElement>) => void;
