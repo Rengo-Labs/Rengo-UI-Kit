@@ -9,10 +9,10 @@ export interface InputProps {
   placeholder: string
   status: Status
   type: Type
-  label: string
-  helperText: string
-  Icon: ReactNode
-  iconSize: IconSize
+  label?: string
+  helperText?: string
+  Icon?: ReactNode
+  iconSize?: IconSize
   onChange: (e: string) => string
   validator?: (e: string) => string
 }

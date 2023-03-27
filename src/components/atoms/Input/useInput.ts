@@ -6,7 +6,7 @@ interface userInputProps {
   status?: Status;
   type?: Type;
   placeholder?: string
-  iconSize: IconSize
+  iconSize?: IconSize
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   validator?: (e: ChangeEvent<HTMLInputElement>) => void;
 }

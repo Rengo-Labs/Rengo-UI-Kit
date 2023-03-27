@@ -1,6 +1,6 @@
-import React, { ChangeEvent, ComponentType, ReactNode, useEffect, useRef, useState } from 'react'
+import React, { ChangeEvent } from 'react'
 import { HelperText, IconWrapper, InputInnerWrapper, InputStyled, InputWrapper, LabelStyled } from './styles'
-import { IconSize, InputProps, Status, Type, TYPES_WITH_HELPER_TEXT, TYPES_WITH_ICON, TYPES_WITH_LABEL } from './types'
+import { InputProps, TYPES_WITH_HELPER_TEXT, TYPES_WITH_ICON, TYPES_WITH_LABEL } from './types'
 import { useInput } from './useInput'
 
 /**
