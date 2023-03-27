@@ -30,6 +30,7 @@ interface theme {
         accent7: string
         accent8: string
         foreground: string
+        grey: string
         border: string
         borderhover: string
         white: string
@@ -55,6 +56,13 @@ interface theme {
             light: string
             default: string
             dark: string
+        }
+        tab: {
+            background: string
+            borderActive: string
+            borderInactive: string
+            textActive: string
+            textInactive: string
         }
     }
     shadow: {
@@ -132,6 +140,7 @@ export const defaultTheme: theme = {
         accent7: '#333',
         accent8: '#111',
         foreground: '#000',
+        grey: '#F9F9F9',
         border: '#eaeaea',
         borderhover: '#000',
         white: '#fff',
@@ -157,6 +166,13 @@ export const defaultTheme: theme = {
             light: '#F7B955',
             default: '#F5A623',
             dark: '#AB570A'
+        },
+        tab: {
+            background: '#fff',
+            borderActive: '#715FF5',
+            borderInactive: '#F5F5F5',
+            textActive: '#715FF5',
+            textInactive: '#767676'
         }
     },
     shadow: {
@@ -234,6 +250,7 @@ export const darkTheme: theme = {
         accent7: '#EAEAEA',
         accent8: '#FAFAFA',
         foreground: '#FFF',
+        grey: '#F9F9F9',
         border: '#333',
         borderhover: '#FFF',
         white: '#fff',
@@ -259,6 +276,13 @@ export const darkTheme: theme = {
             light: '#F7B955',
             default: '#F5A623',
             dark: '#AB570A'
+        },
+        tab: {
+            background: '#3A308B',
+            borderActive: '#FFFFFF',
+            borderInactive: '#241E52',
+            textActive: '#FFFFFF',
+            textInactive: '#A99EFB'
         }
     },
     shadow: {
