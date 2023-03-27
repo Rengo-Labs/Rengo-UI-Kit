@@ -7,4 +7,5 @@ export {
     Toggle,
     ButtonIcon,
     Loader,
+    Input,
 } from './components';
