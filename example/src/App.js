@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import {UiProvider, theme} from "rengo-ui-kit";
-import {Container, Row, Column, Button, Toggle, ButtonIcon, Loader, Header, Tabs} from "rengo-ui-kit"
+import {Container, Row, Column, Button, Toggle, ButtonIcon, Loader, Input, Header, Tabs} from "rengo-ui-kit"
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
+import {AlertTriangle} from 'react-feather'
+
 
 const App = () => {
     const [selectedTheme, setSelectedTheme] = useState('default')
@@ -23,6 +25,14 @@ const App = () => {
         setSelectedTheme(theme)
     };
 
+    const handlerInput = (value) => {
+      console.log('handlerInput', value)
+    }
+
+    const inputValidator = (value) => {
+      console.log('validating', value);
+    }
+    
     const handlerTab = (id) => {
         setTabs(tabs.map(tab => {
             if (tab.id === id) {
@@ -79,6 +89,23 @@ const App = () => {
                     endIcon={downwardsArrowIcon}
                     actionCallBack={() => console.log('ButtonIcon clicked')} />
                 </ Container>
+                <Container>
+                  <Input
+                    placeholder="PlaceHolder_input"
+                    helperText="Something is wrong!"
+                    type="icon-label-helper-text"
+                    status=''
+                    label='Label test'
+                    // Icon={<AlertTriangle color="red" size={24} />}
+                    Icon={ <ButtonIcon
+                      startIcon={ethLogo}
+                      name={'ETH'}
+                      endIcon={downwardsArrowIcon}
+                      actionCallBack={() => console.log('ButtonIcon clicked')} />}
+                    iconSize="large"
+                    onChange={handlerInput}
+                    validator={inputValidator} />
+                </Container>
                 <Container>
                     <Row>
                         <Column props={{xs: 12}}>
