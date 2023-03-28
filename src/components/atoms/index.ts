@@ -5,6 +5,8 @@ export * from './Row';
 export * from './Toggle';
 export * from './ButtonIcon';
 export * from './Loader';
+export * from './KeyPairText';
+export * from './TokenOption';
 export * from './Input';
 export * from './Header';
 export * from './Tabs';

@@ -7,6 +7,8 @@ export {
     Toggle,
     ButtonIcon,
     Loader,
+    KeyPairText,
+    TokenOption,
     Input,
     Header,
     Tabs,

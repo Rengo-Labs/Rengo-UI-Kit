@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {UiProvider, theme} from "rengo-ui-kit";
-import {Container, Row, Column, Button, Toggle, ButtonIcon, Loader, Input, Header, Tabs} from "rengo-ui-kit"
+import {Container, Row, Column, Toggle, Button, ButtonIcon, Loader, Input, Header, Tabs, KeyPairText, TokenOption} from "rengo-ui-kit"
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
 import {AlertTriangle} from 'react-feather'
@@ -118,6 +118,14 @@ const App = () => {
                         </Column>
                         <Column props={{xs: 12}}>
                             <Tabs tabs={tabs} onClick={handlerTab}/>
+                        </Column>
+                        <Column props={{xs: 12}}>
+                            <TokenOption tokenImg={ethLogo} token='ETH' option1/>
+                            <TokenOption tokenImg={ethLogo} token='CSPR' />
+                        </Column>
+                        <Column props={{xs: 12}}>
+                            <KeyPairText keyText='Price' valueText='1.4589'/>
+                            <KeyPairText keyText='24H%' valueText='85.10' isPorcentage />
                         </Column>
                     </Row>
                 </Container>
