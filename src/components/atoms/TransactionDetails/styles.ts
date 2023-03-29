@@ -134,7 +134,7 @@ export const AmountWrapper = styled.div<Props>`
   letter-spacing: 0.02em;
   color: ${({ theme, distribution }) => {
     if (distribution !== Distribution.Center && distribution !== Distribution.SpaceEvenly) {
-      return theme.color.modalText
+      return theme.color.default
     }
     return theme.color.modalText
   }};
