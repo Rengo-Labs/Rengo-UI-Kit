@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import { UiProvider, theme } from 'rengo-ui-kit'
+import ethToken from './assets/eth-token.svg'
+import tetherToken from './assets/tether-token.svg'
+import ethCsprPair from './assets/eth-cspr-pair.svg'
 import {
   Container,
   Row,
@@ -11,6 +14,8 @@ import {
   Input,
   Header,
   Tabs,
+  TransactionDetails,
+  TransactionDetailsTextOnly,
   KeyPairText,
   TokenOption,
   KeyValueText,
@@ -19,8 +24,7 @@ import {
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
-import { AlertTriangle } from 'react-feather'
-import { Col } from 'react-styled-flexboxgrid'
+import { AlertTriangle, Star } from 'react-feather'
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
@@ -37,6 +41,11 @@ const App = () => {
       isActive: false
     }
   ])
+
+  const inputValidator = (value) => {
+    console.log('validating', value)
+  }
+
   const handleToggleTheme = () => {
     const theme = selectedTheme === 'default' ? 'dark' : 'default'
     setSelectedTheme(theme)
@@ -44,10 +53,6 @@ const App = () => {
 
   const handlerInput = (value) => {
     console.log('handlerInput', value)
-  }
-
-  const inputValidator = (value) => {
-    console.log('validating', value)
   }
 
   const handlerTab = (id) => {
@@ -123,7 +128,7 @@ const App = () => {
         </Container>
         <Container>
           <ButtonIcon
-            startIcon={ethLogo}
+            startIcon={ethToken}
             name={'ETH'}
             endIcon={downwardsArrowIcon}
             actionCallBack={() => console.log('ButtonIcon clicked')}
@@ -139,7 +144,7 @@ const App = () => {
             // Icon={<AlertTriangle color="red" size={24} />}
             Icon={
               <ButtonIcon
-                startIcon={ethLogo}
+                startIcon={ethToken}
                 name={'ETH'}
                 endIcon={downwardsArrowIcon}
                 actionCallBack={() => console.log('ButtonIcon clicked')}
@@ -198,6 +203,52 @@ const App = () => {
               />
             </Column>
           </Row>
+        </Container>
+        <Container>
+          <div
+            style={{
+              margin: '30px 0 30px 0',
+              minWidth: '350px',
+              maxWidth: '450px',
+              height: '66px',
+              background: 'white'
+            }}
+          >
+            <TransactionDetails
+              // distribution='space-between'
+              distribution='space-evenly'
+              Icon={ethCsprPair}
+              // Icon={tetherToken}
+              iconSize={45}
+              // LeftAdornment={<Star color='#715FF5' size={24} />}
+              // LeftAdornmentCallback={() => console.log('favorite clicked')}
+              tokenNames={['Wrapper Ether', 'Wrapper Casper']}
+              // tokenNames={['Wrapper Ether']}
+              tokenNameSymbols={['WETH', 'CSPR']}
+              // tokenNameSymbols={['WETH']}
+              // tokenFullName='WETH'
+              amount='0,3'
+              // amount='1000000'
+            />
+          </div>
+        </Container>
+        <Container>
+          <div
+            style={{
+              margin: '30px 0 30px 0',
+              minWidth: '350px',
+              maxWidth: '450px',
+              height: '66px',
+              background: 'white'
+            }}
+          >
+            <TransactionDetailsTextOnly
+              tokenInfo={[
+                '1 Wrapper Ether = 391.361884674 Wrapper Casper',
+                '1 Wrapper Casper = 0.002555180 Wrapper Ether'
+              ]}
+            />
+          </div>
         </Container>
       </>
     </UiProvider>

@@ -12,4 +12,6 @@ export * from './Header';
 export * from './Tabs';
 export * from './KeyValueText';
 export * from './KeyValueInput';
+export * from './TransactionDetails';
+export * from './TransactionDetailsTextOnly';
 
