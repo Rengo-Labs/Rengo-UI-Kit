@@ -132,6 +132,7 @@ const App = () => {
                       Icon={tetherToken}
                       iconSize={30}
                       LeftAdornment={<Star color='#715FF5' size={24} />}
+                      LeftAdornmentCallback={() => console.log('favorite clicked')}
                       // tokenNames={['Wrapper Ether','Wrapper Casper']}
                       tokenNames={['Wrapper Ether']}
                       // tokenNameSymbols={['WETH', 'CSPR']}
