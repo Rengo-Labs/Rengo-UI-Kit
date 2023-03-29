@@ -126,20 +126,20 @@ const App = () => {
                 <Container>
                   <div style={{margin: '30px 0 30px 0', minWidth: '350px', maxWidth: '450px', height: '66px', background: 'white'}}>
                     <TransactionDetails
-                      distribution='space-between'
-                      // distribution='space-evenly'
-                      // Icon={ethCsprPair}
-                      Icon={tetherToken}
-                      iconSize={30}
-                      LeftAdornment={<Star color='#715FF5' size={24} />}
-                      LeftAdornmentCallback={() => console.log('favorite clicked')}
-                      // tokenNames={['Wrapper Ether','Wrapper Casper']}
-                      tokenNames={['Wrapper Ether']}
-                      // tokenNameSymbols={['WETH', 'CSPR']}
-                      tokenNameSymbols={['WETH']}
+                      // distribution='space-between'
+                      distribution='space-evenly'
+                      Icon={ethCsprPair}
+                      // Icon={tetherToken}
+                      iconSize={45}
+                      // LeftAdornment={<Star color='#715FF5' size={24} />}
+                      // LeftAdornmentCallback={() => console.log('favorite clicked')}
+                      tokenNames={['Wrapper Ether','Wrapper Casper']}
+                      // tokenNames={['Wrapper Ether']}
+                      tokenNameSymbols={['WETH', 'CSPR']}
+                      // tokenNameSymbols={['WETH']}
                       // tokenFullName='WETH'
-                      // amount='0,3'
-                      amount='1000000'
+                      amount='0,3'
+                      // amount='1000000'
                       />
                   </div>
                 </Container>
