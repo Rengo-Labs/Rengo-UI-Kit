@@ -38,6 +38,8 @@ interface theme {
         black: string
         darkGrey: string
         lavender: string
+        modalText: string
+        textInactive: string
         error: {
             lighter: string
             light: string
@@ -170,6 +172,8 @@ export const defaultTheme: theme = {
         black: '#000',
         darkGrey: '#545454',
         lavender: '#E3DFFD',
+        modalText: '#715FF5',
+        textInactive: '#767676',
         error: {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
@@ -302,6 +306,8 @@ export const darkTheme: theme = {
         black: '#000',
         darkGrey: '#545454',
         lavender: '#E3DFFD',
+        modalText: '#FFFFFF',
+        textInactive: '#FFFFFF',
         error: {
             lighter: '#F7D4D6',
             light: '#FF1A1A',

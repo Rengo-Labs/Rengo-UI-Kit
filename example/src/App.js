@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import {UiProvider, theme} from "rengo-ui-kit";
-import {Container, Row, Column, Button, Toggle, ButtonIcon, Loader, Input, Header, Tabs} from "rengo-ui-kit"
-import ethLogo from './assets/eth-logo.svg'
+import {Container, Row, Column, Button, Toggle, ButtonIcon, Loader, Input, Header, Tabs, TransactionDetails, TransactionDetailsTextOnly} from "rengo-ui-kit"
+import ethToken from './assets/eth-token.svg'
+import tetherToken from './assets/tether-token.svg'
+import ethCsprPair from './assets/eth-cspr-pair.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
-import {AlertTriangle} from 'react-feather'
+import {AlertTriangle, Star} from 'react-feather'
 
 
 const App = () => {
@@ -84,7 +86,7 @@ const App = () => {
                 </Container>
                 <Container >
                   <ButtonIcon
-                    startIcon={ethLogo}
+                    startIcon={ethToken}
                     name={'ETH'}
                     endIcon={downwardsArrowIcon}
                     actionCallBack={() => console.log('ButtonIcon clicked')} />
@@ -98,7 +100,7 @@ const App = () => {
                     label='Label test'
                     // Icon={<AlertTriangle color="red" size={24} />}
                     Icon={ <ButtonIcon
-                      startIcon={ethLogo}
+                      startIcon={ethToken}
                       name={'ETH'}
                       endIcon={downwardsArrowIcon}
                       actionCallBack={() => console.log('ButtonIcon clicked')} />}
@@ -120,6 +122,32 @@ const App = () => {
                             <Tabs tabs={tabs} onClick={handlerTab}/>
                         </Column>
                     </Row>
+                </Container>
+                <Container>
+                  <div style={{margin: '30px 0 30px 0', minWidth: '350px', maxWidth: '450px', height: '66px', background: 'white'}}>
+                    <TransactionDetails
+                      distribution='space-between'
+                      // distribution='space-evenly'
+                      // Icon={ethCsprPair}
+                      Icon={tetherToken}
+                      iconSize={30}
+                      LeftAdornment={<Star color='#715FF5' size={24} />}
+                      // tokenNames={['Wrapper Ether','Wrapper Casper']}
+                      tokenNames={['Wrapper Ether']}
+                      // tokenNameSymbols={['WETH', 'CSPR']}
+                      tokenNameSymbols={['WETH']}
+                      // tokenFullName='WETH'
+                      // amount='0,3'
+                      amount='1000000'
+                      />
+                  </div>
+                </Container>
+                <Container>
+                  <div style={{margin: '30px 0 30px 0', minWidth: '350px', maxWidth: '450px', height: '66px', background: 'white'}}>
+                    <TransactionDetailsTextOnly
+                      tokenInfo={['1 Wrapper Ether = 391.361884674 Wrapper Casper', '1 Wrapper Casper = 0.002555180 Wrapper Ether']} />
+
+                  </div>
                 </Container>
             </>
         </UiProvider>

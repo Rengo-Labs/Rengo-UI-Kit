@@ -8,4 +8,6 @@ export * from './Loader';
 export * from './Input';
 export * from './Header';
 export * from './Tabs';
+export * from './TransactionDetails';
+export * from './TransactionDetailsTextOnly';
 
