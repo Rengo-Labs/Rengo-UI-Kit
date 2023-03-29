@@ -12,4 +12,7 @@ export {
     Input,
     Header,
     Tabs,
+    KeyValueText,
+    KeyValueInput,
 } from './components';
+export {InputType} from './components/atoms/KeyValueInput/types';

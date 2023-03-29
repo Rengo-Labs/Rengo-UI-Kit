@@ -88,6 +88,7 @@ interface theme {
     background: {
       default: string
       searchInput: string
+      gasFeeInput: string
       palePink: string
       lightGray: string
       teaGreen: string
@@ -113,7 +114,6 @@ interface theme {
     successdarkColor: string
     warningColor: string
     warningdarkColor: string
-
     borderColor: string
 
     backgroundColor: string
@@ -229,6 +229,7 @@ export const defaultTheme: theme = {
     background: {
       default: '#F7FCFE',
       searchInput: '#FFFFFF',
+      gasFeeInput: '#E3DFFD',
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',
       teaGreen: '#CCE7C1',
@@ -254,7 +255,6 @@ export const defaultTheme: theme = {
     successdarkColor: '#0366D6',
     warningColor: '#F5A623',
     warningdarkColor: '#F7B955',
-
     borderColor: 'rgb(234, 234, 234)',
 
     backgroundColor: '#fff',
@@ -370,6 +370,7 @@ export const darkTheme: theme = {
     background: {
       default: '#241E52',
       searchInput: '#3A308B',
+      gasFeeInput: '#241E52',
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',
       teaGreen: '#CCE7C1',

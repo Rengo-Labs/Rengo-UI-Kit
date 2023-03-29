@@ -7,9 +7,8 @@ type TTab = {
 export const WrapperStyle = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-width: 450px;
-  min-height: 42px;
+  width:100%;
+  max-height: 42px;
 `;
 
 export const Tab = styled.div<TTab>`
