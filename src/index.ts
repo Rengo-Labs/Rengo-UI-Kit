@@ -12,4 +12,6 @@ export {
     Input,
     Header,
     Tabs,
+    TransactionDetails,
+    TransactionDetailsTextOnly
 } from './components';
