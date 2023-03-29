@@ -8,7 +8,7 @@ export default {
   component: Input,
 } as ComponentMeta<typeof Input>;
 
-// Create a master template for mapping args to render the Button component
+// Create a master template for mapping args to render the Input component
 const Template: ComponentStory<typeof Input> = (args: InputProps) => {
   return (
     <Input {...args} />

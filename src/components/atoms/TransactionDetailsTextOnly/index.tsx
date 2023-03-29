@@ -11,7 +11,7 @@ import { InnerWrapper, LeftWrapper, RightWrapper, TokenInfo, Wrapper } from "./s
   @return {JSX.Element} - The rendered TransactionDetailsTextOnly component.
 */
 
-interface TransactionDetailsProps {
+export interface TransactionDetailsProps {
   tokenInfo: Array<string>
 }
 
