@@ -17,7 +17,7 @@ export const WrapperStyled = styled.div`
   `;
 
 export const TokenStyled = styled.div`
-font-family: 'Myriad Pro';
+font-family: ${({ theme }) => theme.typography.secondaryFont};
 font-style: normal;
 font-weight: 600;
 font-size: 18px;

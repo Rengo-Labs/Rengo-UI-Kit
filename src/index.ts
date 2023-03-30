@@ -13,5 +13,8 @@ export {
     Header,
     Tabs,
     TransactionDetails,
-    TransactionDetailsTextOnly
+    TransactionDetailsTextOnly,
+    KeyValueText,
+    KeyValueInput,
 } from './components';
+export {InputType} from './components/atoms/KeyValueInput/types';

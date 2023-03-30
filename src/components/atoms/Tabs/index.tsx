@@ -12,6 +12,12 @@ interface ITabsProps {
   onClick: (id: number) => void;
 }
 
+/**
+ * Render a tabs navigaton.
+ * @param {ITab} tabs - The tabs to display.
+ * @param {function} onClick - The function to call when the tab is clicked.
+ */
+
 export const Tabs = ({ tabs, onClick }: ITabsProps) => {
   return (
     <WrapperStyle>
