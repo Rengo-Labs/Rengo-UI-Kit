@@ -14,5 +14,8 @@ export {
     Tabs,
     TransactionDetails,
     TransactionDetailsTextOnly,
+    KeyValueText,
+    KeyValueInput,
     HorizontalCard
 } from './components';
+export {InputType} from './components/atoms/KeyValueInput/types';
