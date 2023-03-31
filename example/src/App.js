@@ -251,6 +251,7 @@ const App = () => {
           <div style={{ width: '100%', padding: '20px 0 20px 0'}}>
             <HorizontalCard
               icon={ethCsprPair}
+              hasFavorite={true}
               tokenPairs={['ETH', 'CSPR']}
               pairsLiquidity={[
                 { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },

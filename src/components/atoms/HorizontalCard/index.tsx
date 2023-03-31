@@ -35,6 +35,7 @@ import { HorizontalCardProps } from './types'
   It also provides action buttons for removing, swapping, viewing, adding liquidity and favoriting the token pair.
   @param {Object} props - The props object.
   @param {string} props.icon - The icon of the token pair.
+  @param {boolean} props.hasFavorite - Boolean to control the display of the FavoriteIcon
   @param {Array<string>} props.tokenPairs - The names of the token pairs. An array of two tokens that make up a pair
   @param {Array<{name: string, value: string}>} props.pairsLiquidity - The liquidity values of the token pairs. An array of objects containing name-value pairs for liquidity information
   @param {Array<string>} props.userPoolInfo - The user pool information. An array of two strings representing user's liquidity and share information
@@ -51,6 +52,7 @@ export const HorizontalCard = ({
   tokenPairs,
   pairsLiquidity,
   userPoolInfo,
+  hasFavorite, 
   trashHandler,
   swapHandler,
   viewHandler,
@@ -72,10 +74,12 @@ export const HorizontalCard = ({
     <Wrapper>
       <TokenInfoWrapper>
         <TokenInfoInnerWrapper>
-          <FavoriteIcon 
+          {hasFavorite && (
+            <FavoriteIcon 
             color={currentTheme?.color.modalText}
             size={20}
             onClick={favoriteHandler}/>
+          )}
 
           {icon && (
             <Image src={icon} alt='token' />

@@ -3,6 +3,7 @@ export interface HorizontalCardProps {
   tokenPairs: Array<string>
   pairsLiquidity: Array<{ name: string, value: string }>
   userPoolInfo: Array<string>
+  hasFavorite: boolean
   trashHandler: () => void
   swapHandler: () => void
   viewHandler: () => void
