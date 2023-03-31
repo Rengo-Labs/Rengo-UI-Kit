@@ -3,7 +3,22 @@ import {UiProvider, theme} from "rengo-ui-kit";
 import ethToken from './assets/eth-token.svg'
 import tetherToken from './assets/tether-token.svg'
 import ethCsprPair from './assets/eth-cspr-pair.svg'
-import {Container, Row, Column, Toggle, Button, ButtonIcon, Loader, Input, Header, Tabs, TransactionDetails, TransactionDetailsTextOnly, KeyPairText, TokenOption} from "rengo-ui-kit"
+import {
+  Container,
+  Row,
+  Column,
+  Toggle,
+  Button,
+  ButtonIcon,
+  Loader,
+  Input,
+  Header,
+  Tabs,
+  TransactionDetails,
+  TransactionDetailsTextOnly,
+  KeyPairText,
+  TokenOption,
+  HorizontalCard} from "rengo-ui-kit"
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
 import {AlertTriangle, Star} from 'react-feather'
@@ -133,7 +148,7 @@ const App = () => {
                     </Row>
                 </Container>
                 <Container>
-                  <div style={{margin: '30px 0 30px 0', minWidth: '350px', maxWidth: '450px', height: '66px', background: 'white'}}>
+                  <div style={{margin: '30px 0 30px 0', height: '66px', background: 'white'}}>
                     <TransactionDetails
                       // distribution='space-between'
                       distribution='space-evenly'
@@ -153,10 +168,27 @@ const App = () => {
                   </div>
                 </Container>
                 <Container>
-                  <div style={{margin: '30px 0 30px 0', minWidth: '350px', maxWidth: '450px', height: '66px', background: 'white'}}>
+                  <div style={{margin: '30px 0 30px 0', height: '66px', background: 'white'}}>
                     <TransactionDetailsTextOnly
                       tokenInfo={['1 Wrapper Ether = 391.361884674 Wrapper Casper', '1 Wrapper Casper = 0.002555180 Wrapper Ether']} />
-
+                  </div>
+                </Container>
+                <Container>
+                  <div style={{ width: '100%', padding: '20px 0 20px 0'}}>
+                    <HorizontalCard
+                      icon={ethCsprPair}
+                      tokenPairs={['ETH', 'CSPR']}
+                      pairsLiquidity={[
+                        { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
+                        { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
+                      ]}
+                      userPoolInfo={['5.00100931 LP', '0.19%']}
+                      trashHandler={() => console.log('horizontal card: delete')}
+                      swapHandler={() => console.log('horizontal card: swap')}
+                      viewHandler={() => console.log('horizontal card: view')}
+                      addLiquidityHandler={() => console.log('horizontal card: add liquidity')}
+                      favoriteHandler={() => console.log('horizontal card: favorite')}
+                      />
                   </div>
                 </Container>
             </>

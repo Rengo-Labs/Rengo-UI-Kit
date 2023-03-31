@@ -13,5 +13,6 @@ export {
     Header,
     Tabs,
     TransactionDetails,
-    TransactionDetailsTextOnly
+    TransactionDetailsTextOnly,
+    HorizontalCard
 } from './components';

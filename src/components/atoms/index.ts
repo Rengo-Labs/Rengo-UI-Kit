@@ -12,4 +12,5 @@ export * from './Header';
 export * from './Tabs';
 export * from './TransactionDetails';
 export * from './TransactionDetailsTextOnly';
+export * from './HorizontalCard';
 
