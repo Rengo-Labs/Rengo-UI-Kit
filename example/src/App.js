@@ -20,7 +20,8 @@ import {
   TokenOption,
   KeyValueText,
   KeyValueInput,
-  InputType
+  InputType,
+  SettingOption
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -29,6 +30,7 @@ import { AlertTriangle, Star } from 'react-feather'
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
+  const [settingOption, setSettingOption] = useState('')
   const [tabs, setTabs] = useState([
     {
       id: 1,
@@ -71,6 +73,11 @@ const App = () => {
   const handleSlippageTolerance = (value) => {
     console.log('handleSlippageTolerance', value)
     setSlippageTolerance(value)
+  }
+
+  const handleSettingOption = (value) => {
+    console.log('handleSettingOption', value)
+    setSettingOption(value)
   }
 
   return (
@@ -201,6 +208,12 @@ const App = () => {
                 inputType={InputType.GASFEE}
                 onChange={handleSlippageTolerance}
               />
+            </Column>
+            <Column props={{xs: 2}}>
+            <SettingOption value='0.1' handleValue={handleSettingOption}/>
+            </Column>
+            <Column props={{xs: 2}}>
+            <SettingOption value={settingOption} handleValue={handleSettingOption} isInput/>
             </Column>
           </Row>
         </Container>
