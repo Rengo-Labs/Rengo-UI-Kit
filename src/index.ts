@@ -16,5 +16,6 @@ export {
     TransactionDetailsTextOnly,
     KeyValueText,
     KeyValueInput,
+    SettingOption,
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';
