@@ -16,6 +16,7 @@ export {
     TransactionDetailsTextOnly,
     KeyValueText,
     KeyValueInput,
-    HorizontalCard
+    HorizontalCard,
+    SettingOption,
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

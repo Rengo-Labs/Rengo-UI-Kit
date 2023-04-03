@@ -21,6 +21,7 @@ import {
   KeyValueText,
   KeyValueInput,
   InputType,
+  SettingOption,
   HorizontalCard
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
@@ -30,6 +31,7 @@ import { AlertTriangle, Star } from 'react-feather'
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
+  const [settingOption, setSettingOption] = useState('')
   const [tabs, setTabs] = useState([
     {
       id: 1,
@@ -72,6 +74,11 @@ const App = () => {
   const handleSlippageTolerance = (value) => {
     console.log('handleSlippageTolerance', value)
     setSlippageTolerance(value)
+  }
+
+  const handleSettingOption = (value) => {
+    console.log('handleSettingOption', value)
+    setSettingOption(value)
   }
 
   return (
@@ -203,12 +210,20 @@ const App = () => {
                 onChange={handleSlippageTolerance}
               />
             </Column>
+            <Column props={{xs: 2}}>
+            <SettingOption value='0.1' handleValue={handleSettingOption}/>
+            </Column>
+            <Column props={{xs: 2}}>
+            <SettingOption value={settingOption} handleValue={handleSettingOption} isInput/>
+            </Column>
           </Row>
         </Container>
         <Container>
           <div
             style={{
               margin: '30px 0 30px 0',
+              minWidth: '350px',
+              maxWidth: '450px',
               height: '66px',
               background: 'white'
             }}
@@ -235,6 +250,8 @@ const App = () => {
           <div
             style={{
               margin: '30px 0 30px 0',
+              minWidth: '350px',
+              maxWidth: '450px',
               height: '66px',
               background: 'white'
             }}
@@ -250,20 +267,20 @@ const App = () => {
         <Container>
           <div style={{ width: '100%', padding: '20px 0 20px 0'}}>
             <HorizontalCard
-              icon={ethCsprPair}
-              hasFavorite={true}
-              tokenPairs={['ETH', 'CSPR']}
-              pairsLiquidity={[
-                { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
-                { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
-              ]}
-              userPoolInfo={['5.00100931 LP', '0.19%']}
-              trashHandler={() => console.log('horizontal card: delete')}
-              swapHandler={() => console.log('horizontal card: swap')}
-              viewHandler={() => console.log('horizontal card: view')}
-              addLiquidityHandler={() => console.log('horizontal card: add liquidity')}
-              favoriteHandler={() => console.log('horizontal card: favorite')}
-              />
+                icon={ethCsprPair}
+                hasFavorite={true}
+                tokenPairs={['ETH', 'CSPR']}
+                pairsLiquidity={[
+                  { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
+                  { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
+                ]}
+                userPoolInfo={['5.00100931 LP', '0.19%']}
+                trashHandler={() => console.log('horizontal card: delete')}
+                swapHandler={() => console.log('horizontal card: swap')}
+                viewHandler={() => console.log('horizontal card: view')}
+                addLiquidityHandler={() => console.log('horizontal card: add liquidity')}
+                favoriteHandler={() => console.log('horizontal card: favorite')}
+            />
           </div>
         </Container>
       </>

@@ -4,7 +4,7 @@ import {TransactionDetails} from "../../../src/components";
 import {TransactionProps} from "../../../src/components/atoms/TransactionDetails/types";
 
 export default {
-  title: "Components/TransactionDetails",
+  title: "Components/Atom/TransactionDetails",
   component: TransactionDetails,
 } as ComponentMeta<typeof TransactionDetails>;
 
@@ -15,5 +15,11 @@ const Template: ComponentStory<typeof TransactionDetails> = (args: TransactionPr
   )
 };
 export const Default = Template.bind({});
-// @ts-ignore
-// Default.args = { "label": "test" };
+Default.args = {
+  // @ts-ignore
+  distribution: 'space-evenly',
+  iconSize: 45,
+  tokenNames: ['Wrapper Ether', 'Wrapper Casper'],
+  tokenNameSymbols: ['WETH', 'CSPR'],
+  amount:'0,3'
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { WrapperStyled, NameStyled } from './styles';
 
-interface ButtonIconProps {
+export interface ButtonIconProps {
   startIcon?: string
   name?: string
   endIcon?: string

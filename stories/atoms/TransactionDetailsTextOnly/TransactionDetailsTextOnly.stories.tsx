@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {TransactionDetailsTextOnly, TransactionDetailsProps} from "../../../src/components";
 
 export default {
-  title: "Components/TransactionDetailsTextOnly",
+  title: "Components/Atom/TransactionDetailsTextOnly",
   component: TransactionDetailsTextOnly,
 } as ComponentMeta<typeof TransactionDetailsTextOnly>;
 
@@ -15,4 +15,7 @@ const Template: ComponentStory<typeof TransactionDetailsTextOnly> = (args: Trans
 };
 export const Default = Template.bind({});
 // @ts-ignore
-// Default.args = { "label": "test" };
+Default.args = { tokenInfo: [
+    '1 Wrapper Ether = 391.361884674 Wrapper Casper',
+    '1 Wrapper Casper = 0.002555180 Wrapper Ether'
+  ]};
