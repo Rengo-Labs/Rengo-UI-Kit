@@ -3,9 +3,10 @@ import {Row as RowContainer} from "react-styled-flexboxgrid";
 
 export interface RowProps {
     children: ReactNode;
+    className?: string;
     props?: any;
 }
 
-export const Row = ({children, props = {}}: RowProps) => {
-    return <RowContainer {...props}>{children}</RowContainer>;
+export const Row = ({children, className, props = {}}: RowProps) => {
+    return <RowContainer className={className} {...props}>{children}</RowContainer>;
 }
