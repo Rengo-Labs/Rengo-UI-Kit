@@ -14,5 +14,6 @@ export * from './KeyValueText';
 export * from './KeyValueInput';
 export * from './TransactionDetails';
 export * from './TransactionDetailsTextOnly';
+export * from './HorizontalCard';
 export * from './SettingOption';
 

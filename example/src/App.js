@@ -21,7 +21,8 @@ import {
   KeyValueText,
   KeyValueInput,
   InputType,
-  SettingOption
+  SettingOption,
+  HorizontalCard
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -260,6 +261,25 @@ const App = () => {
                 '1 Wrapper Ether = 391.361884674 Wrapper Casper',
                 '1 Wrapper Casper = 0.002555180 Wrapper Ether'
               ]}
+            />
+          </div>
+        </Container>
+        <Container>
+          <div style={{ width: '100%', padding: '20px 0 20px 0'}}>
+            <HorizontalCard
+                icon={ethCsprPair}
+                hasFavorite={true}
+                tokenPairs={['ETH', 'CSPR']}
+                pairsLiquidity={[
+                  { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
+                  { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
+                ]}
+                userPoolInfo={['5.00100931 LP', '0.19%']}
+                trashHandler={() => console.log('horizontal card: delete')}
+                swapHandler={() => console.log('horizontal card: swap')}
+                viewHandler={() => console.log('horizontal card: view')}
+                addLiquidityHandler={() => console.log('horizontal card: add liquidity')}
+                favoriteHandler={() => console.log('horizontal card: favorite')}
             />
           </div>
         </Container>
