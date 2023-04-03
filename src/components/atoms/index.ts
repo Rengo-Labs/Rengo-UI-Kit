@@ -15,4 +15,6 @@ export * from './KeyValueInput';
 export * from './TransactionDetails';
 export * from './TransactionDetailsTextOnly';
 export * from './SettingOption';
+export * from './Divider';
+export * from './Chart';
 

@@ -17,5 +17,7 @@ export {
     KeyValueText,
     KeyValueInput,
     SettingOption,
+    Divider,
+    SwapTabs
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';
