@@ -13,8 +13,8 @@ export const WrapperStyled = styled.div`
   padding: 0px;
   cursor: pointer;
   user-select: none;
-  background: ${({ theme }) => theme.background.default};
-  
+  background: ${({theme}) => theme.background.default};
+
   @media (min-width: 430px) {
     padding: 0px 10px 0px 0px;
     width: 104px;
