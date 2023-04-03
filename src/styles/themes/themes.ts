@@ -21,7 +21,6 @@ interface theme {
     }
     color: {
         default: string
-        background: string
         accent1: string
         accent2: string
         accent3: string
@@ -32,12 +31,13 @@ interface theme {
         accent8: string
         foreground: string
         grey: string
-        border: string
         borderhover: string
         white: string
         black: string
         darkGrey: string
         lavender: string
+        modalText: string
+        textInactive: string
         error: {
             lighter: string
             light: string
@@ -60,6 +60,17 @@ interface theme {
             default: string
             dark: string
         }
+        keyPairText: {
+            keyTextColor: string
+            valueIsPorcentageTextColor: string
+            valueTextColor: string
+        }
+        tokenOption: {
+            tokenOptionBackgroundColor: string
+            tokenOptionTextColor: string
+            tokenOption1Color: string
+            tokenOption2Color: string
+        }
         tab: {
             background: string
             borderActive: string
@@ -79,6 +90,7 @@ interface theme {
     background: {
       default: string
       searchInput: string
+      gasFeeInput: string
       palePink: string
       lightGray: string
       teaGreen: string
@@ -104,7 +116,6 @@ interface theme {
     successdarkColor: string
     warningColor: string
     warningdarkColor: string
-
     borderColor: string
 
     backgroundColor: string
@@ -153,7 +164,6 @@ export const defaultTheme: theme = {
     },
     color: {
         default: '#545454',
-        background: '#E5F5FC',
         accent1: '#fafafa',
         accent2: '#EAEAEA',
         accent3: '#999',
@@ -164,12 +174,13 @@ export const defaultTheme: theme = {
         accent8: '#111',
         foreground: '#000',
         grey: '#F9F9F9',
-        border: '#eaeaea',
         borderhover: '#000',
         white: '#FFFFFF',
         black: '#000',
         darkGrey: '#545454',
         lavender: '#E3DFFD',
+        modalText: '#715FF5',
+        textInactive: '#767676',
         error: {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
@@ -192,6 +203,17 @@ export const defaultTheme: theme = {
             default: '#F5A623',
             dark: '#AB570A'
         },
+        keyPairText: {
+            keyTextColor: '#080808',
+            valueIsPorcentageTextColor: '#008A0F',
+            valueTextColor: '#715FF5'
+        },
+        tokenOption: {
+            tokenOptionBackgroundColor: '#D9D8E7',
+            tokenOptionTextColor: '#080808',
+            tokenOption1Color: '#715FF5',
+            tokenOption2Color: '#3DCBAD',
+        },
         tab: {
             background: '#fff',
             borderActive: '#715FF5',
@@ -211,6 +233,7 @@ export const defaultTheme: theme = {
     background: {
       default: '#F7FCFE',
       searchInput: '#FFFFFF',
+      gasFeeInput: '#E3DFFD',
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',
       teaGreen: '#CCE7C1',
@@ -236,7 +259,6 @@ export const defaultTheme: theme = {
     successdarkColor: '#0366D6',
     warningColor: '#F5A623',
     warningdarkColor: '#F7B955',
-
     borderColor: 'rgb(234, 234, 234)',
 
     backgroundColor: '#fff',
@@ -285,7 +307,6 @@ export const darkTheme: theme = {
     },
     color: {
         default: '#FFFFFF',
-        background: '#241E52',
         accent1: '#111',
         accent2: '#333',
         accent3: '#444',
@@ -296,12 +317,13 @@ export const darkTheme: theme = {
         accent8: '#FAFAFA',
         foreground: '#FFF',
         grey: '#F9F9F9',
-        border: '#333',
         borderhover: '#FFF',
         white: '#fff',
         black: '#000',
         darkGrey: '#545454',
         lavender: '#E3DFFD',
+        modalText: '#FFFFFF',
+        textInactive: '#FFFFFF',
         error: {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
@@ -324,6 +346,17 @@ export const darkTheme: theme = {
             default: '#F5A623',
             dark: '#AB570A'
         },
+        keyPairText: {
+            keyTextColor: '#FFFFFF',
+            valueIsPorcentageTextColor: '#008A0F',
+            valueTextColor: '#715FF5'
+        },
+        tokenOption: {
+            tokenOptionBackgroundColor: '#241E52',
+            tokenOptionTextColor: '#FFFFFF',
+            tokenOption1Color: '#715FF5',
+            tokenOption2Color: '#3DCBAD'
+        },
         tab: {
             background: '#3A308B',
             borderActive: '#FFFFFF',
@@ -343,6 +376,7 @@ export const darkTheme: theme = {
     background: {
       default: '#241E52',
       searchInput: '#3A308B',
+      gasFeeInput: '#241E52',
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',
       teaGreen: '#CCE7C1',

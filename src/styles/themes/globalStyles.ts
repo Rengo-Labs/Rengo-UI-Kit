@@ -1,57 +1,57 @@
 import {createGlobalStyle, css} from 'styled-components'
 // @ts-ignore
-import Epilogue from '../../fonts/Epilogue/Epilogue-Regular.ttf'
+import Epilogue from '../../fonts/Epilogue/EpilogueRegular.ttf'
 // @ts-ignore
-import EpilogueBold from '../../fonts/Epilogue/Epilogue-Bold.ttf'
+import EpilogueBold from '../../fonts/Epilogue/EpilogueBold.ttf'
 // @ts-ignore
-import EpilogueLight from '../../fonts/Epilogue/Epilogue-Light.ttf'
+import EpilogueLight from '../../fonts/Epilogue/EpilogueLight.ttf'
 // @ts-ignore
-import MyriadPro from '../../fonts/MyriadPro/MyriadPro-Regular.otf'
+import MyriadPro from '../../fonts/MyriadPro/MyriadProRegular.otf'
 // @ts-ignore
-import MyriadProSemiBold from '../../fonts/MyriadPro/MyriadPro-bold.otf'
+import MyriadProSemiBold from '../../fonts/MyriadPro/MyriadProBold.otf'
 // @ts-ignore
-import MyriadProLight from '../../fonts/MyriadPro/MyriadPro-Light.otf'
+import MyriadProLight from '../../fonts/MyriadPro/MyriadProLight.otf'
 
 const customFonts = () => {
     return css`
       @font-face {
         font-family: "Epilogue";
-        src: url(${Epilogue}) format("truetype");
+        src: local(${Epilogue}), url(${Epilogue}) format("truetype");
         font-weight: normal;
         font-style: normal;
       }
 
       @font-face {
         font-family: "EpilogueBold";
-        src: url(${EpilogueBold}) format("truetype");
+        src: local(${EpilogueBold}), url(${EpilogueBold}) format("truetype");
         font-weight: normal;
         font-style: normal;
       }
 
       @font-face {
         font-family: "EpilogueLight";
-        src: url(${EpilogueLight}) format("truetype");
+        src: local(${EpilogueLight}), url(${EpilogueLight}) format("truetype");
         font-weight: normal;
         font-style: normal;
       }
 
       @font-face {
         font-family: "MyriadPro";
-        src: url(${MyriadPro}) format("opentype");
+        src: local(${MyriadPro}), url(${MyriadPro}) format("opentype");
         font-weight: normal;
         font-style: normal;
       }
 
       @font-face {
         font-family: "MyriadProSemiBold";
-        src: url(${MyriadProSemiBold}) format("opentype");
+        src: local(${MyriadProSemiBold}), url(${MyriadProSemiBold}) format("opentype");
         font-weight: normal;
         font-style: normal;
       }
 
       @font-face {
         font-family: "MyriadProLight";
-        src: url(${MyriadProLight}) format("opentype");
+        src: local(${MyriadProSemiBold}), url(${MyriadProLight}) format("opentype");
         font-weight: normal;
         font-style: normal;
       }

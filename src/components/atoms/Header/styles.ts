@@ -9,7 +9,7 @@ export const WrapperStyle = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 64px;
-  max-width: 450px;
+  width:100%;
   max-height: 42px;
   padding: 8px 24px 8px 32px;
   border-radius: 16px 16px 0 0;

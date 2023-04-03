@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {ButtonIcon} from "../../../src/components";
 
 export default {
-  title: "Components/ButtonIcon",
+  title: "Components/Atom/ButtonIcon",
   component: ButtonIcon,
   argTypes: {
       startIcon: { type: 'string' },
