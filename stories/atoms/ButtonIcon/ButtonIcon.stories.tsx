@@ -1,9 +1,10 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {ButtonIcon} from "../../../src/components";
-
+import ethToken from "../../../example/src/assets/eth-token.svg";
+import downwardsArrowIcon from "../../../example/src/assets/downwards-arrow-icon.svg";
 export default {
-  title: "Components/Atom/ButtonIcon",
+  title: "Components/Atoms/ButtonIcon",
   component: ButtonIcon,
   argTypes: {
       startIcon: { type: 'string' },
@@ -21,6 +22,11 @@ const Template: ComponentStory<typeof ButtonIcon> = (args) => {
 };
 export const Default = Template.bind({});
 // @ts-ignore
-Default.args = { "children": "ButtonIcon" };
+Default.args = {
+    startIcon: ethToken,
+    name: 'ETH',
+    endIcon: downwardsArrowIcon,
+    actionCallBack: () => console.log('ButtonIcon clicked')
+};
 
 

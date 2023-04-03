@@ -4,7 +4,7 @@ import {TransactionDetails} from "../../../src/components";
 import {TransactionProps} from "../../../src/components/atoms/TransactionDetails/types";
 
 export default {
-  title: "Components/Atom/TransactionDetails",
+  title: "Components/Atoms/TransactionDetails",
   component: TransactionDetails,
 } as ComponentMeta<typeof TransactionDetails>;
 

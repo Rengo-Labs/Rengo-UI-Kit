@@ -1,11 +1,11 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {Container} from "../../../src/components";
-import {Row} from "../../../lib";
+import {Row} from "../../../src/components";
 import {Col} from "react-styled-flexboxgrid";
 
 export default {
-    title: "Components/Atom/Container",
+    title: "Components/Atoms/Container",
     component: Container,
     argTypes: {
         textColor: { control: 'color' },

@@ -1,10 +1,10 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {Column} from "../../../src/components";
-import {Container, Row} from "../../../lib";
+import {Container, Row} from "../../../src/components";
 
 export default {
-    title: "Components/Atom/Column",
+    title: "Components/Atoms/Column",
     component: Column,
     argTypes: {
         textColor: {control: 'color'},

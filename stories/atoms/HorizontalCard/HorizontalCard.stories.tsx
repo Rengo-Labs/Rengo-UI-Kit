@@ -2,11 +2,10 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {HorizontalCard} from "../../../src/components";
 import {HorizontalCardProps} from "../../../src/components/atoms/HorizontalCard/types";
-// import ethCsprPair from '../../../example/src/assets/eth-cspr-pair.svg'
-
+import ethCsprPair from '../../../example/src/assets/eth-cspr-pair.svg'
 
 export default {
-  title: "Components/HorizontalCard",
+  title: "Components/Atoms/HorizontalCard",
   component: HorizontalCard,
 } as ComponentMeta<typeof HorizontalCard>;
 
@@ -16,6 +15,20 @@ const Template: ComponentStory<typeof HorizontalCard> = (args: HorizontalCardPro
     <HorizontalCard {...args} />
   )
 };
-export const HorizontalCardDefault = Template.bind({});
+export const Default = Template.bind({});
 // @ts-ignore
-// Default.args = { "label": "test" };
+Default.args = {
+  icon: ethCsprPair,
+  hasFavorite: true,
+  tokenPairs: ['ETH', 'CSPR'],
+    pairsLiquidity: [
+      { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
+      { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
+  ],
+  userPoolInfo: ['5.00100931 LP', '0.19%'],
+  trashHandler: () => console.log('horizontal card: delete'),
+  swapHandler: () => console.log('horizontal card: swap'),
+  viewHandler: () => console.log('horizontal card: view'),
+  addLiquidityHandler: () => console.log('horizontal card: add liquidity'),
+  favoriteHandler: () => console.log('horizontal card: favorite')
+};

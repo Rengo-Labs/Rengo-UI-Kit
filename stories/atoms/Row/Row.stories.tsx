@@ -4,7 +4,7 @@ import {Row} from "../../../src/components";
 import {Container} from "../../../src/components";
 
 export default {
-    title: "Components/Atom/Row",
+    title: "Components/Atoms/Row",
     component: Row,
 } as ComponentMeta<typeof Row>;
 
