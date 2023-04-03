@@ -15,5 +15,11 @@ const Template: ComponentStory<typeof TransactionDetails> = (args: TransactionPr
   )
 };
 export const Default = Template.bind({});
-// @ts-ignore
-// Default.args = { "label": "test" };
+Default.args = {
+  // @ts-ignore
+  distribution: 'space-evenly',
+  iconSize: 45,
+  tokenNames: ['Wrapper Ether', 'Wrapper Casper'],
+  tokenNameSymbols: ['WETH', 'CSPR'],
+  amount:'0,3'
+}
