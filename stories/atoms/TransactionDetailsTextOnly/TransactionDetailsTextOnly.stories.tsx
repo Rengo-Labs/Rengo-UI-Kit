@@ -1,4 +1,3 @@
-import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {TransactionDetailsTextOnly, TransactionDetailsProps} from "../../../src/components";
 
@@ -19,4 +18,5 @@ Default.args = {
     tokenInfo: [
     '1 Wrapper Ether = 391.361884674 Wrapper Casper',
     '1 Wrapper Casper = 0.002555180 Wrapper Ether'
-    ]};
+    ]
+};

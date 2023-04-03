@@ -1,7 +1,7 @@
-import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import {HorizontalCard} from "../../../src/components";
-import {HorizontalCardProps} from "../../../src/components/atoms/HorizontalCard/types";
+import { HorizontalCard } from "../../../src/components";
+import { HorizontalCardProps } from "../../../src/components/atoms/HorizontalCard/types";
+// @ts-ignore
 import ethCsprPair from '../../../example/src/assets/eth-cspr-pair.svg'
 
 export default {

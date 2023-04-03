@@ -1,6 +1,5 @@
-import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import {Button} from "../../../src/components";
+import { Button } from "../../../src/components";
 
 export default {
     title: "Components/Atoms/Button",
@@ -14,6 +13,6 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Small = Template.bind({});
 // @ts-ignore
-Small.args = { type: "small", children: "Button" };
+Small.args = { type: "small", children: "max" };
 export const Large = Template.bind({});
-Large.args = { type: "large", children: "Button" };
+Large.args = { type: "large", children: "Swap" };
