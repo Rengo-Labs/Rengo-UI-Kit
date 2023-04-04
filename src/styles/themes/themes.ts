@@ -77,6 +77,9 @@ interface theme {
             borderInactive: string
             textActive: string
             textInactive: string
+        },
+        toggleButton: {
+          default: string
         }
     }
     shadow: {
@@ -220,6 +223,9 @@ export const defaultTheme: theme = {
             borderInactive: '#F5F5F5',
             textActive: '#715FF5',
             textInactive: '#767676'
+        },
+        toggleButton: {
+          default: '#6EEBD0',
         }
     },
     shadow: {
@@ -363,6 +369,9 @@ export const darkTheme: theme = {
             borderInactive: '#241E52',
             textActive: '#FFFFFF',
             textInactive: '#A99EFB'
+        },
+        toggleButton: {
+          default: '#6EEBD0',
         }
     },
     shadow: {

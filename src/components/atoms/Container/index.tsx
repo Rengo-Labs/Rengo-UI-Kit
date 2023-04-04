@@ -5,6 +5,5 @@ export interface ContainerProps {
     props?: any;
 }
 export const Container = ({children, props = {}}: ContainerProps) => {
-    console.log("Container", props);
     return <Grid {...props}>{children}</Grid>;
 };
