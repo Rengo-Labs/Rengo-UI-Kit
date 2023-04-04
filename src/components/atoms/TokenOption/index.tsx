@@ -1,7 +1,7 @@
 import React from 'react';
 import { Ellipse, TokenStyled, WrapperStyled } from './styles';
 
-interface TokenOptionProps {
+export interface TokenOptionProps {
     tokenImg: any;
     token: string;
     option1: boolean;

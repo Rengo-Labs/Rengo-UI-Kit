@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { WrapperStyled, Text, Input, InputWrapper } from './styles'
 
-interface SettingOptionProps {
+export interface SettingOptionProps {
   value: string
   isInput?: boolean
   handleValue: (value: string) => void

@@ -18,6 +18,7 @@ export {
     KeyValueInput,
     HorizontalCard,
     SettingOption,
+    Icons,
     Divider,
     SwapTabs
 } from './components';

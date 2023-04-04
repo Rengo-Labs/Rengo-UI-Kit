@@ -4,16 +4,14 @@ import { Wrapper } from './styles'
 import { InputType } from '../../atoms/KeyValueInput/types'
 
 export const SwapMoreInfo = () => {
-  const [SlippageTolerance, setSlippageTolerance] = useState<string>('0.05')
-  const [NetworkGasFee, setNetworkGasFee] = useState<string>('15')
+  const [SlippageTolerance, setSlippageTolerance] = useState<number>(0.05)
+  const [NetworkGasFee, setNetworkGasFee] = useState<number>(15)
 
-  const handleSlippageTolerance = (value: string) => {
-    console.log('handleSlippageTolerance', value)
+  const handleSlippageTolerance = (value: number) => {
     setSlippageTolerance(value)
   }
 
-  const handleNetworkGasFee = (value: string) => {
-    console.log('handleNetworkGasFee', value)
+  const handleNetworkGasFee = (value: number) => {
     setNetworkGasFee(value)
   }
 

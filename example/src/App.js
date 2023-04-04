@@ -13,11 +13,18 @@ import {
   Loader,
   Input,
   Header,
+  Tabs,
   TransactionDetails,
   TransactionDetailsTextOnly,
+  KeyPairText,
+  TokenOption,
+  KeyValueText,
+  KeyValueInput,
+  InputType,
   SettingOption,
+  HorizontalCard,
+  Icons,
   SwapTabs,
-  HorizontalCard
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -25,7 +32,20 @@ import { AlertTriangle, Star } from 'react-feather'
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
+  const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
+  const [tabs, setTabs] = useState([
+    {
+      id: 1,
+      text: 'Price',
+      isActive: true
+    },
+    {
+      id: 2,
+      text: 'More Info',
+      isActive: false
+    }
+  ])
 
   const inputValidator = (value) => {
     console.log('validating', value)
@@ -38,6 +58,24 @@ const App = () => {
 
   const handlerInput = (value) => {
     console.log('handlerInput', value)
+  }
+
+  const handlerTab = (id) => {
+    setTabs(
+      tabs.map((tab) => {
+        if (tab.id === id) {
+          tab.isActive = true
+        } else {
+          tab.isActive = false
+        }
+        return tab
+      })
+    )
+  }
+
+  const handleSlippageTolerance = (value) => {
+    console.log('handleSlippageTolerance', value)
+    setSlippageTolerance(value)
   }
 
   const handleSettingOption = (value) => {
@@ -139,6 +177,33 @@ const App = () => {
           <Row>
             <Column props={{ xs: 4 }}>
               <Header text='From' balance='2020.0000' />
+              <Tabs tabs={tabs} onClick={handlerTab} />
+              <KeyValueText
+                keyText='Swapping Through'
+                valueText='CasperSwap Pool'
+              />
+            </Column>
+            <Column props={{ xs: 4 }}>
+              <Row>
+                <Column props={{ xs: 4 }}>
+                  <TokenOption tokenImg={ethLogo} token='ETH' option1 />
+                </Column>
+                <Column props={{ xs: 2 }} />
+                <Column props={{ xs: 4 }}>
+                  <TokenOption tokenImg={ethLogo} token='CSPR' />
+                </Column>
+              </Row>
+            </Column>
+            <Column props={{ xs: 4 }}>
+              <Row>
+                <Column props={{ xs: 4 }}>
+                  <KeyPairText keyText='Price' pairText='1.4589' />
+                </Column>
+                <Column props={{ xs: 2 }} />
+                <Column props={{ xs: 4 }}>
+                  <KeyPairText keyText='24H%' pairText='85.10' isPorcentage />
+                </Column>
+              </Row>
             </Column>
           </Row>
           <Row>
@@ -147,15 +212,19 @@ const App = () => {
             </Column>
           </Row>
           <Row>
-            <Column props={{ xs: 2 }}>
-              <SettingOption value='0.1' handleValue={handleSettingOption} />
-            </Column>
-            <Column props={{ xs: 2 }}>
-              <SettingOption
-                value={settingOption}
-                handleValue={handleSettingOption}
-                isInput
+            <Column props={{ xs: 4 }}>
+              <KeyValueInput
+                keyText='Slippage Tolerance'
+                value={SlippageTolerance}
+                inputType={InputType.GASFEE}
+                onChange={handleSlippageTolerance}
               />
+            </Column>
+            <Column props={{xs: 2}}>
+            <SettingOption value='0.1' handleValue={handleSettingOption}/>
+            </Column>
+            <Column props={{xs: 2}}>
+            <SettingOption value={settingOption} handleValue={handleSettingOption} isInput/>
             </Column>
           </Row>
         </Container>
@@ -175,7 +244,7 @@ const App = () => {
               Icon={ethCsprPair}
               // Icon={tetherToken}
               iconSize={45}
-              // LeftAdornment={<Star color='#715FF5' size={24} />}
+              LeftAdornment={<Icons name="Star" color='#715FF5' size={24} />}
               // LeftAdornmentCallback={() => console.log('favorite clicked')}
               tokenNames={['Wrapper Ether', 'Wrapper Casper']}
               // tokenNames={['Wrapper Ether']}
