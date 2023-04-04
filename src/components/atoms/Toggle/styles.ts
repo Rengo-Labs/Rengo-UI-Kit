@@ -100,7 +100,7 @@ export const ToggleHandle = styled.span<Props>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 7.42857px;
+  padding: 4.42857px;
   border-radius: 28.7415px;
   gap: 5.75px;
 `;
