@@ -5,7 +5,7 @@ export const WrapperStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 12px 32px;
+  padding: 12px 24px;
 `;
 
 export const KeyStyle = styled.div`

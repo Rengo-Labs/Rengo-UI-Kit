@@ -13,6 +13,7 @@ export const WrapperStyled = styled.div`
   max-height: 43px;
   padding: 5px;
   border-radius: 50px;
+  gap: 5px;
   background-color: ${({ theme }) => theme.color.tokenOption.tokenOptionBackgroundColor};
   `;
 
