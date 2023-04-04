@@ -5,7 +5,7 @@ export interface ButtonProps {
     props: any;
     children: React.ReactNode;
 }
-export const Button = ({type = 'large', props={}, children}: ButtonProps) => {
+export const Button = ({type = 'large', props = {}, children}: ButtonProps) => {
     return type === "large" ? (
         <ButtonStyled {...props}>{children}</ButtonStyled>
     ) : (
