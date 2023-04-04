@@ -16,4 +16,5 @@ export * from './TransactionDetails';
 export * from './TransactionDetailsTextOnly';
 export * from './HorizontalCard';
 export * from './SettingOption';
+export * from './Icons'
 

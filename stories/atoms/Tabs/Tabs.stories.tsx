@@ -1,3 +1,4 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {Tabs} from "../../../src/components";
 
@@ -23,6 +24,5 @@ Default.args = {
             isActive: false
         }
     ],
-    activeTab: 0,
-    onClick: (tab: number) => { console.log(tab) }
+    onClick: (tab: number) => { console.log(tab); return tab; }
 };

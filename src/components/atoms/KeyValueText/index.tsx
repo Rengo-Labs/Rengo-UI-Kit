@@ -1,7 +1,7 @@
 import React from 'react'
 import { KeyStyle, ValueStyle, WrapperStyled } from './styles';
 
-interface KeyValueTextProps {
+export interface KeyValueTextProps {
   keyText: string;
   valueText: string;
 }

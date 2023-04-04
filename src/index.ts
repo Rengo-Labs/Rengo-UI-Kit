@@ -18,5 +18,6 @@ export {
     KeyValueInput,
     HorizontalCard,
     SettingOption,
+    Icons,
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

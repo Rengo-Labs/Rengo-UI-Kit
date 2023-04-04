@@ -22,11 +22,11 @@ import {
   KeyValueInput,
   InputType,
   SettingOption,
-  HorizontalCard
+  HorizontalCard,
+  Icons
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
-import { AlertTriangle, Star } from 'react-feather'
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
@@ -149,7 +149,6 @@ const App = () => {
             type='icon-label-helper-text'
             status=''
             label='Label test'
-            // Icon={<AlertTriangle color="red" size={24} />}
             Icon={
               <ButtonIcon
                 startIcon={ethToken}
@@ -234,7 +233,7 @@ const App = () => {
               Icon={ethCsprPair}
               // Icon={tetherToken}
               iconSize={45}
-              // LeftAdornment={<Star color='#715FF5' size={24} />}
+              LeftAdornment={<Icons name="Star" color='#715FF5' size={24} />}
               // LeftAdornmentCallback={() => console.log('favorite clicked')}
               tokenNames={['Wrapper Ether', 'Wrapper Casper']}
               // tokenNames={['Wrapper Ether']}

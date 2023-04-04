@@ -1,7 +1,7 @@
 import React from 'react'
 import { KeyStyled, ValueStyled, WrapperStyled } from './styles'
 
-interface KeyPairTextProps {
+export interface KeyPairTextProps {
     keyText: string;
     pairText: string;
     isPorcentage?: boolean;
