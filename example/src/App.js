@@ -89,10 +89,13 @@ const App = () => {
         <Container>
           <Row>
             <Column props={{ xs: 12 }}>
-              <div style={{ background: 'darkblue' }}>
+              <div style={{ background: 'darkblue', height: '40px', display: 'flex', alignItems: 'center' }}>
                 <Toggle
                   isActive={selectedTheme === 'dark'}
                   toggle={handleToggleTheme}
+                  variant='theme-switcher'
+                  // variant='inverted-colors'
+                  // labelText='Show Staked'
                 />
               </div>
             </Column>
