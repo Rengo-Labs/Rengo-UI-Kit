@@ -23,10 +23,12 @@ import {
   InputType,
   SettingOption,
   HorizontalCard,
-  Icons
+  Icons,
+  SwapTabs,
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
+import { AlertTriangle, Star } from 'react-feather'
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
@@ -149,6 +151,7 @@ const App = () => {
             type='icon-label-helper-text'
             status=''
             label='Label test'
+            // Icon={<AlertTriangle color="red" size={24} />}
             Icon={
               <ButtonIcon
                 startIcon={ethToken}
@@ -198,6 +201,11 @@ const App = () => {
                   <KeyPairText keyText='24H%' pairText='85.10' isPorcentage />
                 </Column>
               </Row>
+            </Column>
+          </Row>
+          <Row>
+            <Column props={{ xs: 12 }}>
+              <SwapTabs tokenImg={ethLogo}/>
             </Column>
           </Row>
           <Row>
