@@ -15,7 +15,8 @@ export interface InputProps {
   Icon?: ReactNode
   iconSize?: IconSize
   onChange: (e: string) => string
-  validator?: (e: string) => string
+  validator?: (e: string) => string,
+  value: any
 }
 
 export enum Status {

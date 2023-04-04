@@ -92,6 +92,7 @@ export const InputStyled = styled.input<Props>`
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
+  text-align: right;
   color: ${({ theme}) =>theme.color.default};
 
   ::placeholder {

@@ -90,6 +90,7 @@ export interface theme {
     background: {
       default: string
       searchInput: string
+      coinCard: string;
       gasFeeInput: string
       palePink: string
       lightGray: string
@@ -234,6 +235,7 @@ export const defaultTheme: theme = {
     background: {
       default: '#F7FCFE',
       searchInput: '#FFFFFF',
+      coinCard: '#FFFFFF',
       gasFeeInput: '#E3DFFD',
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',
@@ -376,8 +378,9 @@ export const darkTheme: theme = {
         custom: '#111 0px 5px 10px'
     },
     background: {
-      default: '#241E52',
-      searchInput: '#3A308B',
+      default: '#241E52', 
+      searchInput: '#241E52',
+      coinCard: '#3A308B',
       gasFeeInput: '#241E52',
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',

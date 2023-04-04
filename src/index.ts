@@ -19,6 +19,7 @@ export {
     HorizontalCard,
     SettingOption,
     Divider,
-    SwapTabs
+    SwapTabs,
+    CoinCard
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

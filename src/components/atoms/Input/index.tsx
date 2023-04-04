@@ -20,7 +20,7 @@ import { useInput } from './useInput'
  * @returns {JSX.Element} The rendered input field.
  */
 
-export const Input = ({ placeholder, status, type, label, helperText, rightAdornment, Icon, iconSize, onChange, validator }: InputProps) => {
+export const Input = ({ placeholder, status, type, label, helperText, rightAdornment, Icon, iconSize, onChange, validator, value }: InputProps) => {
   const { getInputProps } = useInput()
 
   return (
@@ -47,6 +47,7 @@ export const Input = ({ placeholder, status, type, label, helperText, rightAdorn
             placeholder,
             iconSize
           })}
+          value={value}
          />
          
         {rightAdornment && (

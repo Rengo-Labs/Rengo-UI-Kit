@@ -17,7 +17,8 @@ import {
   TransactionDetailsTextOnly,
   SettingOption,
   SwapTabs,
-  HorizontalCard
+  HorizontalCard,
+  CoinCard
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -26,6 +27,7 @@ import { AlertTriangle, Star } from 'react-feather'
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [settingOption, setSettingOption] = useState('')
+  const [cardValue, setCardValue] = useState('')
 
   const inputValidator = (value) => {
     console.log('validating', value)
@@ -38,6 +40,7 @@ const App = () => {
 
   const handlerInput = (value) => {
     console.log('handlerInput', value)
+    setCardValue(value)
   }
 
   const handleSettingOption = (value) => {
@@ -220,6 +223,24 @@ const App = () => {
                 favoriteHandler={() => console.log('horizontal card: favorite')}
             />
           </div>
+        </Container>
+        <Container>
+          <Row>
+            <Column props={{ xs: 6 }}>
+              <CoinCard startIcon={ethToken}
+                        endIcon={downwardsArrowIcon}
+                        iconSize='large'
+                        tokenBalance='20000.00'
+                        tokenName='ETH'
+                        tokenPrice='34.33'
+                        placeholder='0.000000000'
+                        onChangeToken={() => console.log("Change token")}
+                        onChangeValue={handlerInput}
+                        validator={inputValidator}
+                        value={cardValue}
+              />
+            </Column>
+          </Row>
         </Container>
       </>
     </UiProvider>
