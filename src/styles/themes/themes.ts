@@ -1,4 +1,4 @@
-interface theme {
+export interface theme {
     layout: {
         breakpoints: number[]
         container: number[]
@@ -105,6 +105,7 @@ interface theme {
       green: string
       red: string
       lightBlue: string
+      table: string
       default: string
     },
     defaultColor: string
@@ -146,13 +147,13 @@ export const defaultTheme: theme = {
     },
     typography: {
         primaryFont:
-            '-apple-system, BlinkMacSystemFont, "Epilogue", "MyriadPro", sans-serif;',
+            '"Epilogue", "MyriadPro", sans-serif;',
         secondaryFont:
-            '-apple-system, BlinkMacSystemFont, "MyriadPro", "MyriadPro", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '"MyriadPro", "MyriadPro", sans-serif;',
         buttonFont:
-            '-apple-system, BlinkMacSystemFont, "MyriadPro", "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '"MyriadPro", "Epilogue", sans-serif;',
         inputFont:
-            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '"Epilogue", "MyriadPro", sans-serif;',
         h1: '3rem',
         h2: '2.25rem',
         h3: '1.5rem',
@@ -248,6 +249,7 @@ export const defaultTheme: theme = {
       green: '#1DC90A',
       red: '#C90A0A',
       lightBlue: '#1FE9D0',
+      table: '#E3DFFD',
       default: '#EAEBEC'
     },
     defaultColor: '#ccc',
@@ -289,13 +291,13 @@ export const darkTheme: theme = {
     },
     typography: {
         primaryFont:
-            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '"Epilogue", "MyriadPro", sans-serif;',
         secondaryFont:
-            '-apple-system, BlinkMacSystemFont, "MyriadPro", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '"MyriadPro", "Epilogue", sans-serif;',
         buttonFont:
-            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '"Epilogue", "MyriadPro", sans-serif;',
         inputFont:
-            '-apple-system, BlinkMacSystemFont, "Epilogue", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
+            '"Epilogue", "MyriadPro", sans-serif;',
         h1: '3rem',
         h2: '2.25rem',
         h3: '1.5rem',
@@ -391,6 +393,7 @@ export const darkTheme: theme = {
       green: '#1DC90A',
       red: '#C90A0A',
       lightBlue: '#1FE9D0',
+      table: '#241E52',
       default: '#241E52'
     },
     defaultColor: '#fafafa',

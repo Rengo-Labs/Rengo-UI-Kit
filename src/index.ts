@@ -16,6 +16,7 @@ export {
     TransactionDetailsTextOnly,
     KeyValueText,
     KeyValueInput,
+    HorizontalCard,
     SettingOption,
     Divider,
     SwapTabs
