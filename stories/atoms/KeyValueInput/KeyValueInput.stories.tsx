@@ -9,7 +9,7 @@ export default {
 
 
 // Create a master template for mapping args to render the KeyValueInput component
-const Template: ComponentStory<typeof KeyValueInput> = (args) => <KeyValueInput {...args} />;
+const Template: ComponentStory<typeof KeyValueInput> = (args) => <div style={{width: '400px'}}><KeyValueInput {...args} /></div>;
 export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {keyText: 'Slippage Tolerance', value: 1.4589, inputType: 'GASFEE', onChange: (value: string) => console.log(value)};

@@ -14,7 +14,6 @@ export const WrapperStyle = styled.div`
 export const Tab = styled.div<TTab>`
   display: flex;
   width: 100%;
-  min-width: 320px;
   justify-content: center;
   align-items: center;
   padding: 8px 0px;

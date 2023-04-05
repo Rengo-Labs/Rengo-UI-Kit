@@ -25,6 +25,7 @@ import {
   HorizontalCard,
   Icons,
   SwapTabs,
+  LiquidityDetails
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -207,8 +208,11 @@ const App = () => {
             </Column>
           </Row>
           <Row>
-            <Column props={{ xs: 12 }}>
+            <Column props={{ xs: 12, md: 6 }}>
               <SwapTabs tokenImg={ethLogo}/>
+            </Column>
+            <Column props={{  xs: 12, md: 6 }}>
+              <LiquidityDetails/>
             </Column>
           </Row>
           <Row>

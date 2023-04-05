@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {Tabs} from "../../../src/components";
 
@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof Tabs>;
 
 // Create a master template for mapping args to render the Tabs component
-const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
+const Template: ComponentStory<typeof Tabs> = (args) => <div style={{width: '350px'}}><Tabs {...args} /></div>;
 export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {

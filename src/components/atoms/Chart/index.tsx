@@ -49,8 +49,8 @@ const data = [
 export const Chart = () => {
   return (
       <AreaChart
-        width={600}
-        height={400}
+        width={500}
+        height={300}
         data={data}
         margin={{
           top: 0,
