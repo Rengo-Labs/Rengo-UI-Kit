@@ -20,6 +20,7 @@ export {
     SettingOption,
     Icons,
     Divider,
-    SwapTabs
+    SwapTabs,
+    Slider
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

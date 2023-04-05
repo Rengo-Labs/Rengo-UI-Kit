@@ -97,6 +97,7 @@ export interface theme {
       palePink: string
       lightGray: string
       teaGreen: string
+      sliderThumb: string
     }
     border: {
       darkLilac: string
@@ -109,6 +110,7 @@ export interface theme {
       red: string
       lightBlue: string
       table: string
+      slider: string
       default: string
     },
     defaultColor: string
@@ -244,6 +246,7 @@ export const defaultTheme: theme = {
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',
       teaGreen: '#CCE7C1',
+      sliderThumb: '#FF00FF'
     },
     border: {
       darkLilac: '#8D7FF7',
@@ -256,6 +259,7 @@ export const defaultTheme: theme = {
       red: '#C90A0A',
       lightBlue: '#1FE9D0',
       table: '#E3DFFD',
+      slider: '#715FF5',
       default: '#EAEBEC'
     },
     defaultColor: '#ccc',
@@ -391,6 +395,7 @@ export const darkTheme: theme = {
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',
       teaGreen: '#CCE7C1',
+      sliderThumb: '#FF00FF'
     },
     border: {
       darkLilac: '#8D7FF7',
@@ -403,6 +408,7 @@ export const darkTheme: theme = {
       red: '#C90A0A',
       lightBlue: '#1FE9D0',
       table: '#241E52',
+      slider: '#241E52',
       default: '#241E52'
     },
     defaultColor: '#fafafa',
