@@ -2,10 +2,15 @@ import React from 'react'
 import { Chart, Column, KeyPairText, Row, TokenOption } from '../../atoms'
 import { RowStyled } from './styles'
 
-
 interface SwapPriceProps {
   tokenImg: any
 }
+
+/**
+ * Render a Swap Price Molecule.
+ * @param {any} tokenImg - The image value to display in the img field.
+ * @returns  {JSX.Element} The rendered the token options and key pair text.
+ */
 
 export const SwapPrice = ({ tokenImg }: SwapPriceProps) => {
   return (
@@ -25,7 +30,9 @@ export const SwapPrice = ({ tokenImg }: SwapPriceProps) => {
         </Column>
       </Row>
       <Row>
-        <Chart/>
+        <Column props={{ xs: 12 }}>
+          <Chart />
+        </Column>
       </Row>
     </>
   )
