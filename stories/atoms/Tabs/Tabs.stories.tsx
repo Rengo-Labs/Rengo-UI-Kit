@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import {Column, Tabs} from "../../../src/components";
+import {Tabs} from "../../../src/components";
 
 export default {
     title: "Components/Atoms/Tabs",
@@ -24,6 +24,5 @@ Default.args = {
             isActive: false
         }
     ],
-    activeTab: 0,
-    onClick: (tab: number) => { console.log(tab) }
+    onClick: (tab: number) => { console.log(tab); return tab; }
 };

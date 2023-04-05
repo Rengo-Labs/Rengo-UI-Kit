@@ -9,15 +9,15 @@ import { Wrapper } from './styles'
  */
 
 export const LiquidityDetails = () => {
-  const [SlippageTolerance, setSlippageTolerance] = useState<string>('0.05')
-  const [NetworkGasFee, setNetworkGasFee] = useState<string>('15')
+  const [SlippageTolerance, setSlippageTolerance] = useState<number>(0.05)
+  const [NetworkGasFee, setNetworkGasFee] = useState<number>(15)
 
-  const handleSlippageTolerance = (value: string) => {
+  const handleSlippageTolerance = (value: number) => {
     console.log('handleSlippageTolerance', value)
     setSlippageTolerance(value)
   }
 
-  const handleNetworkGasFee = (value: string) => {
+  const handleNetworkGasFee = (value: number) => {
     console.log('handleNetworkGasFee', value)
     setNetworkGasFee(value)
   }

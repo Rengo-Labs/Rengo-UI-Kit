@@ -2,17 +2,17 @@ import React, { ChangeEvent } from 'react'
 import { Input, InputWrapper, Text, WrapperStyled } from './styles'
 import { InputType, inputTypeMap } from './types'
 
-interface KeyValueInputProps {
+export interface KeyValueInputProps {
   keyText: string
-  value: string
-  onChange?: (value: string) => void
+  value: number
+  onChange?: (value: number) => void
   inputType?: InputType
 }
 
 /**
  * Render a key-value text.
  * @param {string} keyText - The key text to display in the input field.
- * @param {string} value - The value text to display in the input field.
+ * @param {number} value - The value text to display in the input field.
  * @param {function} onChange - The function to call when the input value changes.
  * @param {InputType} inputType - The type of input to display.
  * @returns  {JSX.Element} The rendered the key-value text.
@@ -24,7 +24,7 @@ export const KeyValueInput = ({
   onChange,
   inputType = InputType.GASFEE
 }: KeyValueInputProps) => {
-  
+
 
   return (
     <WrapperStyled>
@@ -33,12 +33,10 @@ export const KeyValueInput = ({
         <Input
           value={value}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            onChange && onChange(e.target.value)
+            onChange && onChange(Number(e.target.value))
           }
         />
-        
         <Text>{inputTypeMap[inputType]}</Text>
-        
       </InputWrapper>
     </WrapperStyled>
   )
