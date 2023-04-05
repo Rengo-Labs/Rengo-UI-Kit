@@ -295,7 +295,7 @@ const App = () => {
           </div>
         </Container>
         <Container >
-          <Column  props={{ xs: 4 }}>
+          <Column  props={{ xs: 10, md: 6 }}>
             <Slider
               callback={(selectedPercentage) => console.log('Slider', selectedPercentage)} />
           </Column>
