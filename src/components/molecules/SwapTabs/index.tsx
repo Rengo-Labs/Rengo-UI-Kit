@@ -8,6 +8,12 @@ interface SwapTabsProps {
   tokenImg: any
 }
 
+/**
+ * Render a Tabs.
+ * @param {any} tokenImg - The image value to display in the img field.
+ * @returns  {JSX.Element} The rendered two tabs, the first one with a Price component and the second one with the more info component.
+ */
+
 export const SwapTabs = ({ tokenImg }: SwapTabsProps) => {
   const [tabs, setTabs] = useState([
     {
@@ -43,7 +49,7 @@ export const SwapTabs = ({ tokenImg }: SwapTabsProps) => {
   }
 
   return (
-    <Column props={{ xs: 12, md: 6}}>
+    <Column props={{ xs: 12 }}>
       <Row>
         <Tabs tabs={tabs} onClick={handleTabClick} />
       </Row>
