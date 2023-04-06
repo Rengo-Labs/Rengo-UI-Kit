@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+interface Props {
+  isSelected: boolean
+}
 
 export const Wrapper = styled.div`
   display: flex;
@@ -14,7 +18,8 @@ export const Input = styled.input`
   outline: none;
   -webkit-transition: .2s;
   border: ${({ theme }) => `0.5px solid ${theme.border.slider};`};
-
+    transition: transform 3s ease-in-out;
+    animation: slideIn 3s ease-out;
   ::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -23,6 +28,8 @@ export const Input = styled.input`
     border-radius: 50%;
     background: ${({ theme }) => theme.background.sliderThumb};
     cursor: pointer;
+    transition: transform 3s ease-in-out;
+    animation: slideIn 3s ease-out;
   }
 
   ::-moz-range-thumb {
@@ -31,6 +38,8 @@ export const Input = styled.input`
     border-radius: 50%;
     background: ${({ theme }) => theme.background.sliderThumb};
     cursor: pointer;
+    transition: transform 3s ease-in-out;
+    animation: slideIn 3s ease-out;
   }
 `;
 
@@ -40,18 +49,21 @@ export const PercentageContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 1rem;
-
-  span:first-child {
-    color: #FF00FF;
-  }
-
 `;
 
-export const PercentageLabel = styled.span`
+export const PercentageLabel = styled.span<Props>`
+  cursor: pointer;
   font-size: 14px;
   line-height: 18px;
-  font-weight: 400;
+  font-weight: ${({ isSelected }) => isSelected ? 600 : 400};
   letter-spacing: 0.02em;
   font-family: ${({theme}) => theme.typography.secondaryFont};
-  color: ${({ theme }) => theme.color.modalText};
+  color: ${({ theme, isSelected }) => isSelected ? theme.background.sliderThumb : theme.color.modalText};
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      animation: slideIn 0.3s forwards ease-in-out;
+      padding-top: 5px;
+      font-weight: bold;
+    `}
 `;

@@ -13,12 +13,11 @@ interface SliderProps {
  * @returns {JSX.Element} - A React element representing the Slider component
 */
 export const Slider = ({ callback }: SliderProps) => {
-  const [value, setValue] = useState(50);
+  const [value, setValue] = useState<number>(0);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedPercentage = parseInt(event.target.value)
-    setValue(selectedPercentage);
-    callback(selectedPercentage)
+  const handleInputChange = (value: number) => {
+    setValue(value);
+    callback(value)
   };
   
   return (
@@ -28,15 +27,35 @@ export const Slider = ({ callback }: SliderProps) => {
         min="0"
         max="100"
         value={value}
-        onChange={handleInputChange}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputChange(parseInt(event.target.value))}
         id="slider"
       />
       <PercentageContainer>
-        <PercentageLabel>0%</PercentageLabel>
-        <PercentageLabel>25%</PercentageLabel>
-        <PercentageLabel>50%</PercentageLabel>
-        <PercentageLabel>75%</PercentageLabel>
-        <PercentageLabel>100%</PercentageLabel>
+        <PercentageLabel
+          isSelected={value === 0}
+          onClick={() => handleInputChange(0)}>
+            0%
+        </PercentageLabel>
+        <PercentageLabel
+          isSelected={value === 25}
+          onClick={() => handleInputChange(25)}>
+          25%
+        </PercentageLabel>
+        <PercentageLabel
+          isSelected={value === 50}
+          onClick={() => handleInputChange(50)}>
+          50%
+        </PercentageLabel>
+        <PercentageLabel
+          isSelected={value === 75}
+          onClick={() => handleInputChange(75)}>
+          75%
+        </PercentageLabel>
+        <PercentageLabel
+          isSelected={value === 100}
+          onClick={() => handleInputChange(100)}>
+          100%
+        </PercentageLabel>
       </PercentageContainer>
   </Wrapper>
   )
