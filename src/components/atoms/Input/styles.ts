@@ -5,6 +5,7 @@ interface Props {
   status?: Status,
   type?: Type
   iconSize?: IconSize;
+  hasBackground?: boolean;
 }
 
 
@@ -99,8 +100,8 @@ export const InputStyled = styled.input<Props>`
   }
 
   @media (min-width: 800px) {
-    ${({ theme }) => css`
-      background-color: ${theme.background.searchInput};
+    ${({ theme, hasBackground }) => css`
+      background-color: ${hasBackground ? theme.background.default : theme.background.searchInput};
     `}
     ${({ theme }) => css`
       color: ${theme.color.default};

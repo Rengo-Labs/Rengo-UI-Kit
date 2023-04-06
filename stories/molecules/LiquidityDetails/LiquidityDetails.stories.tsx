@@ -7,8 +7,7 @@ export default {
     component: LiquidityDetails,
 } as ComponentMeta<typeof LiquidityDetails>;
 
-// Create a master template for mapping args to render the Tabs component
-const Template: ComponentStory<typeof LiquidityDetails> = (args) => <div style={{width: '600px'}}><LiquidityDetails  /></div>;
+// Create a master template for mapping args to render the LiquidityDetail component
+const Template: ComponentStory<typeof LiquidityDetails> = () => <div style={{width: '600px'}}><LiquidityDetails  /></div>;
 export const Default = Template.bind({});
-// @ts-ignore
 

@@ -9,6 +9,7 @@ interface userInputProps {
   rightAdornment?: ReactNode | string
   Icon?: ReactNode
   iconSize?: IconSize
+  hasBackground?: boolean
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   validator?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
