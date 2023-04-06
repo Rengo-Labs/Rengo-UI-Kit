@@ -25,6 +25,7 @@ import {
   HorizontalCard,
   Icons,
   SwapTabs,
+  Slider,
   LiquidityDetails
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
@@ -296,6 +297,12 @@ const App = () => {
                 favoriteHandler={() => console.log('horizontal card: favorite')}
             />
           </div>
+        </Container>
+        <Container >
+          <Column  props={{ xs: 10, md: 6 }}>
+            <Slider
+              callback={(selectedPercentage) => console.log('Slider', selectedPercentage)} />
+          </Column>
         </Container>
       </>
     </UiProvider>

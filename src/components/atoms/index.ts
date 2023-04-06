@@ -19,4 +19,5 @@ export * from './SettingOption';
 export * from './Icons'
 export * from './Divider';
 export * from './Chart';
+export * from './Slider';
 
