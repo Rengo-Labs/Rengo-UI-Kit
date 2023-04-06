@@ -25,7 +25,8 @@ import {
   HorizontalCard,
   Icons,
   SwapTabs,
-  LiquidityDetails
+  LiquidityDetails,
+  Settings
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -195,17 +196,6 @@ const App = () => {
                 </Column>
               </Row>
             </Column>
-            <Column props={{ xs: 4 }}>
-              <Row>
-                <Column props={{ xs: 4 }}>
-                  <KeyPairText keyText='Price' pairText='1.4589' />
-                </Column>
-                <Column props={{ xs: 2 }} />
-                <Column props={{ xs: 4 }}>
-                  <KeyPairText keyText='24H%' pairText='85.10' isPorcentage />
-                </Column>
-              </Row>
-            </Column>
           </Row>
           <Row>
             <Column props={{ xs: 12, md: 6 }}>
@@ -215,20 +205,9 @@ const App = () => {
               <LiquidityDetails/>
             </Column>
           </Row>
-          <Row>
-            <Column props={{ xs: 4 }}>
-              <KeyValueInput
-                keyText='Slippage Tolerance'
-                value={SlippageTolerance}
-                inputType={InputType.GASFEE}
-                onChange={handleSlippageTolerance}
-              />
-            </Column>
-            <Column props={{xs: 2}}>
-            <SettingOption value='0.1' handleValue={handleSettingOption}/>
-            </Column>
-            <Column props={{xs: 2}}>
-            <SettingOption value={settingOption} handleValue={handleSettingOption} isInput/>
+          <Row className='my-1'>
+            <Column props={{xs: 4}}>
+              <Settings/>
             </Column>
           </Row>
         </Container>

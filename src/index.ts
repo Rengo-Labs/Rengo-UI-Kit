@@ -21,6 +21,7 @@ export {
     Icons,
     Divider,
     SwapTabs,
-    LiquidityDetails
+    LiquidityDetails,
+    Settings
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

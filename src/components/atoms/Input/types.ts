@@ -11,10 +11,11 @@ export interface InputProps {
   type: Type
   label?: string
   helperText?: string
-  rightAdornment: ReactNode | string
+  rightAdornment?: ReactNode | string
   Icon?: ReactNode
   iconSize?: IconSize
-  onChange: (e: string) => string
+  hasBackground?: boolean
+  onChange: (e: string) => void
   validator?: (e: string) => string
 }
 
