@@ -8,6 +8,7 @@ import { terser } from 'rollup-plugin-terser'
 import { uglify } from 'rollup-plugin-uglify'
 import copy from 'rollup-plugin-copy'
 import url from '@rollup/plugin-url'
+import svgr from '@svgr/rollup'
 
 const packageJson = require("./package.json");
 const extensions = ['.js', '.ts', '.tsx']
@@ -44,6 +45,7 @@ export default {
     }
   ],
   plugins: [
+    svgr({ exportType: 'named', jsxRuntime: 'automatic' }),
     peerDepsExternal({
       includeDependencies: true,
     }),

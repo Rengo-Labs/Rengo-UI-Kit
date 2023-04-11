@@ -15,4 +15,6 @@ export const Icons = ({name, color, size} : IconsProps) => {
            return <IconComponent color={color} size={size} />
        }
    }
+
+   return null
 }

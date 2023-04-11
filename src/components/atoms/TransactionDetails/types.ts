@@ -14,7 +14,7 @@ export enum IconSize {
 
 export interface TransactionProps {
   distribution: Distribution
-  LeftAdornment?: ReactNode
+  LeftAdornment?: ReactNode | JSX.Element
   LeftAdornmentCallback?: () => void
   Icon?: string
   iconSize?: IconSize

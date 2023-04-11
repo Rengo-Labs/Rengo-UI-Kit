@@ -27,7 +27,8 @@ import {
   SwapTabs,
   LiquidityDetails,
   Settings,
-  Slider
+  Slider,
+  CreatePoolDialog
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -282,6 +283,9 @@ const App = () => {
             <Slider
               callback={(selectedPercentage) => console.log('Slider', selectedPercentage)} />
           </Column>
+        </Container>
+        <Container>
+          <CreatePoolDialog />
         </Container>
       </>
     </UiProvider>
