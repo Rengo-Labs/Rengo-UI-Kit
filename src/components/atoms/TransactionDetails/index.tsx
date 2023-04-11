@@ -32,12 +32,13 @@ import { TransactionProps } from "./types";
   @param {string} [props.tokenFullName] - Optional full name of the token to be displayed on the component. This will be below the token name.
   @param {Array<string>} [props.tokenNameSymbols] - Optional array of token symbols to be displayed on the component. This will be to the right side of the token name.
   @param {string} [props.amount] - Amount of the token to be displayed on the component.
+  @param {Boolean} [props.isLast] - isLast of the iteration elements.
   @return {JSX.Element} - Rendered TransactionDetails component.
 */
 export const TransactionDetails = ({
   distribution, LeftAdornment, LeftAdornmentCallback, Icon, iconSize, tokenNames, tokenFullName,
-  tokenNameSymbols, amount}: TransactionProps) => {
-
+  tokenNameSymbols, amount, isLast}: TransactionProps) => {
+  
   return (
     <Wrapper distribution={distribution}>
       <TokenInnerWrapper>

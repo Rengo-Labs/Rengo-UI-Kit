@@ -22,4 +22,5 @@ export interface TransactionProps {
   tokenFullName?: string
   tokenNameSymbols?: Array<string>
   amount?: string
+  isLast?: boolean
 }

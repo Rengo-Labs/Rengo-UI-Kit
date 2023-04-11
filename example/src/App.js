@@ -36,6 +36,7 @@ import { AlertTriangle, Star } from 'react-feather'
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
+  const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
   const [tabs, setTabs] = useState([
@@ -86,7 +87,7 @@ const App = () => {
     console.log('handleSettingOption', value)
     setSettingOption(value)
   }
-
+console.log('showCreatePoolDialog', showCreatePoolDialog);
   return (
     <UiProvider theme={theme[selectedTheme]}>
       <>
@@ -164,7 +165,7 @@ const App = () => {
                 startIcon={ethToken}
                 name={'ETH'}
                 endIcon={downwardsArrowIcon}
-                actionCallBack={() => console.log('ButtonIcon clicked')}
+                actionCallBack={() => setShowCreatePoolDialog(prev => !prev)}
               />
             }
             iconSize='large'
@@ -285,7 +286,9 @@ const App = () => {
           </Column>
         </Container>
         <Container>
-          <CreatePoolDialog />
+          <CreatePoolDialog
+            showDialog={showCreatePoolDialog}
+            closeCallback={() => setShowCreatePoolDialog(false)} />
         </Container>
       </>
     </UiProvider>

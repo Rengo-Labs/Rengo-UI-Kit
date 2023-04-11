@@ -1,52 +1,62 @@
-import React, { ReactNode, RefObject, useEffect } from 'react'
-import { CloseButton, Container, DialogHeader, DialogHeaderContainer, DialogTitle } from './styles'
+import React, { ReactNode, useEffect, forwardRef, ForwardedRef, useState } from 'react'
+import { Backdrop, CloseButton, Container, DialogHeader, DialogHeaderContainer, DialogTitle } from './styles'
 import { Icons } from '../../atoms'
 import { useTheme } from 'styled-components'
-import {theme} from '../../../styles/themes/themes'
+import { theme } from '../../../styles/themes/themes'
 
 interface Props {
   title: string
-  ref: RefObject<HTMLDialogElement>
   children: ReactNode
+  onClose: () => void
+  isOpen: boolean
 }
 
-export const Dialog = ({ title, ref, children } : Props) => {
+export const Dialog = forwardRef((props: Props, ref: ForwardedRef<HTMLDialogElement>) => {
+  const { title, children, onClose, isOpen } = props;
   const theme = useTheme() as theme;
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && ref.current) {
-        handleClose()
+      if (ref != null && typeof ref !== 'function') {
+        if (event.key === "Escape") {
+          handleClose()
+        }
       }
     };
   
-    ref.current?.addEventListener("keydown", handleKeyDown);
+    if (ref != null && typeof ref !== 'function') {
+      ref.current?.addEventListener("keydown", handleKeyDown);
+    }
   
     return () => {
-      ref.current?.removeEventListener("keydown", handleKeyDown);
+      if (ref != null && typeof ref !== 'function') {
+        ref.current?.removeEventListener("keydown", handleKeyDown);
+      }
     };
   }, []);
 
   const handleClose = () => {
-    if (ref.current) {
+    if (ref != null && typeof ref !== 'function') {
       ref.current?.close()
+      onClose()
     }
   }
-  
+
   return (
-    <Container
-      ref={ref}>
+    <>
+      <Container ref={ref}
+       isOpen={isOpen}>
       <DialogHeaderContainer>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
-          <CloseButton
-            onClick={handleClose}>
-            <Icons name='X' size={23} color={theme.color.default} />
+          <CloseButton onClick={handleClose}>
+            <Icons name='X' size={23} color={theme.color.primary.default} />
           </CloseButton>
         </DialogHeader>
-        
       </DialogHeaderContainer>
       {children}
     </Container>
+    </>
+    
   )
-}
+});
