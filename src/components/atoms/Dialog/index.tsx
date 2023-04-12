@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, forwardRef, ForwardedRef, useRef } from 'react'
 import { Backdrop, CloseButton, Container, DialogHeader, DialogHeaderContainer, DialogTitle } from './styles'
-import { Icons } from '../../atoms'
+import { Icons } from '..'
 import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 

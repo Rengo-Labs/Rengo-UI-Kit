@@ -12,7 +12,7 @@ import {
   TokenListContainer,
   TokenNotFoundText,
   ViewTokenListTitle } from './styles'
-import { Dialog } from '../Dialog'
+import { Dialog } from '../../atoms/Dialog'
 import { Icons, Input, TransactionDetails } from '../../atoms'
 import { IconSize, Status, Type } from '../../atoms/Input/types'
 import { IconSize as transactionDetailsIconSize } from '../../atoms/TransactionDetails/types'
