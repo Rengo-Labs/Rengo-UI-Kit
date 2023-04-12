@@ -4,14 +4,14 @@ import { Icons } from '..'
 import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 
-interface Props {
+export interface DialogProps {
   title: string
   children: ReactNode
   onClose: () => void
   isOpen: boolean
 }
 
-export const Dialog = forwardRef(({ title, children, onClose, isOpen }: Props) => {
+export const Dialog = forwardRef(({ title, children, onClose, isOpen }: DialogProps) => {
   const theme = useTheme() as theme;
   const dialogRef = useRef<HTMLDialogElement>(null);
 

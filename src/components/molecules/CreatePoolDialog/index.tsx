@@ -25,7 +25,8 @@ import cstTokenIcon from "../../../assets/icons/casper-token.svg";
 import usdtTokenIcon from "../../../assets/icons/tether-token.svg";
 import usdcTokenIcon from "../../../assets/icons/usdc-token.svg";
 import { useTheme } from 'styled-components'
-import { RowIcons } from '../../atoms/RowIcons'
+import { RowIcon } from '../../atoms/RowIcon'
+import { CreatePoolDialogProps, TokenData } from './types'
 
 const TOKEN_ICONS = new Map([
   ['CST', cstTokenIcon],
@@ -34,19 +35,6 @@ const TOKEN_ICONS = new Map([
   ['USDC', usdcTokenIcon],
   ['WETH', ethTokenIcon],
 ])
-
-interface TokenData {
-  id: string
-  name: string
-  fullName: string
-  amount: string
-}
-interface CreatePoolDialogProps {
-  closeCallback: () => void
-  showDialog: boolean
-  tokenListData: TokenData[]
-  popularTokensData: TokenData[]
-}
 
 export const CreatePoolDialog = ({ 
   closeCallback,
@@ -116,7 +104,7 @@ export const CreatePoolDialog = ({
               {popularTokensData && popularTokensData.map((item, i) => (
                 <PopularTokensItem 
                   key={`popular-token-${item.id}`}>
-                    <RowIcons
+                    <RowIcon
                       tokenName={item.name}
                       tokenFullName={item.fullName}
                       iconPath={TOKEN_ICONS.get(item.name)}

@@ -1,15 +1,15 @@
 import React from "react"
-import { Container, IconContainer, TokenFullName, TokenName, Image, TokenContainer, TokenNamesContainer } from "./styles"
-import { IconSize } from "./types"
+import { 
+  Container,
+  IconContainer,
+  TokenFullName,
+  TokenName,
+  Image,
+  TokenContainer,
+  TokenNamesContainer } from "./styles"
+import { RowIconProps } from "./types"
 
-interface Props {
-  tokenName: string
-  tokenFullName: string
-  iconPath?: string
-  iconSize: IconSize
-}
-
-export const RowIcons = ({ tokenName, tokenFullName, iconPath, iconSize }: Props) => {
+export const RowIcon = ({ tokenName, tokenFullName, iconPath, iconSize }: RowIconProps) => {
   return (
     <Container>
       <TokenContainer>
@@ -19,14 +19,13 @@ export const RowIcons = ({ tokenName, tokenFullName, iconPath, iconSize }: Props
           )}
        
         </IconContainer>
+
         <TokenNamesContainer>
           <TokenName>{tokenName}</TokenName>
           <TokenFullName>{tokenFullName}</TokenFullName>
         </TokenNamesContainer>
-          
-
+        
       </TokenContainer>
-      
     </Container>
   )
 }
