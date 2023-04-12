@@ -29,7 +29,8 @@ import {
   Settings,
   Slider,
   CreatePoolDialog,
-  LiquidityItemDetail
+  LiquidityItemDetail,
+  RowIcon
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -316,6 +317,17 @@ const App = () => {
               tokenListData={TOKEN_LIST_DATA_CREATE_POOL}
               popularTokensData={POPULAR_TOKEN_LIST_DATA_CREATE_POOL} />
           )}
+        </Container>
+        <Container>
+          <Row className='my-2'>
+          <RowIcon 
+            tokenName='WETH'
+            tokenFullName='Wrapped Ether'
+            Icon={ethLogo}
+            iconSize={30}
+          />
+
+          </Row>
         </Container>
       </>
     </UiProvider>

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, forwardRef, ForwardedRef, useRef } from 'react'
+import React, { ReactNode, useEffect, useRef } from 'react'
 import { Backdrop, CloseButton, Container, DialogHeader, DialogHeaderContainer, DialogTitle } from './styles'
 import { Icons } from '..'
 import { useTheme } from 'styled-components'
@@ -21,7 +21,7 @@ export interface DialogProps {
   @returns {JSX.Element} - A JSX element representing the dialog box component.
 */
 
-export const Dialog = forwardRef(({ title, children, onClose, isOpen }: DialogProps) => {
+export const Dialog = ({ title, children, onClose, isOpen }: DialogProps) => {
   const theme = useTheme() as theme;
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -40,7 +40,7 @@ export const Dialog = forwardRef(({ title, children, onClose, isOpen }: DialogPr
   }, []);
 
   const handleClose = () => {
-    dialogRef.current?.close();
+    dialogRef?.current?.close();
     onClose();
   };
 
@@ -49,6 +49,7 @@ export const Dialog = forwardRef(({ title, children, onClose, isOpen }: DialogPr
       {isOpen && <Backdrop />}
       <Container
         ref={dialogRef}
+        // ref={ref}
         isOpen={isOpen}
         onPointerDown={(e) => e.stopPropagation()}
       >
@@ -64,4 +65,4 @@ export const Dialog = forwardRef(({ title, children, onClose, isOpen }: DialogPr
       </Container>
     </>
   )
-});
+};

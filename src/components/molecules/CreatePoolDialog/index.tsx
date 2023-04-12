@@ -55,7 +55,6 @@ export const CreatePoolDialog = ({
   const [tokenList, setTokenList] = useState<TokenData[]>(() => tokenListData)
   const [favoriteTokenList, setFavoriteTokenList] = useState<Map<number, boolean>>(new Map());
   const theme = useTheme() as theme;
-  const dialogRef = useRef<HTMLDialogElement>(null)
 
   const handlerInput = (value: string) => {
     const filteredTokenList = tokenListData.filter(item => {
@@ -87,7 +86,6 @@ export const CreatePoolDialog = ({
 
   return (
     <Dialog
-      ref={dialogRef}
       title='Create Pool'
       onClose={() => closeCallback()}
       isOpen={showDialog}>
@@ -117,7 +115,7 @@ export const CreatePoolDialog = ({
                     <RowIcon
                       tokenName={item.name}
                       tokenFullName={item.fullName}
-                      iconPath={TOKEN_ICONS.get(item.name)}
+                      Icon={TOKEN_ICONS.get(item.name)}
                       iconSize={30}
                     />
 

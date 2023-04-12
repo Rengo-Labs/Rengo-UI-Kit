@@ -20,6 +20,6 @@ export const Default = Template.bind({});
 Default.args = {
   tokenName: 'CST',
   tokenFullName: 'CasperSwap',
-  iconPath: cstTokenIcon,
+  Icon: cstTokenIcon,
   iconSize: IconSize.Small
 };

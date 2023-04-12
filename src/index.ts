@@ -25,6 +25,8 @@ export {
     Settings,
     Slider,
     CreatePoolDialog,
-    LiquidityItemDetail
+    LiquidityItemDetail,
+    RowIcon,
+    Dialog
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

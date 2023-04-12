@@ -6,6 +6,6 @@ export enum IconSize {
 export interface RowIconProps {
   tokenName: string
   tokenFullName: string
-  iconPath?: string
+  Icon?: string
   iconSize: IconSize
 }
