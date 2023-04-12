@@ -9,7 +9,7 @@ export const WrapperStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  max-width: 130px;
+  min-width: 80px;
   max-height: 43px;
   padding: 5px;
   border-radius: 50px;

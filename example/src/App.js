@@ -28,7 +28,8 @@ import {
   LiquidityDetails,
   Settings,
   Slider,
-  CreatePoolDialog
+  CreatePoolDialog,
+  LiquidityItemDetail
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -225,8 +226,13 @@ const App = () => {
               <LiquidityDetails/>
             </Column>
           </Row>
+          <Row className='m-1'>
+            <Column props={{ xs: 12, md: 5}}>
+              <LiquidityItemDetail/>
+            </Column>
+          </Row>
           <Row className='my-1'>
-            <Column props={{xs: 4}}>
+            <Column props={{xs: 6}}>
               <Settings/>
             </Column>
           </Row>
