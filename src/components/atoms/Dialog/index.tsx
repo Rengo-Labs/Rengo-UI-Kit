@@ -11,6 +11,16 @@ export interface DialogProps {
   isOpen: boolean
 }
 
+/**
+  React component for displaying a dialog box.
+  @param {DialogProps} props - The props object containing the title, children, onClose function, and isOpen boolean.
+  @property {string} title - The title of the dialog box.
+  @property {React.ReactNode} children - The children of the dialog box.
+  @property {Function} onClose - The function to be called when the dialog box is closed.
+  @property {boolean} isOpen - Whether the dialog box is open or not.
+  @returns {JSX.Element} - A JSX element representing the dialog box component.
+*/
+
 export const Dialog = forwardRef(({ title, children, onClose, isOpen }: DialogProps) => {
   const theme = useTheme() as theme;
   const dialogRef = useRef<HTMLDialogElement>(null);
