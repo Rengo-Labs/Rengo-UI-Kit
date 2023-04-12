@@ -18,7 +18,6 @@ export const BottomContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-top: ${({ theme }) => `1px solid ${theme.border.default}`};
-  /* border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`}; */
 `;
 
 export const ViewTokenListTitle = styled.p`
@@ -28,18 +27,18 @@ export const ViewTokenListTitle = styled.p`
   font-size: 18px;
   line-height: 26px;
   letter-spacing: 0.02em;
-  color: ${({ theme }) => theme.color.primary.default};
+  color: ${({ theme }) => theme.color.tab.textActive};
+  cursor: pointer;
 `;
 
 export const PopularTokens = styled.div`
   height: 84px;
-  /* width: 386px; */
   display: flex;
   flex-direction: column;
-  gap: 16px;
   align-items: flex-start;
   border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`};
   margin: 16px auto;
+  overflow-x: scroll;
 `;
 
 export const PopularTokensTitle = styled.p`
@@ -48,20 +47,31 @@ export const PopularTokensTitle = styled.p`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  color: ${({ theme }) => theme.color.primary.default};
+  color: ${({ theme }) => theme.color.tab.textActive};
   letter-spacing: 0.02em;
 `;
 
 export const PopularTokensItemsContainer = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   justify-content: space-evenly;
+  overflow-x: scroll;
+  gap: 16px;
+  width: max-content;
+  padding-top: 8px;
+`;
+
+export const PopularTokensItem = styled.div`
+  max-width: 133px;
+  flex-shrink: 0;
 `;
 
 export const TokenListContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: end;
+  margin-top: 24px;
 `;
 
 export const SectionTitle = styled.p`
@@ -70,6 +80,33 @@ export const SectionTitle = styled.p`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  color: ${({ theme }) => theme.color.primary.default};
+  color: ${({ theme }) => theme.color.tab.textActive};
   letter-spacing: 0.02em;
+  position: fixed;
+`;
+
+export const BalanceSectionTitle = styled.p`
+  font-family: ${({theme}) => theme.typography.secondaryFont};
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.color.tab.textActive};
+  letter-spacing: 0.02em;
+`;
+
+export const SearchInputContainer = styled.div`
+  margin: 16px auto;
+`;
+
+export const TokenNotFoundText = styled.p`
+  font-family: ${({theme}) => theme.typography.secondaryFont};
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: ${({ theme }) => theme.color.tab.textActive};
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin: 16px auto;
 `;

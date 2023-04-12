@@ -1,5 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { BottomContainer, Container, InnerContainer, PopularTokens, PopularTokensItemsContainer, SectionTitle, TokenListContainer, ViewTokenListTitle } from './styles'
+import {
+  BalanceSectionTitle,
+  BottomContainer,
+  Container,
+  InnerContainer,
+  PopularTokens,
+  PopularTokensItem,
+  PopularTokensItemsContainer,
+  SearchInputContainer,
+  SectionTitle,
+  TokenListContainer,
+  TokenNotFoundText,
+  ViewTokenListTitle } from './styles'
 import { Dialog } from '../Dialog'
 import { Icons, Input, TransactionDetails } from '../../atoms'
 import { IconSize, Status, Type } from '../../atoms/Input/types'
@@ -23,39 +35,44 @@ const TOKEN_ICONS = new Map([
   ['WETH', ethTokenIcon],
 ])
 
-const SAMPLE_DATA = [
-  { name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
-  { name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000' },
-  { name: 'USDT', fullName: 'Teather', amount: '10000' },
-  { name: 'USDC', fullName: 'USD Coin', amount: '10000' },
-  { name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000'}
-]
-
+interface TokenData {
+  id: string
+  name: string
+  fullName: string
+  amount: string
+}
 interface CreatePoolDialogProps {
   closeCallback: () => void
   showDialog: boolean
+  tokenListData: TokenData[]
+  popularTokensData: TokenData[]
 }
 
-export const CreatePoolDialog = ({ closeCallback, showDialog }: CreatePoolDialogProps) => {
-  const [inputSearch, setInputSearch] = useState('')
+export const CreatePoolDialog = ({ 
+  closeCallback,
+  showDialog,
+  tokenListData,
+  popularTokensData
+ }: CreatePoolDialogProps) => {
+  const [tokenList, setTokenList] = useState<TokenData[]>(() => tokenListData)
   const [favoriteTokenList, setFavoriteTokenList] = useState<Map<number, boolean>>(new Map());
   const theme = useTheme() as theme;
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   const handlerInput = (value: string) => {
-    setInputSearch(value)
+    const filteredTokenList = tokenListData.filter(item => {
+      const formattedValue = value.toLowerCase()
+        
+      const itemNameFormatted = item.name.toLowerCase()
+      const itemFullNameFormatted = item.fullName.toLowerCase()
+      if (itemNameFormatted.includes(formattedValue) || itemFullNameFormatted.includes(formattedValue)) {
+        return item
+      }
+    })
+
+    setTokenList(filteredTokenList)
   }
 
-  useEffect(() => {
-    if (!showDialog) {
-      return
-    }
-
-    if (dialogRef.current && !dialogRef.current.hasAttribute('open') && showDialog) {
-      dialogRef.current?.showModal()
-    }
-  }, [showDialog])
-  
   const handlerFavorite = (key: number) => {
     const currentValue = favoriteTokenList.get(key)
     if (currentValue !== undefined) {
@@ -66,6 +83,10 @@ export const CreatePoolDialog = ({ closeCallback, showDialog }: CreatePoolDialog
     setFavoriteTokenList(new Map(favoriteTokenList))
   }
 
+  const handleViewTokenList = () => {
+    console.log('View token list pressed');
+  }
+
   return (
     <Dialog
       ref={dialogRef}
@@ -74,36 +95,45 @@ export const CreatePoolDialog = ({ closeCallback, showDialog }: CreatePoolDialog
       isOpen={showDialog}>
       <Container>
         <InnerContainer>
-          <Input
-            placeholder='Node URL'
-            helperText='Something is wrong!'
-            type={Type.IconPlain}
-            status={Status.Default}
-            label='Label test'
-            onChange={handlerInput}
-            hasBackground={false}
-            Icon={<Search size={20} color='#999999' />}
-            iconSize={IconSize.Small}
-            />
+          <SearchInputContainer>
+            <Input
+              placeholder=''
+              helperText='Something is wrong!'
+              type={Type.IconPlain}
+              status={Status.Default}
+              label='Label test'
+              onChange={handlerInput}
+              hasBackground={true}
+              Icon={<Search size={20} color='#999999' />}
+              iconSize={IconSize.Small}
+              iconWrapperBackground={theme.background.icon}
+              />
+          </SearchInputContainer>
 
           <PopularTokens>
             <SectionTitle>Popular Tokens</SectionTitle>
             <PopularTokensItemsContainer>
-              {SAMPLE_DATA && SAMPLE_DATA.slice(0, 3).map((item, i) => (
-                <RowIcons
-                tokenName={item.name}
-                tokenFullName={item.fullName}
-                iconPath={TOKEN_ICONS.get(item.name)}
-                iconSize={30}
-                />
+              {popularTokensData && popularTokensData.map((item, i) => (
+                <PopularTokensItem 
+                  key={`popular-token-${item.id}`}>
+                    <RowIcons
+                      tokenName={item.name}
+                      tokenFullName={item.fullName}
+                      iconPath={TOKEN_ICONS.get(item.name)}
+                      iconSize={30}
+                    />
+
+                </PopularTokensItem>
               ))}
             </PopularTokensItemsContainer>
 
           </PopularTokens>
 
           <TokenListContainer>
-            <SectionTitle>Balance</SectionTitle>
-            {SAMPLE_DATA && SAMPLE_DATA.map((item, i) => (
+            {tokenList.length > 0 && (
+              <BalanceSectionTitle>Balance</BalanceSectionTitle>
+            )}
+            {tokenList.length > 0 ? tokenList.map((item, i) => (
               <TransactionDetails
                 key={`transaction-item-${item.name}`}
                 distribution={Distribution.SpaceBetween}
@@ -112,20 +142,23 @@ export const CreatePoolDialog = ({ closeCallback, showDialog }: CreatePoolDialog
                 LeftAdornment={
                   <Icons
                     name="Star"
-                    color={theme.color.primary.dark}
+                    color={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}
                     size={24}
-                    fill={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.color.white}/>}
+                    fill={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}/>}
                 LeftAdornmentCallback={() => handlerFavorite(i)}
                 tokenNames={[item.name]}
                 tokenFullName={item.fullName}
                 amount={item.amount}
-                isLast={i === SAMPLE_DATA.length - 1}
+                isLast={i === tokenList.length - 1}
               />
-            ))}
+            )) : (
+              <TokenNotFoundText>Token not found</TokenNotFoundText>
+            )}
           </TokenListContainer>
         </InnerContainer>
         <BottomContainer>
-          <ViewTokenListTitle>
+          <ViewTokenListTitle
+            onClick={handleViewTokenList}>
             View token list
           </ViewTokenListTitle>
         </BottomContainer>

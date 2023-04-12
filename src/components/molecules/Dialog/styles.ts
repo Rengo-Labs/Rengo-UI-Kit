@@ -1,18 +1,14 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 
-export const Backdrop = styled.div<{ isOpen?: boolean }>`
+export const Backdrop = styled.div`
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #715FF5;
-  opacity: ${props => (props.isOpen ? 0.5 : 0)};
-  visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
-  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-  z-index: 100;
-
-  // Any additional styles you want to add
+  background-color: ${({ theme }) => theme.color.primary.default};
+  opacity: 0.5;
 `;
 
 
@@ -42,7 +38,7 @@ export const DialogHeaderContainer = styled.div`
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   background: ${({ theme }) =>  theme.background.searchInput};
-  border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`};
+  border-bottom: ${({ theme }) => `1px solid ${theme.border.dialog}`};
 `;
 
 export const DialogHeader = styled.div`
@@ -62,7 +58,7 @@ export const DialogTitle = styled.p`
   font-size: 18px;
   line-height: 26px;
   letter-spacing: 0.02em;
-  color: ${({ theme }) => theme.color.primary.default};
+  color: ${({ theme }) => theme.color.modalText};
 `;
 
 export const CloseButton = styled.button`

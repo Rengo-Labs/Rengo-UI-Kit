@@ -40,7 +40,9 @@ export const TransactionDetails = ({
   tokenNameSymbols, amount, isLast}: TransactionProps) => {
   
   return (
-    <Wrapper distribution={distribution}>
+    <Wrapper 
+      distribution={distribution}
+      isLast={isLast}>
       <TokenInnerWrapper>
         {LeftAdornment && (
           <LeftAdornmentWrapper onClick={LeftAdornmentCallback}>

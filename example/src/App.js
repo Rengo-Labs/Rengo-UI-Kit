@@ -34,6 +34,22 @@ import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
 import { AlertTriangle, Star } from 'react-feather'
 
+const TOKEN_LIST_DATA_CREATE_POOL = [
+  { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
+  { id: 'd3r4rfgj7j7', name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000' },
+  { id: '9j90fjgf8he', name: 'USDT', fullName: 'Teather', amount: '10000' },
+  { id: '1jkjaasm2k1', name: 'USDC', fullName: 'USD Coin', amount: '10000' },
+  { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000'}
+]
+
+const POPULAR_TOKEN_LIST_DATA_CREATE_POOL = [
+  { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
+  { id: 'd3r4rfgj7j7', name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000' },
+  { id: '9j90fjgf8he', name: 'USDT', fullName: 'Teather', amount: '10000' },
+  { id: '1jkjaasm2k1', name: 'USDC', fullName: 'USD Coin', amount: '10000' },
+  { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000'}
+]
+
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
@@ -87,7 +103,7 @@ const App = () => {
     console.log('handleSettingOption', value)
     setSettingOption(value)
   }
-console.log('showCreatePoolDialog', showCreatePoolDialog);
+
   return (
     <UiProvider theme={theme[selectedTheme]}>
       <>
@@ -159,6 +175,7 @@ console.log('showCreatePoolDialog', showCreatePoolDialog);
             type='icon-label-helper-text'
             status=''
             label='Label test'
+            hasBackground={true}
             // Icon={<AlertTriangle color="red" size={24} />}
             Icon={
               <ButtonIcon
@@ -286,9 +303,13 @@ console.log('showCreatePoolDialog', showCreatePoolDialog);
           </Column>
         </Container>
         <Container>
-          <CreatePoolDialog
-            showDialog={showCreatePoolDialog}
-            closeCallback={() => setShowCreatePoolDialog(false)} />
+          {showCreatePoolDialog && (
+            <CreatePoolDialog
+              showDialog={showCreatePoolDialog}
+              closeCallback={() => setShowCreatePoolDialog(false)}
+              tokenListData={TOKEN_LIST_DATA_CREATE_POOL}
+              popularTokensData={POPULAR_TOKEN_LIST_DATA_CREATE_POOL} />
+          )}
         </Container>
       </>
     </UiProvider>
