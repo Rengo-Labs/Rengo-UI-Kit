@@ -28,14 +28,33 @@ import {
   LiquidityDetails,
   Settings,
   Slider,
-  LiquidityItemDetail
+  CreatePoolDialog,
+  LiquidityItemDetail,
+  RowIcon
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
 import { AlertTriangle, Star } from 'react-feather'
 
+const TOKEN_LIST_DATA_CREATE_POOL = [
+  { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
+  { id: 'd3r4rfgj7j7', name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000' },
+  { id: '9j90fjgf8he', name: 'USDT', fullName: 'Teather', amount: '10000' },
+  { id: '1jkjaasm2k1', name: 'USDC', fullName: 'USD Coin', amount: '10000' },
+  { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000'}
+]
+
+const POPULAR_TOKEN_LIST_DATA_CREATE_POOL = [
+  { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
+  { id: 'd3r4rfgj7j7', name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000' },
+  { id: '9j90fjgf8he', name: 'USDT', fullName: 'Teather', amount: '10000' },
+  { id: '1jkjaasm2k1', name: 'USDC', fullName: 'USD Coin', amount: '10000' },
+  { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000'}
+]
+
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
+  const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
   const [tabs, setTabs] = useState([
@@ -158,13 +177,14 @@ const App = () => {
             type='icon-label-helper-text'
             status=''
             label='Label test'
+            hasBackground={true}
             // Icon={<AlertTriangle color="red" size={24} />}
             Icon={
               <ButtonIcon
                 startIcon={ethToken}
                 name={'ETH'}
                 endIcon={downwardsArrowIcon}
-                actionCallBack={() => console.log('ButtonIcon clicked')}
+                actionCallBack={() => setShowCreatePoolDialog(prev => !prev)}
               />
             }
             iconSize='large'
@@ -288,6 +308,26 @@ const App = () => {
             <Slider
               callback={(selectedPercentage) => console.log('Slider', selectedPercentage)} />
           </Column>
+        </Container>
+        <Container>
+          {showCreatePoolDialog && (
+            <CreatePoolDialog
+              showDialog={showCreatePoolDialog}
+              closeCallback={() => setShowCreatePoolDialog(false)}
+              tokenListData={TOKEN_LIST_DATA_CREATE_POOL}
+              popularTokensData={POPULAR_TOKEN_LIST_DATA_CREATE_POOL} />
+          )}
+        </Container>
+        <Container>
+          <Row className='my-2'>
+          <RowIcon 
+            tokenName='WETH'
+            tokenFullName='Wrapped Ether'
+            Icon={ethLogo}
+            iconSize={30}
+          />
+
+          </Row>
         </Container>
       </>
     </UiProvider>
