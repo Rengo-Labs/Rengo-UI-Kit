@@ -80,6 +80,15 @@ export interface theme {
         },
         toggleButton: {
           default: string
+        },
+        table: {
+          header: {
+            background: string
+            text: string
+          },
+          body: {
+            text: string
+          }
         }
     }
     shadow: {
@@ -229,6 +238,15 @@ export const defaultTheme: theme = {
         },
         toggleButton: {
           default: '#6EEBD0',
+        },
+        table: {
+          header: {
+            background: '#FFFFFF',
+            text: '#715FF5'
+          },
+          body: {
+            text: '#545454'
+          }
         }
     },
     shadow: {
@@ -378,6 +396,15 @@ export const darkTheme: theme = {
         },
         toggleButton: {
           default: '#6EEBD0',
+        },
+        table: {
+          header: {
+            background: '#3A308B',
+            text: '#FFFFFF'
+          },
+          body: {
+            text: '#FFFFFF'
+          }
         }
     },
     shadow: {

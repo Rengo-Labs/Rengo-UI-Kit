@@ -27,7 +27,8 @@ import {
   SwapTabs,
   LiquidityDetails,
   Settings,
-  Slider
+  Slider,
+  LiquidityTable
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -92,7 +93,14 @@ const App = () => {
         <Container>
           <Row>
             <Column props={{ xs: 12 }}>
-              <div style={{ background: 'darkblue', height: '40px', display: 'flex', alignItems: 'center' }}>
+              <div
+                style={{
+                  background: 'darkblue',
+                  height: '40px',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
                 <Toggle
                   isActive={selectedTheme === 'dark'}
                   toggle={handleToggleTheme}
@@ -200,15 +208,18 @@ const App = () => {
           </Row>
           <Row>
             <Column props={{ xs: 12, md: 6 }}>
-              <SwapTabs tokenImg={ethLogo}/>
+              <SwapTabs tokenImg={ethLogo} />
             </Column>
-            <Column props={{  xs: 12, md: 6 }}>
-              <LiquidityDetails/>
+            <Column props={{ xs: 12, md: 6 }}>
+              <LiquidityDetails />
             </Column>
           </Row>
           <Row className='my-1'>
-            <Column props={{xs: 4}}>
-              <Settings/>
+            <Column props={{ xs: 4 }}>
+              <Settings />
+            </Column>
+            <Column props={{ xs: 8 }}>
+              <LiquidityTable />
             </Column>
           </Row>
         </Container>
@@ -228,7 +239,7 @@ const App = () => {
               Icon={ethCsprPair}
               // Icon={tetherToken}
               iconSize={45}
-              LeftAdornment={<Icons name="Star" color='#715FF5' size={24} />}
+              LeftAdornment={<Icons name='Star' color='#715FF5' size={24} />}
               // LeftAdornmentCallback={() => console.log('favorite clicked')}
               tokenNames={['Wrapper Ether', 'Wrapper Casper']}
               // tokenNames={['Wrapper Ether']}
@@ -259,28 +270,33 @@ const App = () => {
           </div>
         </Container>
         <Container>
-          <div style={{ width: '100%', padding: '20px 0 20px 0'}}>
+          <div style={{ width: '100%', padding: '20px 0 20px 0' }}>
             <HorizontalCard
-                icon={ethCsprPair}
-                hasFavorite={true}
-                tokenPairs={['ETH', 'CSPR']}
-                pairsLiquidity={[
-                  { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
-                  { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
-                ]}
-                userPoolInfo={['5.00100931 LP', '0.19%']}
-                trashHandler={() => console.log('horizontal card: delete')}
-                swapHandler={() => console.log('horizontal card: swap')}
-                viewHandler={() => console.log('horizontal card: view')}
-                addLiquidityHandler={() => console.log('horizontal card: add liquidity')}
-                favoriteHandler={() => console.log('horizontal card: favorite')}
+              icon={ethCsprPair}
+              hasFavorite={true}
+              tokenPairs={['ETH', 'CSPR']}
+              pairsLiquidity={[
+                { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
+                { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
+              ]}
+              userPoolInfo={['5.00100931 LP', '0.19%']}
+              trashHandler={() => console.log('horizontal card: delete')}
+              swapHandler={() => console.log('horizontal card: swap')}
+              viewHandler={() => console.log('horizontal card: view')}
+              addLiquidityHandler={() =>
+                console.log('horizontal card: add liquidity')
+              }
+              favoriteHandler={() => console.log('horizontal card: favorite')}
             />
           </div>
         </Container>
-        <Container >
-          <Column  props={{ xs: 10, md: 6 }}>
+        <Container>
+          <Column props={{ xs: 10, md: 6 }}>
             <Slider
-              callback={(selectedPercentage) => console.log('Slider', selectedPercentage)} />
+              callback={(selectedPercentage) =>
+                console.log('Slider', selectedPercentage)
+              }
+            />
           </Column>
         </Container>
       </>

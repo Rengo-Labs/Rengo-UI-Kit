@@ -23,6 +23,7 @@ export {
     SwapTabs,
     LiquidityDetails,
     Settings,
-    Slider
+    Slider,
+    LiquidityTable
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';
