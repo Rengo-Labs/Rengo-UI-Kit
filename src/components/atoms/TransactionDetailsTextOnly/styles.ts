@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 16px 0 16px 0;
 `;
@@ -22,7 +22,7 @@ export const LeftWrapper = styled.div`
   justify-content: center;
   align-items: center;
   color: ${({theme}) => theme.color.modalText};
-  padding-left: 20px;
+  /* padding-left: 20px; */
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
@@ -35,7 +35,7 @@ export const RightWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 0 5px 0 24px;
+  /* padding: 0 5px 0 24px; */
 `;
 
 export const TokenInfo = styled.p`

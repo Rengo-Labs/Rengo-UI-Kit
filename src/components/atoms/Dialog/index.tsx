@@ -22,7 +22,7 @@ export interface DialogProps {
 */
 
 export const Dialog = ({ title, children, onClose, isOpen }: DialogProps) => {
-  const theme = useTheme() as theme;
+  // const theme = useTheme() as theme;
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -39,6 +39,15 @@ export const Dialog = ({ title, children, onClose, isOpen }: DialogProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isOpen || !dialogRef?.current?.hasAttribute('open')) {
+      return
+    }
+  
+    dialogRef?.current?.close();
+  }, [isOpen])
+  
+
   const handleClose = () => {
     dialogRef?.current?.close();
     onClose();
@@ -49,18 +58,8 @@ export const Dialog = ({ title, children, onClose, isOpen }: DialogProps) => {
       {isOpen && <Backdrop />}
       <Container
         ref={dialogRef}
-        // ref={ref}
-        isOpen={isOpen}
         onPointerDown={(e) => e.stopPropagation()}
       >
-        <DialogHeaderContainer>
-          <DialogHeader>
-            <DialogTitle>{title}</DialogTitle>
-            <CloseButton onClick={handleClose}>
-              <Icons name='X' size={23} color={theme.color.modalText} />
-            </CloseButton>
-          </DialogHeader>
-        </DialogHeaderContainer>
         {children}
       </Container>
     </>

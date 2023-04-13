@@ -2,7 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import {
   BalanceSectionTitle,
   BottomContainer,
+  CloseButton,
   Container,
+  DialogHeader,
+  DialogHeaderContainer,
+  DialogTitle,
   InnerContainer,
   PopularTokens,
   PopularTokensItem,
@@ -40,7 +44,6 @@ const TOKEN_ICONS = new Map([
   React component for creating a pool dialog.
   @param {Object} props - The props object.
   @param {Function} props.closeCallback - The callback function to close the dialog.
-  @param {boolean} props.showDialog - A boolean to determine if the dialog should be shown.
   @param {Array} props.tokenListData - An array of TokenData objects containing information about the tokens in the pool. This is an array item example { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
   @param {Array} props.popularTokensData - An array of TokenData objects containing information about the popular tokens. The item is similar as the tokenListData item 
   @returns {JSX.Element} - The create pool dialog component.
@@ -48,10 +51,11 @@ const TOKEN_ICONS = new Map([
 
 export const CreatePoolDialog = ({ 
   closeCallback,
-  showDialog,
   tokenListData,
   popularTokensData
  }: CreatePoolDialogProps) => {
+
+  const [isOpen, setIsOpen] = useState<boolean>(true)
   const [tokenList, setTokenList] = useState<TokenData[]>(() => tokenListData)
   const [favoriteTokenList, setFavoriteTokenList] = useState<Map<number, boolean>>(new Map());
   const theme = useTheme() as theme;
@@ -84,12 +88,26 @@ export const CreatePoolDialog = ({
     console.log('View token list pressed');
   }
 
+  const handleClose = () => {
+    setIsOpen(prev => !prev)
+    closeCallback();
+  };
+
   return (
     <Dialog
       title='Create Pool'
-      onClose={() => closeCallback()}
-      isOpen={showDialog}>
+      onClose={() => handleClose()}
+      isOpen={isOpen}>
       <Container>
+        <DialogHeaderContainer>
+          <DialogHeader>
+            <DialogTitle>Create Pool</DialogTitle>
+            <CloseButton onClick={handleClose}>
+              <Icons name='X' size={23} color={theme.color.modalText} />
+            </CloseButton>
+          </DialogHeader>
+        </DialogHeaderContainer>
+        
         <InnerContainer>
           <SearchInputContainer>
             <Input

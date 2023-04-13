@@ -7,7 +7,6 @@ export interface TokenData {
 
 export interface CreatePoolDialogProps {
   closeCallback: () => void
-  showDialog: boolean
   tokenListData: TokenData[]
   popularTokensData: TokenData[]
 }

@@ -30,31 +30,18 @@ import {
   Slider,
   CreatePoolDialog,
   LiquidityItemDetail,
-  RowIcon
+  RowIcon,
+  RemoveLiquidityDialog
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
 import { AlertTriangle, Star } from 'react-feather'
-
-const TOKEN_LIST_DATA_CREATE_POOL = [
-  { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
-  { id: 'd3r4rfgj7j7', name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000' },
-  { id: '9j90fjgf8he', name: 'USDT', fullName: 'Teather', amount: '10000' },
-  { id: '1jkjaasm2k1', name: 'USDC', fullName: 'USD Coin', amount: '10000' },
-  { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000'}
-]
-
-const POPULAR_TOKEN_LIST_DATA_CREATE_POOL = [
-  { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
-  { id: 'd3r4rfgj7j7', name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000' },
-  { id: '9j90fjgf8he', name: 'USDT', fullName: 'Teather', amount: '10000' },
-  { id: '1jkjaasm2k1', name: 'USDC', fullName: 'USD Coin', amount: '10000' },
-  { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000'}
-]
+import { TOKEN_LIST_DATA_CREATE_POOL, POPULAR_TOKEN_LIST_DATA_CREATE_POOL, REMOVE_LIQUIDITY_DATA } from './data'
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
+  const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] = useState(false)
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
   const [tabs, setTabs] = useState([
@@ -104,6 +91,11 @@ const App = () => {
   const handleSettingOption = (value) => {
     console.log('handleSettingOption', value)
     setSettingOption(value)
+  }
+
+  const handleRemoveLiquidity = (liquidityPool) => {
+    setShowRemoveLiquidityDialog(false)
+    console.log('RemoveLidityPool', liquidityPool);
   }
 
   return (
@@ -267,22 +259,14 @@ const App = () => {
           </div>
         </Container>
         <Container>
-          <div
-            style={{
-              margin: '30px 0 30px 0',
-              minWidth: '350px',
-              maxWidth: '450px',
-              height: '66px',
-              background: 'white'
-            }}
-          >
+           <Column  props={{ xs: 9 }}>
             <TransactionDetailsTextOnly
               tokenInfo={[
                 '1 Wrapper Ether = 391.361884674 Wrapper Casper',
                 '1 Wrapper Casper = 0.002555180 Wrapper Ether'
               ]}
             />
-          </div>
+          </Column>
         </Container>
         <Container>
           <div style={{ width: '100%', padding: '20px 0 20px 0'}}>
@@ -295,7 +279,7 @@ const App = () => {
                   { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
                 ]}
                 userPoolInfo={['5.00100931 LP', '0.19%']}
-                trashHandler={() => console.log('horizontal card: delete')}
+                trashHandler={() => setShowRemoveLiquidityDialog(prev => !prev)}
                 swapHandler={() => console.log('horizontal card: swap')}
                 viewHandler={() => console.log('horizontal card: view')}
                 addLiquidityHandler={() => console.log('horizontal card: add liquidity')}
@@ -326,8 +310,17 @@ const App = () => {
             Icon={ethLogo}
             iconSize={30}
           />
-
           </Row>
+        </Container>
+        <Container>
+          {showRemoveLiquidityDialog && (
+            <RemoveLiquidityDialog
+              id='f90c4f56-ae0a-4da8-bf3d-541c80c89f87'
+              showDialog={showRemoveLiquidityDialog}
+              closeCallback={handleRemoveLiquidity}
+              liquidityPoolData={REMOVE_LIQUIDITY_DATA}
+              />
+          )}
         </Container>
       </>
     </UiProvider>
