@@ -20,6 +20,8 @@ export * from './Icons'
 export * from './Divider';
 export * from './Chart';
 export * from './Slider';
+export * from './Dialog';
+export * from './RowIcon';
 export * from './TableHeader';
 export * from './TableBody';
 

@@ -8,7 +8,8 @@ interface Props {
   tokenNameSymbol?: ReactNode
   children?: any
   leftAdornment?: ReactNode | ReactElement
-  iconSize?: IconSize 
+  iconSize?: IconSize
+  isLast?: boolean
 }
 
 export const Wrapper = styled.div<Props>`
@@ -17,7 +18,7 @@ export const Wrapper = styled.div<Props>`
   justify-content: ${(props) => props.distribution};
   align-items: center;
   background: ${({ theme }) => theme.color.tab.background};
-  border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`};
+  border-bottom: ${({ isLast, theme }) => isLast ? 'none' : `1px solid ${theme.border.default}`};
 `;
 
 export const TokenInnerWrapper = styled.div<Props>`
@@ -42,6 +43,7 @@ export const LeftAdornmentWrapper = styled.div<Props>`
   display: flex;
   align-items: center;
   margin-right: ${({ distribution }) => Distribution.Center !== distribution ? '5px' : '0px'};
+  cursor: pointer;
 `;
 
 export const TokenDetailsWrapper = styled.div<Props>`

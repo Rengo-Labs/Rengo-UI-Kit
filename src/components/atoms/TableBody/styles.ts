@@ -31,3 +31,7 @@ export const Text = styled.p`
   letter-spacing: 0.02em;
   color: ${({ theme }) => theme.color.table.body.text};
 `
+
+export const Icon = styled.img`
+  margin-right: 5px;
+`

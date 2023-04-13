@@ -1,4 +1,6 @@
 export * from './SwapTabs'
 export * from './LiquidityDetails'
 export * from './Settings'
-export * from './LiquidityTable'
+export * from './CreatePoolDialog'
+export * from './LiquidityItemDetail'
+export * from './BalanceTable'

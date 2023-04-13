@@ -2,15 +2,19 @@ import React, { useState } from 'react'
 import TableBody from '../../atoms/TableBody'
 import TableHeader from '../../atoms/TableHeader'
 import { Wrapper } from './styles'
+import btcTokenIcon from "../../../assets/icons/bitcoin-token.svg";
+import ethTokenIcon from "../../../assets/icons/eth-token.svg";
+import usdtTokenIcon from "../../../assets/icons/tether-token.svg";
 
 export interface IHeader {
-  id: number
-  crypto: string
-  mycrypto: number
-  '24h': string
-  '7d': string
-  '15d': string
-  '30d': string
+  id: number;
+  crypto: string;
+  cryptoIcon: string;
+  mycrypto: number;
+  '24h': string;
+  '7d': string;
+  '15d': string;
+  '30d': string;
 }
 
 const columns = [
@@ -50,6 +54,7 @@ const data: IHeader[] = [
   {
     id: 1,
     crypto: 'Bitcoin',
+    cryptoIcon: btcTokenIcon,
     mycrypto: 0.0062,
     '24h': '45.92%k',
     '7d': '51.92%k',
@@ -59,6 +64,7 @@ const data: IHeader[] = [
   {
     id: 2,
     crypto: 'Ethereum',
+    cryptoIcon: ethTokenIcon,
     mycrypto: 0.0162,
     '24h': '45.92%k',
     '7d': '45.92%k',
@@ -67,7 +73,8 @@ const data: IHeader[] = [
   },
   {
     id: 3,
-    crypto: 'Bitcoin Cash',
+    crypto: 'Usdt',
+    cryptoIcon: usdtTokenIcon,
     mycrypto: 0.00062,
     '24h': '45.92%k',
     '7d': '56.92%k',
@@ -76,12 +83,7 @@ const data: IHeader[] = [
   }
 ]
 
-interface TableHeaderState {
-  activeColumn: string
-  isAscending: boolean
-}
-
-export const LiquidityTable = () => {
+export const BalanceTable = () => {
   const [balanceData, setBalanceData] = useState<IHeader[]>(data)
 
   const handleSort = (key: string, isAscending: boolean) => {

@@ -15,6 +15,7 @@ export interface InputProps {
   Icon?: ReactNode
   iconSize?: IconSize
   hasBackground?: boolean
+  iconWrapperBackground?: string
   onChange: (e: string) => void
   validator?: (e: string) => string
 }
