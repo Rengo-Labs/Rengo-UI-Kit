@@ -23,5 +23,6 @@ export * from './Slider';
 export * from './Dialog';
 export * from './RowIcon';
 export * from './TableHeader';
-export * from './TableBody';
+export * from './TableBalanceBody';
+export * from './BalanceMobileItem';
 

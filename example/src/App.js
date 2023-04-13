@@ -244,7 +244,7 @@ const App = () => {
             <Column props={{ xs: 4 }}>
               <Settings />
             </Column>
-            <Column props={{ xs: 8 }}>
+            <Column props={{ xs: 12, md: 8 }}>
               <BalanceTable />
             </Column>
           </Row>

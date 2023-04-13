@@ -1,20 +1,23 @@
 import React, { useState } from 'react'
-import TableBody from '../../atoms/TableBody'
+import TableBody from '../../atoms/TableBalanceBody'
 import TableHeader from '../../atoms/TableHeader'
 import { Wrapper } from './styles'
-import btcTokenIcon from "../../../assets/icons/bitcoin-token.svg";
-import ethTokenIcon from "../../../assets/icons/eth-token.svg";
-import usdtTokenIcon from "../../../assets/icons/tether-token.svg";
+import btcTokenIcon from '../../../assets/icons/bitcoin-token.svg'
+import ethTokenIcon from '../../../assets/icons/eth-token.svg'
+import usdtTokenIcon from '../../../assets/icons/tether-token.svg'
+import { useDeviceType } from '../../../hooks/useDeviceType'
+import { DeviceType } from '../../../hooks/types'
+import { BalanceMobileItem } from '../../atoms'
 
 export interface IHeader {
-  id: number;
-  crypto: string;
-  cryptoIcon: string;
-  mycrypto: number;
-  '24h': string;
-  '7d': string;
-  '15d': string;
-  '30d': string;
+  id: number
+  crypto: string
+  cryptoIcon: string
+  mycrypto: number
+  '24h': string
+  '7d': string
+  '15d': string
+  '30d': string
 }
 
 const columns = [
@@ -56,8 +59,8 @@ const data: IHeader[] = [
     crypto: 'Bitcoin',
     cryptoIcon: btcTokenIcon,
     mycrypto: 0.0062,
-    '24h': '45.92%k',
-    '7d': '51.92%k',
+    '24h': '45.92%',
+    '7d': '51.92%',
     '15d': '90.5%',
     '30d': '90.5%'
   },
@@ -66,8 +69,8 @@ const data: IHeader[] = [
     crypto: 'Ethereum',
     cryptoIcon: ethTokenIcon,
     mycrypto: 0.0162,
-    '24h': '45.92%k',
-    '7d': '45.92%k',
+    '24h': '45.92%',
+    '7d': '45.92%',
     '15d': '80.5%',
     '30d': '99.5%'
   },
@@ -76,8 +79,8 @@ const data: IHeader[] = [
     crypto: 'Usdt',
     cryptoIcon: usdtTokenIcon,
     mycrypto: 0.00062,
-    '24h': '45.92%k',
-    '7d': '56.92%k',
+    '24h': '45.92%',
+    '7d': '56.92%',
     '15d': '70.5%',
     '30d': '92.5%'
   }
@@ -85,21 +88,33 @@ const data: IHeader[] = [
 
 export const BalanceTable = () => {
   const [balanceData, setBalanceData] = useState<IHeader[]>(data)
+  const deviceType = useDeviceType()
+
+  const isMobile = deviceType === DeviceType.MOBILE
 
   const handleSort = (key: string, isAscending: boolean) => {
     const sortedData = [...balanceData].sort((a, b) => {
       const sortMultiplier = isAscending ? 1 : -1
-      return a[key as keyof IHeader] > b[key as keyof IHeader] ? sortMultiplier : -sortMultiplier
+      return a[key as keyof IHeader] > b[key as keyof IHeader]
+        ? sortMultiplier
+        : -sortMultiplier
     })
     setBalanceData(sortedData)
   }
 
   return (
-    <Wrapper>
-      <TableHeader columns={columns} onSort={handleSort} />
-      {balanceData.map((row) => (
-        <TableBody key={row.id} row={row} />
-      ))}
+    <Wrapper isMobile={isMobile}>
+      {!isMobile && (
+        <TableHeader columns={columns} onSort={handleSort} />
+      )}
+      {balanceData.map((row) =>
+        isMobile ? (
+          <BalanceMobileItem key={row.id} row={row} />
+        ) : (
+          <TableBody key={row.id} row={row} />
+        )
+      )}
     </Wrapper>
   )
+  
 }
