@@ -1,8 +1,8 @@
-import React, {useState, createContext, useEffect } from 'react'
+import React, {createContext} from 'react'
 import {ThemeProvider} from 'styled-components/macro'
 import {GlobalStyles} from '../styles'
 import {theme} from './index'
-import { useTheme } from '../hooks'
+import {useTheme} from '../hooks'
 interface IUiProvider {
     children: any,
     themeName?: string
