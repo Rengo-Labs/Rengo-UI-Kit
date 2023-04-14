@@ -19,7 +19,6 @@ const POPULAR_TOKEN_LIST_DATA_CREATE_POOL = [
   { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000'}
 ]
 
-
 export default {
     title: "Components/Molecules/CreatePoolDialog",
     component: CreatePoolDialog,
@@ -30,7 +29,6 @@ const Template: ComponentStory<typeof CreatePoolDialog> = (args: CreatePoolDialo
 export const Default = Template.bind({});
 
 Default.args = {
-  showDialog: true,
   closeCallback: () => console.log('dialog is closed'),
   tokenListData: TOKEN_LIST_DATA_CREATE_POOL,
   popularTokensData: POPULAR_TOKEN_LIST_DATA_CREATE_POOL

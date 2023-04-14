@@ -13,7 +13,6 @@ export interface TokenData {
 
 export interface RemoveLiquidityDialogProps {
   id: string
-  showDialog: boolean
   closeCallback: (liquidityPool?: ILiquidityPoolState) => ILiquidityPoolState
   liquidityPoolData: TokenData[]
 }

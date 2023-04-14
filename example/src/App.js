@@ -296,7 +296,6 @@ const App = () => {
         <Container>
           {showCreatePoolDialog && (
             <CreatePoolDialog
-              showDialog={showCreatePoolDialog}
               closeCallback={() => setShowCreatePoolDialog(false)}
               tokenListData={TOKEN_LIST_DATA_CREATE_POOL}
               popularTokensData={POPULAR_TOKEN_LIST_DATA_CREATE_POOL} />
@@ -316,7 +315,6 @@ const App = () => {
           {showRemoveLiquidityDialog && (
             <RemoveLiquidityDialog
               id='f90c4f56-ae0a-4da8-bf3d-541c80c89f87'
-              showDialog={showRemoveLiquidityDialog}
               closeCallback={handleRemoveLiquidity}
               liquidityPoolData={REMOVE_LIQUIDITY_DATA}
               />

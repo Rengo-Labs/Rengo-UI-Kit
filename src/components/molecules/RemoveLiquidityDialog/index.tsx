@@ -9,7 +9,14 @@ import {
   SliderContainer,
   ToggleContainer,
   TransactionsContainer } from "./styles"
-import { Button, Dialog, Icons, Slider, Toggle, TransactionDetails, TransactionDetailsTextOnly } from "../../atoms"
+import {
+  Button,
+  Dialog,
+  Icons,
+  Slider,
+  Toggle,
+  TransactionDetails,
+  TransactionDetailsTextOnly } from "../../atoms"
 import { RemoveLiquidityDialogProps, ILiquidityPoolState } from "./types"
 import { Distribution } from "../../atoms/TransactionDetails/types"
 import { theme } from '../../../styles/themes/themes'
@@ -33,13 +40,22 @@ const TOKEN_ICONS = new Map([
   ['WETH, CSPR', wethCsprPairTokenIcon]
 ])
 
-export const RemoveLiquidityDialog = ({ id, showDialog, closeCallback, liquidityPoolData }: RemoveLiquidityDialogProps) => {
+/**
+  React component for a Remove Liquidity dialog box.
+  @component
+  @param {RemoveLiquidityDialogProps} props - The props object containing the following properties:
+  @param {string} props.id - The ID of the liquidity pool.
+  @param {Function} props.closeCallback - A function to be called when the dialog is closed, passing the liquidity pool state as an optional argument.
+  @param {TokenData[]} props.liquidityPoolData - An array of token data for the liquidity pool.
+  @returns {JSX.Element} - A JSX element representing the Remove Liquidity dialog box.
+*/
+export const RemoveLiquidityDialog = ({ id, closeCallback, liquidityPoolData }: RemoveLiquidityDialogProps) => {
   const initialState: ILiquidityPoolState = {
     liquidityPercentage: 0,
     removeLiquidityCSPR: false,
     id
   };
-
+  
   const theme = useTheme() as theme;
   const [liquidityPool, setLiquidityPool] = useState<ILiquidityPoolState>(() => initialState)
 
@@ -67,9 +83,7 @@ export const RemoveLiquidityDialog = ({ id, showDialog, closeCallback, liquidity
 
   return (
     <Dialog
-      title="Remove Liquidity"
       onClose={() => closeCallback()}
-      isOpen={showDialog}
       >
       <Container>
         <DialogHeaderContainer>
