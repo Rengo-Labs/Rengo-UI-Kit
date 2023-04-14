@@ -1,11 +1,12 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {Input} from "../../../src/components";
 import {InputProps} from "../../../src/components/atoms/Input/types";
 import {ButtonIcon} from "../../../src/components";
-// @ts-ignore
-import ethToken from '../../../example/src/assets/eth-token.svg'
-// @ts-ignore
-import downwardsArrowIcon from '../../../example/src/assets/downwards-arrow-icon.svg'
+import ethToken from '../../assets/eth-token.svg'
+import downwardsArrowIcon from '../../assets/downwards-arrow-icon.svg'
+import {IconSize, Type} from "../../../src/components/atoms/Input/types";
+
 export default {
   title: "Components/Atoms/Input",
   component: Input,
@@ -29,11 +30,10 @@ export const Default = Template.bind({});
 Default.args = {
   placeholder: 'PlaceHolder_input',
   helperText: 'Something is wrong!',
-  type: 'icon-label-helper-text',
+  type: Type.IconLabelHelperText,
   label: 'Label test',
-  // Icon={<AlertTriangle color="red" size={24} />}
   Icon: icon,
-  iconSize:'large',
-  onChange: () => console.log('Input changed'),
-  validator: () => console.log('Input validator')
+  iconSize: IconSize.Large,
+  onChange: (value : string) => { console.log('Input changed', value); return value},
+  validator: (value: string) => { console.log('Input validator', value); return value}
 };

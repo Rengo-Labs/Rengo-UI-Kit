@@ -1,7 +1,7 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {TokenOption} from "../../../src/components";
-// @ts-ignore
-import ethLogo from '../../../example/src/assets/eth-logo.svg';
+import ethLogo from '../../assets/eth-logo.svg';
 export default {
     title: "Components/Atoms/TokenOption",
     component: TokenOption,

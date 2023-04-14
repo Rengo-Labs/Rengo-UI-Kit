@@ -1,10 +1,11 @@
 import React from 'react';
 import { Ellipse, TokenStyled, WrapperStyled } from './styles';
 
-interface TokenOptionProps {
+export interface TokenOptionProps {
     tokenImg: any;
     token: string;
     option1: boolean;
+    showColor?: boolean;
 }
 
 /**
@@ -15,12 +16,14 @@ interface TokenOptionProps {
  * @returns  {JSX.Element} The rendered the key-value text.
  */
 
-export const TokenOption = ({tokenImg, token, option1}: TokenOptionProps) => {
+export const TokenOption = ({tokenImg, token, option1, showColor = true}: TokenOptionProps) => {
     return (
         <WrapperStyled>
             <img src={tokenImg} alt={token}/>
             <TokenStyled>{token}</TokenStyled>
-            <Ellipse isOption1={option1}/>
+            {
+              showColor && <Ellipse isOption1={option1}/>
+            }
         </WrapperStyled>
     )
 }

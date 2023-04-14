@@ -7,4 +7,4 @@ export const Item = styled.div`
 
 export const TabContent = styled(Row)`
   background-color: ${({ theme }) => theme.color.tab.background};
-`
+`;

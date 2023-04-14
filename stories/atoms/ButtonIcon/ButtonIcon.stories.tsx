@@ -1,9 +1,9 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {ButtonIcon} from "../../../src/components";
-// @ts-ignore
-import ethToken from '../../../example/src/assets/eth-token.svg';
-// @ts-ignore
-import downwardsArrowIcon from "../../../example/src/assets/downwards-arrow-icon.svg";
+import ethToken from '../../assets/eth-token.svg';
+import downwardsArrowIcon from "../../assets/downwards-arrow-icon.svg";
+
 export default {
   title: "Components/Atoms/ButtonIcon",
   component: ButtonIcon,

@@ -1,3 +1,4 @@
+import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {KeyValueText} from "../../../src/components";
 
@@ -8,7 +9,7 @@ export default {
 
 // Create a master template for mapping args to render the KeyValueText component
 
-const Template: ComponentStory<typeof KeyValueText> = (args) => <KeyValueText {...args} />;
+const Template: ComponentStory<typeof KeyValueText> = (args) => <div style={{width: '400px'}}><KeyValueText {...args} /></div>;
 export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {keyText: 'Swapping Through', valueText: 'CasperSwap Pool'};

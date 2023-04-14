@@ -1,5 +1,5 @@
 import React from 'react'
-import {CoinCardWrapped, CoinCardFooter, InputWrapped} from './styles'
+import {CoinCardWrapped, CoinCardFooter, InputWrapped, ButtonWrapped} from './styles'
 import {Header, Button, Input, ButtonIcon} from '../../atoms'
 import {Type, Status} from '../../atoms/Input/types'
 
@@ -7,6 +7,7 @@ export interface CoinCardPros {
   startIcon: string,
   endIcon: string,
   iconSize?: any,
+  title: string,
   tokenBalance: string,
   tokenName: string,
   tokenPrice: string,
@@ -22,6 +23,7 @@ export interface CoinCardPros {
  * @param startIcon - it shows the selected token icon currently
  * @param endIcon - it shows the arrow icon to show a token list to be selected
  * @param iconSize
+ * @param title - Text 
  * @param tokenBalance - it's the total balance of the selected token.
  * @param tokenName - it's the token name of the selected token.
  * @param tokenPrice - it's the token price expressed in usd.
@@ -32,7 +34,7 @@ export interface CoinCardPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export const CoinCard = ({startIcon, endIcon, iconSize, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value}: CoinCardPros) => {
+export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value}: CoinCardPros) => {
 
   const onHalfButton = () => {
     onChangeValue(parseFloat(tokenBalance)/2)
@@ -44,33 +46,35 @@ export const CoinCard = ({startIcon, endIcon, iconSize, tokenBalance, tokenName,
 
   return (
     <CoinCardWrapped>
-      <Header text="From" balance={tokenBalance}/>
-      <Input
-        placeholder={placeholder}
-        helperText=''
-        label=''
-        status={Status.Success}
-        type={Type.IconLabelHelperText}
-        rightAdornment={''}
-        Icon={
-          <ButtonIcon
-            startIcon={startIcon}
-            name={tokenName}
-            endIcon={endIcon}
-            actionCallBack={onChangeToken}
-          />
-        }
-        value={value}
-        iconSize={iconSize}
-        onChange={onChangeValue}
-        validator={validator}
-      />
+      <Header text={title} balance={tokenBalance}/>
+      <InputWrapped>
+        <Input
+          placeholder={placeholder}
+          helperText=''
+          label=''
+          status={Status.Default}
+          type={Type.IconLabelHelperText}
+          rightAdornment={''}
+          Icon={
+            <ButtonIcon
+              startIcon={startIcon}
+              name={tokenName}
+              endIcon={endIcon}
+              actionCallBack={onChangeToken}
+            />
+          }
+          value={value}
+          iconSize={iconSize}
+          onChange={onChangeValue}
+          validator={validator}
+        />
+      </InputWrapped>
       <CoinCardFooter>
-        <InputWrapped left={true}>$ {tokenPrice}</InputWrapped>
-        <InputWrapped left={false}>
+        <ButtonWrapped left={true}>$ {tokenPrice}</ButtonWrapped>
+        <ButtonWrapped left={false}>
           <Button type="small" props={{ onClick: () => onHalfButton()}}>Half</Button>
           <Button type="small" props={{ onClick: () => onMaxButton()}}>Max</Button>
-        </InputWrapped>
+        </ButtonWrapped>
       </CoinCardFooter>
     </CoinCardWrapped>
   )

@@ -3,17 +3,20 @@ import { Column, Divider, KeyValueInput, KeyValueText } from '../../atoms'
 import { Wrapper } from './styles'
 import { InputType } from '../../atoms/KeyValueInput/types'
 
-export const SwapMoreInfo = () => {
-  const [SlippageTolerance, setSlippageTolerance] = useState<string>('0.05')
-  const [NetworkGasFee, setNetworkGasFee] = useState<string>('15')
+/**
+ * Render a More info component.
+ * @returns  {JSX.Element} The rendered a list of key-value text and inputs.
+ */
 
-  const handleSlippageTolerance = (value: string) => {
-    console.log('handleSlippageTolerance', value)
+export const SwapMoreInfo = () => {
+  const [SlippageTolerance, setSlippageTolerance] = useState<number>(0.05)
+  const [NetworkGasFee, setNetworkGasFee] = useState<number>(15)
+
+  const handleSlippageTolerance = (value: number) => {
     setSlippageTolerance(value)
   }
 
-  const handleNetworkGasFee = (value: string) => {
-    console.log('handleNetworkGasFee', value)
+  const handleNetworkGasFee = (value: number) => {
     setNetworkGasFee(value)
   }
 

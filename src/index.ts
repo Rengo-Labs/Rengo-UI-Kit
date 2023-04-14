@@ -18,8 +18,18 @@ export {
     KeyValueInput,
     HorizontalCard,
     SettingOption,
+    Icons,
     Divider,
     SwapTabs,
-    CoinCard
+    CoinCard,
+    LiquidityDetails,
+    Settings,
+    Slider,
+    CreatePoolDialog,
+    LiquidityItemDetail,
+    RowIcon,
+    Dialog,
+    RemoveLiquidityDialog,
+    BalanceTable
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

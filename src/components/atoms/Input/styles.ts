@@ -5,16 +5,18 @@ interface Props {
   status?: Status,
   type?: Type
   iconSize?: IconSize;
+  hasBackground?: boolean;
+  iconWrapperBackground?: string
 }
 
 
 export const InputWrapper = styled.div`
   width: 100%;
-  postion: relative !important;
+  position: relative !important;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 8px 16px;
+  /* padding: 8px 16px; */
   gap: 4px;
 `;
 
@@ -100,8 +102,8 @@ export const InputStyled = styled.input<Props>`
   }
 
   @media (min-width: 800px) {
-    ${({ theme }) => css`
-      background-color: ${theme.background.searchInput};
+    ${({ theme, hasBackground }) => css`
+      background-color: ${hasBackground ? theme.background.default : theme.background.searchInput};
     `}
     ${({ theme }) => css`
       color: ${theme.color.default};
@@ -129,7 +131,7 @@ export const InputStyled = styled.input<Props>`
     }
     
     return `1px solid${border.default};`
-  }}
+  }};
 
   ${({ type, iconSize }) => { 
       if (!type || !iconSize) {
@@ -147,7 +149,7 @@ export const InputStyled = styled.input<Props>`
         });
       `}
     }
-  }
+  };
 
   &:focus {
     outline: none;
@@ -199,6 +201,7 @@ export const InputStyled = styled.input<Props>`
       return `2px solid ${border.darkLilac}`
     }}
   }
+  
   &:active:hover {
     border: none;
   }
@@ -216,16 +219,20 @@ export const IconWrapper = styled.div<Props>`
   align-items: center;
   justify-content: center;
   gap: 4px;
-  height: ${({ iconSize }) => iconSize === IconSize.Small ? '32px;' : 'auto;' }
-  width: ${({ iconSize }) => iconSize === IconSize.Small ? '32px;' : 'auto;' }
+  height: ${({ iconSize }) => iconSize === IconSize.Small ? '32px;' : 'auto;' };
+  width: ${({ iconSize }) => iconSize === IconSize.Small ? '32px;' : 'auto;' };
   border-radius: 60px;
 
   @media (min-width: 430px) {
     margin: auto 16px;
   }
 
-  background: ${({status, theme, iconSize}) => {
+  background: ${({status, theme, iconSize, iconWrapperBackground}) => {
     const { background } = theme
+
+    if (iconWrapperBackground) {
+      return iconWrapperBackground
+    }
     
     if (iconSize === IconSize.Large) {
       return 'none'

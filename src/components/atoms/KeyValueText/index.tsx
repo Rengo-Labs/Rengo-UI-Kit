@@ -1,9 +1,10 @@
 import React from 'react'
 import { KeyStyle, ValueStyle, WrapperStyled } from './styles';
 
-interface KeyValueTextProps {
+export interface KeyValueTextProps {
   keyText: string;
   valueText: string;
+  isMoney?: boolean;
 }
 
 /**
@@ -13,12 +14,12 @@ interface KeyValueTextProps {
  * @returns  {JSX.Element} The rendered the key-value text.
  */
 
-export const KeyValueText = ({keyText, valueText}: KeyValueTextProps) => {
+export const KeyValueText = ({keyText, valueText, isMoney}: KeyValueTextProps) => {
 
   return (
     <WrapperStyled>
       <KeyStyle>{keyText}</KeyStyle>
-      <ValueStyle>{valueText}</ValueStyle>
+      <ValueStyle>{isMoney && '$'}{valueText}</ValueStyle>
     </WrapperStyled>
   )
 }

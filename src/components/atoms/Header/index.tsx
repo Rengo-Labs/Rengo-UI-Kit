@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextStyle, WrapperStyle } from './styles'
 
-interface IHeaderProps {
+export interface IHeaderProps {
   text: string
   balance: string
 }

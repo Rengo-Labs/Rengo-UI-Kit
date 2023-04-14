@@ -13,10 +13,22 @@ export const CoinCardWrapped = styled.div`
 
 export const CoinCardFooter = styled.div`
   display: flex;
-  padding: 8px 16px;
+  padding: 0px 8px 8px 16px;
+  
+  @media (min-width: 430px) {
+    padding: 0px 32px 8px 48px;    
+  }
 `
 
-export const InputWrapped = styled.div<any>`
+export const InputWrapped = styled.div`
+  padding: 12px 8px 8px 8px;
+  
+  @media (min-width: 430px) {
+    padding: 16px 32px 8px 32px; 
+  }
+`
+
+export const ButtonWrapped = styled.div<any>`
   display: flex;
   flex: 1;
   gap: 8px;

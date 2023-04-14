@@ -41,7 +41,7 @@ export const ButtonStyled = styled.button`
   align-items: center;
   padding: 16px 64px;
   gap: 4px;
-  width: 222px;
+  width: 100%;
   height: 56px;
   border-radius: 8px;
   background-color: ${({theme}) => theme.btnbackgroundColor};

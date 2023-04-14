@@ -7,7 +7,7 @@ interface ITab {
   isActive: boolean
 }
 
-interface ITabsProps {
+export interface ITabsProps {
   tabs: ITab[];
   onClick: (id: number) => void;
 }
