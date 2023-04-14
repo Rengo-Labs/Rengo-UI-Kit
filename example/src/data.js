@@ -26,3 +26,36 @@ export const REMOVE_LIQUIDITY_DATA = [
   { id: 'c9c843b', tokenNames: ['Wrapper Ether'], tokenNameSymbols: ['WETH'], amount: '0,3', tokenImg: ethTokenIcon },
   { id: '1qwski4', tokenNames: ['Wrapper Casper'], tokenNameSymbols: ['CSPR'], amount: '0,3', tokenImg: cstTokenIcon }
 ]
+
+export const BALANCE_TABLE_DATA = [
+  {
+    id: 1,
+    crypto: 'Bitcoin',
+    cryptoIcon: btcTokenIcon,
+    mycrypto: 0.0062,
+    '24h': '45.92%',
+    '7d': '51.92%',
+    '15d': '90.5%',
+    '30d': '90.5%'
+  },
+  {
+    id: 2,
+    crypto: 'Ethereum',
+    cryptoIcon: ethTokenIcon,
+    mycrypto: 0.0162,
+    '24h': '45.92%',
+    '7d': '45.92%',
+    '15d': '80.5%',
+    '30d': '99.5%'
+  },
+  {
+    id: 3,
+    crypto: 'Usdt',
+    cryptoIcon: usdtTokenIcon,
+    mycrypto: 0.00062,
+    '24h': '45.92%',
+    '7d': '56.92%',
+    '15d': '70.5%',
+    '30d': '92.5%'
+  }
+]

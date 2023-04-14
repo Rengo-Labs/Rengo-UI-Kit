@@ -28,6 +28,7 @@ export {
     LiquidityItemDetail,
     RowIcon,
     Dialog,
-    RemoveLiquidityDialog
+    RemoveLiquidityDialog,
+    BalanceTable
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';
