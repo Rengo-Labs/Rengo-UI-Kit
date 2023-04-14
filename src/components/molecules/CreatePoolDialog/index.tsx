@@ -32,14 +32,6 @@ import { useTheme } from 'styled-components'
 import { RowIcon } from '../../atoms/RowIcon'
 import { CreatePoolDialogProps, TokenData } from './types'
 
-const TOKEN_ICONS = new Map([
-  ['CST', cstTokenIcon],
-  ['WBTC', btcTokenIcon],
-  ['USDT', usdtTokenIcon],
-  ['USDC', usdcTokenIcon],
-  ['WETH', ethTokenIcon],
-])
-
 /**
   React component for creating a pool dialog.
   @param {Object} props - The props object.
@@ -52,10 +44,8 @@ const TOKEN_ICONS = new Map([
 export const CreatePoolDialog = ({ 
   closeCallback,
   tokenListData,
-  popularTokensData
+  popularTokensData,
  }: CreatePoolDialogProps) => {
-
-  const [isOpen, setIsOpen] = useState<boolean>(true)
   const [tokenList, setTokenList] = useState<TokenData[]>(() => tokenListData)
   const [favoriteTokenList, setFavoriteTokenList] = useState<Map<number, boolean>>(new Map());
   const theme = useTheme() as theme;
@@ -89,15 +79,13 @@ export const CreatePoolDialog = ({
   }
 
   const handleClose = () => {
-    setIsOpen(prev => !prev)
     closeCallback();
   };
 
   return (
     <Dialog
-      title='Create Pool'
       onClose={() => handleClose()}
-      isOpen={isOpen}>
+      >
       <Container>
         <DialogHeaderContainer>
           <DialogHeader>
@@ -133,7 +121,7 @@ export const CreatePoolDialog = ({
                     <RowIcon
                       tokenName={item.name}
                       tokenFullName={item.fullName}
-                      Icon={TOKEN_ICONS.get(item.name)}
+                      Icon={item.tokenImg}
                       iconSize={30}
                     />
 
@@ -151,7 +139,7 @@ export const CreatePoolDialog = ({
               <TransactionDetails
                 key={`transaction-item-${item.name}`}
                 distribution={Distribution.SpaceBetween}
-                Icon={TOKEN_ICONS.get(item.name)}
+                Icon={item.tokenImg}
                 iconSize={transactionDetailsIconSize.Small}
                 LeftAdornment={
                   <Icons

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { UiProvider, theme } from 'rengo-ui-kit'
-import ethToken from './assets/eth-token.svg'
-import tetherToken from './assets/tether-token.svg'
-import ethCsprPair from './assets/eth-cspr-pair.svg'
+import ethToken from './assets/icons/eth-token.svg'
+import tetherToken from './assets/icons/tether-token.svg'
+import ethCsprPair from './assets/icons/eth-cspr-pair.svg'
 import {
   Container,
   Row,
@@ -33,8 +33,8 @@ import {
   RowIcon,
   RemoveLiquidityDialog
 } from 'rengo-ui-kit'
-import ethLogo from './assets/eth-logo.svg'
-import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
+import ethLogo from './assets/icons/eth-logo.svg'
+import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
 import { AlertTriangle, Star } from 'react-feather'
 import { TOKEN_LIST_DATA_CREATE_POOL, POPULAR_TOKEN_LIST_DATA_CREATE_POOL, REMOVE_LIQUIDITY_DATA } from './data'
 

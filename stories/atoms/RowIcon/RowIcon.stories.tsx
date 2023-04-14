@@ -2,8 +2,8 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { RowIcon } from "../../../src/components";
 import { IconSize, RowIconProps } from "../../../src/components/atoms/RowIcon/types";
-import cstTokenIcon from "../../../src/assets/icons/casper-token.svg";
-
+// import cstTokenIcon from "../../src/assets/casper-token.svg";
+import cstTokenIcon from '../../assets/casper-token.svg'
 export default {
   title: "Components/Atoms/RowIcon",
   component: RowIcon,

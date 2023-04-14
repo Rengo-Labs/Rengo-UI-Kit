@@ -20,25 +20,8 @@ import {
 import { RemoveLiquidityDialogProps, ILiquidityPoolState } from "./types"
 import { Distribution } from "../../atoms/TransactionDetails/types"
 import { theme } from '../../../styles/themes/themes'
-
-import btcTokenIcon from "../../../assets/icons/bitcoin-token.svg";
-import ethTokenIcon from "../../../assets/icons/eth-token.svg";
-import cstTokenIcon from "../../../assets/icons/casper-token.svg";
-import usdtTokenIcon from "../../../assets/icons/tether-token.svg";
-import usdcTokenIcon from "../../../assets/icons/usdc-token.svg";
-import wethCsprPairTokenIcon from "../../../assets/icons/eth-cspr-pair.svg";
 import { useTheme } from "styled-components"
 import { Variant } from "../../atoms/Toggle/types"
-
-const TOKEN_ICONS = new Map([
-  ['CSPR', cstTokenIcon],
-  ['CST', cstTokenIcon],
-  ['WBTC', btcTokenIcon],
-  ['USDT', usdtTokenIcon],
-  ['USDC', usdcTokenIcon],
-  ['WETH', ethTokenIcon],
-  ['WETH, CSPR', wethCsprPairTokenIcon]
-])
 
 /**
   React component for a Remove Liquidity dialog box.
@@ -105,7 +88,7 @@ export const RemoveLiquidityDialog = ({ id, closeCallback, liquidityPoolData }: 
               <TransactionDetails
                 key={`transaction-details-${item.id}`}
                 distribution={Distribution.SpaceEvenly}
-                Icon={TOKEN_ICONS.get(item.tokenNameSymbols.join(", "))}
+                Icon={item.tokenImg}
                 iconSize={45}
                 tokenNames={item.tokenNames}
                 tokenNameSymbols={item.tokenNameSymbols}
