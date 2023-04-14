@@ -1,15 +1,25 @@
-import React, {useState} from 'react'
+import React, {useState, createContext, useEffect } from 'react'
 import {ThemeProvider} from 'styled-components/macro'
 import {GlobalStyles} from '../styles'
+import {theme} from './index'
+import { useTheme } from '../hooks'
+interface IUiProvider {
+    children: any,
+    themeName?: string
+}
 
-const UiProvider = (props: any) => {
-    console.log('UiProvider', props)
-    const {children, theme} = props
+export const UIProviderContext = createContext({} as any)
+const UiProvider = (props: IUiProvider) => {
+    const {children, themeName} = props
+    const [selectedTheme, toggleTheme] = useTheme(themeName || 'default')
+
     return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyles/>
-            <>{children}</>
-        </ThemeProvider>
+        <UIProviderContext.Provider value={{toggleTheme}}>
+            <ThemeProvider theme={selectedTheme === 'default' ? theme.default : theme.dark}>
+                <GlobalStyles/>
+                <>{children}</>
+            </ThemeProvider>
+        </UIProviderContext.Provider>
     )
 }
 export default UiProvider

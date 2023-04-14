@@ -1,4 +1,5 @@
-export {UiProvider, theme} from './providers';
+export {UiProvider, theme, UIProviderContext} from './providers';
+export {useTheme, useDeviceType} from './hooks';
 export {
     Container,
     Row,

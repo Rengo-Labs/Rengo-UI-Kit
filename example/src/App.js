@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { UiProvider, theme } from 'rengo-ui-kit'
+import { UiProvider } from 'rengo-ui-kit'
 import ethToken from './assets/icons/eth-token.svg'
 import tetherToken from './assets/icons/tether-token.svg'
 import ethCsprPair from './assets/icons/eth-cspr-pair.svg'
@@ -61,7 +61,6 @@ const App = () => {
       isActive: false
     }
   ])
-
   const inputValidator = (value) => {
     console.log('validating', value)
   }
@@ -104,7 +103,7 @@ const App = () => {
   }
 
   return (
-    <UiProvider theme={theme[selectedTheme]}>
+    <UiProvider themeName={selectedTheme}>
       <>
         <Container>
           <Row>
@@ -323,7 +322,7 @@ const App = () => {
         </Container>
         <Container>
           <Row className='my-2'>
-          <RowIcon 
+          <RowIcon
             tokenName='WETH'
             tokenFullName='Wrapped Ether'
             Icon={ethLogo}

@@ -1,4 +1,4 @@
-import UiProvider from './UiProvider'
+import UiProvider, { UIProviderContext } from './UiProvider'
 import { darkTheme, defaultTheme } from '../styles'
 
 interface theme {
@@ -13,5 +13,6 @@ const theme: theme = {
 
 export {
     UiProvider,
-    theme
+    theme,
+    UIProviderContext
 }
