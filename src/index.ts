@@ -21,6 +21,7 @@ export {
     Icons,
     Divider,
     SwapTabs,
+    CoinCard,
     LiquidityDetails,
     Settings,
     Slider,
