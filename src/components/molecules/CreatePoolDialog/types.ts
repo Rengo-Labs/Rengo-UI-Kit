@@ -3,11 +3,11 @@ export interface TokenData {
   name: string
   fullName: string
   amount: string
+  tokenImg: string
 }
 
 export interface CreatePoolDialogProps {
   closeCallback: () => void
-  showDialog: boolean
   tokenListData: TokenData[]
   popularTokensData: TokenData[]
 }

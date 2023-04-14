@@ -1,16 +1,18 @@
 import styled, { css } from 'styled-components'
 
 interface Props {
-  isSelected: boolean
+  isSelected?: boolean
+  // thumbPosition?: number
 }
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<Props>`
   width: 93%;
   -webkit-appearance: none;
   height: 0px;
@@ -28,8 +30,8 @@ export const Input = styled.input`
     border-radius: 50%;
     background: ${({ theme }) => theme.background.sliderThumb};
     cursor: pointer;
-    transition: transform 3s ease-in-out;
-    animation: slideIn 3s ease-out;
+    transition: transform 0.9s ease-in-out;
+    /* animation: slideIn 3s ease-out; */
   }
 
   ::-moz-range-thumb {
@@ -53,6 +55,8 @@ export const PercentageContainer = styled.div`
 
 export const PercentageLabel = styled.span<Props>`
   cursor: pointer;
+  width: 55px;
+  text-align: center;
   font-size: 14px;
   line-height: 18px;
   font-weight: ${({ isSelected }) => isSelected ? 600 : 400};

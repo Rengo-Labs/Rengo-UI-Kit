@@ -13,7 +13,7 @@ interface TableHeaderProps {
   onSort: (key: string, isAscending: boolean) => void
 }
 
-const TableHeader = ({ columns, onSort }: TableHeaderProps) => {
+export const TableHeader = ({ columns, onSort }: TableHeaderProps) => {
 
   return (
     <Head>
