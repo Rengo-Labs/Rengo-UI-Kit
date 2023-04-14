@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Input = styled.input<Props>`
