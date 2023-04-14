@@ -22,9 +22,10 @@ import {
   KeyValueInput,
   InputType,
   SettingOption,
-  HorizontalCard,
   Icons,
   SwapTabs,
+  HorizontalCard,
+  CoinCard,
   LiquidityDetails,
   Settings,
   Slider,
@@ -49,6 +50,7 @@ const App = () => {
   const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] = useState(false)
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
+  const [cardValue, setCardValue] = useState('')
   const [tabs, setTabs] = useState([
     {
       id: 1,
@@ -72,6 +74,7 @@ const App = () => {
 
   const handlerInput = (value) => {
     console.log('handlerInput', value)
+    setCardValue(value)
   }
 
   const handlerTab = (id) => {
@@ -338,6 +341,24 @@ const App = () => {
               liquidityPoolData={REMOVE_LIQUIDITY_DATA}
               />
           )}
+        </Container>
+        <Container>
+          <Row>
+            <Column props={{ xs: 6 }}>
+              <CoinCard startIcon={ethToken}
+                        endIcon={downwardsArrowIcon}
+                        iconSize='large'
+                        tokenBalance='20000.00'
+                        tokenName='ETH'
+                        tokenPrice='34.33'
+                        placeholder='0.000000000'
+                        onChangeToken={() => console.log("Change token")}
+                        onChangeValue={handlerInput}
+                        validator={inputValidator}
+                        value={cardValue}
+              />
+            </Column>
+          </Row>
         </Container>
       </>
     </UiProvider>

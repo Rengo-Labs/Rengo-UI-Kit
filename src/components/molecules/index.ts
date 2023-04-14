@@ -1,4 +1,5 @@
 export * from './SwapTabs'
+export * from './CoinCard'
 export * from './LiquidityDetails'
 export * from './Settings'
 export * from './CreatePoolDialog'

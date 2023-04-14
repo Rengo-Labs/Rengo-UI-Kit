@@ -13,11 +13,12 @@ export interface InputProps {
   helperText?: string
   rightAdornment?: ReactNode | string
   Icon?: ReactNode
-  iconSize?: IconSize
+  iconSize?: IconSize,
+  onChange: (e: string) => void
+  validator?: (e: string) => string,
+  value?: any,
   hasBackground?: boolean
   iconWrapperBackground?: string
-  onChange: (e: string) => void
-  validator?: (e: string) => string
 }
 
 export enum Status {

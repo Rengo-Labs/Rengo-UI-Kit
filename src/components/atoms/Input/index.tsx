@@ -33,7 +33,8 @@ export const Input = ({
   iconSize,
   iconWrapperBackground,
   onChange,
-  validator }: InputProps) => {
+  validator,
+  value}: InputProps) => {
   const { getInputProps } = useInput()
 
   return (
@@ -64,6 +65,7 @@ export const Input = ({
             iconSize,
             hasBackground
           })}
+          value={value}
          />
          
         {rightAdornment && (
