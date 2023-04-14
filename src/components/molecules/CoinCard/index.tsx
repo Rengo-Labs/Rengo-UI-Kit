@@ -12,7 +12,7 @@ export interface CoinCardPros {
   tokenName: string,
   tokenPrice: string,
   placeholder: string,
-  value: any,
+  value: string | number,
   onChangeToken: any,
   onChangeValue: any,
   validator?: any
