@@ -1,13 +1,8 @@
 import {useEffect, useState} from 'react';
-
-interface IUseTheme {
-    themeName?: string | undefined;
-}
-
 export const useTheme = (themeName: string) => {
     const [selectedTheme, setSelectedTheme] = useState(themeName);
     const toggleTheme = (theme: string) => {
-        theme === 'default' ? setSelectedTheme('dark') : setSelectedTheme('default');
+        theme === 'default' ? setSelectedTheme('default') : setSelectedTheme('dark');
     }
 
     useEffect(() => {
