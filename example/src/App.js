@@ -3,13 +3,14 @@ import { UiProvider, theme } from 'rengo-ui-kit'
 import ethToken from './assets/eth-token.svg'
 import tetherToken from './assets/tether-token.svg'
 import ethCsprPair from './assets/eth-cspr-pair.svg'
+import walletIcon from './assets/wallet-icon.svg'
 import {
   Container,
   Row,
   Column,
   Toggle,
   Button,
-  ButtonIcon,
+  TextIconTouchable,
   Loader,
   Input,
   Header,
@@ -31,7 +32,8 @@ import {
   BalanceTable,
   CreatePoolDialog,
   LiquidityItemDetail,
-  RowIcon
+  RowIcon,
+  WalletConnectionButton
 } from 'rengo-ui-kit'
 import ethLogo from './assets/eth-logo.svg'
 import downwardsArrowIcon from './assets/downwards-arrow-icon.svg'
@@ -171,11 +173,11 @@ const App = () => {
           </Row>
         </Container>
         <Container>
-          <ButtonIcon
+          <TextIconTouchable
             startIcon={ethToken}
             name={'ETH'}
             endIcon={downwardsArrowIcon}
-            actionCallBack={() => console.log('ButtonIcon clicked')}
+            actionCallBack={() => console.log('TextIconTouchable clicked')}
           />
         </Container>
         <Container>
@@ -188,7 +190,7 @@ const App = () => {
             hasBackground={true}
             // Icon={<AlertTriangle color="red" size={24} />}
             Icon={
-              <ButtonIcon
+              <TextIconTouchable
                 startIcon={ethToken}
                 name={'ETH'}
                 endIcon={downwardsArrowIcon}
@@ -342,6 +344,18 @@ const App = () => {
             Icon={ethLogo}
             iconSize={30}
           />
+          </Row>
+        </Container>
+        <Container>
+          <Row className='my-2'>
+            
+            <WalletConnectionButton
+              startIcon={walletIcon}
+              text='Connect Wallet'
+              bgColor='#7AEDD4'
+              textColor='#5B4BC9'
+              onClick={() => console.log('CHecking')}
+            />
 
           </Row>
         </Container>

@@ -5,7 +5,7 @@ export {
     Column,
     Button,
     Toggle,
-    ButtonIcon,
+    TextIconTouchable,
     Loader,
     KeyPairText,
     TokenOption,
@@ -28,6 +28,7 @@ export {
     LiquidityItemDetail,
     RowIcon,
     Dialog,
-    BalanceTable
+    BalanceTable,
+    WalletConnectionButton
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

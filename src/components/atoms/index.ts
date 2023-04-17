@@ -3,7 +3,7 @@ export * from './Container';
 export * from './Column';
 export * from './Row';
 export * from './Toggle';
-export * from './ButtonIcon';
+export * from './TextIconTouchable';
 export * from './Loader';
 export * from './KeyPairText';
 export * from './TokenOption';
@@ -25,4 +25,5 @@ export * from './RowIcon';
 export * from './TableHeader';
 export * from './TableBalanceBody';
 export * from './BalanceMobileItem';
+export * from './WalletConnectionButton';
 

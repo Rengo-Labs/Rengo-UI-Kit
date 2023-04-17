@@ -109,6 +109,7 @@ export interface theme {
       sliderThumb: string
       inactiveLavander: string
       icon: string
+      walletConnectedOptions: string
     }
     border: {
       darkLilac: string
@@ -269,7 +270,8 @@ export const defaultTheme: theme = {
       teaGreen: '#CCE7C1',
       sliderThumb: '#FF00FF',
       inactiveLavander: '#C6BFFB',
-      icon: '#E5F5FC'
+      icon: '#E5F5FC',
+      walletConnectedOptions: '#FFFFFF'
     },
     border: {
       darkLilac: '#8D7FF7',
@@ -430,7 +432,8 @@ export const darkTheme: theme = {
       teaGreen: '#CCE7C1',
       sliderThumb: '#FF00FF',
       inactiveLavander: '#C6BFFB',
-      icon: '#3A308B'
+      icon: '#3A308B',
+      walletConnectedOptions: '#3A308B'
     },
     border: {
       darkLilac: '#8D7FF7',
