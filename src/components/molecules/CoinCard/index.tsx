@@ -1,6 +1,6 @@
 import React from 'react'
 import {CoinCardWrapped, CoinCardFooter, InputWrapped, ButtonWrapped} from './styles'
-import {Header, Button, Input, ButtonIcon} from '../../atoms'
+import {Header, Button, Input, TextIconTouchable} from '../../atoms'
 import {Type, Status} from '../../atoms/Input/types'
 
 export interface CoinCardPros {
@@ -56,7 +56,7 @@ export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tok
           type={Type.IconLabelHelperText}
           rightAdornment={''}
           Icon={
-            <ButtonIcon
+            <TextIconTouchable
               startIcon={startIcon}
               name={tokenName}
               endIcon={endIcon}
