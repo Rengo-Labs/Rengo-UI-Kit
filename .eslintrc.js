@@ -13,8 +13,6 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    tsconfigRootDir: __dirname,
-    sourceType: 'module',
   },
   rules: {
     indent: 0,

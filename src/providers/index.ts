@@ -12,7 +12,7 @@ const theme: theme = {
 }
 
 export {
-    UiProvider,
     theme,
-    UIProviderContext
+    UIProviderContext,
+    UiProvider,
 }
