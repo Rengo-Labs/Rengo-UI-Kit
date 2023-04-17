@@ -19,6 +19,14 @@ export const Slider = ({ callback }: SliderProps) => {
     setValue(value);
     callback(value)
   };
+
+  const percentages = [
+    { value: 0, name: '0%' },
+    { value: 25, name: '25%' },
+    { value: 50, name: '50%' },
+    { value: 75, name: '75%' },
+    { value: 100, name: '100%' },
+  ]
   
   return (
     <Wrapper>
@@ -31,31 +39,14 @@ export const Slider = ({ callback }: SliderProps) => {
         id="slider"
       />
       <PercentageContainer>
-        <PercentageLabel
-          isSelected={value === 0}
-          onClick={() => handleInputChange(0)}>
-            0%
-        </PercentageLabel>
-        <PercentageLabel
-          isSelected={value === 25}
-          onClick={() => handleInputChange(25)}>
-          25%
-        </PercentageLabel>
-        <PercentageLabel
-          isSelected={value === 50}
-          onClick={() => handleInputChange(50)}>
-          50%
-        </PercentageLabel>
-        <PercentageLabel
-          isSelected={value === 75}
-          onClick={() => handleInputChange(75)}>
-          75%
-        </PercentageLabel>
-        <PercentageLabel
-          isSelected={value === 100}
-          onClick={() => handleInputChange(100)}>
-          100%
-        </PercentageLabel>
+        {percentages.map(item => (
+          <PercentageLabel
+            key={`percentage-item-${item.value}`}
+            isSelected={value === item.value}
+            onClick={() => handleInputChange(item.value)}>
+              {item.name}
+          </PercentageLabel>
+        ))}
       </PercentageContainer>
   </Wrapper>
   )

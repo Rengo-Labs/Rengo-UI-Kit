@@ -2,8 +2,8 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {TransactionDetails, Icons} from "../../../src/components";
 import {TransactionProps} from "../../../src/components/atoms/TransactionDetails/types";
-// @ts-ignore
-import ethCsprPair from '../../../example/src/assets/eth-cspr-pair.svg';
+import ethCsprPair from '../../assets/eth-cspr-pair.svg';
+
 export default {
   title: "Components/Atoms/TransactionDetails",
   component: TransactionDetails,

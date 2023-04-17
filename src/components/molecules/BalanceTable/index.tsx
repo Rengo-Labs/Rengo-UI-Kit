@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import TableBody from '../../atoms/TableBalanceBody'
 import TableHeader from '../../atoms/TableHeader'
 import { Wrapper } from './styles'
-import btcTokenIcon from '../../../assets/icons/bitcoin-token.svg'
-import ethTokenIcon from '../../../assets/icons/eth-token.svg'
-import usdtTokenIcon from '../../../assets/icons/tether-token.svg'
 import { useDeviceType } from '../../../hooks/useDeviceType'
 import { DeviceType } from '../../../hooks/types'
 import { BalanceMobileItem } from '../../atoms'
@@ -18,6 +15,10 @@ export interface IHeader {
   '7d': string
   '15d': string
   '30d': string
+}
+
+interface BalaceTableProps {
+  data: IHeader[]
 }
 
 const columns = [
@@ -53,40 +54,7 @@ const columns = [
   }
 ]
 
-const data: IHeader[] = [
-  {
-    id: 1,
-    crypto: 'Bitcoin',
-    cryptoIcon: btcTokenIcon,
-    mycrypto: 0.0062,
-    '24h': '45.92%',
-    '7d': '51.92%',
-    '15d': '90.5%',
-    '30d': '90.5%'
-  },
-  {
-    id: 2,
-    crypto: 'Ethereum',
-    cryptoIcon: ethTokenIcon,
-    mycrypto: 0.0162,
-    '24h': '45.92%',
-    '7d': '45.92%',
-    '15d': '80.5%',
-    '30d': '99.5%'
-  },
-  {
-    id: 3,
-    crypto: 'Usdt',
-    cryptoIcon: usdtTokenIcon,
-    mycrypto: 0.00062,
-    '24h': '45.92%',
-    '7d': '56.92%',
-    '15d': '70.5%',
-    '30d': '92.5%'
-  }
-]
-
-export const BalanceTable = () => {
+export const BalanceTable = ({ data } : BalaceTableProps) => {
   const [balanceData, setBalanceData] = useState<IHeader[]>(data)
   const deviceType = useDeviceType()
 

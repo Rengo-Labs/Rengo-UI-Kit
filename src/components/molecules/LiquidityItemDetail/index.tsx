@@ -4,7 +4,7 @@ import {
   TokenOption
 } from '../../atoms'
 // @ts-ignore
-import ethLogo from '../../../../example/src/assets/eth-logo.svg'
+import ethLogo from '../../../../example/src/assets/icons/eth-logo.svg'
 import {
   Wrapper,
   KeyStyle,

@@ -21,6 +21,7 @@ export {
     Icons,
     Divider,
     SwapTabs,
+    CoinCard,
     LiquidityDetails,
     Settings,
     Slider,
@@ -29,6 +30,7 @@ export {
     RowIcon,
     Dialog,
     BalanceTable,
-    WalletConnectionButton
+    WalletConnectionButton,
+    RemoveLiquidityDialog,
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

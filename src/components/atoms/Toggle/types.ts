@@ -5,7 +5,7 @@ export enum Variant {
 }
 export interface ToggleProps {
     isActive: boolean
-    toggle: () => void
+    toggle: (e: React.ChangeEvent<HTMLInputElement>) => void
     variant: Variant
     labelText: string
 }
