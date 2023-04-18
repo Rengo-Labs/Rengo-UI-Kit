@@ -4,6 +4,7 @@ import cstTokenIcon from "./assets/icons/casper-token.svg";
 import usdtTokenIcon from "./assets/icons/tether-token.svg";
 import usdcTokenIcon from "./assets/icons/usdc-token.svg";
 import wethCsprPairTokenIcon from "./assets/icons/eth-cspr-pair.svg";
+import lineBreakIcon from "./assets/icons/linkbreak.svg";
 
 export const TOKEN_LIST_DATA_CREATE_POOL = [
   { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000', tokenImg: cstTokenIcon },
@@ -59,3 +60,58 @@ export const BALANCE_TABLE_DATA = [
     '30d': '92.5%'
   }
 ]
+
+
+export const WALLET_CONNECTED_OPTIONS = [
+  {
+    id: 'dmx0031b2b421',
+    key: 'account',
+    name: 'My Account',
+    iconName: 'Copy',
+    type: 'Redirect',
+    action: (value) => console.log('redirect to my account')
+  },
+  {
+    id: '3d23f23xxx88nf',
+    key: 'wallet',
+    name: '6c166587-0e23-4d0c-86de-3c3d7a0f0c09',
+    iconName: 'Copy',
+    type: 'copy',
+    action: (value) => navigator.clipboard.writeText(value) 
+  },
+  {
+    id: '1x9x9900jjwoa',
+    key: 'transactions',
+    name: 'Recent Transactions',
+    iconName: 'Clock',
+    type: 'redirect',
+    action: (value) => console.log('redirect to recent transaction')
+  },
+  {
+    id: '0zokxj8h82nndl',
+    key: 'disconnect',
+    name: 'Disconnect Wallet',
+    iconName: '',
+    icon: lineBreakIcon,
+    type: 'redirect',
+    action: (value) => console.log('disconnect wallet')
+  },
+]
+
+export const getWalletConnectedOptionsDialog = (index, action) => {
+  if (!action) {
+    return WALLET_CONNECTED_OPTIONS
+  }
+
+  const newArr = WALLET_CONNECTED_OPTIONS.map((item, i) => {
+    if (i === index) {
+      let existingItem = item
+      existingItem.action = action
+      return existingItem
+    }
+
+    return item
+  })
+
+  return newArr
+}

@@ -32,5 +32,6 @@ export {
     BalanceTable,
     WalletConnectionButton,
     RemoveLiquidityDialog,
+    WalletConnectedOptionsDialog
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

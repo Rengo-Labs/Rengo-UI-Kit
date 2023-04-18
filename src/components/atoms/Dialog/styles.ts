@@ -18,10 +18,10 @@ export const Container = styled.dialog<{ isOpen?: boolean }>`
   position: fixed;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0px;
   z-index: 999;
-  background: ${({ theme }) =>  theme.background.searchInput};
+  background: ${({ theme }) =>  theme.background.wallet.connectedOptions};
   border: ${({ theme }) => `1px solid ${theme.border.default}`};
   box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);
   border-radius: 16px;

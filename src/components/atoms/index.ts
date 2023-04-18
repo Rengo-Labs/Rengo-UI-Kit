@@ -26,4 +26,5 @@ export * from './TableHeader';
 export * from './TableBalanceBody';
 export * from './BalanceMobileItem';
 export * from './WalletConnectionButton';
+export * from './WalletConnectedOptionsDialog';
 

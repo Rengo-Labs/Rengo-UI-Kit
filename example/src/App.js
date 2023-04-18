@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { UiProvider, theme } from 'rengo-ui-kit'
 import ethToken from './assets/icons/eth-token.svg'
 import tetherToken from './assets/icons/tether-token.svg'
@@ -35,7 +35,8 @@ import {
   LiquidityItemDetail,
   RowIcon,
   WalletConnectionButton,
-  RemoveLiquidityDialog
+  RemoveLiquidityDialog,
+  WalletConnectedOptionsDialog
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
 import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
@@ -44,12 +45,16 @@ import {
   TOKEN_LIST_DATA_CREATE_POOL,
   POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
   REMOVE_LIQUIDITY_DATA,
-  BALANCE_TABLE_DATA } from './data'
+  BALANCE_TABLE_DATA,
+  getWalletConnectedOptionsDialog } from './data'
 
 const App = () => {
+  const [isWalletConnected, setIsWalletConnected] = useState(false)
+  const [WalletConnectedOptions, setWalletConnectedOptions] = useState(() => getWalletConnectedOptionsDialog(3,() => setIsWalletConnected(prev => !prev) ))
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
   const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] = useState(false)
+  const [showWalletConnectedOptionsDialog, setShowWalletConnectedOptionsDialog] = useState(false)
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
   const [cardValue, setCardValue] = useState('')
@@ -108,6 +113,11 @@ const App = () => {
     console.log('RemoveLidityPool', liquidityPool);
   }
 
+
+  const handleWalletConnect = () => {
+    setIsWalletConnected(true)
+    setShowWalletConnectedOptionsDialog(true)
+  }
   return (
     <UiProvider theme={theme[selectedTheme]}>
       <>
@@ -341,12 +351,16 @@ const App = () => {
             
             <WalletConnectionButton
               startIcon={walletIcon}
-              text='Connect Wallet'
-              bgColor='#7AEDD4'
-              textColor='#5B4BC9'
-              onClick={() => console.log('CHecking')}
+              isWalletActive={isWalletConnected}
+              walletID='f13c5754-1f0a-4f07-b1ca-dc55e6d778e7'
+              onClick={handleWalletConnect}
             />
           </ Row>
+          {showWalletConnectedOptionsDialog && (
+            <WalletConnectedOptionsDialog
+              closeCallback={() => setShowWalletConnectedOptionsDialog(false)}
+              options={WalletConnectedOptions} />
+          )}
         </Container>
         <Container>
           {showRemoveLiquidityDialog && (
