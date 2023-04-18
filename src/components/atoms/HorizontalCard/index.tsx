@@ -74,7 +74,7 @@ export const HorizontalCard = ({
 
   const handleItemDetails = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation()
-    itemHandler()
+    itemHandler && itemHandler()
   }
 
   const handleSwap = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {

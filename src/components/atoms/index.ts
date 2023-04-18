@@ -25,5 +25,6 @@ export * from './RowIcon';
 export * from './TableHeader';
 export * from './TableBalanceBody';
 export * from './BalanceMobileItem';
+export * from './BurgerButton';
 export * from './WalletConnectionItem';
 
