@@ -3,10 +3,15 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { CreatePoolDialog } from "../../../src/components";
 import { CreatePoolDialogProps } from "../../../src/components/molecules/CreatePoolDialog/types";
 
+// @ts-ignore
 import btcTokenIcon from "../../assets/bitcoin-token.svg";
+// @ts-ignore
 import ethTokenIcon from "../../assets/eth-token.svg";
+// @ts-ignore
 import cstTokenIcon from "../../assets/casper-token.svg";
+// @ts-ignore
 import usdtTokenIcon from "../../assets/tether-token.svg";
+// @ts-ignore
 import usdcTokenIcon from "../../assets/usdc-token.svg";
 
 const TOKEN_LIST_DATA_CREATE_POOL = [

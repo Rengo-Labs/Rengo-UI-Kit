@@ -1,12 +1,10 @@
 import React from "react";
-import { UiProvider, theme } from "../src";
+import { UiProvider } from "../src";
 const getTheme = (context) => {
-    const themeName = context.globals.theme;
-    return theme[themeName];
+    return context.globals.theme;
 }
-
 const ThemeDecorator = (storyFn, context) => {
     const theme = getTheme(context);
-    return <UiProvider theme={theme}>{storyFn()}</UiProvider>;
+    return <UiProvider themeName={theme}>{storyFn()}</UiProvider>;
 }
 export default ThemeDecorator;

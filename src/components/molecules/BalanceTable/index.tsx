@@ -17,7 +17,7 @@ export interface IHeader {
   '30d': string
 }
 
-interface BalaceTableProps {
+export interface BalaceTableProps {
   data: IHeader[]
 }
 
@@ -84,5 +84,5 @@ export const BalanceTable = ({ data } : BalaceTableProps) => {
       )}
     </Wrapper>
   )
-  
+
 }

@@ -28,7 +28,13 @@ export const InputWrapper = styled.div`
   border-radius: 4px;
 `
 
-export const Input = styled.input`
+export const Input = styled.input.attrs({ type: 'number' })`
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   background-color: transparent;
   color: ${({ theme }) => theme.color.default};
   font-family: ${({ theme }) => theme.typography.secondaryFont};
@@ -41,5 +47,9 @@ export const Input = styled.input`
   border: none;
   &:focus {
     outline: none;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
   }
 `;
