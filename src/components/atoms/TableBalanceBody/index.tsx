@@ -1,14 +1,14 @@
 import React from 'react'
-import { TD, TR, Text, Icon } from './styles'
+import { TD, TR, Text, Icon, Body } from './styles'
 import { IHeader } from '../../molecules'
 
 interface TableProps {
   row: IHeader
 }
 
-export const TableBody = ({ row }: TableProps) => {
+export const TableBalanceBody = ({ row }: TableProps) => {
   return (
-    <tbody>
+    <Body>
       <TR>
         {Object.keys(row).map((key: string) => {
           if (key !== 'id' && key !== 'cryptoIcon') {
@@ -23,8 +23,8 @@ export const TableBody = ({ row }: TableProps) => {
           }
         })}
       </TR>
-    </tbody>
+    </Body>
   )
 }
 
-export default TableBody
+export default TableBalanceBody

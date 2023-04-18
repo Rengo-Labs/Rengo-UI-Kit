@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import TableBody from '../../atoms/TableBalanceBody'
+import TableBalanceBody from '../../atoms/TableBalanceBody'
 import TableHeader from '../../atoms/TableHeader'
 import { Wrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
@@ -79,7 +79,7 @@ export const BalanceTable = ({ data } : BalaceTableProps) => {
         isMobile ? (
           <BalanceMobileItem key={row.id} row={row} />
         ) : (
-          <TableBody key={row.id} row={row} />
+          <TableBalanceBody key={row.id} row={row} />
         )
       )}
     </Wrapper>

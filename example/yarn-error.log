@@ -1,20 +1,20 @@
 Arguments: 
-  /Users/jonathan/.nvm/versions/node/v16.13.2/bin/node /usr/local/Cellar/yarn/1.22.18/libexec/bin/yarn.js
+  C:\Program Files\nodejs\node.exe C:\Users\yordy\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
 
 PATH: 
-  /Users/jonathan/.nvm/versions/node/v16.13.2/bin:/usr/local/opt/mysql@5.7/bin:/Users/jonathan/.rbenv/shims:/Users/jonathan/.pyenv/shims:/Users/jonathan/.pyenv/bin:/usr/local/share/python:/usr/local/opt/php@7.1/bin:/usr/local/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/jonathan/.cargo/bin:/Users/jonathan/Library/Android/sdk/emulator:/Users/jonathan/Library/Android/sdk/tools:/Users/jonathan/Library/Android/sdk/tools/bin:/Users/jonathan/Library/Android/sdk/platform-tools:/Users/jonathan/development/flutter/bin:/usr/local/opt/redis@4.0/bin
+  C:\Users\yordy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\yordy\bin;C:\Program Files\OpenJDK\jdk-8.0.362.09-hotspot\bin;C:\Python310\Scripts;C:\Python310;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\Program Files\MongoDB\Server\5.0\bin;C:\Program Files\Amazon\AWSCLIV2;C:\Program Files\WireGuard;C:\Program Files\PuTTY;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Amazon\AWSSAMCLI\bin;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files (x86)\scala\bin;C:\Program Files (x86)\sbt\bin;C:\Users\yordy\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\yordy\AppData\Local\Programs\Python\Python311;C:\Users\yordy\AppData\Local\Microsoft\WindowsApps;C:\Users\yordy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\SoftwareDeveloper\Aplications\ngrok;C:\Users\yordy\AppData\Roaming\npm;C:\Users\yordy\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\yordy\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.3\bin;C:\Users\yordy\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
 
 Yarn version: 
-  1.22.18
+  1.22.17
 
 Node version: 
-  16.13.2
+  14.19.3
 
 Platform: 
-  darwin x64
+  win32 x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, lstat '/Users/jonathan/Documents/kreitech/rengo-capital/Rengo-UI-Kit/node_modules/react-scripts/node_modules/json5'
+  Error: ENOENT: no such file or directory, lstat 'C:\SoftwareDeveloper\Kreitech\Repos\Rengo\Rengo-UI-Kit\node_modules\react-scripts\node_modules\json5'
 
 npm manifest: 
   {

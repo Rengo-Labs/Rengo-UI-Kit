@@ -7,6 +7,7 @@ export interface HorizontalCardProps {
   trashHandler: () => void
   swapHandler: () => void
   viewHandler: () => void
+  itemHandler: () => void
   addLiquidityHandler: () => void
   favoriteHandler: () => void
 }
