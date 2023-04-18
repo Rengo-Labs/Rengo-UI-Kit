@@ -17,7 +17,7 @@ const UiProvider = (props: IUiProvider) => {
         <UIProviderContext.Provider value={{toggleTheme}}>
             <ThemeProvider theme={selectedTheme === 'default' ? theme.default : theme.dark}>
                 <GlobalStyles/>
-                <>{children}</>
+                {children}
             </ThemeProvider>
         </UIProviderContext.Provider>
     )
