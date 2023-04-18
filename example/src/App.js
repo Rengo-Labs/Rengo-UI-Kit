@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { UiProvider } from 'rengo-ui-kit'
+import { UiProvider, theme } from 'rengo-ui-kit'
 import ethToken from './assets/icons/eth-token.svg'
 import tetherToken from './assets/icons/tether-token.svg'
 import ethCsprPair from './assets/icons/eth-cspr-pair.svg'
+import casperIcon from './assets/casperIcon.svg'
+
 import {
   Container,
   Row,
@@ -33,7 +35,9 @@ import {
   CreatePoolDialog,
   LiquidityItemDetail,
   RowIcon,
-  RemoveLiquidityDialog
+  RemoveLiquidityDialog,
+  Menu,
+  LPContainer
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
 import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
@@ -63,6 +67,13 @@ const App = () => {
       isActive: false
     }
   ])
+
+  const routes = [
+      {icon: ethLogo, page: 'SWAP', path: '/swap', action: () => redirectTo('/swap')},
+      {icon: tetherToken, page: "LIQUIDITY", path: '/liquidity', action: () => redirectTo('/liquidity')},
+      {icon: ethToken, page: "POOL", path: '/pool', action: () => redirectTo('/pool')}
+  ]
+
   const inputValidator = (value) => {
     console.log('validating', value)
   }
@@ -105,8 +116,23 @@ const App = () => {
     console.log('RemoveLidityPool', liquidityPool);
   }
 
+  const redirectTo = (page) => {
+    console.log("Change to page", page)
+  }
+
   return (
-    <UiProvider themeName={selectedTheme}>
+    <UiProvider theme={theme[selectedTheme]}>
+      <Menu title='CASPERSWAP'
+            isMobile={true}
+            links={routes}
+            menuIcon={casperIcon}
+            rightAction={{startIcon: ethToken, title: 'Connect Wallet', background: '#7AEDD4', color: '#715FF5', onAction: () => console.log("Open Right Options")}}
+            toggle={{
+              isActive: selectedTheme === 'dark',
+              toggle: handleToggleTheme,
+              variant: 'theme-switcher'
+            }}
+      />
       <>
         <Container>
           <Row>
@@ -359,6 +385,15 @@ const App = () => {
               />
             </Column>
           </Row>
+        </Container>
+        <Container>
+          <LPContainer title='My Liquidity' lpTokens={
+            [
+              {icon: ethCsprPair, isFavorite: true, firstSymbol: 'ETH', secondSymbol: 'CSPR', firstAmount: '200.00000002', secondAmount: '4000000.00000122', userLP: '10', totalLP: '232000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
+              {icon: casperIcon, isFavorite: false, firstSymbol: 'BTC', secondSymbol: 'CSPR', firstAmount: '0.05', secondAmount: '9000000.00000122', userLP: '1.02', totalLP: '34000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
+              {icon: tetherToken, isFavorite: false, firstSymbol: 'USDT', secondSymbol: 'CSPR', firstAmount: '50.00000002', secondAmount: '4000.00000122', userLP: '19', totalLP: '23000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
+            ]
+          } />
         </Container>
       </>
     </UiProvider>
