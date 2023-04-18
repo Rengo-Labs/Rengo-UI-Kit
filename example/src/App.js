@@ -351,7 +351,7 @@ const App = () => {
         </Container>
         <Container>
           <Row className='my-2'>
-          <RowIcon 
+          <RowIcon
             tokenName='WETH'
             tokenFullName='Wrapped Ether'
             Icon={ethLogo}
