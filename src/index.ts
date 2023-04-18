@@ -5,6 +5,7 @@ export {
     Row,
     Column,
     Button,
+    ButtonWallet,
     Toggle,
     ButtonIcon,
     Loader,

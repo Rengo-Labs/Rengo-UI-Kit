@@ -1,4 +1,5 @@
 export * from './Button';
+export * from './ButtomWallet';
 export * from './Container';
 export * from './Column';
 export * from './Row';
