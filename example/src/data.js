@@ -4,6 +4,7 @@ import cstTokenIcon from "./assets/icons/casper-token.svg";
 import usdtTokenIcon from "./assets/icons/tether-token.svg";
 import usdcTokenIcon from "./assets/icons/usdc-token.svg";
 import wethCsprPairTokenIcon from "./assets/icons/eth-cspr-pair.svg";
+import lineBreakIcon from "./assets/icons/linkbreak.svg";
 import casperWallet from "./assets/icons/casper-wallet.svg";
 import ledgerWallet from "./assets/icons/ledger-wallet.svg";
 import torusWallet from "./assets/icons/torus-wallet.svg";
@@ -60,6 +61,39 @@ export const BALANCE_TABLE_DATA = [
     '7d': '56.92%',
     '15d': '70.5%',
     '30d': '92.5%'
+  }
+]
+
+
+export const WALLET_CONNECTED_OPTIONS = [
+  {
+    id: 'dmx0031b2b421',
+    key: 'account',
+    name: 'My Account',
+    iconName: 'User',
+    type: 'Redirect',
+  },
+  {
+    id: '3d23f23xxx88nf',
+    key: 'wallet',
+    name: '6c166587-0e23-4d0c-86de-3c3d7a0f0c09',
+    iconName: 'Copy',
+    type: 'copy',
+  },
+  {
+    id: '1x9x9900jjwoa',
+    key: 'transactions',
+    name: 'Recent Transactions',
+    iconName: 'Clock',
+    type: 'redirect',
+  },
+  {
+    id: '0zokxj8h82nndl',
+    key: 'disconnect',
+    name: 'Disconnect Wallet',
+    iconName: '',
+    icon: lineBreakIcon,
+    type: 'redirect',
   }
 ]
 

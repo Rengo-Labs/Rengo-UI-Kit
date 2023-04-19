@@ -1,6 +1,6 @@
 import React from 'react'
 import {MenuWrapped, MenuBar, MenuHeader, MenuBody, MenuItem, LeftLogo, CenterLogo, MenuBodyItem, MenuItemWrapped} from './styles'
-import {BurgerButton, ButtonIcon, Toggle} from '../../atoms'
+import {BurgerButton, TextIconTouchable, Toggle} from '../../atoms'
 import {ToggleProps} from '../../atoms/Toggle/types'
 import { v4 as uuidv4 } from 'uuid';
 
@@ -90,7 +90,7 @@ export const Menu = ({ menuIcon, title, links, isMobile = false, toggle, rightAc
           <MenuItem flex='1' align='right'>
             {
               rightAction != null &&
-                <ButtonIcon startIcon={rightAction.startIcon} 
+                <TextIconTouchable startIcon={rightAction.startIcon} 
                             endIcon={rightAction.endIcon} 
                             name={rightAction.title} 
                             actionCallBack={rightAction.onAction}
@@ -115,7 +115,7 @@ export const Menu = ({ menuIcon, title, links, isMobile = false, toggle, rightAc
           <MenuItem flex='1' align='right'>
             {
               rightAction != null &&
-                <ButtonIcon startIcon={rightAction.startIcon} 
+                <TextIconTouchable startIcon={rightAction.startIcon} 
                             endIcon={rightAction.endIcon}
                             actionCallBack={rightAction.onAction}
                             background={rightAction.background}

@@ -1,4 +1,6 @@
 import React, { ReactNode, useEffect, useRef } from 'react'
+import { useDeviceType } from '../../../hooks/useDeviceType'
+import { DeviceType } from '../../../hooks/types'
 import { Backdrop, Container } from './styles'
 
 export interface DialogProps {
@@ -15,6 +17,8 @@ export interface DialogProps {
 */
 
 export const Dialog = ({ children, onClose }: DialogProps) => {
+  const deviceType = useDeviceType()
+  const isMobile = deviceType === DeviceType.MOBILE
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -40,6 +44,7 @@ export const Dialog = ({ children, onClose }: DialogProps) => {
     <>
       <Backdrop />
       <Container
+        isMobile={isMobile}
         ref={dialogRef}
         onPointerDown={(e) => e.stopPropagation()}
       >

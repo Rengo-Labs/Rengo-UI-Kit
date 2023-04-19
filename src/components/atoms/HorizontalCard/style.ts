@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
   border-radius: 16px;
-  background: ${({ theme }) => theme.background.searchInput};
+  background: ${({ theme }) =>  theme.background.wallet.connectedOptions};
 
   @media (max-width: 800px) {
     height: auto;

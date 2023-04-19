@@ -1,26 +1,26 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import {ButtonIcon} from "../../../src/components";
+import {TextIconTouchable} from "../../../src/components";
 // @ts-ignore
 import ethToken from '../../assets/eth-token.svg';
 // @ts-ignore
 import downwardsArrowIcon from "../../assets/downwards-arrow-icon.svg";
 
 export default {
-  title: "Components/Atoms/ButtonIcon",
-  component: ButtonIcon,
+  title: "Components/Atoms/TextIconTouchable",
+  component: TextIconTouchable,
   argTypes: {
       startIcon: { type: 'string' },
       name: { type: 'string' },
       endIcon: { type: 'string' },
       actionCallBack: { type: 'function' },
   },
-} as ComponentMeta<typeof ButtonIcon>;
+} as ComponentMeta<typeof TextIconTouchable>;
 
 // Create a master template for mapping args to render the Button component
-const Template: ComponentStory<typeof ButtonIcon> = (args) => {
+const Template: ComponentStory<typeof TextIconTouchable> = (args) => {
   return (
-    <ButtonIcon startIcon={args.startIcon} name={args.name} endIcon={args.endIcon} actionCallBack={args.actionCallBack} />
+    <TextIconTouchable startIcon={args.startIcon} name={args.name} endIcon={args.endIcon} actionCallBack={args.actionCallBack} />
   )
 };
 export const Default = Template.bind({});
@@ -29,7 +29,7 @@ Default.args = {
     startIcon: ethToken,
     name: 'ETH',
     endIcon: downwardsArrowIcon,
-    actionCallBack: () => console.log('ButtonIcon clicked')
+    actionCallBack: () => console.log('TextIconTouchable clicked')
 };
 
 
