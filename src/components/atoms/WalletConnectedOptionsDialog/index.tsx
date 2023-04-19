@@ -17,7 +17,6 @@ import { DeviceType } from '../../../hooks/types'
   @property {string} iconName - The name of the icon to display for the option.
   @property {string} icon - The URL of the icon to display for the option.
   @property {Types} type - The type of the option.
-  @property {Function} action - The function to execute when the option is selected.
   @typedef {Object} WalletConnectedOptionsDialogProps
   @property {Function} closeCallback - The function to execute when the dialog is closed.
   @property {Options[]} options - The array of options of type Options to display in the dialog.
