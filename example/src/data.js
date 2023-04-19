@@ -67,9 +67,8 @@ export const WALLET_CONNECTED_OPTIONS = [
     id: 'dmx0031b2b421',
     key: 'account',
     name: 'My Account',
-    iconName: 'Copy',
+    iconName: 'User',
     type: 'Redirect',
-    action: (value) => console.log('redirect to my account')
   },
   {
     id: '3d23f23xxx88nf',
@@ -77,7 +76,6 @@ export const WALLET_CONNECTED_OPTIONS = [
     name: '6c166587-0e23-4d0c-86de-3c3d7a0f0c09',
     iconName: 'Copy',
     type: 'copy',
-    action: (value) => navigator.clipboard.writeText(value) 
   },
   {
     id: '1x9x9900jjwoa',
@@ -85,7 +83,6 @@ export const WALLET_CONNECTED_OPTIONS = [
     name: 'Recent Transactions',
     iconName: 'Clock',
     type: 'redirect',
-    action: (value) => console.log('redirect to recent transaction')
   },
   {
     id: '0zokxj8h82nndl',
@@ -94,24 +91,5 @@ export const WALLET_CONNECTED_OPTIONS = [
     iconName: '',
     icon: lineBreakIcon,
     type: 'redirect',
-    action: (value) => console.log('disconnect wallet')
   },
 ]
-
-export const getWalletConnectedOptionsDialog = (index, action) => {
-  if (!action) {
-    return WALLET_CONNECTED_OPTIONS
-  }
-
-  const newArr = WALLET_CONNECTED_OPTIONS.map((item, i) => {
-    if (i === index) {
-      let existingItem = item
-      existingItem.action = action
-      return existingItem
-    }
-
-    return item
-  })
-
-  return newArr
-}

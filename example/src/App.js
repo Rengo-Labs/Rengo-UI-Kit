@@ -46,11 +46,10 @@ import {
   POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
   REMOVE_LIQUIDITY_DATA,
   BALANCE_TABLE_DATA,
-  getWalletConnectedOptionsDialog } from './data'
+  WALLET_CONNECTED_OPTIONS } from './data'
 
 const App = () => {
   const [isWalletConnected, setIsWalletConnected] = useState(false)
-  const [WalletConnectedOptions, setWalletConnectedOptions] = useState(() => getWalletConnectedOptionsDialog(3,() => setIsWalletConnected(prev => !prev) ))
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
   const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] = useState(false)
@@ -359,7 +358,7 @@ const App = () => {
           {showWalletConnectedOptionsDialog && (
             <WalletConnectedOptionsDialog
               closeCallback={() => setShowWalletConnectedOptionsDialog(false)}
-              options={WalletConnectedOptions} />
+              options={WALLET_CONNECTED_OPTIONS} />
           )}
         </Container>
         <Container>

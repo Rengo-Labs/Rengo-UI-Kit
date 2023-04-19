@@ -7,6 +7,7 @@ interface Props  {
   isWalletAddressRow?: boolean
   isBeingHovered?: boolean
   src?: string
+  isMobile?: boolean
 }
 
 const fadeIn = keyframes`
@@ -28,24 +29,24 @@ export const Container = styled.div`
   border-radius: 16px;
 `;
 
-export const DialogHeaderContainer = styled.div`
+export const DialogHeaderContainer = styled.div<Props>`
+  width: 95%;
   display: flex;
   justify-content: center;
   height: 50px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  border-top-left-radius: ${({ isMobile }) => isMobile ? '0px' : '16px'};
+  border-top-right-radius: ${({ isMobile }) => isMobile ? '0px' : '16px'};
   background: ${({ theme }) =>  theme.background.wallet.connectedOptions};
   padding: 0 16px 0 16px;
 `;
 
 export const DialogHeader = styled.div`
   height: 100%;
-  width: 386px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
- 
 `;
 
 export const DialogTitle = styled.p`
@@ -75,7 +76,7 @@ export const ToggleContainer = styled.div`
 export const Row = styled.div<Props>`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: ${({ isMobile }) => isMobile ? 'space-between;' : 'flex-end;' };
   align-items: center;
   padding: 16px 32px;
   gap: 10px;
@@ -84,11 +85,15 @@ export const Row = styled.div<Props>`
   border-top: ${({ theme }) => `1px solid ${theme.border.wallet}`};
   cursor: pointer;
   background: ${({ isCopied, theme }) => isCopied ? theme.background.wallet.copyOption : theme.background.wallet.white};
-  ${({ isLast }) => isLast && css`
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-  `};
 
+  ${({ isLast, isMobile }) => {
+    if (isLast && !isMobile) {
+      return css`
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+    `;
+    }
+  }};
 
   ${({ isCopied }) => isCopied && css`
     transition-property: background-color;
@@ -107,6 +112,11 @@ export const Row = styled.div<Props>`
       return theme.background.wallet.onHover
     }
 
+    if (isCopied) {
+      return theme.background.wallet.copyOption
+    }
+
+    return theme.background.wallet.connectedOptions
   }};
 `;
 
@@ -127,7 +137,6 @@ export const RowTitle = styled.p<Props>`
     } else {
       return  theme.color.modalText;
     }
-
   }};
 
   color: ${({ theme, isBeingHovered }) => isBeingHovered ? theme.background.wallet.white : 'none;'};

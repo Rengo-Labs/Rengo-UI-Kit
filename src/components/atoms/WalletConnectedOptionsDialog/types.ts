@@ -16,7 +16,6 @@ export interface Options {
   iconName: string
   icon: string
   type: Types
-  action: (value: string) => void
 }
 
 export interface WalletConnectedOptionsDialogProps {

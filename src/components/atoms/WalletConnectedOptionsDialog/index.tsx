@@ -5,6 +5,8 @@ import { Dialog } from "../Dialog"
 import { CloseButton, Container, DialogHeader, DialogHeaderContainer, DialogTitle, Row, Image, RowTitle } from "./styles"
 import { Icons } from '../Icons'
 import {CopiedProps, Options, Types, WalletConnectedOptionsDialogProps, } from './types'
+import { useDeviceType } from '../../../hooks/useDeviceType'
+import { DeviceType } from '../../../hooks/types'
 
 /**
   A React component for a dialog displaying wallet-connected options.
@@ -22,8 +24,11 @@ import {CopiedProps, Options, Types, WalletConnectedOptionsDialogProps, } from '
   @param {WalletConnectedOptionsDialogProps} props - The props of the component.
   @returns {JSX.Element} - A React component that displays a dialog with wallet-connected options.
 */
+
 export const WalletConnectedOptionsDialog = ({closeCallback, options}: WalletConnectedOptionsDialogProps) => {
   const theme = useTheme() as theme;
+  const deviceType = useDeviceType()
+  const isMobile = deviceType === DeviceType.MOBILE
   const [copied, setCopied] = useState<CopiedProps>({
     id: '',
     status: false
@@ -57,17 +62,19 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options}: WalletCon
    return  theme.color.modalText
   }
 
-  const handleOnClick = (item: Options) => {
-    if (item.type === 'copy') {
+  const handleOnClick = ( item: Options) => {
+    if (item.type === Types.Copy) {
       handleCopyToClipboard(item)
     } else {
-      item.action(item.key)
+      console.log(`redirect to ${item.name}`);
+      
       closeCallback()
     }
   }
 
   const handleCopyToClipboard = (item: Options) => {
-    item.action(item.name)
+    navigator.clipboard.writeText(item.name)
+
     setCopied({
       id: item.id,
       status: true
@@ -79,11 +86,10 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options}: WalletCon
     }), 2000);
   }
 
-
   return (
     <Dialog
       onClose={closeCallback}>
-      <DialogHeaderContainer>
+      <DialogHeaderContainer isMobile={isMobile}>
         <DialogHeader>
           <DialogTitle>Wallet Connected</DialogTitle>
           <CloseButton onClick={closeCallback}>
@@ -96,12 +102,13 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options}: WalletCon
         {options && options.map((item, i) => (
           <Row
             key={`wallet-option-item-${item.id}`}
-            onClick={() => handleOnClick(item)}
+            onClick={() => handleOnClick( item)}
             isCopied={copied.id === item.id && item.type === Types.Copy}
             isBeingHovered={hoveredItem.id === item.id}
             onMouseEnter={() => handleMouseEnter(item)}
             onMouseLeave={handleMouseLeave}
-            isLast={i === (options.length - 1)}>
+            isLast={i === (options.length - 1)}
+            isMobile={isMobile}>
 
               <RowTitle
                 isLast={i === (options.length - 1)}
