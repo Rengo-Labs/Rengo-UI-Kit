@@ -30,6 +30,13 @@ export const MenuHeader = styled.div<any>`
   }
 `
 
+export const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`;
+
 export const MenuItem = styled.div<any>`
   display: flex;
   flex: 1;
