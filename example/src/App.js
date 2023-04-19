@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { UiProvider, theme } from 'rengo-ui-kit'
 import ethToken from './assets/icons/eth-token.svg'
 import tetherToken from './assets/icons/tether-token.svg'
 import ethCsprPair from './assets/icons/eth-cspr-pair.svg'
+import walletIcon from './assets/icons/wallet-icon.svg'
 import casperIcon from './assets/casperIcon.svg'
 
 import {
@@ -11,7 +12,7 @@ import {
   Column,
   Toggle,
   Button,
-  ButtonIcon,
+  TextIconTouchable,
   Loader,
   Input,
   Header,
@@ -35,7 +36,9 @@ import {
   CreatePoolDialog,
   LiquidityItemDetail,
   RowIcon,
+  WalletConnectionButton,
   RemoveLiquidityDialog,
+  WalletConnectedOptionsDialog,
   Menu,
   LPContainer,
   WalletConnection
@@ -48,14 +51,15 @@ import {
   POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
   REMOVE_LIQUIDITY_DATA,
   BALANCE_TABLE_DATA,
-  WALLETS_DATA
-} from './data'
-
+  WALLET_CONNECTED_OPTIONS,
+  WALLETS_DATA } from './data'
+  
 const App = () => {
+  const [isWalletConnected, setIsWalletConnected] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
-  const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] =
-    useState(false)
+  const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] = useState(false)
+  const [showWalletConnectedOptionsDialog, setShowWalletConnectedOptionsDialog] = useState(false)
   const [showConnectionPopup, setShowConnectionPopup] = useState(false)
   const [showItemDetail, setShowItemDetail] = useState(false)
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
@@ -122,6 +126,11 @@ const App = () => {
     console.log('RemoveLidityPool', liquidityPool);
   }
 
+
+  const handleWalletConnect = () => {
+    setIsWalletConnected(true)
+    setShowWalletConnectedOptionsDialog(true)
+  }
   const redirectTo = (page) => {
     console.log("Change to page", page)
   }
@@ -219,11 +228,11 @@ const App = () => {
           </Row>
         </Container>
         <Container>
-          <ButtonIcon
+          <TextIconTouchable
             startIcon={ethToken}
             name={'ETH'}
             endIcon={downwardsArrowIcon}
-            actionCallBack={() => console.log('ButtonIcon clicked')}
+            actionCallBack={() => console.log('TextIconTouchable clicked')}
           />
         </Container>
         <Container>
@@ -236,7 +245,7 @@ const App = () => {
             hasBackground={true}
             // Icon={<AlertTriangle color="red" size={24} />}
             Icon={
-              <ButtonIcon
+              <TextIconTouchable
                 startIcon={ethToken}
                 name={'ETH'}
                 endIcon={downwardsArrowIcon}
@@ -378,6 +387,22 @@ const App = () => {
             iconSize={30}
           />
           </Row>
+        </Container>
+        <Container>
+          <Row className='my-2'>
+            
+            <WalletConnectionButton
+              startIcon={walletIcon}
+              isWalletActive={isWalletConnected}
+              walletID='f13c5754-1f0a-4f07-b1ca-dc55e6d778e7'
+              onClick={handleWalletConnect}
+            />
+          </ Row>
+          {showWalletConnectedOptionsDialog && (
+            <WalletConnectedOptionsDialog
+              closeCallback={() => setShowWalletConnectedOptionsDialog(false)}
+              options={WALLET_CONNECTED_OPTIONS} />
+          )}
         </Container>
         <Container>
           {showRemoveLiquidityDialog && (

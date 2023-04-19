@@ -43,6 +43,7 @@ export interface theme {
             light: string
             default: string
             dark: string
+            disconnect: string
         }
         primary: {
             default: string
@@ -114,6 +115,13 @@ export interface theme {
       sliderThumb: string
       inactiveLavander: string
       icon: string
+      wallet: {
+        copyOption: string
+        connectedOptions: string
+        white: string
+        onHover: string
+        onHoverDisconnect: string
+      }
     }
     border: {
       darkLilac: string
@@ -129,6 +137,7 @@ export interface theme {
       slider: string
       default: string
       dialog: string
+      wallet: string
     },
     defaultColor: string
     primaryColor: string
@@ -208,7 +217,8 @@ export const defaultTheme: theme = {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
             default: '#ED6767',
-            dark: '#C50000'
+            dark: '#C50000',
+            disconnect: '#ED6767'
         },
         primary: {
             default: '#715FF5',
@@ -279,7 +289,14 @@ export const defaultTheme: theme = {
       teaGreen: '#CCE7C1',
       sliderThumb: '#FF00FF',
       inactiveLavander: '#C6BFFB',
-      icon: '#E5F5FC'
+      icon: '#E5F5FC',
+      wallet: {
+        copyOption: '#008A0F',
+        connectedOptions: '#FFFFFF',
+        white: '#FFFFFF',
+        onHover: '#715FF5',
+        onHoverDisconnect: '#E83C3C'
+      }
     },
     border: {
       darkLilac: '#8D7FF7',
@@ -294,7 +311,8 @@ export const defaultTheme: theme = {
       table: '#E3DFFD',
       slider: '#715FF5',
       default: '#EAEBEC',
-      dialog: '#EAEBEC'
+      dialog: '#EAEBEC',
+      wallet: '#EAEBEC'
     },
     defaultColor: '#ccc',
     primaryColor: '#0ab',
@@ -374,7 +392,8 @@ export const darkTheme: theme = {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
             default: '#E00',
-            dark: '#C50000'
+            dark: '#C50000',
+            disconnect: '#ED6767'
         },
         primary: {
             default: '#715FF5',
@@ -445,7 +464,14 @@ export const darkTheme: theme = {
       teaGreen: '#CCE7C1',
       sliderThumb: '#FF00FF',
       inactiveLavander: '#C6BFFB',
-      icon: '#3A308B'
+      icon: '#3A308B',
+      wallet: {
+        copyOption: '#008A0F',
+        connectedOptions: '#3A308B',
+        white: '#FFFFFF',
+        onHover: '#715FF5',
+        onHoverDisconnect: '#E83C3C'
+      }
     },
     border: {
       darkLilac: '#8D7FF7',
@@ -460,7 +486,8 @@ export const darkTheme: theme = {
       table: '#241E52',
       slider: '#241E52',
       default: '#241E52',
-      dialog: '#EAEBEC'
+      dialog: '#EAEBEC',
+      wallet: '#241E52'
     },
     defaultColor: '#fafafa',
     primaryColor: '#0ab',

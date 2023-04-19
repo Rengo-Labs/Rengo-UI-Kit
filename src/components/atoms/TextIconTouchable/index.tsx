@@ -1,7 +1,7 @@
 import React from 'react'
 import {WrapperStyled, NameStyled} from './styles';
 
-export interface ButtonIconProps {
+export interface TextIconTouchableProps {
     startIcon?: string
     name?: string
     endIcon?: string
@@ -10,7 +10,7 @@ export interface ButtonIconProps {
     color?: string
 }
 
-export const ButtonIcon = ({startIcon, name, endIcon, actionCallBack, background, color}: ButtonIconProps) => {
+export const TextIconTouchable = ({startIcon, name, endIcon, actionCallBack, background, color}: TextIconTouchableProps) => {
     return (
         <WrapperStyled background={background} onClick={() => actionCallBack()}>
             {startIcon && <img src={startIcon} alt={`${name} left icon`}/>}

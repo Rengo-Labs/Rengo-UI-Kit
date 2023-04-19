@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {Input} from "../../../src/components";
 import {InputProps} from "../../../src/components/atoms/Input/types";
-import {ButtonIcon} from "../../../src/components";
+import {TextIconTouchable} from "../../../src/components";
 import ethToken from '../../assets/eth-token.svg'
 import downwardsArrowIcon from '../../assets/downwards-arrow-icon.svg'
 import {IconSize, Type} from "../../../src/components/atoms/Input/types";
@@ -12,11 +12,11 @@ export default {
   component: Input,
 } as ComponentMeta<typeof Input>;
 
-const icon = <ButtonIcon
+const icon = <TextIconTouchable
     startIcon={ethToken}
     name={'ETH'}
     endIcon={downwardsArrowIcon}
-    actionCallBack={() => console.log('ButtonIcon clicked')}
+    actionCallBack={() => console.log('TextIconTouchable clicked')}
 />
 // Create a master template for mapping args to render the Input component
 const Template: ComponentStory<typeof Input> = (args: InputProps) => {
