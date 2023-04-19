@@ -1,5 +1,7 @@
 export * from './Button';
 export * from './ButtomWallet';
+export * from './ButtonSwapToken';
+export * from './ButtonUpdateCircle';
 export * from './Container';
 export * from './Column';
 export * from './Row';
@@ -30,4 +32,5 @@ export * from './WalletConnectionButton';
 export * from './WalletConnectedOptionsDialog';
 export * from './BurgerButton';
 export * from './WalletConnectionItem';
+export * from './ExchangeRate';
 

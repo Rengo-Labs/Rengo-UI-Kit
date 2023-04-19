@@ -6,6 +6,8 @@ export {
     Column,
     Button,
     ButtonWallet,
+    ButtonSwapToken,
+    ButtonUpdateCircle,
     Toggle,
     TextIconTouchable,
     Loader,
@@ -37,6 +39,8 @@ export {
     WalletConnectedOptionsDialog,
     WalletConnection,
     Menu,
-    LPContainer
+    LPContainer,
+    ExchangeRate,
+    ExchangeRates,
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';
