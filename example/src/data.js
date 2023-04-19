@@ -4,6 +4,9 @@ import cstTokenIcon from "./assets/icons/casper-token.svg";
 import usdtTokenIcon from "./assets/icons/tether-token.svg";
 import usdcTokenIcon from "./assets/icons/usdc-token.svg";
 import wethCsprPairTokenIcon from "./assets/icons/eth-cspr-pair.svg";
+import casperWallet from "./assets/icons/casper-wallet.svg";
+import ledgerWallet from "./assets/icons/ledger-wallet.svg";
+import torusWallet from "./assets/icons/torus-wallet.svg";
 
 export const TOKEN_LIST_DATA_CREATE_POOL = [
   { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000', tokenImg: cstTokenIcon },
@@ -58,4 +61,27 @@ export const BALANCE_TABLE_DATA = [
     '15d': '70.5%',
     '30d': '92.5%'
   }
+]
+
+export const WALLETS_DATA = [
+  {
+    id: 1,
+    name: 'Casper Signer',
+    icon: casperWallet,
+  },
+  {
+    id: 2,
+    name: 'Casper Wallet',
+    icon: casperWallet,
+  },
+  {
+    id: 3,
+    name: 'Ledger',
+    icon: ledgerWallet,
+  },
+  {
+    id: 4,
+    name: 'Torus Wallet',
+    icon: torusWallet,
+  },
 ]

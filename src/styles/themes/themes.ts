@@ -89,6 +89,9 @@ export interface theme {
           body: {
             text: string
           }
+        },
+        wallet: {
+          background: string
         }
     }
     shadow: {
@@ -252,6 +255,9 @@ export const defaultTheme: theme = {
           body: {
             text: '#545454'
           }
+        },
+        wallet: {
+          background: '#F7FCFE'
         }
     },
     shadow: {
@@ -415,6 +421,9 @@ export const darkTheme: theme = {
           body: {
             text: '#FFFFFF'
           }
+        },
+        wallet: {
+          background: '#3A308B'
         }
     },
     shadow: {

@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  Chart,
-  TokenOption
-} from '../../atoms'
+import { Chart, Dialog, TokenOption } from '../../atoms'
 // @ts-ignore
 import ethLogo from '../../../../example/src/assets/icons/eth-logo.svg'
 import {
@@ -53,27 +50,34 @@ const data = [
 ]
 
 interface LiquidityItemDetailProps {
-  onClose?: () => void
+  closeCallback: () => void
 }
 
-export const LiquidityItemDetail = ({onClose}: LiquidityItemDetailProps) => {
+export const LiquidityItemDetail = ({ closeCallback }: LiquidityItemDetailProps) => {
   return (
-    <Container>
-      <Wrapper>
-        <TokenOption tokenImg={ethLogo} token='ETH' option1 showColor={false} />
-        <KeyPairWrapper>
-          <KeyStyle>Liquidity</KeyStyle>
-          <ValueStyle>$5,789</ValueStyle>
-        </KeyPairWrapper>
-        <KeyPairWrapper>
-          <KeyStyle>Actual Price</KeyStyle>
-          <ValueStyle>$1.789</ValueStyle>
-        </KeyPairWrapper>
-        <CloseIcon size={16} />
-      </Wrapper>
-      <Wrapper onClick={onClose}>
-       <Chart data={data} width={400} height={250}/>
-      </Wrapper>
-    </Container>
+    <Dialog onClose={closeCallback}>
+      <Container>
+        <Wrapper>
+          <TokenOption
+            tokenImg={ethLogo}
+            token='ETH'
+            option1
+            showColor={false}
+          />
+          <KeyPairWrapper>
+            <KeyStyle>Liquidity</KeyStyle>
+            <ValueStyle>$5,789</ValueStyle>
+          </KeyPairWrapper>
+          <KeyPairWrapper>
+            <KeyStyle>Actual Price</KeyStyle>
+            <ValueStyle>$1.789</ValueStyle>
+          </KeyPairWrapper>
+          <CloseIcon size={16} onClick={closeCallback}/>
+        </Wrapper>
+        <Wrapper>
+          <Chart data={data} width={400} height={250} />
+        </Wrapper>
+      </Container>
+    </Dialog>
   )
 }

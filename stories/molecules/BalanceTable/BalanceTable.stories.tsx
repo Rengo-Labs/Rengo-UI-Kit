@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {BalanceTable} from "../../../src/components";
+import { BALANCE_TABLE_DATA } from '../../../example/src/data';
 
 export default {
     title: "Components/Molecules/BalanceTable",

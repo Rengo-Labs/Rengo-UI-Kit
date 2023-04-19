@@ -32,6 +32,7 @@ export {
     Dialog,
     RemoveLiquidityDialog,
     BalanceTable,
+    WalletConnection,
     Menu,
     LPContainer
 } from './components';

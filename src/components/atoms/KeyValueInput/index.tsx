@@ -32,6 +32,7 @@ export const KeyValueInput = ({
       <InputWrapper>
         <Input
           value={value}
+          type='number'
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             onChange && onChange(Number(e.target.value))
           }

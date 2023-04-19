@@ -37,7 +37,8 @@ import {
   RowIcon,
   RemoveLiquidityDialog,
   Menu,
-  LPContainer
+  LPContainer,
+  WalletConnection
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
 import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
@@ -46,12 +47,17 @@ import {
   TOKEN_LIST_DATA_CREATE_POOL,
   POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
   REMOVE_LIQUIDITY_DATA,
-  BALANCE_TABLE_DATA } from './data'
+  BALANCE_TABLE_DATA,
+  WALLETS_DATA
+} from './data'
 
 const App = () => {
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
-  const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] = useState(false)
+  const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] =
+    useState(false)
+  const [showConnectionPopup, setShowConnectionPopup] = useState(false)
+  const [showItemDetail, setShowItemDetail] = useState(false)
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
   const [cardValue, setCardValue] = useState('')
@@ -120,6 +126,16 @@ const App = () => {
     console.log("Change to page", page)
   }
 
+  const handleConnectionPopup = (value) => {
+    console.log('handleConnectionPopup', value)
+    setShowConnectionPopup(false)
+  }
+
+  const handleItemDetail = () => {
+    console.log('llego aqui')
+    setShowItemDetail(false)
+  }
+
   return (
     <UiProvider theme={theme[selectedTheme]}>
       <Menu title='CASPERSWAP'
@@ -134,6 +150,14 @@ const App = () => {
             }}
       />
       <>
+        <Container>
+          <button onClick={() => setShowConnectionPopup(true)}>Open</button>
+          <WalletConnection
+            closeCallback={handleConnectionPopup}
+            wallets={WALLETS_DATA}
+            isOpen={showConnectionPopup}
+          />
+        </Container>
         <Container>
           <Row>
             <Column props={{ xs: 12 }}>
@@ -259,11 +283,6 @@ const App = () => {
               <LiquidityDetails/>
             </Column>
           </Row>
-          <Row className='m-1'>
-            <Column props={{ xs: 12, md: 5}}>
-              <LiquidityItemDetail/>
-            </Column>
-          </Row>
           <Row className='my-1'>
             <Column props={{ xs: 4 }}>
               <Settings />
@@ -325,6 +344,7 @@ const App = () => {
               trashHandler={() => setShowRemoveLiquidityDialog(prev => !prev)}
               swapHandler={() => console.log('horizontal card: swap')}
               viewHandler={() => console.log('horizontal card: view')}
+              itemHandler={() => setShowItemDetail(prev => !prev)}
               addLiquidityHandler={() =>
                 console.log('horizontal card: add liquidity')
               }
@@ -367,6 +387,9 @@ const App = () => {
               liquidityPoolData={REMOVE_LIQUIDITY_DATA}
               />
           )}
+          {
+            showItemDetail && (<LiquidityItemDetail closeCallback={handleItemDetail} />)
+          }
         </Container>
         <Container>
           <Row>

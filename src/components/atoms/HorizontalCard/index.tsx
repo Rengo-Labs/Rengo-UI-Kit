@@ -42,6 +42,7 @@ import { HorizontalCardProps } from './types'
   @param {Function} props.trashHandler - The function to handle remove action.
   @param {Function} props.swapHandler - The function to handle swap action.
   @param {Function} props.viewHandler - The function to handle view action.
+  @param {Function} props.itemHandler - The function to handle item click action.
   @param {Function} props.addLiquidityHandler - The function to handle add liquidity action.
   @param {Function} props.favoriteHandler - The function to handle favorite action.
   @returns {JSX.Element} A React JSX Element that displays the token pair, liquidity and user pool information with associated action buttons.
@@ -56,6 +57,7 @@ export const HorizontalCard = ({
   trashHandler,
   swapHandler,
   viewHandler,
+  itemHandler,
   addLiquidityHandler,
   favoriteHandler }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
@@ -70,8 +72,28 @@ export const HorizontalCard = ({
     }
   }, [theme])
 
+  const handleItemDetails = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation()
+    itemHandler && itemHandler()
+  }
+
+  const handleSwap = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
+    e.stopPropagation()
+    swapHandler()
+  }
+
+  const handleTrash = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
+    e.stopPropagation()
+    trashHandler()
+  }
+
+  const handleView = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
+    e.stopPropagation()
+    viewHandler()
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onClick={handleItemDetails}>
       <TokenInfoWrapper>
         <TokenInfoInnerWrapper>
           {hasFavorite && (
@@ -126,30 +148,30 @@ export const HorizontalCard = ({
       <ActionsWrapper actionsDialogActive={actionsDialogActive}>
         <ActionsInnerWrapper>
           <ActionItem
-            onClick={actionsDialogActive ?  trashHandler : undefined}>
+            onClick={actionsDialogActive ?  handleTrash : undefined}>
             <DeleteIcon
               color={currentTheme?.color.modalText}
               size={20}
-              onClick={actionsDialogActive ?  undefined : trashHandler} />
+              onClick={actionsDialogActive ?  undefined : handleTrash} />
             <ActionName>Remove</ActionName>
           </ActionItem>
 
           <ActionItem
-            onClick={actionsDialogActive ?  swapHandler : undefined}>
+            onClick={actionsDialogActive ?  handleSwap : undefined}>
             <ShuffleIcon
               color={currentTheme?.color.modalText}
               size={20}
-              onClick={actionsDialogActive ?  undefined : swapHandler} />
+              onClick={actionsDialogActive ?  undefined : handleSwap} />
             <ActionName>Swap</ActionName>
           </ActionItem>
 
           <ActionItem
             hidden={true}
-            onClick={actionsDialogActive ?  viewHandler : undefined}>
+            onClick={actionsDialogActive ?  handleView : undefined}>
             <ViewIcon
               color={currentTheme?.color.modalText}
               size={20}
-              onClick={actionsDialogActive ?  undefined : viewHandler} />
+              onClick={actionsDialogActive ?  undefined : handleView} />
               <ActionName>View</ActionName>
           </ActionItem>
 
