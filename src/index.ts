@@ -43,4 +43,4 @@ export {
     ExchangeRate,
     ExchangeRates,
 } from './components';
-export {InputType} from './components/atoms/KeyValueInput/types';
+export {InputType, ToggleVariant} from './types/index';
