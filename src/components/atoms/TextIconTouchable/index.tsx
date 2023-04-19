@@ -5,14 +5,16 @@ export interface TextIconTouchableProps {
     startIcon?: string
     name?: string
     endIcon?: string
-    actionCallBack: () => void
+    actionCallBack: () => void,
+    background?: string,
+    color?: string
 }
 
-export const TextIconTouchable = ({startIcon, name, endIcon, actionCallBack}: TextIconTouchableProps) => {
+export const TextIconTouchable = ({startIcon, name, endIcon, actionCallBack, background, color}: TextIconTouchableProps) => {
     return (
-        <WrapperStyled onClick={() => actionCallBack()}>
+        <WrapperStyled background={background} onClick={() => actionCallBack()}>
             {startIcon && <img src={startIcon} alt={`${name} left icon`}/>}
-            <NameStyled>
+            <NameStyled titleColor={color}>
                 {name}
             </NameStyled>
             {endIcon && <img src={endIcon} alt={`${name} right icon`}/>}

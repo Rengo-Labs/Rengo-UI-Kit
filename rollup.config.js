@@ -4,73 +4,94 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import babel from 'rollup-plugin-babel'
-import { terser } from 'rollup-plugin-terser'
-import { uglify } from 'rollup-plugin-uglify'
-import copy from 'rollup-plugin-copy'
+import {terser} from 'rollup-plugin-terser'
+import {uglify} from 'rollup-plugin-uglify'
 import url from '@rollup/plugin-url'
 import svgr from '@svgr/rollup'
 
 const packageJson = require("./package.json");
 const extensions = ['.js', '.ts', '.tsx']
+const externals = ['react', 'react-dom', 'styled-components']
 const overrides = {
-  exclude: [
-    "**/stories/**",
-    "**/stories",
-    "**/*.stories.js",
-    "**/__tests__/**",
-    "**/__mocks__/**",
-    "**/fonts",
-    "**/fonts/**",
-    "**/fonts/**/*",
-  ],
+    exclude: [
+        "**/stories/**",
+        "**/stories",
+        "**/*.stories.js",
+        "**/__tests__/**",
+        "**/__mocks__/**",
+        "**/fonts",
+        "**/fonts/**",
+        "**/fonts/**/*",
+    ],
 };
-export default {
-  input: "src/index.ts",
-  output: [
-    {
-      file: packageJson.main,
-      format: "cjs",
-      sourcemap: true,
-    },
-    {
-      file: packageJson.module,
-      format: "esm",
-      sourcemap: true
-    },
-    {
-      name: "RengoUIKit",
-      file: 'lib/index.umd.js',
-      format: 'umd',
-      sourcemap: true,
-    }
-  ],
-  plugins: [
-    svgr({ exportType: 'named', jsxRuntime: 'automatic' }),
-    peerDepsExternal({
-      includeDependencies: true,
+const input = "src/index.ts";
+const plugins = [
+    peerDepsExternal({ packageJsonPath: 'package.json' }),
+    svgr({exportType: 'named', jsxRuntime: 'automatic'}),
+    url({
+        include: ['**/*.ttf', '**/*.otf', '**/*.svg', '**/**/*.svg'],
+        limit: Infinity,
     }),
-    resolve({extensions}),
+    resolve({ browser: true, extensions}),
     commonjs(),
-    typescript({ useTsconfigDeclarationDir: true, tsconfigOverride: overrides, }),
+    typescript({useTsconfigDeclarationDir: true, tsconfigOverride: overrides,}),
     postcss({
         extensions: ['.css']
     }),
     babel({
-      extensions,
-      exclude: 'node_modules/**',
-      babelrc: false,
-      runtimeHelpers: true
+        extensions,
+        exclude: 'node_modules/**',
+        babelrc: false,
+        runtimeHelpers: true
     }),
     uglify(),
     terser(),
-    // copy({
-    //   targets: [
-    //     { src: "fonts", dest: "lib/assets" },
-    //   ],
-    // }),
-    url({
-      include: ['**/*.ttf', '**/*.otf', '**/*.svg', '**/**/*.svg'],
-      limit: Infinity,
-    }),
-  ]
-};
+];
+export default [
+    {
+        input: input,
+        output: {
+            file: packageJson.main,
+            format: "cjs",
+            sourcemap: true,
+            globals: {
+                'react': 'React',
+                'react-dom': 'ReactDOM',
+                'styled-components': 'styled',
+            },
+        },
+        plugins: plugins,
+        external: externals,
+    },
+    {
+        input: input,
+        output: {
+            file: packageJson.module,
+            format: "esm",
+            sourcemap: true,
+            globals: {
+                'react': 'React',
+                'react-dom': 'ReactDOM',
+                'styled-components': 'styled',
+            }
+        },
+        plugins: plugins,
+        external: externals,
+    },
+    {
+        input: input,
+        output: {
+            name: "RengoUIKit",
+            file: 'lib/index.umd.js',
+            format: 'umd',
+            sourcemap: true,
+            globals: {
+                'react': 'React',
+                'react-dom': 'ReactDOM',
+                'styled-components': 'styled',
+            },
+        },
+        plugins: plugins,
+        external: externals,
+    }
+]

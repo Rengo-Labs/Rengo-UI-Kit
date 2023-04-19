@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Body = styled.tbody`
   width: 100%;
   display: flex;
-`
+`;
 
 export const TR = styled.tr`
   display: flex;

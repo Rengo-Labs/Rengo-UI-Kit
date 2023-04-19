@@ -90,6 +90,9 @@ export interface theme {
           body: {
             text: string
           }
+        },
+        wallet: {
+          background: string
         }
     }
     shadow: {
@@ -103,7 +106,8 @@ export interface theme {
     background: {
       default: string
       searchInput: string
-      coinCard: string;
+      coinCard: string
+      menu: string
       gasFeeInput: string
       palePink: string
       lightGray: string
@@ -176,7 +180,7 @@ export const defaultTheme: theme = {
         primaryFont:
             '"Epilogue", "MyriadPro", sans-serif;',
         secondaryFont:
-            '"MyriadPro", "MyriadPro", sans-serif;',
+            '"MyriadPro", "Epilogue", sans-serif;',
         buttonFont:
             '"MyriadPro", "Epilogue", sans-serif;',
         inputFont:
@@ -261,6 +265,9 @@ export const defaultTheme: theme = {
           body: {
             text: '#545454'
           }
+        },
+        wallet: {
+          background: '#F7FCFE'
         }
     },
     shadow: {
@@ -275,6 +282,7 @@ export const defaultTheme: theme = {
       default: '#F4FBFE',
       searchInput: '#FFFFFF',
       coinCard: '#FFFFFF',
+      menu: '#715FF5',
       gasFeeInput: '#E3DFFD',
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',
@@ -432,6 +440,9 @@ export const darkTheme: theme = {
           body: {
             text: '#FFFFFF'
           }
+        },
+        wallet: {
+          background: '#3A308B'
         }
     },
     shadow: {
@@ -443,9 +454,10 @@ export const darkTheme: theme = {
         custom: '#111 0px 5px 10px'
     },
     background: {
-      default: '#241E52', 
+      default: '#241E52',
       searchInput: '#241E52',
       coinCard: '#3A308B',
+      menu: '#3A308B',
       gasFeeInput: '#241E52',
       palePink: '#E7C1C1',
       lightGray: '#D9D9D9',

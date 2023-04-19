@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ButtonIcon, ButtonWrapper } from './styles'
+import { TextIconTouchable, ButtonWrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
 import { DeviceType } from '../../../hooks/types'
 
@@ -64,7 +64,7 @@ export const WalletConnectionButton = ({ startIcon, endIcon, walletID, isWalletA
       onClick={onClick}
       isMobile={isMobile}>
         {startIcon && (
-          <ButtonIcon
+          <TextIconTouchable
             src={startIcon}
             alt={walletID} />
         )}
@@ -72,7 +72,7 @@ export const WalletConnectionButton = ({ startIcon, endIcon, walletID, isWalletA
             {connectionStateText}
           </span>
         {endIcon && (
-          <ButtonIcon src={endIcon} alt={walletID} />
+          <TextIconTouchable src={endIcon} alt={walletID} />
         )}
     </ButtonWrapper>
   )

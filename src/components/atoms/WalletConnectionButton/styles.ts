@@ -25,7 +25,7 @@ export const ButtonWrapper = styled.button<Props>`
   overflow: hidden;
 `;
 
-export const ButtonIcon = styled.img`
+export const TextIconTouchable = styled.img`
   width: 24px;
   height: 24px;
   color: ${({ theme }) => theme.primarybtntextColor};

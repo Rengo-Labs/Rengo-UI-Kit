@@ -4,6 +4,8 @@ import ethToken from './assets/icons/eth-token.svg'
 import tetherToken from './assets/icons/tether-token.svg'
 import ethCsprPair from './assets/icons/eth-cspr-pair.svg'
 import walletIcon from './assets/icons/wallet-icon.svg'
+import casperIcon from './assets/casperIcon.svg'
+
 import {
   Container,
   Row,
@@ -36,7 +38,10 @@ import {
   RowIcon,
   WalletConnectionButton,
   RemoveLiquidityDialog,
-  WalletConnectedOptionsDialog
+  WalletConnectedOptionsDialog,
+  Menu,
+  LPContainer,
+  WalletConnection
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
 import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
@@ -46,14 +51,17 @@ import {
   POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
   REMOVE_LIQUIDITY_DATA,
   BALANCE_TABLE_DATA,
-  WALLET_CONNECTED_OPTIONS } from './data'
-
+  WALLET_CONNECTED_OPTIONS,
+  WALLETS_DATA } from './data'
+  
 const App = () => {
   const [isWalletConnected, setIsWalletConnected] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState('default')
   const [showCreatePoolDialog, setShowCreatePoolDialog] = useState(false)
   const [showRemoveLiquidityDialog, setShowRemoveLiquidityDialog] = useState(false)
   const [showWalletConnectedOptionsDialog, setShowWalletConnectedOptionsDialog] = useState(false)
+  const [showConnectionPopup, setShowConnectionPopup] = useState(false)
+  const [showItemDetail, setShowItemDetail] = useState(false)
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
   const [cardValue, setCardValue] = useState('')
@@ -69,6 +77,12 @@ const App = () => {
       isActive: false
     }
   ])
+
+  const routes = [
+      {icon: ethLogo, page: 'SWAP', path: '/swap', action: () => redirectTo('/swap')},
+      {icon: tetherToken, page: "LIQUIDITY", path: '/liquidity', action: () => redirectTo('/liquidity')},
+      {icon: ethToken, page: "POOL", path: '/pool', action: () => redirectTo('/pool')}
+  ]
 
   const inputValidator = (value) => {
     console.log('validating', value)
@@ -117,9 +131,42 @@ const App = () => {
     setIsWalletConnected(true)
     setShowWalletConnectedOptionsDialog(true)
   }
+  const redirectTo = (page) => {
+    console.log("Change to page", page)
+  }
+
+  const handleConnectionPopup = (value) => {
+    console.log('handleConnectionPopup', value)
+    setShowConnectionPopup(false)
+  }
+
+  const handleItemDetail = () => {
+    console.log('llego aqui')
+    setShowItemDetail(false)
+  }
+
   return (
     <UiProvider theme={theme[selectedTheme]}>
+      <Menu title='CASPERSWAP'
+            isMobile={true}
+            links={routes}
+            menuIcon={casperIcon}
+            rightAction={{startIcon: ethToken, title: 'Connect Wallet', background: '#7AEDD4', color: '#715FF5', onAction: () => console.log("Open Right Options")}}
+            toggle={{
+              isActive: selectedTheme === 'dark',
+              toggle: handleToggleTheme,
+              variant: 'theme-switcher'
+            }}
+      />
       <>
+        <Container>
+          <button onClick={() => setShowConnectionPopup(true)}>Open</button>
+          <WalletConnection
+            closeCallback={handleConnectionPopup}
+            wallets={WALLETS_DATA}
+            isOpen={showConnectionPopup}
+          />
+        </Container>
         <Container>
           <Row>
             <Column props={{ xs: 12 }}>
@@ -245,11 +292,6 @@ const App = () => {
               <LiquidityDetails/>
             </Column>
           </Row>
-          <Row className='m-1'>
-            <Column props={{ xs: 12, md: 5}}>
-              <LiquidityItemDetail/>
-            </Column>
-          </Row>
           <Row className='my-1'>
             <Column props={{ xs: 4 }}>
               <Settings />
@@ -311,6 +353,7 @@ const App = () => {
               trashHandler={() => setShowRemoveLiquidityDialog(prev => !prev)}
               swapHandler={() => console.log('horizontal card: swap')}
               viewHandler={() => console.log('horizontal card: view')}
+              itemHandler={() => setShowItemDetail(prev => !prev)}
               addLiquidityHandler={() =>
                 console.log('horizontal card: add liquidity')
               }
@@ -337,7 +380,7 @@ const App = () => {
         </Container>
         <Container>
           <Row className='my-2'>
-          <RowIcon 
+          <RowIcon
             tokenName='WETH'
             tokenFullName='Wrapped Ether'
             Icon={ethLogo}
@@ -369,6 +412,9 @@ const App = () => {
               liquidityPoolData={REMOVE_LIQUIDITY_DATA}
               />
           )}
+          {
+            showItemDetail && (<LiquidityItemDetail closeCallback={handleItemDetail} />)
+          }
         </Container>
         <Container>
           <Row>
@@ -387,6 +433,15 @@ const App = () => {
               />
             </Column>
           </Row>
+        </Container>
+        <Container>
+          <LPContainer title='My Liquidity' lpTokens={
+            [
+              {icon: ethCsprPair, isFavorite: true, firstSymbol: 'ETH', secondSymbol: 'CSPR', firstAmount: '200.00000002', secondAmount: '4000000.00000122', userLP: '10', totalLP: '232000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
+              {icon: casperIcon, isFavorite: false, firstSymbol: 'BTC', secondSymbol: 'CSPR', firstAmount: '0.05', secondAmount: '9000000.00000122', userLP: '1.02', totalLP: '34000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
+              {icon: tetherToken, isFavorite: false, firstSymbol: 'USDT', secondSymbol: 'CSPR', firstAmount: '50.00000002', secondAmount: '4000.00000122', userLP: '19', totalLP: '23000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
+            ]
+          } />
         </Container>
       </>
     </UiProvider>

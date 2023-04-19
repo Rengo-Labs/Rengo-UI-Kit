@@ -1,9 +1,11 @@
-export {UiProvider, theme} from './providers';
+export {UiProvider, theme, UIProviderContext} from './providers';
+export {useTheme, useDeviceType} from './hooks';
 export {
     Container,
     Row,
     Column,
     Button,
+    ButtonWallet,
     Toggle,
     TextIconTouchable,
     Loader,
@@ -32,6 +34,9 @@ export {
     BalanceTable,
     WalletConnectionButton,
     RemoveLiquidityDialog,
-    WalletConnectedOptionsDialog
+    WalletConnectedOptionsDialog,
+    WalletConnection,
+    Menu,
+    LPContainer
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';
