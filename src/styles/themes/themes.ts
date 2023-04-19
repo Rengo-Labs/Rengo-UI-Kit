@@ -171,7 +171,7 @@ export const defaultTheme: theme = {
         primaryFont:
             '"Epilogue", "MyriadPro", sans-serif;',
         secondaryFont:
-            '"MyriadPro", "MyriadPro", sans-serif;',
+            '"MyriadPro", "Epilogue", sans-serif;',
         buttonFont:
             '"MyriadPro", "Epilogue", sans-serif;',
         inputFont:
@@ -435,7 +435,7 @@ export const darkTheme: theme = {
         custom: '#111 0px 5px 10px'
     },
     background: {
-      default: '#241E52', 
+      default: '#241E52',
       searchInput: '#241E52',
       coinCard: '#3A308B',
       menu: '#3A308B',
