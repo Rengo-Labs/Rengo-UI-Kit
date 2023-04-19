@@ -1,10 +1,12 @@
 export * from './Button';
+export * from './ButtonIcon';
 export * from './ButtomWallet';
+export * from './ButtonSwapToken';
+export * from './ButtonUpdateCircle';
 export * from './Container';
 export * from './Column';
 export * from './Row';
 export * from './Toggle';
-export * from './ButtonIcon';
 export * from './Loader';
 export * from './KeyPairText';
 export * from './TokenOption';
@@ -28,4 +30,5 @@ export * from './TableBalanceBody';
 export * from './BalanceMobileItem';
 export * from './BurgerButton';
 export * from './WalletConnectionItem';
+export * from './ExchangeRate';
 

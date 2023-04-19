@@ -9,13 +9,14 @@ export default {
 } as ComponentMeta<typeof WalletConnection>
 
 // Create a master template for mapping args to render the WalletConnection component
-const Template: ComponentStory<typeof WalletConnection> = () => (
+const Template: ComponentStory<typeof WalletConnection> = (args) => (
   <div style={{ width: '600px' }}>
-    <WalletConnection
-      closeCallback={() => console.log('close')}
-      wallets={WALLETS_DATA}
-      isOpen={true}
-    />
+    <WalletConnection {...args}/>
   </div>
 )
 export const Default = Template.bind({})
+Default.args = {
+    closeCallback: () => console.log('close'),
+    wallets: WALLETS_DATA,
+    isOpen: true
+}

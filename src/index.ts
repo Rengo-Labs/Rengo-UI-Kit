@@ -5,9 +5,11 @@ export {
     Row,
     Column,
     Button,
-    ButtonWallet,
-    Toggle,
     ButtonIcon,
+    ButtonWallet,
+    ButtonSwapToken,
+    ButtonUpdateCircle,
+    Toggle,
     Loader,
     KeyPairText,
     TokenOption,
@@ -35,6 +37,8 @@ export {
     BalanceTable,
     WalletConnection,
     Menu,
-    LPContainer
+    LPContainer,
+    ExchangeRate,
+    ExchangeRates,
 } from './components';
 export {InputType} from './components/atoms/KeyValueInput/types';

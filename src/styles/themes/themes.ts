@@ -296,7 +296,7 @@ export const defaultTheme: theme = {
       default: '#EAEBEC',
       dialog: '#EAEBEC'
     },
-    defaultColor: '#ccc',
+    defaultColor: '#715FF5',
     primaryColor: '#0ab',
     secondaryColor: 'rgb(0,0,0)',
     errorColor: '#FF0000',
@@ -462,7 +462,7 @@ export const darkTheme: theme = {
       default: '#241E52',
       dialog: '#EAEBEC'
     },
-    defaultColor: '#fafafa',
+    defaultColor: '#FFFFFF',
     primaryColor: '#0ab',
     secondaryColor: '#666666',
     errorColor: '#FF0000',
