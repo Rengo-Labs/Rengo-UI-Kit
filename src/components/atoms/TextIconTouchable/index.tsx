@@ -8,16 +8,18 @@ export interface TextIconTouchableProps {
     actionCallBack: () => void,
     background?: string,
     color?: string
+    iconHeight?: number
+    iconWidth?: number
 }
 
-export const TextIconTouchable = ({startIcon, name, endIcon, actionCallBack, background, color}: TextIconTouchableProps) => {
+export const TextIconTouchable = ({startIcon, name, endIcon, actionCallBack, background, color, iconHeight = 30, iconWidth = 30}: TextIconTouchableProps) => {
     return (
         <WrapperStyled background={background} onClick={() => actionCallBack()}>
-            {startIcon && <img src={startIcon} alt={`${name} left icon`}/>}
+            {startIcon && <img src={startIcon} height={iconHeight} width={iconWidth} alt={`${name} left icon`}/>}
             <NameStyled titleColor={color}>
                 {name}
             </NameStyled>
-            {endIcon && <img src={endIcon} alt={`${name} right icon`}/>}
+            {endIcon && <img src={endIcon} height={iconHeight} width={iconWidth} alt={`${name} right icon`}/>}
         </WrapperStyled>
     );
 }

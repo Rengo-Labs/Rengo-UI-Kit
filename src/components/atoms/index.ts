@@ -33,4 +33,5 @@ export * from './WalletConnectedOptionsDialog';
 export * from './BurgerButton';
 export * from './WalletConnectionItem';
 export * from './ExchangeRate';
+export * from './ContainerLayout';
 

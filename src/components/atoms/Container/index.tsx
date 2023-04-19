@@ -5,6 +5,6 @@ export interface ContainerProps {
     className?: string;
     props?: any;
 }
-export const Container = ({children, props = {}}: ContainerProps) => {
-    return <Grid {...props}>{children}</Grid>;
+export const Container = ({children, className, props = {}}: ContainerProps) => {
+    return <Grid className={className} {...props}>{children}</Grid>;
 };
