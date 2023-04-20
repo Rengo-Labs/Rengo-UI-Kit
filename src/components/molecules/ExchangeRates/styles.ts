@@ -8,7 +8,6 @@ export const Container = styled.section`
   padding: 8px 4px;
   gap: 10px;
   flex: none;
-  order: 1;
   align-self: stretch;
   flex-grow: 0;
 `;

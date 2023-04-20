@@ -20,7 +20,7 @@ export default {
 // Create a master template for mapping args to render the Button component
 const Template: ComponentStory<typeof TextIconTouchable> = (args) => {
   return (
-    <TextIconTouchable startIcon={args.startIcon} name={args.name} endIcon={args.endIcon} actionCallBack={args.actionCallBack} />
+    <TextIconTouchable {...args} />
   )
 };
 export const Default = Template.bind({});
@@ -31,5 +31,17 @@ Default.args = {
     endIcon: downwardsArrowIcon,
     actionCallBack: () => console.log('TextIconTouchable clicked')
 };
+
+export const WithIconBig = Template.bind({});
+// @ts-ignore
+WithIconBig.args = {
+    startIcon: ethToken,
+    name: 'ETH',
+    endIcon: downwardsArrowIcon,
+    actionCallBack: () => console.log('TextIconTouchable clicked'),
+    iconWidth: 45,
+    iconHeight: 45,
+}
+
 
 

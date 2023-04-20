@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const MenuWrapped = styled.div`
+  //position: fixed;
+  //width: 100%;
+  //top: 0;
+  //left: 0;
   display: flex;
   flex-direction: column;
   padding: 0px 0px 8px;
   background: ${({ theme }) => theme.background.coinCard};
-  
-  @media (min-width: 430px) {
-    
-  }
 `
 
 export const MenuBar = styled.div`
