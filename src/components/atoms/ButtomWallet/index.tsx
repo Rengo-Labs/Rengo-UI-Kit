@@ -7,7 +7,7 @@ import {DeviceType} from "../../../hooks/types";
 const defaultAccountHash = 'Connect Wallet'
 
 export interface IButtonWalletProps {
-    handleClick: () => void,
+    handleClick: (() => void) | undefined,
     accountHashString?: any
 }
 
@@ -29,18 +29,14 @@ export const ButtonWallet = ({handleClick, accountHashString = defaultAccountHas
     const [accountHash, setAccountHash] = useState<any>(accountHashString)
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
-    console.log(' $$$$$ accountHash $$$$', accountHash)
 
     useEffect(() => {
-        console.log(' ##### accountHash #####', accountHash)
         if (accountHash && accountHash !== defaultAccountHash && accountHash.length) {
-            console.log(' &&&& accountHash &&&&', accountHash)
             isMobile ?
                 setAccountHash(transformAccountHash(accountHash).walletLabelMobile) :
                 setAccountHash(transformAccountHash(accountHash).walletLabel)
         }
         if(accountHash === null) {
-            console.log(' @@@@@ accountHash @@@', accountHash)
             setAccountHash(defaultAccountHash)
         }
     }, [isMobile, accountHashString])
