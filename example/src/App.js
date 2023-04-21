@@ -10,7 +10,7 @@ import liquidityIcon from './assets/liquidity.svg'
 import balanceIcon from './assets/wallet.svg'
 import poolIcon from './assets/pool-icon.svg'
 // import casperTextIcon from './assets/textLogo.svg'
-import casperTextIcon from './assets/logo.svg'
+import casperTextIcon from './assets/type_logo.svg'
 
 import {
   Container,
@@ -158,6 +158,7 @@ const App = () => {
             isMobile={true}
             links={routes}
             menuIcon={casperIcon}
+            casperIcon={casperTextIcon}
             rightAction={{startIcon: ethToken, title: 'Connect Wallet', background: '#7AEDD4', color: '#715FF5', onAction: () => setShowConnectionPopup(true)}}
             toggle={{
               isActive: selectedTheme === 'dark',

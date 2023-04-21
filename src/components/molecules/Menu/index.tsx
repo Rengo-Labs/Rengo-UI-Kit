@@ -19,10 +19,12 @@ import { MenuPros } from './types'
 
 export const Menu = ({
   menuIcon,
+  casperIcon,
   title,
   links,
   toggle,
-  rightAction
+  rightAction,
+  menuRef
 }: MenuPros) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
@@ -37,7 +39,7 @@ export const Menu = ({
     <>
       {isMobile ? (
         <>
-          <MenuWrapperMobile>
+          <MenuWrapperMobile ref={menuRef}>
             <MobileMenuIcon onClick={toggleMenu}>
               <BurgerButton
                 key={'burger-' + uuidv4()}
@@ -46,7 +48,7 @@ export const Menu = ({
               />
             </MobileMenuIcon>
             {isOpen && <MenuItemText size={24}>{title}</MenuItemText>}
-            <Icon src={menuIcon} size={45} alt={`${title} left icon`} />
+            <Icon src={menuIcon} width={45} height={45} alt={`${title} left icon`} />
             {!isOpen && <ButtonWallet handleClick={rightAction?.onAction} />}
           </MenuWrapperMobile>
           <MobileMenuWrapper isOpen={isOpen}>
@@ -57,7 +59,7 @@ export const Menu = ({
                   clickable
                   onClick={() => link.onAction(link.path)}
                 >
-                  <Icon src={link.icon} size={38} alt={`${link.page} icon`} />
+                  <Icon src={link.icon} width={38} height={38} alt={`${link.page} icon`} />
                   <MenuItemText size={22}>{link.page}</MenuItemText>
                 </MenuItem>
               ))}
@@ -76,11 +78,11 @@ export const Menu = ({
           </MobileMenuWrapper>
         </>
       ) : (
-        <MenuWrapper isTablet={isTablet}>
+        <MenuWrapper isTablet={isTablet} ref={menuRef}>
           <LeftTextContainer>
+            <Icon src={menuIcon} width={28} height={28} alt={`${title} left icon`} />
             <MenuItem>
-              <Icon src={menuIcon} size={28} alt={`${title} left icon`} />
-              <MenuItemText>{title}</MenuItemText>
+              <Icon src={casperIcon} width={120} height={13} alt={`${title} left icon`} />
             </MenuItem>
           </LeftTextContainer>
           <CenterTextContainer>
@@ -90,7 +92,7 @@ export const Menu = ({
                 clickable
                 onClick={() => link.onAction(link.path)}
               >
-                <Icon src={link.icon} size={32} alt={`${link.page} icon`} />
+                <Icon src={link.icon} width={32} height={32} alt={`${link.page} icon`} />
                 <MenuItemText>{link.page}</MenuItemText>
               </MenuItem>
             ))}
