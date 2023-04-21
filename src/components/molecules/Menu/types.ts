@@ -17,11 +17,13 @@ export interface OptAction {
 }
 export interface MenuPros {
   menuIcon: any
+  casperIcon: any
   title: string
   links: PageLink[]
   toggle?: ToggleProps
   rightAction?: OptAction
   children?: React.ReactNode
+  menuRef?: React.RefObject<HTMLDivElement>;
 }
 
 export interface IMenuWrapper {
@@ -35,5 +37,6 @@ export interface IMenuItem {
 export interface ImageProps {
   src: string
   alt: string
-  size: number
+  width?: number
+  height?: number
 }

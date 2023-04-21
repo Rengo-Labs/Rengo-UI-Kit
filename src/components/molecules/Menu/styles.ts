@@ -108,8 +108,8 @@ export const MobileMenuItemContainer = styled.div`
     width: 100%;
 `;
 
-export const Icon = styled.img.attrs<ImageProps>(({ size }) => ({
-    width: size,
-    height: size,
+export const Icon = styled.img.attrs<ImageProps>(({ width, height }) => ({
+    width: width,
+    height: height,
   }))<ImageProps>``;
 
