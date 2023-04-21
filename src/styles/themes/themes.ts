@@ -382,7 +382,7 @@ export const darkTheme: theme = {
         foreground: '#FFF',
         grey: '#F9F9F9',
         borderhover: '#FFF',
-        white: '#fff',
+        white: '#FFFFFF',
         black: '#000',
         darkGrey: '#545454',
         lavender: '#E3DFFD',

@@ -5,6 +5,12 @@ import tetherToken from './assets/icons/tether-token.svg'
 import ethCsprPair from './assets/icons/eth-cspr-pair.svg'
 import walletIcon from './assets/icons/wallet-icon.svg'
 import casperIcon from './assets/casperIcon.svg'
+import swapIcon from './assets/swap-icon.svg'
+import liquidityIcon from './assets/liquidity.svg'
+import balanceIcon from './assets/wallet.svg'
+import poolIcon from './assets/pool-icon.svg'
+// import casperTextIcon from './assets/textLogo.svg'
+import casperTextIcon from './assets/logo.svg'
 
 import {
   Container,
@@ -79,9 +85,10 @@ const App = () => {
   ])
 
   const routes = [
-      {icon: ethLogo, page: 'SWAP', path: '/swap', action: () => redirectTo('/swap')},
-      {icon: tetherToken, page: "LIQUIDITY", path: '/liquidity', action: () => redirectTo('/liquidity')},
-      {icon: ethToken, page: "POOL", path: '/pool', action: () => redirectTo('/pool')}
+      {icon: swapIcon, page: 'Swap', path: '/swap', action: () => redirectTo('/swap')},
+      {icon: liquidityIcon, page: "Liquidity", path: '/liquidity', action: () => redirectTo('/liquidity')},
+      {icon: balanceIcon, page: "Balance", path: '/balance', action: () => redirectTo('/balance')},
+      {icon: poolIcon, page: "Pool", path: '/pool', action: () => redirectTo('/pool')}
   ]
 
   const inputValidator = (value) => {
@@ -147,11 +154,11 @@ const App = () => {
 
   return (
     <UiProvider theme={theme[selectedTheme]}>
-      <Menu title='CASPERSWAP'
+      <Menu title='casperswap'
             isMobile={true}
             links={routes}
             menuIcon={casperIcon}
-            rightAction={{startIcon: ethToken, title: 'Connect Wallet', background: '#7AEDD4', color: '#715FF5', onAction: () => console.log("Open Right Options")}}
+            rightAction={{startIcon: ethToken, title: 'Connect Wallet', background: '#7AEDD4', color: '#715FF5', onAction: () => setShowConnectionPopup(true)}}
             toggle={{
               isActive: selectedTheme === 'dark',
               toggle: handleToggleTheme,
