@@ -14,6 +14,9 @@ export interface OptAction {
   background: string
   color: string
   onAction: any
+  isWalletConnected?: boolean,
+  onActionConnected?: any,
+  walletAddress?: string,
 }
 export interface MenuPros {
   menuIcon: any

@@ -8,16 +8,11 @@ const defaultAccountHash = 'Connect Wallet'
 
 export interface IButtonWalletProps {
     handleClick: () => void,
-    accountHashString?: string
+    accountHashString?: any
 }
 
 const transformAccountHash = (accountHashString: string) => {
     const end = accountHashString.length;
-    const start = accountHashString.length - 3;
-    const wallet = `${accountHashString.substring(
-        0,
-        8
-    )}...${accountHashString.substring(start, end)}`;
     const walletLabel = `${accountHashString.substring(
         0,
         6
@@ -31,15 +26,22 @@ const transformAccountHash = (accountHashString: string) => {
     return {walletLabel, walletLabelMobile}
 }
 export const ButtonWallet = ({handleClick, accountHashString = defaultAccountHash}: IButtonWalletProps) => {
-    const [accountHash, setAccountHash] = useState<string>(accountHashString)
+    const [accountHash, setAccountHash] = useState<any>(accountHashString)
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
+    console.log(' $$$$$ accountHash $$$$', accountHash)
 
     useEffect(() => {
-        if (accountHashString !== defaultAccountHash) {
+        console.log(' ##### accountHash #####', accountHash)
+        if (accountHash && accountHash !== defaultAccountHash && accountHash.length) {
+            console.log(' &&&& accountHash &&&&', accountHash)
             isMobile ?
-                setAccountHash(transformAccountHash(accountHashString).walletLabelMobile) :
-                setAccountHash(transformAccountHash(accountHashString).walletLabel)
+                setAccountHash(transformAccountHash(accountHash).walletLabelMobile) :
+                setAccountHash(transformAccountHash(accountHash).walletLabel)
+        }
+        if(accountHash === null) {
+            console.log(' @@@@@ accountHash @@@', accountHash)
+            setAccountHash(defaultAccountHash)
         }
     }, [isMobile, accountHashString])
 
@@ -47,9 +49,9 @@ export const ButtonWallet = ({handleClick, accountHashString = defaultAccountHas
         isMobile ?
             <ButtonWalletMobile onClick={handleClick}>
                 <ButtonWalletIcon src={walletIcon}/>
-                {accountHash !== defaultAccountHash &&
+                {accountHash !== null && accountHash !== defaultAccountHash &&
                     <ButtonWalletText>
-                        {accountHash !== defaultAccountHash ? accountHash : ''}
+                        {accountHash}
                     </ButtonWalletText>
                 }
             </ButtonWalletMobile> :

@@ -24,7 +24,7 @@ export const Menu = ({
   links,
   toggle,
   rightAction,
-  menuRef
+  menuRef,
 }: MenuPros) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
@@ -108,7 +108,11 @@ export const Menu = ({
               </MenuItem>
             )}
           </CenterTextContainer>
-          <ButtonWallet handleClick={rightAction?.onAction} />
+              <ButtonWallet
+                  handleClick={rightAction?.isWalletConnected ?
+                    rightAction?.onAction :
+                    rightAction?.onActionConnected}
+                    accountHashString={rightAction?.walletAddress} />
         </MenuWrapper>
       )}
     </>
