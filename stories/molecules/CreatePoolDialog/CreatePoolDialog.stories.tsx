@@ -42,5 +42,6 @@ export const Default = Template.bind({});
 Default.args = {
   closeCallback: () => console.log('dialog is closed'),
   tokenListData: TOKEN_LIST_DATA_CREATE_POOL,
-  popularTokensData: POPULAR_TOKEN_LIST_DATA_CREATE_POOL
+  popularTokensData: POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
+  onSelectToken: () => console.log('token selected')
 };

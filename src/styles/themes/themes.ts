@@ -78,6 +78,7 @@ export interface theme {
             borderInactive: string
             textActive: string
             textInactive: string
+            hover: string
         },
         toggleButton: {
           default: string
@@ -252,7 +253,8 @@ export const defaultTheme: theme = {
             borderActive: '#715FF5',
             borderInactive: '#F5F5F5',
             textActive: '#715FF5',
-            textInactive: '#767676'
+            textInactive: '#767676',
+            hover: '#F5F5F5'
         },
         toggleButton: {
           default: '#6EEBD0',
@@ -427,7 +429,8 @@ export const darkTheme: theme = {
             borderActive: '#FFFFFF',
             borderInactive: '#241E52',
             textActive: '#FFFFFF',
-            textInactive: '#A99EFB'
+            textInactive: '#A99EFB',
+            hover: '#715FF5'
         },
         toggleButton: {
           default: '#6EEBD0',

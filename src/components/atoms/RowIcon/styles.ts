@@ -27,6 +27,13 @@ export const TokenContainer = styled.div`
   align-items: center;
   gap: 8px;
   /* margin: 16px 0 16px 5px; */
+  &:hover {
+    background-color: ${({ theme }) => theme.color.tab.hover};
+  }
+  
+  &:focus {
+    background-color: ${({ theme }) => theme.color.tab.hover};
+  }
 `;
 
 export const TokenNamesContainer = styled.div`

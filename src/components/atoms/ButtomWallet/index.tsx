@@ -8,7 +8,7 @@ const defaultAccountHash = 'Connect Wallet'
 
 export interface IButtonWalletProps {
     handleClick: (() => void) | undefined,
-    accountHashString?: any
+    accountHashString?: string | null
 }
 
 const transformAccountHash = (accountHashString: string) => {
@@ -26,12 +26,12 @@ const transformAccountHash = (accountHashString: string) => {
     return {walletLabel, walletLabelMobile}
 }
 export const ButtonWallet = ({handleClick, accountHashString = defaultAccountHash}: IButtonWalletProps) => {
-    const [accountHash, setAccountHash] = useState<any>(accountHashString)
+    const [accountHash, setAccountHash] = useState<string | null>(accountHashString || null)
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
 
     useEffect(() => {
-        if (accountHash && accountHash !== defaultAccountHash && accountHash.length) {
+        if (accountHash !== null && accountHash !== defaultAccountHash) {
             isMobile ?
                 setAccountHash(transformAccountHash(accountHash).walletLabelMobile) :
                 setAccountHash(transformAccountHash(accountHash).walletLabel)

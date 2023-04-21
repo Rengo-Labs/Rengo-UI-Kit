@@ -23,4 +23,5 @@ export interface TransactionProps {
   tokenNameSymbols?: Array<string>
   amount?: string
   isLast?: boolean
+  onSelectToken?: () => void
 }
