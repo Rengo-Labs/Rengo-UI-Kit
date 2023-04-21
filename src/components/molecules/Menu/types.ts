@@ -14,6 +14,7 @@ export interface OptAction {
   background: string
   color: string
   onAction: any
+  isWalletConnected?: boolean,
   onActionConnected?: any,
   walletAddress?: string,
 }
@@ -26,8 +27,6 @@ export interface MenuPros {
   rightAction?: OptAction
   children?: React.ReactNode
   menuRef?: React.RefObject<HTMLDivElement>;
-  isWalletConnected?: boolean;
-  walletAddress?: string;
 }
 
 export interface IMenuWrapper {

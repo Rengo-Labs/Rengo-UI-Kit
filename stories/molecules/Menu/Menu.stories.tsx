@@ -29,9 +29,22 @@ const rightAction = {
     background: '#7AEDD4',
     color: '#715FF5',
     onAction: () => console.log("Open Right Options"),
+    isWalletConnected: false,
     onActionConnected: () => console.log("onActionConnected"),
-    walletAddress: '0x1234567890',
+    walletAddress: null,
 }
+
+const rightActionConnected = {
+    startIcon: ethToken,
+    title: 'Connect Wallet',
+    background: '#7AEDD4',
+    color: '#715FF5',
+    onAction: () => console.log("Open Right Options"),
+    isWalletConnected: true,
+    onActionConnected: () => console.log("onActionConnected"),
+    walletAddress: '01619d815aecaa6be608345dd674543b339ce9fe299f97919dce921afe34dd1a1f'
+}
+
 const toggleAction = {
     isActive: 'default',
     toggle: () => {},
@@ -60,7 +73,7 @@ WalletConnected.args = {
     casperIcon: casperTyped,
     links: routes,
     menuIcon: casperIcon,
-    rightAction: rightAction,
+    rightAction: rightActionConnected,
     toggle: toggleAction,
     menuBackground: 'default',
     isWalletConnected: true
