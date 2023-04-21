@@ -3,7 +3,8 @@ import { Chart, Column, KeyPairText, Row, TokenOption } from '../../atoms'
 import { RowStyled } from './styles'
 
 interface SwapPriceProps {
-  tokenImg: any
+  firstTokenImg: any
+  secondTokenImg: any
 }
 
 const data = [
@@ -50,14 +51,15 @@ const data = [
  * @returns  {JSX.Element} The rendered the token options and key pair text.
  */
 
-export const SwapPrice = ({ tokenImg }: SwapPriceProps) => {
+export const SwapPrice = ({ firstTokenImg, secondTokenImg }: SwapPriceProps) => {
+  console.log("aaaaaa", firstTokenImg, secondTokenImg)
   return (
     <>
       <Row props={{ className: 'p-1 align-center' }}>
         <Column props={{ xs: 12, md: 6 }}>
           <RowStyled>
-            <TokenOption tokenImg={tokenImg} token='ETH' option1 />
-            <TokenOption tokenImg={tokenImg} token='CSPR' option1={false} />
+            <TokenOption tokenImg={firstTokenImg} token='ETH' option1 />
+            <TokenOption tokenImg={secondTokenImg} token='CSPR' option1={false} />
           </RowStyled>
         </Column>
         <Column props={{ xs: 12, md: 6 }}>

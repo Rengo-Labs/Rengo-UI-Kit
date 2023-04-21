@@ -28,7 +28,6 @@ export const ButtonUpdateCircle = ({getProgress, clearProgress, strokeWidth, han
     const getOffset = () => {
         const progress = getProgress();
         const offset = ((100 - progress) / 100 * diameter);
-        console.log("offset ", offset)
         return offset;
     }
 

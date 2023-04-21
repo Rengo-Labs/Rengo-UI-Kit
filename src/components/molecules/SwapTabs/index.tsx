@@ -4,8 +4,9 @@ import { SwapPrice } from '../SwapPrice'
 import { SwapMoreInfo } from '../SwapMoreInfo'
 import { Item, TabContent } from './styles'
 
-interface SwapTabsProps {
-  tokenImg: any
+export interface SwapTabsProps {
+  firstTokenImg: any
+  secondTokenImg: any
 }
 
 /**
@@ -14,13 +15,13 @@ interface SwapTabsProps {
  * @returns  {JSX.Element} The rendered two tabs, the first one with a Price component and the second one with the more info component.
  */
 
-export const SwapTabs = ({ tokenImg }: SwapTabsProps) => {
+export const SwapTabs = ({ firstTokenImg, secondTokenImg }: SwapTabsProps) => {
   const [tabs, setTabs] = useState([
     {
       id: 1,
       text: 'Price',
       isActive: true,
-      component: <SwapPrice tokenImg={tokenImg}/>
+      component: <SwapPrice firstTokenImg={firstTokenImg} secondTokenImg={secondTokenImg}/>
     },
     {
       id: 2,

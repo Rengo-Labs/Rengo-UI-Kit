@@ -53,7 +53,7 @@ import {
   BALANCE_TABLE_DATA,
   WALLET_CONNECTED_OPTIONS,
   WALLETS_DATA } from './data'
-  
+
 const App = () => {
   const [isWalletConnected, setIsWalletConnected] = useState(false)
   const [selectedTheme, setSelectedTheme] = useState('default')
@@ -191,13 +191,13 @@ const App = () => {
         </Container>
         <Container props={{ fluid: true }}>
           <Row>
-            <Column props={{ xs: 12, sm: 3, md: 4, lg: 12 }}>
+            <Column props={{ xs: 12, sm: 6, md: 6, lg: 6}}>
               <h1>Test 1</h1>
             </Column>
-            <Column props={{ xs: 12, sm: 3, md: 4, lg: 12 }}>
+            <Column props={{ xs: 12, sm: 6, md: 6, lg: 6, lastXs: true  }}>
               <h1>Test 2</h1>
             </Column>
-            <Column props={{ xs: 12, sm: 3, md: 4, lg: 12 }}>
+            <Column props={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
               <h1>Test 3</h1>
             </Column>
           </Row>

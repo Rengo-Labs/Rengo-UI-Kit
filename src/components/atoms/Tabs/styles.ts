@@ -26,6 +26,14 @@ export const Tab = styled.div<TTab>`
   &:last-child {
     border-radius: 0 16px 0 0; 
   };
+  
+  &:focus {
+    background-color: ${({theme}) => theme.color.tab.borderInactive}
+  };
+  
+  &:hover {
+    background-color: ${({theme}) => theme.color.tab.borderInactive};
+  }
 `;
 
 export const TabText = styled.p<TTab>`

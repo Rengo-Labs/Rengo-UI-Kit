@@ -27,7 +27,9 @@
     "clean": "rm -rf example/node_modules && rm -rf node_modules/",
     "install-ui-kit": "yarn install && yarn build:compile",
     "install-react-example": "cd example && yarn install",
-    "setup": "yarn run clean && yarn run install-ui-kit && yarn run start"
+    "setup": "yarn run clean && yarn run install-ui-kit && yarn run start",
+    "prepackpackage": "npm run build",
+    "packpackage": "cd lib && npm pack"
   },
   "np": {
     "publish": false,
@@ -80,7 +82,6 @@
     "prettier-eslint-cli": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.3.8",
     "react-scripts": "5.0.1",
     "rollup": "^2.34.2",
     "rollup-plugin-babel": "^4.4.0",
@@ -92,6 +93,7 @@
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.29.0",
     "rollup-plugin-uglify": "^6.0.4",
+    "styled-components": "^5.3.8",
     "typescript": "^4.1.2"
   },
   "peerDependencies": {
@@ -104,7 +106,7 @@
     "@types/uuid": "^9.0.1",
     "classnames": "^2.3.2",
     "react-feather": "^2.0.10",
-    "react-styled-flexboxgrid": "^3.2.1",
+    "react-styled-flexboxgrid": "https://github.com/sbarcelona11/react-styled-flexboxgrid.git",
     "recharts": "^2.5.0",
     "styled-components": "^5.3.8",
     "uuid": "^9.0.0"
