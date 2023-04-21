@@ -26,7 +26,7 @@ export interface MenuPros {
   toggle?: ToggleProps
   rightAction?: OptAction
   children?: React.ReactNode
-  menuRef?: React.RefObject<HTMLDivElement>;
+  ref?: React.ForwardedRef<HTMLDivElement>
 }
 
 export interface IMenuWrapper {
