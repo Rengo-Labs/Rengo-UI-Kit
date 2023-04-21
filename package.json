@@ -106,7 +106,7 @@
     "@types/uuid": "^9.0.1",
     "classnames": "^2.3.2",
     "react-feather": "^2.0.10",
-    "react-styled-flexboxgrid": "https://github.com/sbarcelona11/react-styled-flexboxgrid.git",
+    "react-styled-flexboxgrid": "^3.2.1",
     "recharts": "^2.5.0",
     "styled-components": "^5.3.8",
     "uuid": "^9.0.0"
