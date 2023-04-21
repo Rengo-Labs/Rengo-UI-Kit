@@ -17,8 +17,6 @@ import { useDeviceType } from '../../../hooks'
 import { DeviceType } from '../../../hooks/types'
 import { MenuPros } from './types'
 
-
-
 export const Menu = ({
   menuIcon,
   title,
@@ -28,6 +26,7 @@ export const Menu = ({
 }: MenuPros) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
+  const isTablet = deviceType === DeviceType.TABLET
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -47,11 +46,7 @@ export const Menu = ({
               />
             </MobileMenuIcon>
             {isOpen && <MenuItemText size={24}>{title}</MenuItemText>}
-            <Icon
-              src={menuIcon}
-              size={45}
-              alt={`${title} left icon`}
-            />
+            <Icon src={menuIcon} size={45} alt={`${title} left icon`} />
             {!isOpen && <ButtonWallet handleClick={rightAction?.onAction} />}
           </MenuWrapperMobile>
           <MobileMenuWrapper isOpen={isOpen}>
@@ -62,26 +57,29 @@ export const Menu = ({
                   clickable
                   onClick={() => link.onAction(link.path)}
                 >
-                  <Icon
-                    src={link.icon}
-                    size={38}
-                    alt={`${link.page} icon`}
-                  />
+                  <Icon src={link.icon} size={38} alt={`${link.page} icon`} />
                   <MenuItemText size={22}>{link.page}</MenuItemText>
                 </MenuItem>
               ))}
+              {toggle && (
+                <MenuItem>
+                  <Toggle
+                    key={'toggle-' + uuidv4()}
+                    isActive={toggle.isActive}
+                    toggle={toggle.toggle}
+                    labelText={toggle.labelText}
+                    variant={toggle.variant}
+                  />
+                </MenuItem>
+              )}
             </MobileMenuItemContainer>
           </MobileMenuWrapper>
         </>
       ) : (
-        <MenuWrapper>
+        <MenuWrapper isTablet={isTablet}>
           <LeftTextContainer>
             <MenuItem>
-              <Icon
-                src={menuIcon}
-                size={28}
-                alt={`${title} left icon`}
-              />
+              <Icon src={menuIcon} size={28} alt={`${title} left icon`} />
               <MenuItemText>{title}</MenuItemText>
             </MenuItem>
           </LeftTextContainer>
@@ -92,11 +90,7 @@ export const Menu = ({
                 clickable
                 onClick={() => link.onAction(link.path)}
               >
-                <Icon
-                  src={link.icon}
-                  size={32}
-                  alt={`${link.page} icon`}
-                />
+                <Icon src={link.icon} size={32} alt={`${link.page} icon`} />
                 <MenuItemText>{link.page}</MenuItemText>
               </MenuItem>
             ))}

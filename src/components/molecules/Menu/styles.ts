@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { IMenuItem, ImageProps } from "./types";
+import { IMenuItem, IMenuWrapper, ImageProps } from "./types";
 
-export const MenuWrapper = styled.div`
+export const MenuWrapper = styled.div<IMenuWrapper>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,9 +10,10 @@ export const MenuWrapper = styled.div`
   top: 0;
   left: 0;
   background: ${({ theme }) => theme.background.menu};
-  padding: 18px 70px;
+  padding: 18px ${props => props.isTablet ? '10px' : '70px'};
   z-index: 1000;
   margin-bottom: 95px;
+  gap:20px;
 `;
 
 export const LeftTextContainer = styled.div`

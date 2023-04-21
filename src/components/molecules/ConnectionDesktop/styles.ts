@@ -21,7 +21,7 @@ export const DialogHeaderContainer = styled.div`
   box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  background: ${({ theme }) =>  theme.background.searchInput};
+  background: ${({ theme }) =>  theme.color.tab.background};
   padding: 40px 0 33px 0;
 `;
 

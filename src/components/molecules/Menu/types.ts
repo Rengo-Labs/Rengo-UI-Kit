@@ -24,6 +24,10 @@ export interface MenuPros {
   children?: React.ReactNode
 }
 
+export interface IMenuWrapper {
+  isTablet: boolean
+}
+
 export interface IMenuItem {
   clickable?: boolean
 }
