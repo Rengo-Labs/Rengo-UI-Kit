@@ -102,20 +102,24 @@ export const WALLETS_DATA = [
     id: 1,
     name: 'Casper Signer',
     icon: casperWallet,
+    onConnect: () => console.log('Casper Signer'),
   },
   {
     id: 2,
     name: 'Casper Wallet',
     icon: casperWallet,
+    onConnect: () => console.log('Casper Wallet'),
   },
   {
     id: 3,
     name: 'Ledger',
     icon: ledgerWallet,
+    onConnect: () => console.log('Ledger'),
   },
   {
     id: 4,
     name: 'Torus Wallet',
     icon: torusWallet,
+    onConnect: () => console.log('Torus Wallet'),
   },
 ]
