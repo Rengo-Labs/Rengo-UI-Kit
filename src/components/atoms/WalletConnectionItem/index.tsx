@@ -8,7 +8,7 @@ interface WalletConnectionProps {
 
 export const WalletConnectionItem = ({wallet}: WalletConnectionProps) => {
   return (
-    <Container>
+    <Container onClick={wallet.onConnect}>
          <Icon src={wallet.icon} alt={wallet.name} sizes='14' />
          <Text>{wallet.name}</Text>
     </Container>
