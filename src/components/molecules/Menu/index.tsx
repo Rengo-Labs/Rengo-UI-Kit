@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, forwardRef, ForwardedRef } from 'react'
 import {
   CenterTextContainer,
   Icon,
@@ -17,15 +17,15 @@ import { useDeviceType } from '../../../hooks'
 import { DeviceType } from '../../../hooks/types'
 import { MenuPros } from './types'
 
-export const Menu = ({
+export const Menu = forwardRef(({
   menuIcon,
   casperIcon,
   title,
   links,
   toggle,
   rightAction,
-  menuRef,
-}: MenuPros) => {
+  // ref
+}: MenuPros, ref: ForwardedRef<HTMLDivElement>) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
   const isTablet = deviceType === DeviceType.TABLET
@@ -39,7 +39,7 @@ export const Menu = ({
     <>
       {isMobile ? (
         <>
-          <MenuWrapperMobile ref={menuRef}>
+          <MenuWrapperMobile ref={ref}>
             <MobileMenuIcon onClick={toggleMenu}>
               <BurgerButton
                 key={'burger-' + uuidv4()}
@@ -78,7 +78,7 @@ export const Menu = ({
           </MobileMenuWrapper>
         </>
       ) : (
-        <MenuWrapper isTablet={isTablet} ref={menuRef}>
+        <MenuWrapper isTablet={isTablet} ref={ref}>
           <LeftTextContainer>
             <Icon src={menuIcon} width={28} height={28} alt={`${title} left icon`} />
             <MenuItem>
@@ -117,4 +117,4 @@ export const Menu = ({
       )}
     </>
   )
-}
+})
