@@ -110,8 +110,8 @@ export const Menu = forwardRef(({
           </CenterTextContainer>
               <ButtonWallet
                   handleClick={rightAction?.isWalletConnected ?
-                    rightAction?.onAction :
-                    rightAction?.onActionConnected}
+                    rightAction?.onActionConnected :
+                    rightAction?.onAction}
                     accountHashString={rightAction?.walletAddress} />
         </MenuWrapper>
       )}
