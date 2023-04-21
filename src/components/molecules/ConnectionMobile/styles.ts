@@ -14,7 +14,7 @@ export const Container = styled.div<IContainerProps>`
     isOpen ? 'translateX(0)' : 'translateX(100vw)'};
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  background: ${({ theme }) =>  theme.background.searchInput};
+  background: ${({ theme }) =>  theme.color.tab.background};
 `;
 
 export const Content = styled.div`

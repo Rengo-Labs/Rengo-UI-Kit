@@ -1,115 +1,115 @@
 import styled from "styled-components";
+import { IMenuItem, IMenuWrapper, ImageProps } from "./types";
 
-export const MenuWrapped = styled.div`
-  //position: fixed;
-  //width: 100%;
-  //top: 0;
-  //left: 0;
+export const MenuWrapper = styled.div<IMenuWrapper>`
   display: flex;
-  flex-direction: column;
-  padding: 0px 0px 8px;
-  background: ${({ theme }) => theme.background.coinCard};
-`
-
-export const MenuBar = styled.div`
-  display: flex; 
-  flex-direction: column;
-  background: ${props => props.theme.background.menu};
-`
-
-export const MenuHeader = styled.div<any>`
-  padding: 8px 15px;
-  display: ${props => props.hide ? 'none' : 'flex'};
-  flex-direction: row;
-  justify-content: ${props => props.align ?? 'initial'};
-  gap: 10px;
-  
-  @media (min-width: 780px) {
-    display: ${props => props.hide ? 'flex' : 'none'};
-    padding: 18px 70px;
-  }
-`
-
-export const ButtonWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: ${({ theme }) => theme.background.menu};
+  padding: 18px ${props => props.isTablet ? '10px' : '70px'};
+  z-index: 1000;
+  margin-bottom: 95px;
+  gap:20px;
 `;
 
-export const MenuItem = styled.div<any>`
+export const LeftTextContainer = styled.div`
   display: flex;
-  flex: 1;
-  justify-content: ${props => props.align != null ? props.align : 'left'};
+  justify-content: center;
   align-items: center;
-  color: white;
-  padding: ${props => props.padding ?? '0'};
-  
-  gap: ${props => props.gap ?? '0'};
-  
-  ${props => props.clickable != null && props.clickable ? 'cursor: pointer; transition: all 0.2s ease-in-out;' : 'cursor: auto;'}
+  gap: 10px;
+`;
+
+export const CenterTextContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+`;
+
+export const MenuItem = styled.div<IMenuItem>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ${props => props.clickable != null && props.clickable ? 'cursor: pointer; transition: all 0.2s ease-in-out;' : 'cursor: auto;'}
   
   ${props => props.clickable != null && props.clickable ?
     '&:active { transform: scale(0.95); filter: brightness(0.9);}' : ''
   }
-  
-  @media (min-width: 780px) {
-    flex: ${props => props.flex ?? '1'};
-  }
-`
+`;
 
-export const LeftLogo = styled.div`
-  display: none;
-  
-  @media (min-width: 780px) {
+export const MenuItemText = styled.p<{size?: number}>`
+    font-family: ${({ theme }) => theme.typography.secondaryFont};
+    font-style: normal;
+    font-weight: 400;
+    font-size: ${({size}) => size || 16}px;
+    line-height: 24px;
     display: flex;
-  }
-`
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: ${({ theme }) => theme.color.white};
+`;
 
-export const CenterLogo = styled.div`
+export const MenuWrapperMobile = styled.div`
   display: flex;
-`
+  justify-content: space-between;
+  align-items: center;
+  height: 88px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 18px;
+  background: ${({ theme }) => theme.background.menu};
+  z-index: 1000;
+`;
 
-export const MenuContainer = styled.div`
-  background: ${props => props.theme.background.default};
-`
+export const MobileMenuIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+`;
 
-export const MenuBody = styled.div<any>`
-  /*display: ${props => props.show ? 'flex' : 'none'};*/
+export const MobileMenuWrapper = styled.div<{ isOpen: boolean }>`
+  display: ${(props) => (props.isOpen ? 'flex' : 'none')};
   flex-direction: column;
-  top: ${props => props.show ? '0%' : '-100%'};
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  transform: ${({ isOpen }) =>
+    isOpen ? 'translateY(0)' : 'translateY(100vh)'};
+  transition: transform 0.3s ease-in-out;
   width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: 10;
-  padding: 45px;
   background: ${props => props.theme.background.menu};
-  transition: all 0.5s linear;
-  
+  z-index: 999;
   :first-child {
-    transform: ${props => props.show ? '-100%' : '0%'};
+    transform: ${props => props.isOpen ? '-100%' : '0%'};
   }
   
   :nth-child(2) {
-    transform: ${props => props.show ? '0%' : '-100%'};
+    transform: ${props => props.isOpen ? '0%' : '-100%'};
   }
   
-  @media (min-width: 780px) {
-    display: none;
-    width: auto;
-    height: auto;
-    position: relative;
-    z-index: 0;
-    padding: 8px 15px;
-  }
-`
+`;
 
-export const MenuBodyItem = styled.div`
-  border-bottom: 1px solid ${props => props.theme.border.darkLilac};
-`
+export const MobileMenuItemContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 100px;
+    height: 100%;
+    width: 100%;
+`;
 
-export const MenuItemWrapped = styled.div`
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: 0.05em;
-`
+export const Icon = styled.img.attrs<ImageProps>(({ size }) => ({
+    width: size,
+    height: size,
+  }))<ImageProps>``;
+
