@@ -13,9 +13,9 @@ export interface OptAction {
   title: string
   background: string
   color: string
-  onAction: any
+  onAction: () => void
+  onActionConnected?: () => void
   isWalletConnected?: boolean,
-  onActionConnected?: any,
   walletAddress?: string,
 }
 export interface MenuPros {
