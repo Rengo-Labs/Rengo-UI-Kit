@@ -8,4 +8,5 @@ export interface RowIconProps {
   tokenFullName: string
   Icon?: string
   iconSize: IconSize
+  onSelectToken: () => void
 }

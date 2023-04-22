@@ -4,7 +4,7 @@ import { Distribution, IconSize } from './types';
 
 interface Props {
   distribution?: Distribution
-  tokenNames?: Array<string> 
+  tokenNames?: Array<string>
   tokenNameSymbol?: ReactNode
   children?: any
   leftAdornment?: ReactNode | ReactElement
@@ -19,6 +19,15 @@ export const Wrapper = styled.div<Props>`
   align-items: center;
   background: ${({ theme }) => theme.color.tab.background};
   border-bottom: ${({ isLast, theme }) => isLast ? 'none' : `1px solid ${theme.border.default}`};
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.color.tab.hover};
+  }
+  
+  &:focus {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.color.tab.hover};;
+  }
 `;
 
 export const TokenInnerWrapper = styled.div<Props>`

@@ -10,4 +10,5 @@ export interface CreatePoolDialogProps {
   closeCallback: () => void
   tokenListData: TokenData[]
   popularTokensData: TokenData[]
+  onSelectToken: () => void
 }

@@ -69,7 +69,7 @@ export const ViewTokenListTitle = styled.p`
 `;
 
 export const PopularTokens = styled.div`
-  height: 84px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -90,13 +90,11 @@ export const PopularTokensTitle = styled.p`
 
 export const PopularTokensItemsContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 670px;
   height: 100%;
   justify-content: space-evenly;
-  overflow-x: scroll;
   gap: 16px;
-  width: max-content;
-  padding-top: 8px;
+  padding-top: 30px;
 `;
 
 export const PopularTokensItem = styled.div`

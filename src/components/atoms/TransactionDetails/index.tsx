@@ -1,5 +1,5 @@
 import React from "react";
-import { 
+import {
   TokenInnerWrapper,
     TokenFullName,
     TokenName,
@@ -33,16 +33,18 @@ import { TransactionProps } from "./types";
   @param {Array<string>} [props.tokenNameSymbols] - Optional array of token symbols to be displayed on the component. This will be to the right side of the token name.
   @param {string} [props.amount] - Amount of the token to be displayed on the component.
   @param {Boolean} [props.isLast] - isLast of the iteration elements.
+  @param {function} [props.onSelectToken] - onSelectToken select token.
   @return {JSX.Element} - Rendered TransactionDetails component.
 */
 export const TransactionDetails = ({
   distribution, LeftAdornment, LeftAdornmentCallback, Icon, iconSize, tokenNames, tokenFullName,
-  tokenNameSymbols, amount, isLast}: TransactionProps) => {
-  
+  tokenNameSymbols, amount, isLast, onSelectToken}: TransactionProps) => {
+
   return (
-    <Wrapper 
+    <Wrapper
       distribution={distribution}
-      isLast={isLast}>
+      isLast={isLast}
+      onClick={onSelectToken}>
       <TokenInnerWrapper>
         {LeftAdornment && (
           <LeftAdornmentWrapper onClick={LeftAdornmentCallback}>
@@ -59,7 +61,7 @@ export const TransactionDetails = ({
           <TokenNamesWrapper tokenNames={tokenNames} distribution={distribution}>
             {tokenNames && tokenNames?.length > 0 && tokenNames?.map(name => (
               <TokenName key={`token-${name}`}>{name}</TokenName>
-            ))} 
+            ))}
           </TokenNamesWrapper>
 
           {TokenFullName && (
