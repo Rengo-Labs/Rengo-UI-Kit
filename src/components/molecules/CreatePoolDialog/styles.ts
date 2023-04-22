@@ -90,7 +90,7 @@ export const PopularTokensTitle = styled.p`
 
 export const PopularTokensItemsContainer = styled.div`
   display: flex;
-  width: 630px;
+  width: 670px;
   height: 100%;
   justify-content: space-evenly;
   gap: 16px;

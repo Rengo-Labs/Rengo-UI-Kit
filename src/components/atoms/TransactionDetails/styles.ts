@@ -20,10 +20,12 @@ export const Wrapper = styled.div<Props>`
   background: ${({ theme }) => theme.color.tab.background};
   border-bottom: ${({ isLast, theme }) => isLast ? 'none' : `1px solid ${theme.border.default}`};
   &:hover {
+    cursor: pointer;
     background-color: ${({ theme }) => theme.color.tab.hover};
   }
   
   &:focus {
+    cursor: pointer;
     background-color: ${({ theme }) => theme.color.tab.hover};;
   }
 `;

@@ -114,7 +114,7 @@ export const CreatePoolDialog = ({
             <PopularTokensItemsContainer>
               {popularTokensData && popularTokensData.map((item, i) => (
                 <PopularTokensItem
-                  key={`popular-token-${item.id}`}>
+                  key={`popular-token-${item.id}-${item.name}`}>
                     <RowIcon
                       tokenName={item.name}
                       tokenFullName={item.fullName}
