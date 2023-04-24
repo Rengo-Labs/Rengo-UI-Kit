@@ -47,7 +47,11 @@ export const TransactionDetails = ({
       onClick={onSelectToken}>
       <TokenInnerWrapper>
         {LeftAdornment && (
-          <LeftAdornmentWrapper onClick={LeftAdornmentCallback}>
+          <LeftAdornmentWrapper onClick={(e) => {
+            LeftAdornmentCallback && LeftAdornmentCallback()
+            e.preventDefault()
+            e.stopPropagation()
+          }}>
             {LeftAdornment}
           </LeftAdornmentWrapper>
         )}
