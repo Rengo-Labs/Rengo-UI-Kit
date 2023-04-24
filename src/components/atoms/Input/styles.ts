@@ -214,14 +214,19 @@ export const IconWrapper = styled.div<Props>`
   margin: auto 8px;
   display: flex;
   align-items: center;
-  display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
   gap: 4px;
   height: ${({ iconSize }) => iconSize === IconSize.Small ? '32px;' : 'auto;' };
   width: ${({ iconSize }) => iconSize === IconSize.Small ? '32px;' : 'auto;' };
-  border-radius: 60px;
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.background.default};
+  }
+  
+  &:active {
+    background-color: ${({ theme }) => theme.background.default};
+  }
 
   @media (min-width: 430px) {
     margin: auto 16px;
