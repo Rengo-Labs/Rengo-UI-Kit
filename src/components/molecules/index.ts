@@ -10,4 +10,4 @@ export * from './Menu'
 export * from './LPContainer'
 export * from './WalletConnection'
 export * from './ExchangeRates'
-
+export * from './SwapMoreInfo'
