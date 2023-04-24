@@ -7,10 +7,8 @@ export interface TokenData {
 }
 
 export interface CreatePoolDialogProps {
-  closeCallback: () => void,
-  tokenListData: TokenData[],
-  popularTokensData: TokenData[],
-  onSelectToken: (name: string) => void,
-  onSelectFavoriteToken?: (name: string, value: boolean) => void,
-  handleViewTokenList?: () => void
+  closeCallback: () => void
+  tokenListData: TokenData[]
+  popularTokensData: TokenData[]
+  onSelectToken: () => void
 }

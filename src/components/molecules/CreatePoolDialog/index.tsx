@@ -41,9 +41,7 @@ export const CreatePoolDialog = ({
   closeCallback,
   tokenListData,
   popularTokensData,
-  onSelectToken,
-  onSelectFavoriteToken,
-  handleViewTokenList
+  onSelectToken
  }: CreatePoolDialogProps) => {
   const [tokenList, setTokenList] = useState<TokenData[]>(() => tokenListData)
   const [favoriteTokenList, setFavoriteTokenList] = useState<Map<number, boolean>>(new Map());
@@ -63,7 +61,7 @@ export const CreatePoolDialog = ({
     setTokenList(filteredTokenList)
   }
 
-  const handlerFavorite = (key: number, name: string) => {
+  const handlerFavorite = (key: number) => {
     const currentValue = favoriteTokenList.get(key)
     if (currentValue !== undefined) {
       favoriteTokenList.set(key, !currentValue)
@@ -71,8 +69,10 @@ export const CreatePoolDialog = ({
       favoriteTokenList.set(key, true)
     }
     setFavoriteTokenList(new Map(favoriteTokenList))
+  }
 
-    if (onSelectFavoriteToken != null) onSelectFavoriteToken(name, currentValue !== undefined ? !currentValue : true)
+  const handleViewTokenList = () => {
+    console.log('View token list pressed');
   }
 
   const handleClose = () => {
@@ -86,7 +86,7 @@ export const CreatePoolDialog = ({
       <Container>
         <DialogHeaderContainer>
           <DialogHeader>
-            <DialogTitle>Token List</DialogTitle>
+            <DialogTitle>Create Pool</DialogTitle>
             <CloseButton onClick={handleClose}>
               <Icons name='X' size={23} color={theme.color.modalText} />
             </CloseButton>
@@ -120,7 +120,7 @@ export const CreatePoolDialog = ({
                       tokenFullName={item.fullName}
                       Icon={item.tokenImg}
                       iconSize={30}
-                      onSelectToken={() => onSelectToken(item.name)}
+                      onSelectToken={onSelectToken}
                     />
 
                 </PopularTokensItem>
@@ -145,12 +145,12 @@ export const CreatePoolDialog = ({
                     color={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}
                     size={24}
                     fill={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}/>}
-                LeftAdornmentCallback={() => handlerFavorite(i, item.name)}
+                LeftAdornmentCallback={() => handlerFavorite(i)}
                 tokenNames={[item.name]}
                 tokenFullName={item.fullName}
                 amount={item.amount}
                 isLast={i === tokenList.length - 1}
-                onSelectToken={() => onSelectToken(item.name)}
+                onSelectToken={onSelectToken}
               />
             )) : (
               <TokenNotFoundText>Token not found</TokenNotFoundText>
