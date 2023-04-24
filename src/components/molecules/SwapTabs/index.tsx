@@ -3,10 +3,15 @@ import { Column, Row, Tabs } from '../../atoms'
 import { SwapPrice } from '../SwapPrice'
 import { SwapMoreInfo } from '../SwapMoreInfo'
 import { Item, TabContent } from './styles'
+import { IToken } from '../LiquidityDetails'
 
 export interface SwapTabsProps {
   firstTokenImg: any
   secondTokenImg: any
+  firstSelectedToken: IToken
+  secondSelectedToken: IToken
+  gasFee: number
+  slippageTolerance: number
 }
 
 /**
@@ -15,19 +20,38 @@ export interface SwapTabsProps {
  * @returns  {JSX.Element} The rendered two tabs, the first one with a Price component and the second one with the more info component.
  */
 
-export const SwapTabs = ({ firstTokenImg, secondTokenImg }: SwapTabsProps) => {
+export const SwapTabs = ({
+  firstTokenImg,
+  secondTokenImg,
+  firstSelectedToken,
+  secondSelectedToken,
+  gasFee,
+  slippageTolerance
+}: SwapTabsProps) => {
   const [tabs, setTabs] = useState([
     {
       id: 1,
       text: 'Price',
       isActive: true,
-      component: <SwapPrice firstTokenImg={firstTokenImg} secondTokenImg={secondTokenImg}/>
+      component: (
+        <SwapPrice
+          firstTokenImg={firstTokenImg}
+          secondTokenImg={secondTokenImg}
+        />
+      )
     },
     {
       id: 2,
       text: 'More Info',
       isActive: false,
-      component: <SwapMoreInfo />
+      component: (
+        <SwapMoreInfo
+          firstSelectedToken={firstSelectedToken}
+          secondSelectedToken={secondSelectedToken}
+          gasFee={gasFee}
+          slippageTolerance={slippageTolerance}
+        />
+      )
     }
   ])
 
