@@ -8,14 +8,11 @@ export const WrapperStyled = styled.div<any>`
   gap: 10px;
   order: 0;
   flex-grow: 0;
-  background-color: #F7FCFE;
-  /*width: 91px;*/
-  /*padding: 0px;*/
   cursor: pointer;
   user-select: none;
-  background: ${props => props.background ?? props.theme.background.default};
+  background: ${props => props.background ? props.background : props.theme.background.default};
   border-radius: 8px;
-  padding: 10px;
+  padding: ${props => props.padding ? props.background : 0};
 
   @media (min-width: 430px) {
     /*padding: 0px 10px 0px 0px;*/
