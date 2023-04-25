@@ -6,6 +6,8 @@ export interface TokenOptionProps {
     token: string;
     option1: boolean;
     showColor?: boolean;
+    height?: number;
+    width?: number;
 }
 
 /**
@@ -16,10 +18,10 @@ export interface TokenOptionProps {
  * @returns  {JSX.Element} The rendered the key-value text.
  */
 
-export const TokenOption = ({tokenImg, token, option1, showColor = true}: TokenOptionProps) => {
+export const TokenOption = ({tokenImg, token, option1, showColor = true, height=35, width=35}: TokenOptionProps) => {
     return (
         <WrapperStyled>
-            <img src={tokenImg} alt={token}/>
+            <img src={tokenImg} alt={token} height={height} width={width}/>
             <TokenStyled>{token}</TokenStyled>
             {
               showColor && <Ellipse isOption1={option1}/>
