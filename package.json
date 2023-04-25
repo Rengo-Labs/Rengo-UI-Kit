@@ -2,8 +2,8 @@
   "name": "rengo-ui-kit",
   "version": "1.0.0",
   "description": "A uikit used on https://casperswap.xyz",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "unpkg": "lib/index.umd.js",
   "files": [
