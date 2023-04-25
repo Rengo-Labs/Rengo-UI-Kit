@@ -51,11 +51,14 @@ const data = [
 
 interface LiquidityItemDetailProps {
   closeCallback: () => void
+  isOpen: boolean
 }
 
-export const LiquidityItemDetail = ({ closeCallback }: LiquidityItemDetailProps) => {
+export const LiquidityItemDetail = ({ closeCallback, isOpen }: LiquidityItemDetailProps) => {
   return (
-    <Dialog onClose={closeCallback}>
+    <Dialog 
+      isOpen={isOpen}
+      onClose={closeCallback}>
       <Container>
         <Wrapper>
           <TokenOption

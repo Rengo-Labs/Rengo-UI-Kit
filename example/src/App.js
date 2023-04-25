@@ -352,7 +352,7 @@ const App = () => {
             </Column>
           </Row>
           <Row>
-            <Column props={{ xs: 12, md: 6 }}>
+            {/* <Column props={{ xs: 12, md: 6 }}>
               <SwapTabs tokenImg={ethLogo} />
             </Column>
             <Column props={{ xs: 12, md: 6 }}>
@@ -362,7 +362,7 @@ const App = () => {
                 gasFee={15}
                 slippageTolerance={0.05}
               />
-            </Column>
+            </Column> */}
           </Row>
           <Row className='my-1'>
             <Column props={{ xs: 4 }}>
@@ -443,13 +443,14 @@ const App = () => {
           </Column>
         </Container>
         <Container>
-          {showCreatePoolDialog && (
+          {/* {showCreatePoolDialog && ( */}
             <CreatePoolDialog
+              isOpen={showCreatePoolDialog}
               closeCallback={() => setShowCreatePoolDialog(false)}
               tokenListData={TOKEN_LIST_DATA_CREATE_POOL}
               popularTokensData={POPULAR_TOKEN_LIST_DATA_CREATE_POOL}
             />
-          )}
+          {/* )} */}
         </Container>
         <Container>
           <Row className='my-2'>
@@ -470,24 +471,26 @@ const App = () => {
               onClick={handleWalletConnect}
             />
           </Row>
-          {showWalletConnectedOptionsDialog && (
+          {/* {showWalletConnectedOptionsDialog && ( */}
             <WalletConnectedOptionsDialog
+              isOpen={showWalletConnectedOptionsDialog}
               closeCallback={() => setShowWalletConnectedOptionsDialog(false)}
               options={WALLET_CONNECTED_OPTIONS}
             />
-          )}
+          {/* )} */}
         </Container>
         <Container>
-          {showRemoveLiquidityDialog && (
+          {/* {showRemoveLiquidityDialog && ( */}
             <RemoveLiquidityDialog
               id='f90c4f56-ae0a-4da8-bf3d-541c80c89f87'
+              isOpen={showRemoveLiquidityDialog}
               closeCallback={handleRemoveLiquidity}
               liquidityPoolData={REMOVE_LIQUIDITY_DATA}
             />
-          )}
-          {showItemDetail && (
-            <LiquidityItemDetail closeCallback={handleItemDetail} />
-          )}
+          {/* )} */}
+          {/* {showItemDetail && ( */}
+            <LiquidityItemDetail isOpen={showItemDetail} closeCallback={handleItemDetail} />
+          {/* )} */}
         </Container>
         <Container>
           <Row>

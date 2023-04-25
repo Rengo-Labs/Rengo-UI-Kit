@@ -1,5 +1,7 @@
 import React from "react"
 import { InnerWrapper, LeftWrapper, RightWrapper, TokenInfo, Wrapper } from "./styles"
+import { useDeviceType } from "../../../hooks"
+import { DeviceType } from "../../../hooks/types"
 
 /**
   A component that displays the token information for a transaction in text form only,
@@ -16,11 +18,13 @@ export interface TransactionDetailsProps {
 }
 
 export const TransactionDetailsTextOnly = ({ tokenInfo }: TransactionDetailsProps) => {
+  const deviceType = useDeviceType()
+  const isMobile = deviceType === DeviceType.MOBILE
 
   return (
     <Wrapper>
       <InnerWrapper>
-        <LeftWrapper>
+        <LeftWrapper isMobile={isMobile}>
           Price
         </LeftWrapper>
 

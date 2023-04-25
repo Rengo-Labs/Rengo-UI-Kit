@@ -21,4 +21,5 @@ export interface Options {
 export interface WalletConnectedOptionsDialogProps {
   closeCallback: () => void
   options: Options[]
+  isOpen: boolean
 }

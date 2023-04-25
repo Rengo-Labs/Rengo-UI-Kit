@@ -16,7 +16,6 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean }>`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -28,13 +27,36 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean }>`
   box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);
   border-radius: ${({ isMobile }) => isMobile ? '0px' : '16px'};
 
-  overflow: hidden;
-
   ${({ isMobile }) => isMobile && css`
     width: 100%;
     height: 100%;
     top: 0;
+    right: 0;
     left: 0;
-    transform: none;
+    transition: transform 0.3s ease-in-out;
   `}
+
+  ${({ isMobile, isOpen }) => {
+    if (!isMobile) {
+      return
+    }
+
+    if (isOpen) {
+      return css`
+        transform: translateX(0);
+      `
+    } else {
+      return css`
+        transform: translateX(120vw);
+      `
+    }
+  }}
+
+  display: ${({ isMobile, isOpen }) => {
+    if (!isMobile && !isOpen ) {
+      return 'none'
+    }
+
+    return 'flex'
+  }};
 `;

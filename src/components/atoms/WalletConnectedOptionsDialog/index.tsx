@@ -24,7 +24,7 @@ import { DeviceType } from '../../../hooks/types'
   @returns {JSX.Element} - A React component that displays a dialog with wallet-connected options.
 */
 
-export const WalletConnectedOptionsDialog = ({closeCallback, options}: WalletConnectedOptionsDialogProps) => {
+export const WalletConnectedOptionsDialog = ({closeCallback, options, isOpen}: WalletConnectedOptionsDialogProps) => {
   const theme = useTheme() as theme;
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
@@ -87,6 +87,7 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options}: WalletCon
 
   return (
     <Dialog
+      isOpen={isOpen}
       onClose={closeCallback}>
       <DialogHeaderContainer isMobile={isMobile}>
         <DialogHeader>

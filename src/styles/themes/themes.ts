@@ -82,6 +82,7 @@ export interface theme {
         },
         toggleButton: {
           default: string
+          invertedActive: string
         },
         table: {
           header: {
@@ -122,6 +123,9 @@ export interface theme {
         white: string
         onHover: string
         onHoverDisconnect: string
+      }
+      toggle: {
+        inverted: string
       }
     }
     border: {
@@ -258,6 +262,7 @@ export const defaultTheme: theme = {
         },
         toggleButton: {
           default: '#6EEBD0',
+          invertedActive: '#715FF5',
         },
         table: {
           header: {
@@ -298,6 +303,9 @@ export const defaultTheme: theme = {
         white: '#FFFFFF',
         onHover: '#715FF5',
         onHoverDisconnect: '#E83C3C'
+      },
+      toggle: {
+        inverted: '#58E4C2'
       }
     },
     border: {
@@ -434,6 +442,7 @@ export const darkTheme: theme = {
         },
         toggleButton: {
           default: '#6EEBD0',
+          invertedActive: '#715FF5',
         },
         table: {
           header: {
@@ -474,6 +483,9 @@ export const darkTheme: theme = {
         white: '#FFFFFF',
         onHover: '#715FF5',
         onHoverDisconnect: '#E83C3C'
+      },
+      toggle: {
+        inverted: '#58E4C2'
       }
     },
     border: {
