@@ -62,6 +62,10 @@ export const SwapMoreInfo = ({
         gasFeeSetter && gasFeeSetter(value);
     }
 
+    const parirPathValue = pairPath.length > 0 ?
+        pairPath.map((item, index) => index === pairPath.length - 1 ? item : `${item} > `).join('') :
+        `${firstSymbolToken} > ${secondSymbolToken}`
+
     return (
         <Column props={{xs: 12}}>
             <Wrapper>
@@ -88,13 +92,7 @@ export const SwapMoreInfo = ({
                     onChange={handleNetworkGasFee}
                 />
                 <Divider/>
-                <KeyValueText keyText='Route' valueText={
-                    `${
-                        pairPath && pairPath.length > 0 ?
-                            pairPath.map((item, index) => index === pairPath.length - 1 ? (`${item}`) : (`${item} >`)) :
-                            `${firstSymbolToken} > ${secondSymbolToken}`
-                    }`
-                }/>
+                <KeyValueText keyText='Route' valueText={parirPathValue.toString()}/>
             </Wrapper>
         </Column>
     )

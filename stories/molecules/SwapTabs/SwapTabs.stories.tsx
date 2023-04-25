@@ -49,3 +49,21 @@ WithoutPair.args = {
     gasFeeSetter    : () => {},
     slippageSetter  : () => {},
 }
+
+export const WithMoreThanOnePair = Template.bind({});
+WithMoreThanOnePair.args = {
+    firstTokenImg: casperToken,
+    secondTokenImg: bitcoinToken,
+    gasFee: 0.1,
+    slippageTolerance: 0.005,
+    calculateMinimumTokenReceived: (() =>  200),
+    firstSymbolToken: 'CSPR',
+    firstTokenAmount: 10,
+    pairPath: ['ETH', 'CSPR', 'BTC'],
+    secondSymbolToken: 'ETH',
+    secondTokenAmount: 200,
+    priceImpact: 1.5,
+    priceImpactMessage: 'Low Price Impact',
+    gasFeeSetter    : () => {},
+    slippageSetter  : () => {},
+}

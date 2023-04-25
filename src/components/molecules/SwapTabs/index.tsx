@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useLayoutEffect, useState} from 'react'
 import {Column, Row, Tabs} from '../../atoms'
 import {SwapPrice} from '../SwapPrice'
 import {SwapMoreInfo} from '../SwapMoreInfo'
@@ -47,42 +47,72 @@ export const SwapTabs = ({
                              gasFeeSetter,
                              slippageSetter
                          }: SwapTabsProps) => {
-    const [tabs, setTabs] = useState([
+    const swapPriceTab = ( <SwapPrice
+        firstTokenImg={firstTokenImg}
+        secondTokenImg={secondTokenImg}
+        onClickButton={() => {
+            console.log('click')
+        }}
+    />)
+
+    const swapMoreInfoTab = (
+        <SwapMoreInfo
+            gasFee={gasFee}
+            slippageTolerance={slippageTolerance}
+            calculateMinimumTokenReceived={calculateMinimumTokenReceived}
+            firstSymbolToken={firstSymbolToken}
+            firstTokenAmount={firstTokenAmount}
+            pairPath={pairPath}
+            secondSymbolToken={secondSymbolToken}
+            secondTokenAmount={secondTokenAmount}
+            gasFeeSetter={gasFeeSetter}
+            priceImpact={priceImpact}
+            priceImpactMessage={priceImpactMessage}
+            slippageSetter={slippageSetter}
+        />
+    )
+
+    const tabsElement = [
         {
             id: 1,
             text: 'Price',
             isActive: true,
-            component: (
-                <SwapPrice
-                    firstTokenImg={firstTokenImg}
-                    secondTokenImg={secondTokenImg}
-                    onClickButton={() => {
-                        console.log('click')
-                    }}
-                />
-            )
+            component: swapPriceTab
         },
         {
             id: 2,
             text: 'More Info',
             isActive: false,
-            component: (
-                <SwapMoreInfo
-                    gasFee={gasFee}
-                    slippageTolerance={slippageTolerance}
-                    calculateMinimumTokenReceived={calculateMinimumTokenReceived}
-                    firstSymbolToken={firstSymbolToken}
-                    firstTokenAmount={firstTokenAmount}
-                    pairPath={pairPath}
-                    secondSymbolToken={secondSymbolToken}
-                    secondTokenAmount={secondTokenAmount}
-                    gasFeeSetter={gasFeeSetter}
-                    priceImpact={priceImpact}
-                    priceImpactMessage={priceImpactMessage}
-                    slippageSetter={slippageSetter}
-                />
-            )
+            component: swapMoreInfoTab
         }
+    ]
+
+    const [tabs, setTabs] = useState(tabsElement)
+
+    useLayoutEffect(() => {
+        setTabs((prevTabs) => (
+            prevTabs.map((tab) => (
+                {
+                    ...tab,
+                    component: tab.id === 1 ? swapPriceTab : swapMoreInfoTab
+                }
+            ))
+        ))
+    }, [
+        firstTokenImg,
+        secondTokenImg,
+        gasFee,
+        slippageTolerance,
+        calculateMinimumTokenReceived,
+        firstSymbolToken,
+        firstTokenAmount,
+        pairPath,
+        secondSymbolToken,
+        secondTokenAmount,
+        priceImpact,
+        priceImpactMessage,
+        gasFeeSetter,
+        slippageSetter
     ])
 
     const handleTabClick = (id: number) => {
@@ -109,7 +139,7 @@ export const SwapTabs = ({
                 <Tabs tabs={tabs} onClick={handleTabClick}/>
             </Row>
             <TabContent>
-                {tabs.map((tab) => {
+                {tabs.map((tab, index) => {
                     if (tab.isActive) {
                         return <Item key={tab.id}>{tab.component}</Item>
                     }
