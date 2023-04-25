@@ -88,7 +88,27 @@ export const PopularTokens = styled.div`
   border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`};
   margin: 16px auto;
   overflow-x: scroll;
-  height: 84px;
+  height: 100px;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar:window-inactive {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb  {
+  height: 5px;
+  width: 4px;
+  background-color: ${({ theme }) => theme.color.modalText};
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent ;
+}
 `;
 
 export const PopularTokensTitle = styled.p`
@@ -103,9 +123,8 @@ export const PopularTokensTitle = styled.p`
 
 export const PopularTokensItemsContainer = styled.div`
   display: flex;
-  width: 670px;
   height: 100%;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   gap: 16px;
   padding-top: 30px;
 `;
