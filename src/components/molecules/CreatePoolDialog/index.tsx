@@ -15,6 +15,7 @@ import {
   SectionTitle,
   TokenListContainer,
   TokenNotFoundText,
+  TopSubContainer,
   ViewTokenListTitle } from './styles'
 import { Dialog } from '../../atoms/Dialog'
 import { Icons, Input, TransactionDetails } from '../../atoms'
@@ -26,6 +27,8 @@ import { Distribution } from '../../atoms/TransactionDetails/types'
 import { useTheme } from 'styled-components'
 import { RowIcon } from '../../atoms/RowIcon'
 import { CreatePoolDialogProps, TokenData } from './types'
+import { useDeviceType } from '../../../hooks/useDeviceType'
+import { DeviceType } from '../../../hooks/types'
 
 /**
   React component for creating a pool dialog.
@@ -38,6 +41,7 @@ import { CreatePoolDialogProps, TokenData } from './types'
 */
 
 export const CreatePoolDialog = ({
+  isOpen,
   closeCallback,
   tokenListData,
   popularTokensData,
@@ -45,9 +49,11 @@ export const CreatePoolDialog = ({
   onSelectFavoriteToken,
   handleViewTokenList
  }: CreatePoolDialogProps) => {
-  const [tokenList, setTokenList] = useState<TokenData[]>(() => tokenListData)
-  const [favoriteTokenList, setFavoriteTokenList] = useState<Map<number, boolean>>(new Map());
-  const theme = useTheme() as theme;
+   const theme = useTheme() as theme;
+   const deviceType = useDeviceType()
+   const [tokenList, setTokenList] = useState<TokenData[]>(() => tokenListData)
+   const [favoriteTokenList, setFavoriteTokenList] = useState<Map<number, boolean>>(new Map());
+   const isMobile = deviceType === DeviceType.MOBILE
 
   const handlerInput = (value: string) => {
     const filteredTokenList = tokenListData.filter(item => {
@@ -78,85 +84,89 @@ export const CreatePoolDialog = ({
   const handleClose = () => {
     closeCallback();
   };
-
+  
   return (
     <Dialog
+      isOpen={isOpen}
       onClose={() => handleClose()}
       >
-      <Container>
-        <DialogHeaderContainer>
-          <DialogHeader>
-            <DialogTitle>Token List</DialogTitle>
-            <CloseButton onClick={handleClose}>
-              <Icons name='X' size={23} color={theme.color.modalText} />
-            </CloseButton>
-          </DialogHeader>
-        </DialogHeaderContainer>
+      <Container isMobile={isMobile} isOpen={isOpen}>
+        <TopSubContainer>
+          <DialogHeaderContainer>
+            <DialogHeader isMobile={isMobile}>
+              <DialogTitle>Token List</DialogTitle>
+              <CloseButton onClick={handleClose}>
+                <Icons name='X' size={23} color={theme.color.modalText} />
+              </CloseButton>
+            </DialogHeader>
+          </DialogHeaderContainer>
 
-        <InnerContainer>
-          <SearchInputContainer>
-            <Input
-              placeholder=''
-              helperText='Something is wrong!'
-              type={Type.IconPlain}
-              status={Status.Default}
-              label='Label test'
-              onChange={handlerInput}
-              hasBackground={true}
-              Icon={<Search size={20} color='#999999' />}
-              iconSize={IconSize.Small}
-              iconWrapperBackground={theme.background.icon}
-              />
-          </SearchInputContainer>
+          <InnerContainer isMobile={isMobile}>
+            <SearchInputContainer>
+              <Input
+                placeholder=''
+                helperText='Something is wrong!'
+                type={Type.IconPlain}
+                status={Status.Default}
+                label='Label test'
+                onChange={handlerInput}
+                hasBackground={true}
+                Icon={<Search size={20} color='#999999' />}
+                iconSize={IconSize.Small}
+                iconWrapperBackground={theme.background.icon}
+                />
+            </SearchInputContainer>
 
-          <PopularTokens>
-            <SectionTitle>Popular Tokens</SectionTitle>
-            <PopularTokensItemsContainer>
-              {popularTokensData && popularTokensData.map((item, i) => (
-                <PopularTokensItem
-                  key={`popular-token-${item.id}-${item.name}`}>
-                    <RowIcon
-                      tokenName={item.name}
-                      tokenFullName={item.fullName}
-                      Icon={item.tokenImg}
-                      iconSize={30}
-                      onSelectToken={() => onSelectToken(item.name)}
-                    />
+            <PopularTokens>
+              <SectionTitle>Popular Tokens</SectionTitle>
+              <PopularTokensItemsContainer>
+                {popularTokensData && popularTokensData.map((item, i) => (
+                  <PopularTokensItem
+                    key={`popular-token-${item.id}-${item.name}`}>
+                      <RowIcon
+                        tokenName={item.name}
+                        tokenFullName={item.fullName}
+                        Icon={item.tokenImg}
+                        iconSize={30}
+                        onSelectToken={() => onSelectToken(item.name)}
+                      />
 
-                </PopularTokensItem>
-              ))}
-            </PopularTokensItemsContainer>
+                  </PopularTokensItem>
+                ))}
+              </PopularTokensItemsContainer>
 
-          </PopularTokens>
+            </PopularTokens>
 
-          <TokenListContainer>
-            {tokenList.length > 0 && (
-              <BalanceSectionTitle>Balance</BalanceSectionTitle>
-            )}
-            {tokenList.length > 0 ? tokenList.map((item, i) => (
-              <TransactionDetails
-                key={`transaction-item-${item.name}`}
-                distribution={Distribution.SpaceBetween}
-                Icon={item.tokenImg}
-                iconSize={transactionDetailsIconSize.Small}
-                LeftAdornment={
-                  <Icons
-                    name="Star"
-                    color={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}
-                    size={24}
-                    fill={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}/>}
-                LeftAdornmentCallback={() => handlerFavorite(i, item.name)}
-                tokenNames={[item.name]}
-                tokenFullName={item.fullName}
-                amount={item.amount}
-                isLast={i === tokenList.length - 1}
-                onSelectToken={() => onSelectToken(item.name)}
-              />
-            )) : (
-              <TokenNotFoundText>Token not found</TokenNotFoundText>
-            )}
-          </TokenListContainer>
-        </InnerContainer>
+            <TokenListContainer>
+              {tokenList.length > 0 && (
+                <BalanceSectionTitle>Balance</BalanceSectionTitle>
+              )}
+              {tokenList.length > 0 ? tokenList.map((item, i) => (
+                <TransactionDetails
+                  key={`transaction-item-${item.name}`}
+                  distribution={Distribution.SpaceBetween}
+                  Icon={item.tokenImg}
+                  iconSize={transactionDetailsIconSize.Small}
+                  LeftAdornment={
+                    <Icons
+                      name="Star"
+                      color={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}
+                      size={24}
+                      fill={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}/>}
+                  LeftAdornmentCallback={() => handlerFavorite(i, item.name)}
+                  tokenNames={[item.name]}
+                  tokenFullName={item.fullName}
+                  amount={item.amount}
+                  isLast={i === tokenList.length - 1}
+                  onSelectToken={() => onSelectToken(item.name)}
+                />
+              )) : (
+                <TokenNotFoundText>Token not found</TokenNotFoundText>
+              )}
+            </TokenListContainer>
+          </InnerContainer>
+        </TopSubContainer>
+
         <BottomContainer>
           <ViewTokenListTitle
             onClick={handleViewTokenList}>

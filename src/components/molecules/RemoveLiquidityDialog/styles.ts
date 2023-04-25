@@ -1,15 +1,20 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.div<{ isMobile: boolean }>`
   width: 450px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
-export const InnerContainer = styled.div`
-  width: 386px;
+export const InnerContainer = styled.div<{ isMobile: boolean}>`
+  width: ${({ isMobile }) => isMobile ? '80%': '386px' };
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const SliderContainer = styled.div`
@@ -28,11 +33,10 @@ export const TransactionsContainer = styled.div`
   align-items: center;
 `;
 
-
-export const DialogHeaderContainer = styled.div`
+export const DialogHeaderContainer = styled.div<{ isMobile: boolean}>`
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: ${({ isMobile }) => isMobile ? '80%': '100%' };
   height: 50px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -65,6 +69,21 @@ export const CloseButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+`;
+
+export const TopSubContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+`;
+
+export const BottomSubContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const ToggleContainer = styled.div`

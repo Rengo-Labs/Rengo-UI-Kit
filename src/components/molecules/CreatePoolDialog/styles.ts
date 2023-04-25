@@ -1,9 +1,19 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  width: 450px;
+export const Container = styled.div<{ isMobile: boolean, isOpen: boolean }>`
+  width: ${({ isMobile }) => isMobile ? '100vw' : '450px' };
+  height: ${({ isMobile }) => isMobile ? '100vh' : 'none' };
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const TopSubContainer = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -11,16 +21,17 @@ export const DialogHeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 50px;
+  height: 58px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   background: ${({ theme }) =>  theme.background.wallet.connectedOptions};
   border-bottom: ${({ theme }) => `1px solid ${theme.border.dialog}`};
 `;
 
-export const DialogHeader = styled.div`
+export const DialogHeader = styled.div<{ isMobile: boolean }>`
   height: 100%;
-  width: 386px;
+  /* width: 386px; */
+  width: ${({ isMobile }) => isMobile ? '100%' : '386px' };
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,8 +55,9 @@ export const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-export const InnerContainer = styled.div`
-  width: 386px;
+export const InnerContainer = styled.div<{ isMobile: boolean }>`
+  /* width: 386px; */
+  width: ${({ isMobile }) => isMobile ? '100%' : '386px' };
 `;
 
 export const BottomContainer = styled.div`
@@ -76,6 +88,7 @@ export const PopularTokens = styled.div`
   border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`};
   margin: 16px auto;
   overflow-x: scroll;
+  height: 84px;
 `;
 
 export const PopularTokensTitle = styled.p`
@@ -99,6 +112,7 @@ export const PopularTokensItemsContainer = styled.div`
 
 export const PopularTokensItem = styled.div`
   max-width: 133px;
+  height: 42px;
   flex-shrink: 0;
 `;
 

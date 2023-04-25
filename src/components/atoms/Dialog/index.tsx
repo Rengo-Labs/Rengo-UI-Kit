@@ -6,6 +6,7 @@ import { Backdrop, Container } from './styles'
 export interface DialogProps {
   children: ReactNode
   onClose: () => void
+  isOpen: boolean
 }
 
 /**
@@ -16,7 +17,7 @@ export interface DialogProps {
   @returns {JSX.Element} - A JSX element representing the dialog box component.
 */
 
-export const Dialog = ({ children, onClose }: DialogProps) => {
+export const Dialog = ({ children, onClose, isOpen}: DialogProps) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -42,11 +43,12 @@ export const Dialog = ({ children, onClose }: DialogProps) => {
 
   return (
     <>
-      <Backdrop />
+      {isOpen && <Backdrop /> }
       <Container
         isMobile={isMobile}
         ref={dialogRef}
         onPointerDown={(e) => e.stopPropagation()}
+        isOpen={isOpen}
       >
         {children}
       </Container>

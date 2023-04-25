@@ -5,6 +5,7 @@ interface Props {
   isActive?: boolean
   Icon?: ReactElement
   variant?: Variant
+  invertStyleWhenActive?: boolean
 }
 
 export const ToggleWrapper = styled.label<Props>`
@@ -13,10 +14,14 @@ export const ToggleWrapper = styled.label<Props>`
   width: ${({ variant }) => variant === Variant.ThemeSwitcher ? '65px;' : '37px' };
   height: ${({ variant }) => variant === Variant.ThemeSwitcher ? '30px;' : '22px' };
 
-  ${({ theme, variant }) => css`
+  ${({ theme, variant, invertStyleWhenActive }) => css`
     background: ${() => {
+      if (invertStyleWhenActive) {
+        return `${theme.background.toggle.inverted};`;
+      }
+
       if (variant === Variant.InvertedColors) {
-        return `${theme.color.primary.default};`;
+        return `${theme.background.toggle.inverted};`;
       }
 
       if (variant === Variant.ThemeSwitcher) {
@@ -27,14 +32,18 @@ export const ToggleWrapper = styled.label<Props>`
     }}
   `}
 
-  ${({ theme, variant }) => css`
+  ${({ theme, variant, invertStyleWhenActive }) => css`
     border: ${() => {
+      if (invertStyleWhenActive) {
+        return ';';
+      }
+
       if (variant === Variant.Default) {
         return `1px solid ${theme.color.primary.default};`;
       }
       return ';';
     }}
-  `}
+  `};
   transition: background-color 0.2s ease-in-out;
   cursor: pointer;
   border-radius: 46.4286px;
@@ -46,12 +55,12 @@ export const ToggleInput = styled.input.attrs({ type: 'checkbox' })`
 
 export const ToggleHandle = styled.span<Props>`
   position: absolute;
-  margin: ${({ variant }) => {
+  margin: ${({ variant, invertStyleWhenActive }) => {
     if (variant === Variant.ThemeSwitcher) {
       return '2.93px auto;'
     }
 
-    if (variant === Variant.InvertedColors) {
+    if (variant === Variant.InvertedColors || invertStyleWhenActive) {
       return '2.3px auto;'
     }
 
@@ -60,19 +69,24 @@ export const ToggleHandle = styled.span<Props>`
   left: ${({ variant }) => variant === Variant.ThemeSwitcher ? '4px;' : '2px;'};
   width: ${({ variant }) => variant === Variant.ThemeSwitcher ? '24px;' : '18px' };
   height: ${({ variant }) => variant === Variant.ThemeSwitcher ? '24px;' : '18px' };
-  background-color: ${({ theme, variant }) => {
+  background-color: ${({ theme, variant, invertStyleWhenActive }) => {
+
+    if (invertStyleWhenActive) {
+      return theme.color.toggleButton.invertedActive;
+    }
+
     if (variant === Variant.Default) {
       return theme.color.white;
     }
 
     if (variant === Variant.InvertedColors) {
-      return theme.color.toggleButton.default;
+      return theme.color.toggleButton.invertedActive;;
     }
 
     return theme.color.primary.default
   }};
   transition: transform 0.2s ease-in-out;
-  transform: ${({ isActive, variant }) => {
+  transform: ${({ isActive, variant, invertStyleWhenActive }) => {
     if (variant === Variant.ThemeSwitcher) {
       if (isActive) {
         return 'translateX(33px);';
@@ -80,7 +94,7 @@ export const ToggleHandle = styled.span<Props>`
         return 'translateX(0px);'
       }
     } 
-    if (variant === Variant.InvertedColors) {
+    if (variant === Variant.InvertedColors || invertStyleWhenActive) {
       if (isActive) {
         return 'translateX(15px);';
       } else {
