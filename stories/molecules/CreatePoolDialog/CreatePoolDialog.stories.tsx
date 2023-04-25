@@ -43,5 +43,6 @@ Default.args = {
   closeCallback: () => console.log('dialog is closed'),
   tokenListData: TOKEN_LIST_DATA_CREATE_POOL,
   popularTokensData: POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
-  onSelectToken: () => console.log('token selected')
+  onSelectToken: () => console.log('token selected'),
+  onSelectFavoriteToken: (e) => {console.log('favorite token selected')},
 };

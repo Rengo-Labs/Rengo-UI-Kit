@@ -5,6 +5,7 @@ import { RowStyled } from './styles'
 interface SwapPriceProps {
   firstTokenImg: any
   secondTokenImg: any
+  onClickButton?: () => void
 }
 
 const data = [
@@ -47,17 +48,18 @@ const data = [
 
 /**
  * Render a Swap Price Molecule.
- * @param {any} tokenImg - The image value to display in the img field.
+ * @param {any} firstTokenImg - The image value to display in the img field.
+ * @param {any} secondTokenImg - The image value to display in the img field.
+ * @param {() => void} onClickButton - The function to execute when the button is clicked.
  * @returns  {JSX.Element} The rendered the token options and key pair text.
  */
 
-export const SwapPrice = ({ firstTokenImg, secondTokenImg }: SwapPriceProps) => {
-  console.log("aaaaaa", firstTokenImg, secondTokenImg)
+export const SwapPrice = ({ firstTokenImg, secondTokenImg, onClickButton }: SwapPriceProps) => {
   return (
     <>
       <Row props={{ className: 'p-1 align-center' }}>
         <Column props={{ xs: 12, md: 6 }}>
-          <RowStyled>
+          <RowStyled onClick={onClickButton}>
             <TokenOption tokenImg={firstTokenImg} token='ETH' option1 />
             <TokenOption tokenImg={secondTokenImg} token='CSPR' option1={false} />
           </RowStyled>

@@ -23,7 +23,7 @@ export interface CoinCardPros {
  * @param startIcon - it shows the selected token icon currently
  * @param endIcon - it shows the arrow icon to show a token list to be selected
  * @param iconSize
- * @param title - Text 
+ * @param title - Text
  * @param tokenBalance - it's the total balance of the selected token.
  * @param tokenName - it's the token name of the selected token.
  * @param tokenPrice - it's the token price expressed in usd.
@@ -61,12 +61,15 @@ export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tok
               name={tokenName}
               endIcon={endIcon}
               actionCallBack={onChangeToken}
+              background='transparent'
             />
           }
           value={value}
           iconSize={iconSize}
           onChange={onChangeValue}
           validator={validator}
+          hasBackground={true}
+          iconWrapperBackground='transparent'
         />
       </InputWrapped>
       <CoinCardFooter>
