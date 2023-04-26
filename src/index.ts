@@ -42,6 +42,8 @@ export {
     LPContainer,
     ExchangeRate,
     ExchangeRates,
-    ContainerLayout
+    ContainerLayout,
+    PoolTable,
+    PoolTableItem
 } from './components';
 export {InputType, ToggleVariant} from './types/index';

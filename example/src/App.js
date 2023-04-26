@@ -47,7 +47,9 @@ import {
   WalletConnectedOptionsDialog,
   Menu,
   LPContainer,
-  WalletConnection
+  WalletConnection,
+  PoolTableItem,
+  PoolTable
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
 import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
@@ -58,7 +60,8 @@ import {
   REMOVE_LIQUIDITY_DATA,
   BALANCE_TABLE_DATA,
   WALLET_CONNECTED_OPTIONS,
-  WALLETS_DATA
+  WALLETS_DATA,
+  POOL_TABLE_DATA
 } from './data'
 
 const App = () => {
@@ -76,6 +79,7 @@ const App = () => {
   const [SlippageTolerance, setSlippageTolerance] = useState(0.05)
   const [settingOption, setSettingOption] = useState('')
   const [cardValue, setCardValue] = useState('')
+  const [isFavorite, setIsFavorite] = useState(false)
   const [tabs, setTabs] = useState([
     {
       id: 1,
@@ -176,9 +180,8 @@ const App = () => {
     setSlippageTolerance(value)
   }
 
-  const handleSettingOption = (value) => {
-    console.log('handleSettingOption', value)
-    setSettingOption(value)
+  const handleFavorite = () => {
+    setIsFavorite(!isFavorite)
   }
 
   const handleRemoveLiquidity = (liquidityPool) => {
@@ -365,11 +368,13 @@ const App = () => {
             </Column>
           </Row>
           <Row className='my-1'>
-            <Column props={{ xs: 4 }}>
-              <Settings />
-            </Column>
-            <Column props={{ xs: 12, md: 8 }}>
+            <Column props={{ xs: 12}}>
               <BalanceTable data={BALANCE_TABLE_DATA} />
+            </Column>
+          </Row>
+          <Row className='my-1'>
+            <Column props={{ xs: 12 }}>
+              <PoolTable data={POOL_TABLE_DATA} />
             </Column>
           </Row>
         </Container>
@@ -378,7 +383,7 @@ const App = () => {
             style={{
               margin: '30px 0 30px 0',
               minWidth: '350px',
-              maxWidth: '450px',
+              maxWidth: '850px',
               height: '66px',
               background: 'white'
             }}

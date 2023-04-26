@@ -8,6 +8,7 @@ import lineBreakIcon from "./assets/icons/linkbreak.svg";
 import casperWallet from "./assets/icons/casper-wallet.svg";
 import ledgerWallet from "./assets/icons/ledger-wallet.svg";
 import torusWallet from "./assets/icons/torus-wallet.svg";
+import ethCsprPair from './assets/icons/eth-cspr-pair.svg'
 
 export const TOKEN_LIST_DATA_CREATE_POOL = [
   { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000', tokenImg: cstTokenIcon },
@@ -64,6 +65,36 @@ export const BALANCE_TABLE_DATA = [
   }
 ]
 
+
+export const POOL_TABLE_DATA = [
+  {
+    id: 1,
+    tokenPairIcon: ethCsprPair,
+    tokenPairs: ['WETH', 'CSPR'],
+    liquidity: '4,653,213',
+    volumen7d: '4,653,213',
+    fees7d: '4,653,213',
+    apr: '4,653,213',
+  },
+  {
+    id: 2,
+    tokenPairIcon: ethCsprPair,
+    tokenPairs: ['WETH', 'CSPR'],
+    liquidity: '4,653,213',
+    volumen7d: '4,453,213',
+    fees7d: '4,053,213',
+    apr: '4,653,213',
+  },
+  {
+    id: 3,
+    tokenPairIcon: ethCsprPair,
+    tokenPairs: ['WETH', 'CSPR'],
+    liquidity: '4,653,213',
+    volumen7d: '4,153,213',
+    fees7d: '4,853,213',
+    apr: '4,653,213',
+  },
+]
 
 export const WALLET_CONNECTED_OPTIONS = [
   {
