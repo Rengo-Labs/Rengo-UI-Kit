@@ -1,8 +1,9 @@
 import React, {createContext} from 'react'
 import {ThemeProvider} from 'styled-components/macro'
 import {GlobalStyles} from '../styles'
-import {theme} from './index'
+// import {theme as themeVersions} from './index'
 import {useTheme} from '../hooks'
+import { theme } from './theme'
 interface IUiProvider {
     children: any,
     themeName?: string
