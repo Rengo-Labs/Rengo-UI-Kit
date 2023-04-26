@@ -49,7 +49,8 @@ import {
   LPContainer,
   WalletConnection,
   PoolTableItem,
-  PoolTable
+  // PoolTable,
+  LPSearch
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
 import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
@@ -374,7 +375,7 @@ const App = () => {
           </Row>
           <Row className='my-1'>
             <Column props={{ xs: 12 }}>
-              <PoolTable data={POOL_TABLE_DATA} />
+              {/* <PoolTable data={POOL_TABLE_DATA} /> */}
             </Column>
           </Row>
         </Container>
@@ -555,6 +556,10 @@ const App = () => {
               }
             ]}
           />
+        </Container>
+        <Container>
+          <LPSearch 
+            handleOnlyShowStaked={(e) => console.log('LPSearch', e)} />
         </Container>
       </>
     </UiProvider>

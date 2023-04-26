@@ -34,7 +34,9 @@ export const Input = ({
   iconWrapperBackground,
   onChange,
   validator,
-  value}: InputProps) => {
+  value,
+  textAlign = 'right'
+}: InputProps) => {
   const { getInputProps } = useInput()
 
   return (
@@ -55,7 +57,7 @@ export const Input = ({
           </IconWrapper>
         )}
 
-        <InputStyled 
+        <InputStyled textAlign={textAlign}
           { ...getInputProps({
             onChange: (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value),
             validator: (e: ChangeEvent<HTMLInputElement>) => validator && validator(e.target.value),
