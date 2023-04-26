@@ -10,7 +10,7 @@ export interface SwapTabsProps {
     secondTokenImg: any
     firstSelectedToken: IToken
     secondSelectedToken: IToken
-    gasFee: number
+    platformGasFee: number
     slippageTolerance: number,
     calculateMinimumTokenReceived: any
     firstSymbolToken: string,
@@ -18,7 +18,8 @@ export interface SwapTabsProps {
     pairPath: any[],
     secondSymbolToken: string,
     secondTokenAmount: number,
-    gasFeeSetter: (value: number) => void;
+    networkGasFee: number;
+    networkGasFeeSetter: (value: number) => void;
     priceImpact: number | string;
     priceImpactMessage: string;
     slippageSetter: (value: number) => void;
@@ -34,7 +35,7 @@ export interface SwapTabsProps {
 export const SwapTabs = ({
                              firstTokenImg,
                              secondTokenImg,
-                             gasFee,
+                             platformGasFee,
                              slippageTolerance,
                              calculateMinimumTokenReceived,
                              firstSymbolToken,
@@ -44,7 +45,8 @@ export const SwapTabs = ({
                              secondTokenAmount,
                              priceImpact,
                              priceImpactMessage,
-                             gasFeeSetter,
+                             networkGasFee,
+                             networkGasFeeSetter,
                              slippageSetter
                          }: SwapTabsProps) => {
     const swapPriceTab = ( <SwapPrice
@@ -57,7 +59,7 @@ export const SwapTabs = ({
 
     const swapMoreInfoTab = (
         <SwapMoreInfo
-            gasFee={gasFee}
+            platformGasFee={platformGasFee}
             slippageTolerance={slippageTolerance}
             calculateMinimumTokenReceived={calculateMinimumTokenReceived}
             firstSymbolToken={firstSymbolToken}
@@ -65,7 +67,8 @@ export const SwapTabs = ({
             pairPath={pairPath}
             secondSymbolToken={secondSymbolToken}
             secondTokenAmount={secondTokenAmount}
-            gasFeeSetter={gasFeeSetter}
+            networkGasFee={networkGasFee}
+            networkGasFeeSetter={networkGasFeeSetter}
             priceImpact={priceImpact}
             priceImpactMessage={priceImpactMessage}
             slippageSetter={slippageSetter}
@@ -101,7 +104,7 @@ export const SwapTabs = ({
     }, [
         firstTokenImg,
         secondTokenImg,
-        gasFee,
+        platformGasFee,
         slippageTolerance,
         calculateMinimumTokenReceived,
         firstSymbolToken,
@@ -111,7 +114,8 @@ export const SwapTabs = ({
         secondTokenAmount,
         priceImpact,
         priceImpactMessage,
-        gasFeeSetter,
+        networkGasFee,
+        networkGasFeeSetter,
         slippageSetter
     ])
 

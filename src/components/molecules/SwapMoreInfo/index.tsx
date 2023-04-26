@@ -10,8 +10,9 @@ interface ISwapMoreInfoProps {
     secondTokenAmount: number;
     priceImpactMessage: string;
     priceImpact: number | string;
-    gasFee: number;
-    gasFeeSetter: (value: number) => void;
+    platformGasFee: number;
+    networkGasFee: number;
+    networkGasFeeSetter: (value: number) => void;
     slippageTolerance: number;
     slippageSetter: (value: number) => void;
     pairPath: any[];
@@ -42,25 +43,14 @@ export const SwapMoreInfo = ({
                                  secondTokenAmount,
                                  priceImpactMessage,
                                  priceImpact,
-                                 gasFee,
-                                 gasFeeSetter,
+                                 platformGasFee,
+                                 networkGasFee,
+                                 networkGasFeeSetter,
                                  slippageTolerance,
                                  slippageSetter,
                                  pairPath,
                                  calculateMinimumTokenReceived
                              }: ISwapMoreInfoProps) => {
-    const [SlippageTolerance, setSlippageTolerance] = useState<number>(slippageTolerance)
-    const [NetworkGasFee, setNetworkGasFee] = useState<number>(gasFee)
-
-    const handleSlippageTolerance = (value: number) => {
-        setSlippageTolerance(value);
-        slippageSetter && slippageSetter(value);
-    }
-
-    const handleNetworkGasFee = (value: number) => {
-        setNetworkGasFee(value);
-        gasFeeSetter && gasFeeSetter(value);
-    }
 
     const parirPathValue = pairPath.length > 0 ?
         pairPath.map((item, index) => index === pairPath.length - 1 ? item : `${item} > `).join('') :
@@ -78,18 +68,18 @@ export const SwapMoreInfo = ({
                 <Divider/>
                 <KeyValueInput
                     keyText='Slippage Tolerance'
-                    value={SlippageTolerance}
+                    value={slippageTolerance}
                     inputType={InputType.SLIPPAGETOLERANCE}
-                    onChange={handleSlippageTolerance}
+                    onChange={slippageSetter}
                 />
                 <Divider/>
-                <KeyValueText keyText='Swapp Fee' valueText={`${firstTokenAmount * SlippageTolerance} CSPR`}/>
+                <KeyValueText keyText='Swapp Fee' valueText={`${firstTokenAmount * platformGasFee} CSPR`}/>
                 <Divider/>
                 <KeyValueInput
                     keyText='Network gas fee'
-                    value={NetworkGasFee}
+                    value={networkGasFee}
                     inputType={InputType.GASFEE}
-                    onChange={handleNetworkGasFee}
+                    onChange={networkGasFeeSetter}
                 />
                 <Divider/>
                 <KeyValueText keyText='Route' valueText={parirPathValue.toString()}/>
