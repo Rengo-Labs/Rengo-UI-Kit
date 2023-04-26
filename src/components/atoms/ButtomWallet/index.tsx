@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {ButtonWalletDesktop, ButtonWalletMobile, ButtonWalletText, ButtonWalletIcon} from './styles'
 import walletIcon from '../../../assets/icons/wallet.svg'
 import {useDeviceType} from '../../../hooks/useDeviceType'
@@ -11,7 +11,10 @@ export interface IButtonWalletProps {
     accountHashString?: string | null
 }
 
-const transformAccountHash = (accountHashString: string) => {
+const transformAccountHash = (accountHashString: string | null) => {
+  if (!accountHashString) {
+    return ''
+  }
     const end = accountHashString.length;
     const walletLabel = `${accountHashString.substring(
         0,
@@ -26,36 +29,30 @@ const transformAccountHash = (accountHashString: string) => {
     return {walletLabel, walletLabelMobile}
 }
 export const ButtonWallet = ({handleClick, accountHashString = defaultAccountHash}: IButtonWalletProps) => {
-    const [accountHash, setAccountHash] = useState<string | null>(accountHashString || null)
-    const deviceType = useDeviceType()
-    const isMobile = deviceType === DeviceType.MOBILE
-
-    useEffect(() => {
-        if (accountHash !== null && accountHash !== defaultAccountHash) {
-            isMobile ?
-                setAccountHash(transformAccountHash(accountHash).walletLabelMobile) :
-                setAccountHash(transformAccountHash(accountHash).walletLabel)
-        }
-        if(accountHash === null) {
-            setAccountHash(defaultAccountHash)
-        }
-    }, [isMobile, accountHashString])
-
-    return (
-        isMobile ?
-            <ButtonWalletMobile onClick={handleClick}>
-                <ButtonWalletIcon src={walletIcon}/>
-                {accountHash !== null && accountHash !== defaultAccountHash &&
-                    <ButtonWalletText>
-                        {accountHash}
-                    </ButtonWalletText>
-                }
-            </ButtonWalletMobile> :
-            <ButtonWalletDesktop onClick={handleClick}>
-                <ButtonWalletIcon src={walletIcon}/>
-                <ButtonWalletText>
-                    {accountHash}
-                </ButtonWalletText>
-            </ButtonWalletDesktop>
+  const deviceType = useDeviceType()
+  const isMobile = deviceType === DeviceType.MOBILE
+    
+  const walletHashTransformed = transformAccountHash(accountHashString)
+  const walletIsActive = accountHashString && walletHashTransformed !== ''
+    
+  return (
+      <>
+        {isMobile ? (
+          <ButtonWalletMobile onClick={handleClick}>
+          <ButtonWalletIcon src={walletIcon}/>
+            <ButtonWalletText>
+              {walletIsActive ? walletHashTransformed?.walletLabelMobile : defaultAccountHash}
+            </ButtonWalletText>
+          
+      </ButtonWalletMobile>
+        ) : (
+          <ButtonWalletDesktop onClick={handleClick}>
+            <ButtonWalletIcon src={walletIcon}/>
+            <ButtonWalletText>
+              {walletIsActive ? walletHashTransformed.walletLabelMobile : defaultAccountHash}
+            </ButtonWalletText>
+          </ButtonWalletDesktop>
+        )}
+      </>
     )
 }
