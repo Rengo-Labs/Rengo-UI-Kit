@@ -31,10 +31,10 @@ const transformAccountHash = (accountHashString: string | null) => {
 export const ButtonWallet = ({handleClick, accountHashString = defaultAccountHash}: IButtonWalletProps) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
-    
+
   const walletHashTransformed = transformAccountHash(accountHashString)
   const walletIsActive = accountHashString && walletHashTransformed !== ''
-    
+
   return (
       <>
         {isMobile ? (
@@ -43,13 +43,13 @@ export const ButtonWallet = ({handleClick, accountHashString = defaultAccountHas
             <ButtonWalletText>
               {walletIsActive ? walletHashTransformed?.walletLabelMobile : defaultAccountHash}
             </ButtonWalletText>
-          
+
       </ButtonWalletMobile>
         ) : (
           <ButtonWalletDesktop onClick={handleClick}>
             <ButtonWalletIcon src={walletIcon}/>
             <ButtonWalletText>
-              {walletIsActive ? walletHashTransformed.walletLabelMobile : defaultAccountHash}
+              {walletIsActive ? walletHashTransformed.walletLabel : defaultAccountHash}
             </ButtonWalletText>
           </ButtonWalletDesktop>
         )}
