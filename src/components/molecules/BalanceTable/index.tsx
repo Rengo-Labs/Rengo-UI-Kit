@@ -49,7 +49,7 @@ const columns = [
   {
     key: '30d',
     name: '30 D',
-    isSorteable: false
+    isSorteable: true
   }
 ]
 
