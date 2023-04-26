@@ -1,13 +1,21 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.div<{ isMobile: boolean }>`
   width: 100%;
   display: flex;
+  flex-direction: ${({ isMobile }) => isMobile ? 'column' : 'row' };
   justify-content: space-between;
+  align-items: ${({ isMobile }) => isMobile ? 'center' : 'stretch' };
+  gap: ${({ isMobile }) => isMobile ? '10px' : '0' };
 `;
 
-export const ActionsSubContainer = styled.div`
+export const ActionsSubContainer = styled.div<{ isMobile: boolean }>`
   display: flex;
-  justify-content: space-evenly;
-  width: 40%;
+  justify-content: ${({ isMobile }) => isMobile ? 'space-between' : 'space-evenly' };
+  width: ${({ isMobile }) => isMobile ? '100%' : '300px' };
+`;
+
+export const UpdateButtonContainer = styled.div<{ isMobile: boolean }>`
+  display: flex;
+  padding-left: ${({ isMobile }) => isMobile ? '20px' : '0px' };
 `;

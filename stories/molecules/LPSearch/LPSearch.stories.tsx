@@ -10,7 +10,7 @@ export default {
 
 // Create a master template for mapping args to render the LiquidityDetail component
 const Template: ComponentStory<typeof LPSearch> = (args: LPSearchProps) => (
-  <div style={{ width: '800px' }}>
+  <div style={{ width: '100vw' }}>
     <LPSearch {...args} />
   </div>
 )

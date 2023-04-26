@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ActionsSubContainer, Container } from "./styles"
+import { ActionsSubContainer, Container, UpdateButtonContainer } from "./styles"
 import { ButtonUpdateCircle, Input, Toggle } from '../../atoms'
 import { IconSize, Status, Type } from '../../atoms/Input/types'
 import { Search } from 'react-feather'
@@ -22,7 +22,6 @@ export const LPSearch = ({ handleOnlyShowStaked }: LPSearchProps) => {
 
   
   const handlerInput = (value: string) => {
-    console.log('check', value);
     
   }
 
@@ -45,7 +44,7 @@ export const LPSearch = ({ handleOnlyShowStaked }: LPSearchProps) => {
   }
 
   return (
-    <Container>
+    <Container isMobile={isMobile}>
       <Input
         placeholder='Search all'
         helperText='Something is wrong!'
@@ -59,13 +58,14 @@ export const LPSearch = ({ handleOnlyShowStaked }: LPSearchProps) => {
         textAlign='left'
         />
         
-        <ActionsSubContainer>
-          <ButtonUpdateCircle
-            getProgress={getProgress}
-            clearProgress={clearProgress}
-            strokeWidth={12}
-            handlerAction={handlerButtonCircle} />
-            
+        <ActionsSubContainer isMobile={isMobile}>
+          <UpdateButtonContainer isMobile={isMobile}>
+            <ButtonUpdateCircle
+              getProgress={getProgress}
+              clearProgress={clearProgress}
+              strokeWidth={12}
+              handlerAction={handlerButtonCircle} />
+          </UpdateButtonContainer>
           <Toggle
             isActive={showStaked}
             toggle={(e: React.ChangeEvent<HTMLInputElement>) => handleShowStakedToggle(e.target.checked)}
