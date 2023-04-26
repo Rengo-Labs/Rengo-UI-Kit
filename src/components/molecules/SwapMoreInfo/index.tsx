@@ -1,59 +1,99 @@
-import React, { useState } from 'react'
-import { Column, Divider, KeyValueInput, KeyValueText } from '../../atoms'
-import { Wrapper } from './styles'
-import { InputType } from '../../atoms/KeyValueInput/types'
-import { IToken } from '../LiquidityDetails';
+import React, {useState} from 'react'
+import {Column, Divider, KeyValueInput, KeyValueText} from '../../atoms'
+import {Wrapper} from './styles'
+import {InputType} from '../../atoms/KeyValueInput/types'
+
 interface ISwapMoreInfoProps {
-  firstSelectedToken: IToken;
-  secondSelectedToken:IToken;
-  gasFee: number;
-  slippageTolerance: number;
+    firstSymbolToken: string;
+    firstTokenAmount: number;
+    secondSymbolToken: string;
+    secondTokenAmount: number;
+    priceImpactMessage: string;
+    priceImpact: number | string;
+    gasFee: number;
+    gasFeeSetter: (value: number) => void;
+    slippageTolerance: number;
+    slippageSetter: (value: number) => void;
+    pairPath: any[];
+    calculateMinimumTokenReceived: (secondTokenAmount: number, slippageTolerance: number) => number;
 }
 
 /**
  * Render a More info component.
- * @returns  {JSX.Element} The rendered a list of key-value text and inputs.
+ *  @param {string} firstSymbolToken - The first token symbol.
+ *  @param {number} firstTokenAmount - The first token amount.
+ *  @param {string} secondSymbolToken - The second token symbol.
+ *  @param {number} secondTokenAmount - The second token amount.
+ *  @param {string} priceImpactMessage - The price impact message.
+ *  @param {number | string} priceImpact - The price impact value.
+ *  @param {number} gasFee - The gas fee value.
+ *  @param {number} slippageTolerance - The slippage tolerance value.
+ *  @param {array} pairPath - The pair path value.
+ *  @param {function} calculateMinimumTokenReceived - The calculate minimum token received value.
+ *  @param {function} gasFeeSetter - The gas fee setter value.
+ *  @param {function} slippageSetter - The slippage setter value.
+ *  @returns  {JSX.Element} The rendered a list of key-value text and inputs.
  */
 
-export const SwapMoreInfo = ({firstSelectedToken, secondSelectedToken, gasFee, slippageTolerance}: ISwapMoreInfoProps) => {
-  const [SlippageTolerance, setSlippageTolerance] = useState<number>(slippageTolerance)
-  const [NetworkGasFee, setNetworkGasFee] = useState<number>(gasFee)
+export const SwapMoreInfo = ({
+                                 firstSymbolToken,
+                                 firstTokenAmount,
+                                 secondSymbolToken,
+                                 secondTokenAmount,
+                                 priceImpactMessage,
+                                 priceImpact,
+                                 gasFee,
+                                 gasFeeSetter,
+                                 slippageTolerance,
+                                 slippageSetter,
+                                 pairPath,
+                                 calculateMinimumTokenReceived
+                             }: ISwapMoreInfoProps) => {
+    const [SlippageTolerance, setSlippageTolerance] = useState<number>(slippageTolerance)
+    const [NetworkGasFee, setNetworkGasFee] = useState<number>(gasFee)
 
-  const handleSlippageTolerance = (value: number) => {
-    setSlippageTolerance(value)
-  }
+    const handleSlippageTolerance = (value: number) => {
+        setSlippageTolerance(value);
+        slippageSetter && slippageSetter(value);
+    }
 
-  const handleNetworkGasFee = (value: number) => {
-    setNetworkGasFee(value)
-  }
+    const handleNetworkGasFee = (value: number) => {
+        setNetworkGasFee(value);
+        gasFeeSetter && gasFeeSetter(value);
+    }
 
-  return (
-    <Column props={{ xs: 12 }}>
-      <Wrapper>
-        <KeyValueText keyText='Swapping Through' valueText='CasperSwap Pool' />
-        <Divider/>
-        <KeyValueText keyText='Minimum received' valueText={`${secondSelectedToken.amount} ${secondSelectedToken.symbol}`} />
-        <Divider/>
-        <KeyValueText keyText='Low Price Impact' valueText='<0.01 %' />
-        <Divider/>
-        <KeyValueInput
-          keyText='Slippage Tolerance'
-          value={SlippageTolerance}
-          inputType={InputType.SLIPPAGETOLERANCE}
-          onChange={handleSlippageTolerance}
-        />
-        <Divider/>
-        <KeyValueText keyText='Swapp Fee' valueText='0.03 CSPR' />
-        <Divider/>
-        <KeyValueInput
-          keyText='Network gas fee'
-          value={NetworkGasFee}
-          inputType={InputType.GASFEE}
-          onChange={handleNetworkGasFee}
-        />
-        <Divider/>
-        <KeyValueText keyText='Route' valueText={`${firstSelectedToken.symbol} > ${secondSelectedToken.symbol}`} />
-      </Wrapper>
-    </Column>
-  )
+    const parirPathValue = pairPath.length > 0 ?
+        pairPath.map((item, index) => index === pairPath.length - 1 ? item : `${item} > `).join('') :
+        `${firstSymbolToken} > ${secondSymbolToken}`
+
+    return (
+        <Column props={{xs: 12}}>
+            <Wrapper>
+                <KeyValueText keyText='Swapping Through' valueText='CasperSwap Pool'/>
+                <Divider/>
+                <KeyValueText keyText='Minimum received'
+                              valueText={`${calculateMinimumTokenReceived(secondTokenAmount, slippageTolerance)} ${secondSymbolToken}`}/>
+                <Divider/>
+                <KeyValueText keyText={`${priceImpactMessage}`} valueText={`${priceImpact} %`}/>
+                <Divider/>
+                <KeyValueInput
+                    keyText='Slippage Tolerance'
+                    value={SlippageTolerance}
+                    inputType={InputType.SLIPPAGETOLERANCE}
+                    onChange={handleSlippageTolerance}
+                />
+                <Divider/>
+                <KeyValueText keyText='Swapp Fee' valueText={`${firstTokenAmount * SlippageTolerance} CSPR`}/>
+                <Divider/>
+                <KeyValueInput
+                    keyText='Network gas fee'
+                    value={NetworkGasFee}
+                    inputType={InputType.GASFEE}
+                    onChange={handleNetworkGasFee}
+                />
+                <Divider/>
+                <KeyValueText keyText='Route' valueText={parirPathValue.toString()}/>
+            </Wrapper>
+        </Column>
+    )
 }

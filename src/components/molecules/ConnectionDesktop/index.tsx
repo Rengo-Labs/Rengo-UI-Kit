@@ -26,7 +26,9 @@ export const ConnectionDesktop = ({
   return (
     <>
       {isOpen && (
-        <Dialog onClose={closeCallback}>
+        <Dialog
+          onClose={closeCallback}
+          isOpen={isOpen}>
           <Container>
             <DialogHeaderContainer>
               <DialogHeader>

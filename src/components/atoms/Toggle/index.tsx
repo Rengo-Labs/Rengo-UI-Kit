@@ -14,17 +14,24 @@ import { ToggleProps, Variant } from './types';
   @return {JSX.Element}
 */
 export const Toggle = ({isActive, toggle, variant = Variant.Default, labelText }: ToggleProps) => {
+  const invertStyleWhenActive = variant === Variant.Default && isActive
+  
   return (
     <SwitcherWrapper>
       {labelText && (
         <LabelText>{labelText}</LabelText>
       )}
-      <ToggleWrapper variant={variant}>
-        <ToggleInput checked={isActive} onChange={toggle} />
-        <ToggleHandle isActive={isActive} variant={variant}>
-          {variant === Variant.ThemeSwitcher && (
-            isActive ? <Moon color="#FFFFFF" size={24}/> : <Sun color="#FFFFFF" size={24}/>
-          )}
+      <ToggleWrapper variant={variant} invertStyleWhenActive={invertStyleWhenActive}>
+        <ToggleInput 
+        checked={isActive}
+        onChange={toggle} />
+        <ToggleHandle
+          isActive={isActive}
+          variant={variant}
+          invertStyleWhenActive={invertStyleWhenActive}>
+            {variant === Variant.ThemeSwitcher && (
+              isActive ? <Moon color="#FFFFFF" size={24}/> : <Sun color="#FFFFFF" size={24}/>
+            )}
         </ToggleHandle>
       </ToggleWrapper>
     </SwitcherWrapper>

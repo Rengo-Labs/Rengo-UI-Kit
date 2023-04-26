@@ -219,7 +219,8 @@ export const IconWrapper = styled.div<Props>`
   gap: 4px;
   height: ${({ iconSize }) => iconSize === IconSize.Small ? '32px;' : 'auto;' };
   width: ${({ iconSize }) => iconSize === IconSize.Small ? '32px;' : 'auto;' };
-  
+  border-radius: 60px;
+
   &:hover {
     background-color: ${({ theme }) => theme.background.default};
   }

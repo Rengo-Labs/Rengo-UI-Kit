@@ -17,4 +17,5 @@ export interface RemoveLiquidityDialogProps {
   closeCallback: (liquidityPool?: ILiquidityPoolState) => ILiquidityPoolState
   liquidityPoolData: TokenData[]
   tokenImg: string
+  isOpen: boolean
 }

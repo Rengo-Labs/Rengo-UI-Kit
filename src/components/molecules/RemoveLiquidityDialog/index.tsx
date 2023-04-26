@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { 
+  BottomSubContainer,
   CloseButton,
   Container,
   DialogHeader,
@@ -8,6 +9,7 @@ import {
   InnerContainer,
   SliderContainer,
   ToggleContainer,
+  TopSubContainer,
   TransactionsContainer } from "./styles"
 import {
   Button,
@@ -22,23 +24,27 @@ import { Distribution } from "../../atoms/TransactionDetails/types"
 import { theme } from '../../../styles/themes/themes'
 import { useTheme } from "styled-components"
 import { Variant } from "../../atoms/Toggle/types"
+import { useDeviceType } from "../../../hooks"
+import { DeviceType } from "../../../hooks/types"
 
 /**
   React component for a Remove Liquidity dialog box.
   @component
   @param {RemoveLiquidityDialogProps} props - The props object containing the following properties:
   @param {string} props.id - The ID of the liquidity pool.
+  @param {string} props.isOpen - The status of the liquidity pool.
   @param {Function} props.closeCallback - A function to be called when the dialog is closed, passing the liquidity pool state as an optional argument.
   @param {TokenData[]} props.liquidityPoolData - An array of token data for the liquidity pool.
   @returns {JSX.Element} - A JSX element representing the Remove Liquidity dialog box.
 */
-export const RemoveLiquidityDialog = ({ id, closeCallback, liquidityPoolData }: RemoveLiquidityDialogProps) => {
+export const RemoveLiquidityDialog = ({ id, closeCallback, liquidityPoolData, isOpen }: RemoveLiquidityDialogProps) => {
   const initialState: ILiquidityPoolState = {
     liquidityPercentage: 0,
     removeLiquidityCSPR: false,
     id
   };
-  
+  const deviceType = useDeviceType()
+  const isMobile = deviceType === DeviceType.MOBILE
   const theme = useTheme() as theme;
   const [liquidityPool, setLiquidityPool] = useState<ILiquidityPoolState>(() => initialState)
 
@@ -63,13 +69,14 @@ export const RemoveLiquidityDialog = ({ id, closeCallback, liquidityPoolData }: 
   const handleSubmit = () => {
     closeCallback(liquidityPool)
   }
-
+  
   return (
     <Dialog
+      isOpen={isOpen}
       onClose={() => closeCallback()}
       >
-      <Container>
-        <DialogHeaderContainer>
+      <Container isMobile={isMobile}>
+        <DialogHeaderContainer isMobile={isMobile}>
           <DialogHeader>
             <DialogTitle>Remove Liquidity</DialogTitle>
             <CloseButton onClick={handleClose}>
@@ -78,44 +85,48 @@ export const RemoveLiquidityDialog = ({ id, closeCallback, liquidityPoolData }: 
           </DialogHeader>
         </DialogHeaderContainer>
 
-        <InnerContainer>
-          <SliderContainer>
-            <Slider callback={handlePercentageChange} />
-          </SliderContainer>
-          
-          <TransactionsContainer>
-            {liquidityPoolData && liquidityPoolData.map(item => (
-              <TransactionDetails
-                key={`transaction-details-${item.id}`}
-                distribution={Distribution.SpaceEvenly}
-                Icon={item.tokenImg}
-                iconSize={45}
-                tokenNames={item.tokenNames}
-                tokenNameSymbols={item.tokenNameSymbols}
-                amount={item.amount} />
-            ))}
-          </TransactionsContainer>
+        <InnerContainer isMobile={isMobile}>
+          <TopSubContainer>
+            <SliderContainer>
+              <Slider callback={handlePercentageChange} />
+            </SliderContainer>
+            
+            <TransactionsContainer>
+              {liquidityPoolData && liquidityPoolData.map(item => (
+                <TransactionDetails
+                  key={`transaction-details-${item.id}`}
+                  distribution={Distribution.SpaceEvenly}
+                  Icon={item.tokenImg}
+                  iconSize={45}
+                  tokenNames={item.tokenNames}
+                  tokenNameSymbols={item.tokenNameSymbols}
+                  amount={item.amount} />
+              ))}
+            </TransactionsContainer>
 
-          <TransactionDetailsTextOnly
-              tokenInfo={[
-                '1 Wrapper Ether = 391.361884674 Wrapper Casper',
-                '1 Wrapper Casper = 0.002555180 Wrapper Ether'
-              ]}
-            />
+            <TransactionDetailsTextOnly
+                tokenInfo={[
+                  '1 Wrapper Ether = 391.361884674 Wrapper Casper',
+                  '1 Wrapper Casper = 0.002555180 Wrapper Ether'
+                ]}
+              />
+          </TopSubContainer>
 
-          <Button
-            type="large"
-            props={{ onClick: () => handleSubmit() }}>
-            Remove Liquidity
-          </Button>
-          
-          <ToggleContainer>
-            <Toggle
-              isActive={liquidityPool.removeLiquidityCSPR}
-              toggle={(e) => handleCSPRChange(e)}
-              variant={Variant.Default}
-              labelText="Remove liquidity CSPR" />
-          </ToggleContainer>
+          <BottomSubContainer>
+            <Button
+              type="large"
+              props={{ onClick: () => handleSubmit() }}>
+              Remove Liquidity
+            </Button>
+            
+            <ToggleContainer>
+              <Toggle
+                isActive={liquidityPool.removeLiquidityCSPR}
+                toggle={(e) => handleCSPRChange(e)}
+                variant={Variant.Default}
+                labelText="Remove liquidity CSPR" />
+            </ToggleContainer>
+          </BottomSubContainer>
 
         </InnerContainer>
       </Container>

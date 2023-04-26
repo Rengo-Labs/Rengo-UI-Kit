@@ -8,7 +8,7 @@ export const Container = styled.div<IContainerProps>`
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   transform: ${({ isOpen }) =>
     isOpen ? 'translateX(0)' : 'translateX(100vw)'};

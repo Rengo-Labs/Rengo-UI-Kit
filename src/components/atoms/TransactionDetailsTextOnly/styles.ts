@@ -14,9 +14,10 @@ export const InnerWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 16px 0 16px 0;
+  flex-wrap: wrap;
 `;
 
-export const LeftWrapper = styled.div`
+export const LeftWrapper = styled.div<{ isMobile: boolean}>`
   height: 100%;
   display: flex;
   justify-content: center;
@@ -27,6 +28,7 @@ export const LeftWrapper = styled.div`
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.02em;
+  margin-bottom: ${({ isMobile }) => isMobile ? '8px' : '0px' };
 `;
 
 export const RightWrapper = styled.div`
@@ -35,7 +37,7 @@ export const RightWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  /* padding: 0 5px 0 24px; */
+  gap: 8px;
 `;
 
 export const TokenInfo = styled.p`

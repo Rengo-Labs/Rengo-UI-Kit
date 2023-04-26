@@ -18,33 +18,52 @@ export const Default = Template.bind({});
 Default.args = {
     firstTokenImg: casperToken,
     secondTokenImg: bitcoinToken,
-    firstSelectedToken: {
-        amount: '0.016491306',
-        allowance: '',
-        symbolPair: '',
-        chainId: 23456,
-        contractHash: '',
-        decimals: 2,
-        logoURI: '',
-        name: 'CSPR',
-        packageHash: '',
-        symbol: 'CSPR',
-        priceUSD: 'CSPR'
-      },
-    
-    secondSelectedToken: {
-        amount: '351149.146168057',
-        allowance: '',
-        symbolPair: '',
-        chainId: 23456,
-        contractHash: '',
-        decimals: 2,
-        logoURI: '',
-        name: 'WETH',
-        packageHash: '',
-        symbol: 'WETH',
-        priceUSD: 'WETH'
-      },
-      gasFee: 15,
-      slippageTolerance: 0.05
+    gasFee: 0.1,
+    slippageTolerance: 0.005,
+    calculateMinimumTokenReceived: (() =>  200),
+    firstSymbolToken: 'CSPR',
+    firstTokenAmount: 10,
+    pairPath: ['CSPR', 'ETH'],
+    secondSymbolToken: 'ETH',
+    secondTokenAmount: 200,
+    priceImpact: 1.5,
+    priceImpactMessage: 'Low Price Impact',
+    gasFeeSetter    : () => {},
+    slippageSetter  : () => {},
+}
+
+export const WithoutPair = Template.bind({});
+WithoutPair.args = {
+    firstTokenImg: casperToken,
+    secondTokenImg: bitcoinToken,
+    gasFee: 0.1,
+    slippageTolerance: 0.005,
+    calculateMinimumTokenReceived: (() =>  200),
+    firstSymbolToken: 'WETH',
+    firstTokenAmount: 10,
+    pairPath: [],
+    secondSymbolToken: 'ETH',
+    secondTokenAmount: 200,
+    priceImpact: 1.5,
+    priceImpactMessage: 'Low Price Impact',
+    gasFeeSetter    : () => {},
+    slippageSetter  : () => {},
+}
+
+export const WithMoreThanOnePair = Template.bind({});
+WithMoreThanOnePair.args = {
+    firstTokenImg: casperToken,
+    secondTokenImg: bitcoinToken,
+    gasFee: 0.1,
+    slippageTolerance: 0.005,
+    calculateMinimumTokenReceived: (() =>  200),
+    firstSymbolToken: 'CSPR',
+    firstTokenAmount: 10,
+    pairPath: ['ETH', 'CSPR', 'BTC'],
+    secondSymbolToken: 'ETH',
+    secondTokenAmount: 200,
+    priceImpact: 1.5,
+    priceImpactMessage: 'Low Price Impact',
+    gasFeeSetter    : () => {},
+    slippageSetter  : () => {},
 }

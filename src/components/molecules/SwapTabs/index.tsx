@@ -1,17 +1,28 @@
-import React, { useState } from 'react'
-import { Column, Row, Tabs } from '../../atoms'
-import { SwapPrice } from '../SwapPrice'
-import { SwapMoreInfo } from '../SwapMoreInfo'
-import { Item, TabContent } from './styles'
-import { IToken } from '../LiquidityDetails'
+import React, {useLayoutEffect, useState} from 'react'
+import {Column, Row, Tabs} from '../../atoms'
+import {SwapPrice} from '../SwapPrice'
+import {SwapMoreInfo} from '../SwapMoreInfo'
+import {Item, TabContent} from './styles'
+import {IToken} from '../LiquidityDetails'
 
 export interface SwapTabsProps {
-  firstTokenImg: any
-  secondTokenImg: any
-  firstSelectedToken: IToken
-  secondSelectedToken: IToken
-  gasFee: number
-  slippageTolerance: number
+    firstTokenImg: any
+    secondTokenImg: any
+    firstSelectedToken: IToken
+    secondSelectedToken: IToken
+    gasFee: number
+    slippageTolerance: number,
+    calculateMinimumTokenReceived: any
+    firstSymbolToken: string,
+    firstTokenAmount: number,
+    pairPath: any[],
+    secondSymbolToken: string,
+    secondTokenAmount: number,
+    gasFeeSetter: (value: number) => void;
+    priceImpact: number | string;
+    priceImpactMessage: string;
+    slippageSetter: (value: number) => void;
+
 }
 
 /**
@@ -21,70 +32,119 @@ export interface SwapTabsProps {
  */
 
 export const SwapTabs = ({
-  firstTokenImg,
-  secondTokenImg,
-  firstSelectedToken,
-  secondSelectedToken,
-  gasFee,
-  slippageTolerance
-}: SwapTabsProps) => {
-  const [tabs, setTabs] = useState([
-    {
-      id: 1,
-      text: 'Price',
-      isActive: true,
-      component: (
-        <SwapPrice
-          firstTokenImg={firstTokenImg}
-          secondTokenImg={secondTokenImg}
-        />
-      )
-    },
-    {
-      id: 2,
-      text: 'More Info',
-      isActive: false,
-      component: (
+                             firstTokenImg,
+                             secondTokenImg,
+                             gasFee,
+                             slippageTolerance,
+                             calculateMinimumTokenReceived,
+                             firstSymbolToken,
+                             firstTokenAmount,
+                             pairPath,
+                             secondSymbolToken,
+                             secondTokenAmount,
+                             priceImpact,
+                             priceImpactMessage,
+                             gasFeeSetter,
+                             slippageSetter
+                         }: SwapTabsProps) => {
+    const swapPriceTab = ( <SwapPrice
+        firstTokenImg={firstTokenImg}
+        secondTokenImg={secondTokenImg}
+        onClickButton={() => {
+            console.log('click')
+        }}
+    />)
+
+    const swapMoreInfoTab = (
         <SwapMoreInfo
-          firstSelectedToken={firstSelectedToken}
-          secondSelectedToken={secondSelectedToken}
-          gasFee={gasFee}
-          slippageTolerance={slippageTolerance}
+            gasFee={gasFee}
+            slippageTolerance={slippageTolerance}
+            calculateMinimumTokenReceived={calculateMinimumTokenReceived}
+            firstSymbolToken={firstSymbolToken}
+            firstTokenAmount={firstTokenAmount}
+            pairPath={pairPath}
+            secondSymbolToken={secondSymbolToken}
+            secondTokenAmount={secondTokenAmount}
+            gasFeeSetter={gasFeeSetter}
+            priceImpact={priceImpact}
+            priceImpactMessage={priceImpactMessage}
+            slippageSetter={slippageSetter}
         />
-      )
+    )
+
+    const tabsElement = [
+        {
+            id: 1,
+            text: 'Price',
+            isActive: true,
+            component: swapPriceTab
+        },
+        {
+            id: 2,
+            text: 'More Info',
+            isActive: false,
+            component: swapMoreInfoTab
+        }
+    ]
+
+    const [tabs, setTabs] = useState(tabsElement)
+
+    useLayoutEffect(() => {
+        setTabs((prevTabs) => (
+            prevTabs.map((tab) => (
+                {
+                    ...tab,
+                    component: tab.id === 1 ? swapPriceTab : swapMoreInfoTab
+                }
+            ))
+        ))
+    }, [
+        firstTokenImg,
+        secondTokenImg,
+        gasFee,
+        slippageTolerance,
+        calculateMinimumTokenReceived,
+        firstSymbolToken,
+        firstTokenAmount,
+        pairPath,
+        secondSymbolToken,
+        secondTokenAmount,
+        priceImpact,
+        priceImpactMessage,
+        gasFeeSetter,
+        slippageSetter
+    ])
+
+    const handleTabClick = (id: number) => {
+        const newTabs = tabs.map((tab) => {
+            if (tab.id === id) {
+                return {
+                    ...tab,
+                    isActive: true
+                }
+            } else {
+                return {
+                    ...tab,
+                    isActive: false
+                }
+            }
+        })
+
+        setTabs(newTabs)
     }
-  ])
 
-  const handleTabClick = (id: number) => {
-    const newTabs = tabs.map((tab) => {
-      if (tab.id === id) {
-        return {
-          ...tab,
-          isActive: true
-        }
-      } else {
-        return {
-          ...tab,
-          isActive: false
-        }
-      }
-    })
-
-    setTabs(newTabs)
-  }
-
-  return (
-    <Column props={{ xs: 12 }}>
-      <Row>
-        <Tabs tabs={tabs} onClick={handleTabClick} />
-      </Row>
-      <TabContent>
-        {tabs.map((tab) => {
-          if (tab.isActive) {
-            return <Item key={tab.id}>{tab.component}</Item>
-          }
-        })}
-      </TabContent>
-    </Column>
-  )
+    return (
+        <Column props={{xs: 12}}>
+            <Row>
+                <Tabs tabs={tabs} onClick={handleTabClick}/>
+            </Row>
+            <TabContent>
+                {tabs.map((tab, index) => {
+                    if (tab.isActive) {
+                        return <Item key={tab.id}>{tab.component}</Item>
+                    }
+                })}
+            </TabContent>
+        </Column>
+    )
 }
