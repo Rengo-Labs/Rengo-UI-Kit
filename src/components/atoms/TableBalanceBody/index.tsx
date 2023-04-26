@@ -26,5 +26,3 @@ export const TableBalanceBody = ({ row }: TableProps) => {
     </Body>
   )
 }
-
-export default TableBalanceBody
