@@ -11,34 +11,15 @@ export default {
 const Template: ComponentStory<typeof LiquidityDetails> = (args) => <div style={{width: '600px'}}><LiquidityDetails  {...args}/></div>;
 export const Default = Template.bind({});
 Default.args = {
-    firstSelectedToken: {
-        amount: '0.016491306',
-        allowance: '',
-        symbolPair: '',
-        chainId: 23456,
-        contractHash: '',
-        decimals: 2,
-        logoURI: '',
-        name: 'CSPR',
-        packageHash: '',
-        symbol: 'CSPR',
-        priceUSD: 'CSPR'
-      },
-    
-    secondSelectedToken: {
-        amount: '351149.146168057',
-        allowance: '',
-        symbolPair: '',
-        chainId: 23456,
-        contractHash: '',
-        decimals: 2,
-        logoURI: '',
-        name: 'WETH',
-        packageHash: '',
-        symbol: 'WETH',
-        priceUSD: 'WETH'
-      },
-      gasFee: 15,
-      slippageTolerance: 0.05
+    firstSymbol: 'ETH',
+    secondSymbol: 'USDT',
+    maxAmount: 2000,
+    firstTotalLiquidity: 1000000,
+    secondTotalLiquidity: 10000000,
+    totalSupply: 1230,
+    slippage: 0.05,
+    setSlippage: (value) => {console.log("slippage", value)},
+    networkFee: 15,
+    setNetworkFee: (value) => {console.log("networkFee", value)}
 }
 

@@ -17,10 +17,16 @@ export interface IToken {
   priceUSD?: string,
 }
 interface ILiquidityDetailsProps {
-  firstSelectedToken: IToken;
-  secondSelectedToken:IToken;
-  gasFee: number;
-  slippageTolerance: number;
+  firstSymbol: string,
+  secondSymbol: string,
+  maxAmount: string | number,
+  firstTotalLiquidity: string | number,
+  secondTotalLiquidity: string | number,
+  totalSupply: string | number,
+  slippage: number,
+  setSlippage: (value: number) => void,
+  networkFee: number,
+  setNetworkFee: (value: number) => void
 }
 
 /**
@@ -28,35 +34,33 @@ interface ILiquidityDetailsProps {
  * @returns  {JSX.Element} The rendered a list of key-value text and inputs.
  */
 
-export const LiquidityDetails = ({firstSelectedToken, secondSelectedToken, gasFee, slippageTolerance}: ILiquidityDetailsProps) => {
-  const [SlippageTolerance, setSlippageTolerance] = useState<number>(slippageTolerance)
-  const [NetworkGasFee, setNetworkGasFee] = useState<number>(gasFee)
+export const LiquidityDetails = ({firstSymbol, secondSymbol, maxAmount, firstTotalLiquidity, secondTotalLiquidity, totalSupply, slippage, setSlippage, networkFee, setNetworkFee}: ILiquidityDetailsProps) => {
 
   const handleSlippageTolerance = (value: number) => {
     console.log('handleSlippageTolerance', value)
-    setSlippageTolerance(value)
+    setSlippage(value)
   }
 
   const handleNetworkGasFee = (value: number) => {
     console.log('handleNetworkGasFee', value)
-    setNetworkGasFee(value)
+    setNetworkFee(value)
   }
 
   return (
     <Wrapper props={{ xs: 12 }}>
-      <KeyValueText keyText='Base' valueText={firstSelectedToken.symbol} />
+      <KeyValueText keyText='Base' valueText={firstSymbol} />
       <Divider />
-      <KeyValueText keyText='Max Amount' valueText={`${secondSelectedToken.amount} ${secondSelectedToken.symbol}`} />
+      <KeyValueText keyText='Max Amount' valueText={`${maxAmount} ${secondSymbol}`} />
       <Divider />
-      <KeyValueText keyText={`Pool Liquidity (${firstSelectedToken.symbol})`} valueText={`${firstSelectedToken.amount} (${firstSelectedToken.symbol})`} />
+      <KeyValueText keyText={`Pool Liquidity (${firstSymbol})`} valueText={`${firstTotalLiquidity} ${firstSymbol}`} />
       <Divider />
-      <KeyValueText keyText={`Pool Liquidity (${secondSelectedToken.symbol})`} valueText={`${secondSelectedToken.amount} (${secondSelectedToken.symbol})`} />
+      <KeyValueText keyText={`Pool Liquidity (${secondSymbol})`} valueText={`${secondTotalLiquidity} ${secondSymbol}`} />
       <Divider />
-      <KeyValueText keyText='LP supply' valueText={`${firstSelectedToken.amount} ${firstSelectedToken.symbol}-${secondSelectedToken.symbol}`} />
+      <KeyValueText keyText='LP supply' valueText={`${totalSupply} ${firstSymbol}-${secondSymbol}`} />
       <Divider />
       <KeyValueInput
         keyText='Slippage Tolerance'
-        value={SlippageTolerance}
+        value={slippage}
         inputType={InputType.SLIPPAGETOLERANCE}
         onChange={handleSlippageTolerance}
       />
@@ -64,12 +68,12 @@ export const LiquidityDetails = ({firstSelectedToken, secondSelectedToken, gasFe
       
       <KeyValueInput
         keyText='Network gas fee'
-        value={NetworkGasFee}
+        value={networkFee}
         inputType={InputType.GASFEE}
         onChange={handleNetworkGasFee}
       />
       <Divider />
-      <KeyValueText keyText='Route' valueText={`${firstSelectedToken.symbol} > ${secondSelectedToken.symbol}`} />
+      <KeyValueText keyText='Route' valueText={`${firstSymbol} > ${secondSymbol}`} />
     </Wrapper>
   )
 }
