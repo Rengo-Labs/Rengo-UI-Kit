@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import TableBalanceBody from '../../atoms/TableBalanceBody'
 import TableHeader from '../../atoms/TableHeader'
 import { Wrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
 import { DeviceType } from '../../../hooks/types'
-import { BalanceMobileItem } from '../../atoms'
+import { BalanceMobileItem, TableBalanceBody } from '../../atoms'
 
 export interface IHeader {
   id: number
