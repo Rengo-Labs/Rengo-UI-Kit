@@ -45,4 +45,5 @@ Default.args = {
   popularTokensData: POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
   onSelectToken: () => console.log('token selected'),
   onSelectFavoriteToken: (e) => {console.log('favorite token selected')},
+  isOpen: true
 };

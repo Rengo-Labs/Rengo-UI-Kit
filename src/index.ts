@@ -44,6 +44,7 @@ export {
     ExchangeRates,
     ContainerLayout,
     PoolTable,
-    PoolTableItem
+    PoolTableItem,
+    WalletConnectedOptions
 } from './components';
 export {InputType, ToggleVariant} from './types/index';

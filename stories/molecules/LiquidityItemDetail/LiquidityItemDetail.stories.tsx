@@ -8,9 +8,13 @@ export default {
 } as ComponentMeta<typeof LiquidityItemDetail>
 
 // Create a master template for mapping args to render the LiquidityDetail component
-const Template: ComponentStory<typeof LiquidityItemDetail> = () => (
+const Template: ComponentStory<typeof LiquidityItemDetail> = (args) => (
   <div style={{ width: '500px' }}>
-    <LiquidityItemDetail />
+    <LiquidityItemDetail {...args} />
   </div>
 )
 export const Default = Template.bind({})
+Default.args = {
+    isOpen: true,
+    closeCallback : () => console.log('dialog is closed')
+}

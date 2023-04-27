@@ -1,8 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {PoolTable} from "../../../src/components";
-import { BALANCE_TABLE_DATA } from '../../../example/src/data';
-
 export default {
     title: "Components/Molecules/PoolTable",
     component: PoolTable,
@@ -15,7 +13,7 @@ Default.args = {
     data: [
         {
             id: 1,
-            tokenPairIcon: '',
+            tokenPairIcon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
             tokenPairs: ['WETH', 'CSPR'],
             liquidity: '4,653,213',
             volumen7d: '4,653,213',
@@ -25,7 +23,7 @@ Default.args = {
           },
           {
             id: 2,
-            tokenPairIcon: '',
+            tokenPairIcon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
             tokenPairs: ['WETH', 'CSPR'],
             liquidity: '4,653,213',
             volumen7d: '4,453,213',
@@ -35,7 +33,7 @@ Default.args = {
           },
           {
             id: 3,
-            tokenPairIcon: '',
+            tokenPairIcon: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
             tokenPairs: ['WETH', 'CSPR'],
             liquidity: '4,653,213',
             volumen7d: '4,153,213',

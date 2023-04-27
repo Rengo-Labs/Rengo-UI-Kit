@@ -49,7 +49,7 @@ export const LPContainer = ({ title, lpTokens = [] } : LPContainerPros) => {
         lpTokens.length > 0 &&
         lpTokens.map(item => {
           return <HorizontalCard
-            key={'lp-token-' + uuidv4()}
+            key={`lp-token-${uuidv4()}`}
             icon={item.icon}
             hasFavorite={item.isFavorite}
             tokenPairs={[item.firstSymbol, item.secondSymbol]}
@@ -65,7 +65,6 @@ export const LPContainer = ({ title, lpTokens = [] } : LPContainerPros) => {
             favoriteHandler={() => {}}
           />
         })
-
       }
     </LiquidityWrapped>
   )

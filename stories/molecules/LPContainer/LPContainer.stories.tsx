@@ -19,8 +19,6 @@ const Template: ComponentStory<typeof LPContainer> = (args) => <div style={{widt
     <LPContainer {...args} />
 </div>;
 export const Default = Template.bind({});
-export const LPFavorite = Template.bind({});
-
 // @ts-ignore
 Default.args = {
     title: 'My Liquidity',
@@ -31,6 +29,7 @@ Default.args = {
     ]
 };
 
+export const LPFavorite = Template.bind({});
 // @ts-ignore
 LPFavorite.args = {
     title: 'My Liquidity',
