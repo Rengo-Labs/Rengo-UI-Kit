@@ -49,7 +49,7 @@ import {
   LPContainer,
   WalletConnection,
   PoolTableItem,
-  // PoolTable,
+  PoolTable,
   LPSearch
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
@@ -287,7 +287,9 @@ const App = () => {
                 max{' '}
               </Button>
             </Column>
-            <Column props={{ xs: 4 }}>
+
+          </Row>
+          <Column props={{ xs: 4 }}>
               <Button
                 type='large'
                 props={{ onClick: () => console.log('clicked') }}
@@ -296,7 +298,6 @@ const App = () => {
                 Swap{' '}
               </Button>
             </Column>
-          </Row>
         </Container>
         <Container>
           <TextIconTouchable
@@ -328,7 +329,7 @@ const App = () => {
             validator={inputValidator}
           />
         </Container>
-        <Container>
+        <Container props={{ xs: 12, padding: 0 }}>
           <Row>
             <Column props={{ xs: 12 }}>
               <Loader />
@@ -356,7 +357,7 @@ const App = () => {
             </Column>
           </Row>
           <Row>
-            {/* <Column props={{ xs: 12, md: 6 }}>
+            <Column props={{ xs: 12, md: 6 }}>
               <SwapTabs tokenImg={ethLogo} />
             </Column>
             <Column props={{ xs: 12, md: 6 }}>
@@ -366,7 +367,7 @@ const App = () => {
                 gasFee={15}
                 slippageTolerance={0.05}
               />
-            </Column> */}
+            </Column>
           </Row>
           <Row className='my-1'>
             <Column props={{ xs: 12}}>
@@ -375,7 +376,7 @@ const App = () => {
           </Row>
           <Row className='my-1'>
             <Column props={{ xs: 12 }}>
-              {/* <PoolTable data={POOL_TABLE_DATA} /> */}
+              <PoolTable data={POOL_TABLE_DATA} />
             </Column>
           </Row>
         </Container>
@@ -383,7 +384,6 @@ const App = () => {
           <div
             style={{
               margin: '30px 0 30px 0',
-              minWidth: '350px',
               maxWidth: '850px',
               height: '66px',
               background: 'white'
@@ -449,14 +449,12 @@ const App = () => {
           </Column>
         </Container>
         <Container>
-          {/* {showCreatePoolDialog && ( */}
             <CreatePoolDialog
               isOpen={showCreatePoolDialog}
               closeCallback={() => setShowCreatePoolDialog(false)}
               tokenListData={TOKEN_LIST_DATA_CREATE_POOL}
               popularTokensData={POPULAR_TOKEN_LIST_DATA_CREATE_POOL}
             />
-          {/* )} */}
         </Container>
         <Container>
           <Row className='my-2'>
@@ -477,26 +475,20 @@ const App = () => {
               onClick={handleWalletConnect}
             />
           </Row>
-          {/* {showWalletConnectedOptionsDialog && ( */}
             <WalletConnectedOptionsDialog
               isOpen={showWalletConnectedOptionsDialog}
               closeCallback={() => setShowWalletConnectedOptionsDialog(false)}
               options={WALLET_CONNECTED_OPTIONS}
             />
-          {/* )} */}
         </Container>
         <Container>
-          {/* {showRemoveLiquidityDialog && ( */}
             <RemoveLiquidityDialog
               id='f90c4f56-ae0a-4da8-bf3d-541c80c89f87'
               isOpen={showRemoveLiquidityDialog}
               closeCallback={handleRemoveLiquidity}
               liquidityPoolData={REMOVE_LIQUIDITY_DATA}
             />
-          {/* )} */}
-          {/* {showItemDetail && ( */}
             <LiquidityItemDetail isOpen={showItemDetail} closeCallback={handleItemDetail} />
-          {/* )} */}
         </Container>
         <Container>
           <Row>

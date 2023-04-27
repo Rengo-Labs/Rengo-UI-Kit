@@ -12,6 +12,7 @@ import { useInput } from './useInput'
  * @param {string} label - The label to display above the input field.
  * @param {string} helperText - The helper text to display below the input field.
  * @param {string} iconWrapperBackground - The background color for the icon.
+ * @param {string} textAlign - The text alignment for the input
  * @param {React.ReactNode} rightAdornment - The adornment to be display at the right of the input, accepts a component or string
  * @param {React.ReactNode} Icon - The icon component to display inside the input field.
  * @param {IconSize} [iconSize='small'] - The size of the icon, one of 'small' or 'large', necessary if you pass an icon component.
