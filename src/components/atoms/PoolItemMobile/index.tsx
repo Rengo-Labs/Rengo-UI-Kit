@@ -22,6 +22,8 @@ import {
   ActionsWrapper,
   AddLiquidityIcon,
   DeleteIcon,
+  Icon,
+  IconWrapper,
   SeeActionsIcon,
   SeeActionsIconWrapper,
   ShuffleIcon,
@@ -31,8 +33,11 @@ import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 
 export const PoolItemMobile = ({
-  tokenPairIcon,
-  tokenPairs,
+  token1Icon,
+  token2Icon,
+  widthIcon,
+  heightIcon,
+  pool,
   liquidity,
   volumen7d,
   fees7d,
@@ -65,10 +70,11 @@ export const PoolItemMobile = ({
             height={20}
             onClick={favoriteHandler}
           />
-          {tokenPairIcon && <img src={tokenPairIcon} alt={tokenPairs[0]} />}
-          <Title>
-            {tokenPairs[0]}-{tokenPairs[1]}
-          </Title>
+          <IconWrapper>
+            <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
+            <Icon src={token2Icon} alt={pool} width={widthIcon} height={heightIcon} />
+          </IconWrapper>
+          <Title>{pool}</Title>
         </HeaderTitle>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon

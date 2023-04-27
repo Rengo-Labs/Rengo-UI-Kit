@@ -8,8 +8,8 @@ import { PoolItemMobile, PoolTableItem } from '../../atoms'
 export interface IHeaderPool {
   id: number
   pool: string
-  tokenPairIcon: any
-  tokenPairs: Array<string>
+  token1Icon: any
+  token2Icon: any
   liquidity: string
   volumen7d: string
   fees7d: string
@@ -20,13 +20,15 @@ export interface IHeaderPool {
 
 export interface PoolableProps {
   data: IHeaderPool[]
+  widthIcon?: number
+  heightIcon?: number
 }
 
 const columns = [
   {
     key: 'pool',
     name: 'Pool',
-    isSorteable: false
+    isSorteable: true
   },
   {
     key: 'liquidity',
@@ -55,7 +57,7 @@ const columns = [
   }
 ]
 
-export const PoolTable = ({ data }: PoolableProps) => {
+export const PoolTable = ({ data, widthIcon = 35, heightIcon = 35 }: PoolableProps) => {
   const [balanceData, setBalanceData] = useState<IHeaderPool[]>(data)
   const deviceType = useDeviceType()
 
@@ -91,13 +93,16 @@ export const PoolTable = ({ data }: PoolableProps) => {
 
   return (
     <Wrapper isMobile={isMobile}>
-      {!isMobile && <TableHeader columns={columns} onSort={handleSort}/>}
+      {!isMobile && <TableHeader columns={columns} onSort={handleSort} />}
       {balanceData.map((row) =>
         isMobile ? (
           <PoolItemMobile
             key={row.id}
-            tokenPairIcon={row.tokenPairIcon}
-            tokenPairs={row.tokenPairs}
+            token1Icon={row.token1Icon}
+            token2Icon={row.token2Icon}
+            widthIcon={widthIcon}
+            heightIcon={heightIcon}
+            pool={row.pool}
             liquidity={row.liquidity}
             volumen7d={row.volumen7d}
             fees7d={row.fees7d}
@@ -112,8 +117,11 @@ export const PoolTable = ({ data }: PoolableProps) => {
         ) : (
           <PoolTableItem
             key={row.id}
-            tokenPairIcon={row.tokenPairIcon}
-            tokenPairs={row.tokenPairs}
+            token1Icon={row.token1Icon}
+            token2Icon={row.token2Icon}
+            widthIcon={widthIcon}
+            heightIcon={heightIcon}
+            pool={row.pool}
             liquidity={row.liquidity}
             volumen7d={row.volumen7d}
             fees7d={row.fees7d}

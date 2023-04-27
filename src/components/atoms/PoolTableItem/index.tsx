@@ -13,7 +13,9 @@ import {
   ShuffleIcon,
   Text,
   TokenPairWrapper,
-  Wrapper
+  Wrapper,
+  Icon,
+  IconWrapper
 } from './styles'
 import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
@@ -22,8 +24,11 @@ import favoriteIconFill from './assets/favoriteFill.svg'
 
 export interface IPoolTableItem {
   id?: string
-  tokenPairIcon: string
-  tokenPairs: Array<string>
+  token1Icon: any
+  token2Icon: any
+  widthIcon: number
+  heightIcon: number
+  pool: string
   liquidity: string
   volumen7d: string
   fees7d: string
@@ -37,8 +42,11 @@ export interface IPoolTableItem {
 }
 
 export const PoolTableItem = ({
-  tokenPairIcon,
-  tokenPairs,
+  token1Icon,
+  token2Icon,
+  widthIcon,
+  heightIcon,
+  pool,
   liquidity,
   volumen7d,
   fees7d,
@@ -62,8 +70,6 @@ export const PoolTableItem = ({
     }
   }, [theme])
 
-
-
   return (
     <Wrapper>
       <TokenPairWrapper>
@@ -73,10 +79,11 @@ export const PoolTableItem = ({
           height={20}
           onClick={favoriteHandler}
         />
-        <img src={tokenPairIcon} alt={`${tokenPairs[0]}-${tokenPairs[1]}`} />
-        <Text>
-          {tokenPairs[0]}-{tokenPairs[1]}
-        </Text>
+        <IconWrapper>
+          <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
+          <Icon src={token2Icon} alt={pool} width={widthIcon} height={heightIcon} />
+        </IconWrapper>
+        <Text>{pool}</Text>
       </TokenPairWrapper>
       <Text>${liquidity}</Text>
       <Text>${volumen7d}</Text>
