@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import TableHeader from '../../atoms/TableHeader'
 import { Wrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
@@ -60,9 +60,13 @@ export const BalanceTable = ({
   widthIcon = 30,
   heightIcon = 30
 }: BalaceTableProps) => {
-  const [balanceData, setBalanceData] = useState<IHeader[]>(data)
+  const [balanceData, setBalanceData] = useState<IHeader[]>([])
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
+
+  useEffect(() => {
+    setBalanceData(data)
+  }, [data])
 
   const handleSort = (key: string, isAscending: boolean) => {
     const sortedData = [...balanceData].sort((a, b) => {
