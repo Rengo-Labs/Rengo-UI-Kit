@@ -32,6 +32,9 @@ export const SmallButtonStyled = styled.button`
   :active {
     background-color: ${({theme}) => theme.btndisabledbackgroundColor};
   }
+  :disabled {
+    background-color: ${({theme}) => theme.btndisabledbackgroundColor};
+  }
 `;
 
 export const ButtonStyled = styled.button`
@@ -65,6 +68,10 @@ export const ButtonStyled = styled.button`
   }
 
   :active {
+    background-color: ${({theme}) => theme.btndisabledbackgroundColor};
+  }
+  
+  :disabled {
     background-color: ${({theme}) => theme.btndisabledbackgroundColor};
   }
 `;
