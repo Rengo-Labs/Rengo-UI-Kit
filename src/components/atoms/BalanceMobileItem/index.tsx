@@ -14,9 +14,11 @@ import { Divider } from '../Divider'
 
 interface BalanceMobileItemProps {
   row: IHeader
+  height?: number
+  width?: number
 }
 
-export const BalanceMobileItem = ({ row }: BalanceMobileItemProps) => {
+export const BalanceMobileItem = ({ row, height=30, width=30 }: BalanceMobileItemProps) => {
   const {
     crypto,
     cryptoIcon,
@@ -30,7 +32,7 @@ export const BalanceMobileItem = ({ row }: BalanceMobileItemProps) => {
     <Wrapper>
       <Header>
         <HeaderTitle>
-          {cryptoIcon && <img src={cryptoIcon} alt={crypto} />}
+          {cryptoIcon && <img src={cryptoIcon} alt={crypto} height={30} width={30}/>}
           <Title>{crypto}</Title>
         </HeaderTitle>
         <HeaderSubtitle>
