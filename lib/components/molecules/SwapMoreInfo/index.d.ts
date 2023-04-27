@@ -5,8 +5,9 @@ interface ISwapMoreInfoProps {
     secondTokenAmount: number;
     priceImpactMessage: string;
     priceImpact: number | string;
-    gasFee: number;
-    gasFeeSetter: (value: number) => void;
+    platformGasFee: number;
+    networkGasFee: number;
+    networkGasFeeSetter: (value: number) => void;
     slippageTolerance: number;
     slippageSetter: (value: number) => void;
     pairPath: any[];
@@ -28,5 +29,5 @@ interface ISwapMoreInfoProps {
  *  @param {function} slippageSetter - The slippage setter value.
  *  @returns  {JSX.Element} The rendered a list of key-value text and inputs.
  */
-export declare const SwapMoreInfo: ({ firstSymbolToken, firstTokenAmount, secondSymbolToken, secondTokenAmount, priceImpactMessage, priceImpact, gasFee, gasFeeSetter, slippageTolerance, slippageSetter, pairPath, calculateMinimumTokenReceived }: ISwapMoreInfoProps) => JSX.Element;
+export declare const SwapMoreInfo: ({ firstSymbolToken, firstTokenAmount, secondSymbolToken, secondTokenAmount, priceImpactMessage, priceImpact, platformGasFee, networkGasFee, networkGasFeeSetter, slippageTolerance, slippageSetter, pairPath, calculateMinimumTokenReceived }: ISwapMoreInfoProps) => JSX.Element;
 export {};

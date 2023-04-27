@@ -49,14 +49,13 @@ const columns = [
   {
     key: '30d',
     name: '30 D',
-    isSorteable: false
+    isSorteable: true
   }
 ]
 
 export const BalanceTable = ({ data } : BalaceTableProps) => {
   const [balanceData, setBalanceData] = useState<IHeader[]>(data)
   const deviceType = useDeviceType()
-
   const isMobile = deviceType === DeviceType.MOBILE
 
   const handleSort = (key: string, isAscending: boolean) => {

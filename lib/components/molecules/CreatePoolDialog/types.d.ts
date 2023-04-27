@@ -4,6 +4,7 @@ export interface TokenData {
     fullName: string;
     amount: string;
     tokenImg: string;
+    favorite: boolean;
 }
 export interface CreatePoolDialogProps {
     isOpen: boolean;

@@ -12,3 +12,4 @@ export * from './WalletConnection';
 export * from './ExchangeRates';
 export * from './SwapMoreInfo';
 export * from './PoolTable';
+export * from './WalletConnectedOptions';

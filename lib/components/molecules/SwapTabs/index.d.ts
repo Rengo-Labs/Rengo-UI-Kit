@@ -4,7 +4,7 @@ export interface SwapTabsProps {
     secondTokenImg: any;
     firstSelectedToken: IToken;
     secondSelectedToken: IToken;
-    gasFee: number;
+    platformGasFee: number;
     slippageTolerance: number;
     calculateMinimumTokenReceived: any;
     firstSymbolToken: string;
@@ -12,7 +12,8 @@ export interface SwapTabsProps {
     pairPath: any[];
     secondSymbolToken: string;
     secondTokenAmount: number;
-    gasFeeSetter: (value: number) => void;
+    networkGasFee: number;
+    networkGasFeeSetter: (value: number) => void;
     priceImpact: number | string;
     priceImpactMessage: string;
     slippageSetter: (value: number) => void;
@@ -22,4 +23,4 @@ export interface SwapTabsProps {
  * @param {any} tokenImg - The image value to display in the img field.
  * @returns  {JSX.Element} The rendered two tabs, the first one with a Price component and the second one with the more info component.
  */
-export declare const SwapTabs: ({ firstTokenImg, secondTokenImg, gasFee, slippageTolerance, calculateMinimumTokenReceived, firstSymbolToken, firstTokenAmount, pairPath, secondSymbolToken, secondTokenAmount, priceImpact, priceImpactMessage, gasFeeSetter, slippageSetter }: SwapTabsProps) => JSX.Element;
+export declare const SwapTabs: ({ firstTokenImg, secondTokenImg, platformGasFee, slippageTolerance, calculateMinimumTokenReceived, firstSymbolToken, firstTokenAmount, pairPath, secondSymbolToken, secondTokenAmount, priceImpact, priceImpactMessage, networkGasFee, networkGasFeeSetter, slippageSetter }: SwapTabsProps) => JSX.Element;

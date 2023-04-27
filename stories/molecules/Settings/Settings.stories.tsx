@@ -8,5 +8,12 @@ export default {
 } as ComponentMeta<typeof Settings>;
 
 // Create a master template for mapping args to render the Settings component
-const Template: ComponentStory<typeof Settings> = () => <div style={{width: '500px'}}><Settings  /></div>;
+const Template: ComponentStory<typeof Settings> = (args) => <div style={{width: '500px'}}><Settings {...args} /></div>;
 export const Default = Template.bind({});
+Default.args = {
+    slippageToleranceValue: 0.1,
+    customNodeUrlValue: 'testnet.casperlabs.io',
+    handleSave: (slippage: number, node: string ) => console.log('Save', slippage, node),
+    handleClose: () => console.log('Close'),
+    isOpen: true
+}

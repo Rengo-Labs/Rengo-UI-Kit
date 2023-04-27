@@ -52,5 +52,6 @@ export const Default = Template.bind({});
 Default.args = {
   id: 'f90c4f56-ae0a-4da8-bf3d-541c80c89f87',
   closeCallback: () => console.log('close callback'),
-  options: WALLET_CONNECTED_OPTIONS
+  options: WALLET_CONNECTED_OPTIONS,
+  isOpen: true
 }
