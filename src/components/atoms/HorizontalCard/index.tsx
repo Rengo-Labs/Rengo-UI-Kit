@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { 
+import {
   TokenInfoWrapper,
   TokenName,
   TokenPairsNamesWrapper,
@@ -11,7 +11,7 @@ import {
   UserPoolInfoWrapper,
   UserPoolInfoName,
   UserPoolInfoValue,
-  ActionsWrapper, 
+  ActionsWrapper,
   DeleteIcon,
   ShuffleIcon,
   AddLiquidityIcon,
@@ -53,7 +53,7 @@ export const HorizontalCard = ({
   tokenPairs,
   pairsLiquidity,
   userPoolInfo,
-  hasFavorite, 
+  hasFavorite,
   trashHandler,
   swapHandler,
   viewHandler,
@@ -61,16 +61,7 @@ export const HorizontalCard = ({
   addLiquidityHandler,
   favoriteHandler }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
-  const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
   const [actionsDialogActive, setActionsDialogActive] = useState(false)
-  
-  useEffect(() => {
-    setCurrentTheme(theme)
-  
-    return () => {
-      setCurrentTheme(theme)
-    }
-  }, [theme])
 
   const handleItemDetails = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation()
@@ -97,8 +88,8 @@ export const HorizontalCard = ({
       <TokenInfoWrapper>
         <TokenInfoInnerWrapper>
           {hasFavorite && (
-            <FavoriteIcon 
-            color={currentTheme?.color.modalText}
+            <FavoriteIcon
+            color={theme?.color.modalText}
             size={20}
             onClick={favoriteHandler}/>
           )}
@@ -120,11 +111,11 @@ export const HorizontalCard = ({
 
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
-            color={actionsDialogActive ? currentTheme?.color.white : currentTheme?.color.modalText}
+            color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
             size={20}
             onClick={() => setActionsDialogActive(prev => !prev)}/>
         </SeeActionsIconWrapper>
-   
+
       </TokenInfoWrapper>
 
       <RowWrapper>
@@ -150,7 +141,7 @@ export const HorizontalCard = ({
           <ActionItem
             onClick={actionsDialogActive ?  handleTrash : undefined}>
             <DeleteIcon
-              color={currentTheme?.color.modalText}
+              color={theme?.color.modalText}
               size={20}
               onClick={actionsDialogActive ?  undefined : handleTrash} />
             <ActionName>Remove</ActionName>
@@ -159,7 +150,7 @@ export const HorizontalCard = ({
           <ActionItem
             onClick={actionsDialogActive ?  handleSwap : undefined}>
             <ShuffleIcon
-              color={currentTheme?.color.modalText}
+              color={theme?.color.modalText}
               size={20}
               onClick={actionsDialogActive ?  undefined : handleSwap} />
             <ActionName>Swap</ActionName>
@@ -169,7 +160,7 @@ export const HorizontalCard = ({
             hidden={true}
             onClick={actionsDialogActive ?  handleView : undefined}>
             <ViewIcon
-              color={currentTheme?.color.modalText}
+              color={theme?.color.modalText}
               size={20}
               onClick={actionsDialogActive ?  undefined : handleView} />
               <ActionName>View</ActionName>
@@ -178,7 +169,7 @@ export const HorizontalCard = ({
           <ActionItem
             onClick={actionsDialogActive ?  addLiquidityHandler : undefined}>
             <AddLiquidityIcon
-              color={currentTheme?.color.modalText}
+              color={theme?.color.modalText}
               size={20}
               onClick={actionsDialogActive ?  undefined : addLiquidityHandler} />
               <ActionName>Add</ActionName>
