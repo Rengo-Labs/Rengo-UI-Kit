@@ -126,7 +126,7 @@ export const PoolItemMobile = ({
       <Footer>
         <HeaderSubtitle>
           <Subtitle>Liquidity</Subtitle>
-          <SubtitleValue>${liquidity}</SubtitleValue>
+          <SubtitleValue>{liquidity}</SubtitleValue>
         </HeaderSubtitle>
         <HeaderSubtitle>
           <Subtitle>Volumen 7D</Subtitle>
