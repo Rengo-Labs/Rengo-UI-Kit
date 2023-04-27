@@ -7,6 +7,7 @@ import {
   Trash2
 } from 'react-feather'
 import styled from 'styled-components'
+import { ImageProps } from '../../molecules/Menu/types'
 
 export interface Props {
   hidden?: boolean
@@ -182,3 +183,18 @@ export const ViewIcon = styled(Eye)`
     filter: brightness(0.8);
   }
 `
+
+export const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Icon = styled.img.attrs<ImageProps>(({ width, height }) => ({
+  width: width,
+  height: height,
+}))<ImageProps>`
+  &:first-child {
+    margin-right: -15px
+  }
+`;

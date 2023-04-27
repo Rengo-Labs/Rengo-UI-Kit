@@ -18,6 +18,8 @@ export interface IHeader {
 
 export interface BalaceTableProps {
   data: IHeader[]
+  widthIcon?: number
+  heightIcon?: number
 }
 
 const columns = [
@@ -53,7 +55,11 @@ const columns = [
   }
 ]
 
-export const BalanceTable = ({ data } : BalaceTableProps) => {
+export const BalanceTable = ({
+  data,
+  widthIcon = 30,
+  heightIcon = 30
+}: BalaceTableProps) => {
   const [balanceData, setBalanceData] = useState<IHeader[]>(data)
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
@@ -70,17 +76,24 @@ export const BalanceTable = ({ data } : BalaceTableProps) => {
 
   return (
     <Wrapper isMobile={isMobile}>
-      {!isMobile && (
-        <TableHeader columns={columns} onSort={handleSort} />
-      )}
+      {!isMobile && <TableHeader columns={columns} onSort={handleSort} />}
       {balanceData.map((row) =>
         isMobile ? (
-          <BalanceMobileItem key={row.id} row={row} />
+          <BalanceMobileItem
+            key={row.id}
+            row={row}
+            widthIcon={widthIcon}
+            heightIcon={heightIcon}
+          />
         ) : (
-          <TableBalanceBody key={row.id} row={row} />
+          <TableBalanceBody
+            key={row.id}
+            row={row}
+            widthIcon={widthIcon}
+            heightIcon={heightIcon}
+          />
         )
       )}
     </Wrapper>
   )
-
 }
