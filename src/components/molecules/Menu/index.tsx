@@ -12,7 +12,6 @@ import {
   MobileMenuWrapper
 } from './styles'
 import { BurgerButton, ButtonWallet, Toggle } from '../../atoms'
-import { v4 as uuidv4 } from 'uuid'
 import { useDeviceType } from '../../../hooks'
 import { DeviceType } from '../../../hooks/types'
 import { MenuPros } from './types'
@@ -42,7 +41,7 @@ export const Menu = forwardRef(({
           <MenuWrapperMobile ref={ref}>
             <MobileMenuIcon onClick={toggleMenu}>
               <BurgerButton
-                key={'burger-' + uuidv4()}
+                key={'burger-menu-mobile'}
                 open={isOpen}
                 setOpen={toggleMenu}
               />
@@ -59,7 +58,7 @@ export const Menu = forwardRef(({
             <MobileMenuItemContainer>
               {links.map((link, index) => (
                 <MenuItem
-                  key={`${link.page}-${index}`}
+                  key={`${link.page}-${index}-mobile`}
                   clickable
                   onClick={() => link.onAction(link.path)}
                 >
@@ -70,7 +69,7 @@ export const Menu = forwardRef(({
               {toggle && (
                 <MenuItem>
                   <Toggle
-                    key={'toggle-' + uuidv4()}
+                    key={'toggle-menu-mobile'}
                     isActive={toggle.isActive}
                     toggle={toggle.toggle}
                     labelText={toggle.labelText}
@@ -103,7 +102,7 @@ export const Menu = forwardRef(({
             {toggle && (
               <MenuItem>
                 <Toggle
-                  key={'toggle-' + uuidv4()}
+                  key={'toggle-menu'}
                   isActive={toggle.isActive}
                   toggle={toggle.toggle}
                   labelText={toggle.labelText}
