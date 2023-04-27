@@ -13,4 +13,4 @@ export * from './ExchangeRates'
 export * from './SwapMoreInfo'
 export * from './PoolTable'
 export * from './LPSearch'
-
+export * from './WalletConnectedOptions'

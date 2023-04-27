@@ -3,7 +3,8 @@ export interface TokenData {
   name: string
   fullName: string
   amount: string
-  tokenImg: string
+  tokenImg: string,
+  favorite: boolean
 }
 
 export interface CreatePoolDialogProps {

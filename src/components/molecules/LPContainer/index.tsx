@@ -2,8 +2,6 @@ import React from 'react'
 import {LiquidityWrapped, LiquidityTitle} from './styles'
 import {LPOptionType} from './types'
 import {HorizontalCard} from '../../atoms'
-import { v4 as uuidv4 } from 'uuid';
-
 export interface LPToken {
   icon: any,
   isFavorite: boolean,
@@ -47,9 +45,9 @@ export const LPContainer = ({ title, lpTokens = [] } : LPContainerPros) => {
       <LiquidityTitle>{title}</LiquidityTitle>
       {
         lpTokens.length > 0 &&
-        lpTokens.map(item => {
+        lpTokens.map((item, index) => {
           return <HorizontalCard
-            key={'lp-token-' + uuidv4()}
+            key={`lp-token-${index}-card-${item.firstSymbol}-${item.secondSymbol}`}
             icon={item.icon}
             hasFavorite={item.isFavorite}
             tokenPairs={[item.firstSymbol, item.secondSymbol]}
@@ -65,7 +63,6 @@ export const LPContainer = ({ title, lpTokens = [] } : LPContainerPros) => {
             favoriteHandler={() => {}}
           />
         })
-
       }
     </LiquidityWrapped>
   )
