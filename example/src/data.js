@@ -69,8 +69,9 @@ export const BALANCE_TABLE_DATA = [
 export const POOL_TABLE_DATA = [
   {
     id: 1,
-    tokenPairIcon: ethCsprPair,
-    tokenPairs: ['WETH', 'CSPR'],
+    token1Icon: usdcTokenIcon,
+    token2Icon: ethTokenIcon,
+    pool: 'WETH-CSPR',
     liquidity: '4,653,213',
     volumen7d: '4,653,213',
     fees7d: '4,653,213',
@@ -78,8 +79,9 @@ export const POOL_TABLE_DATA = [
   },
   {
     id: 2,
-    tokenPairIcon: ethCsprPair,
-    tokenPairs: ['WETH', 'CSPR'],
+    token1Icon: usdcTokenIcon,
+    token2Icon: ethTokenIcon,
+    pool: 'WETH-CSPR',
     liquidity: '4,653,213',
     volumen7d: '4,453,213',
     fees7d: '4,053,213',
@@ -87,8 +89,9 @@ export const POOL_TABLE_DATA = [
   },
   {
     id: 3,
-    tokenPairIcon: ethCsprPair,
-    tokenPairs: ['WETH', 'CSPR'],
+    token1Icon: usdcTokenIcon,
+    token2Icon: ethTokenIcon,
+    pool: 'WETH-CSPR',
     liquidity: '4,653,213',
     volumen7d: '4,153,213',
     fees7d: '4,853,213',
