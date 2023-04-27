@@ -10,7 +10,7 @@ import { DeviceType } from '../../../hooks/types'
 import { Variant } from '../../atoms/Toggle/types'
 
 export interface LPSearchProps {
-  handleOnlyShowStaked: (showStaked: boolean) => boolean 
+  handleOnlyShowStaked: (showStaked: boolean) => void 
 }
 
 /**
@@ -18,7 +18,7 @@ export interface LPSearchProps {
  * 
  * @component
  * @param {Object} props - The component props.
- * @param {Function} props.handleOnlyShowStaked - A callback function that takes a boolean parameter and returns a boolean. This function is called when the user toggles the "show staked only" checkbox.
+ * @param {Function} props.handleOnlyShowStaked - A callback function that takes a boolean parameter. This function is called when the user toggles the "show staked only" checkbox.
  * @returns {JSX.Element} The rendered LPSearch component.
 */
 
@@ -60,7 +60,7 @@ export const LPSearch = ({ handleOnlyShowStaked }: LPSearchProps) => {
         type={Type.IconPlain}
         status={Status.Default}
         onChange={handlerInput}
-        hasBackground={false}
+        hasBackground={true}
         Icon={<Search size={20} color='#999999' />}
         iconSize={IconSize.Small}
         iconWrapperBackground={theme.background.icon}

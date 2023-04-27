@@ -14,7 +14,7 @@ export interface IHeaderPool {
   volumen7d: string
   fees7d: string
   apr: string
-  actions: string
+  actions?: string
   isFavorite?: boolean
 }
 
