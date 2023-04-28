@@ -15,6 +15,7 @@ export interface IHeaderPool {
   apr: string
   actions?: string
   isFavorite?: boolean
+  balance: string
 }
 
 export interface PoolableProps {
@@ -27,6 +28,7 @@ export interface PoolableProps {
   handleTrash: () => void
   favoriteHandler?: () => void
   query?: string
+  showStakedOnly?: boolean
 }
 
 const columns = [
@@ -62,6 +64,8 @@ const columns = [
   }
 ]
 
+const NOT_SEARCHABLE_KEYS = ['token1Icon', 'token0Icon']
+
 export const PoolTable = ({
   data,
   widthIcon = 30,
@@ -70,9 +74,10 @@ export const PoolTable = ({
   handleSwap,
   handleTrash,
   handleView,
-  query = ''
+  query = '',
+  showStakedOnly
 }: PoolableProps) => {
-  const [balanceData, setBalanceData] = useState<IHeaderPool[]>(data)
+  const [balanceData, setBalanceData] = useState<IHeaderPool[]>(() => data)
   const deviceType = useDeviceType()
 
   const isMobile = deviceType === DeviceType.MOBILE
@@ -105,26 +110,64 @@ export const PoolTable = ({
     setBalanceData(updatedData)
   }
 
+  const excludeKeys = (targetObj: IHeaderPool, keys: string[]) => {
+    const newObj = { ...targetObj };
+  
+    keys.forEach((item: string) => {
+      delete newObj[item as keyof IHeaderPool];
+    });
+  
+    return newObj;
+  };
+  
   const search = (query: string) => {
-    console.log('query: ', query)
     if (query) {
-      const newData = balanceData.filter((item) => {
-        const values = Object.values(item)
-        console.log('values: ', values)
-        return values.some((value) => {
-          console.log('value: ', value)
-          return value.toString().toLowerCase().includes(query.toLowerCase())
-        })
+      const newData = data.filter(item => {
+        const newObj = excludeKeys(item, NOT_SEARCHABLE_KEYS)
+        const valuesArr = Object.values(newObj)
+        
+        const exists = valuesArr.some((item) => {
+          if (typeof item !== "string") {
+            return false
+          }
+
+          return item.toLowerCase().includes(query.toLowerCase());
+        });
+        
+        if (exists) {
+          return item
+        } 
       })
+
+      return newData
+    } else {
+      return data
+    }
+  }
+
+  const getStakedData = () => {
+    return data.filter(item => {
+      if (parseFloat(item.balance) > 0) {
+        return item
+      }
+    })
+  }
+
+  useEffect(() => {
+    const newBalanceData = search(query)
+    setBalanceData(newBalanceData)
+  }, [query])
+
+  useEffect(() => {
+    if (showStakedOnly) {
+      const newData = getStakedData()
       setBalanceData(newData)
     } else {
       setBalanceData(data)
     }
-  }
 
-  useEffect(() => {
-    search(query)
-  }, [query])
+  }, [showStakedOnly])
+  
 
   return (
     <Wrapper isMobile={isMobile}>

@@ -11,11 +11,12 @@ export const Container = styled.div<{ isMobile: boolean }>`
 
 export const ActionsSubContainer = styled.div<{ isMobile: boolean }>`
   display: flex;
-  justify-content: ${({ isMobile }) => isMobile ? 'space-between' : 'space-evenly' };
+  justify-content: ${({ isMobile }) => isMobile ? 'space-between' : 'right' };
   width: ${({ isMobile }) => isMobile ? '100%' : '300px' };
+  gap: 24px;
 `;
 
 export const UpdateButtonContainer = styled.div<{ isMobile: boolean }>`
   display: flex;
-  padding-left: ${({ isMobile }) => isMobile ? '20px' : '0px' };
+  padding-left: ${({ isMobile }) => isMobile ? '10px' : '0px' };
 `;

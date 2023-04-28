@@ -3,7 +3,7 @@ import {Wrapper,TrailCircular} from './styles';
 
 export interface IButtonUpdateCircle {
     getProgress: () => number;
-    clearProgress: () => void;
+    clearProgress?: () => void;
     strokeWidth: number;
     handlerAction: () => Promise<void>;
 }

@@ -19,7 +19,10 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-right: 80px;
+
+  @media screen and (min-width: 1250px) {
+    padding-right: 80px;
+  }
 `
 
 export const TokenPairWrapper = styled.div`
