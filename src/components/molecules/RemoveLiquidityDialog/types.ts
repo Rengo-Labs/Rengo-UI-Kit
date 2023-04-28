@@ -4,18 +4,28 @@ export interface ILiquidityPoolState {
   id: string;
 }
 
-export interface TokenData {
+export interface PairData {
   id: string
-  tokenNames: string[]
-  tokenNameSymbols: string[]
-  amount: string
-  tokenImg: string
+  tokenName: string
+  liquidity: string
+  allowance: string
+  firstIcon: any
+  firstName: string
+  firstSymbol: string
+  firstLiquidity: string
+  firstRate: string
+  secondIcon: any
+  secondName: string
+  secondSymbol: string
+  secondLiquidity: string
+  secondRate: string
 }
 
 export interface RemoveLiquidityDialogProps {
   id: string
   closeCallback: (liquidityPool?: ILiquidityPoolState) => ILiquidityPoolState
-  liquidityPoolData: TokenData[]
-  tokenImg: string
+  liquidityPoolData: PairData
   isOpen: boolean
+  disabledButton: boolean
+  disabledAllowanceButton: boolean
 }

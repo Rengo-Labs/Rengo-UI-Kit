@@ -37,7 +37,14 @@ import { DeviceType } from "../../../hooks/types"
   @param {TokenData[]} props.liquidityPoolData - An array of token data for the liquidity pool.
   @returns {JSX.Element} - A JSX element representing the Remove Liquidity dialog box.
 */
-export const RemoveLiquidityDialog = ({ id, closeCallback, liquidityPoolData, isOpen }: RemoveLiquidityDialogProps) => {
+export const RemoveLiquidityDialog = ({
+                                        id,
+                                        closeCallback,
+                                        liquidityPoolData,
+                                        isOpen,
+                                        disabledButton,
+                                        disabledAllowanceButton,
+}: RemoveLiquidityDialogProps) => {
   const initialState: ILiquidityPoolState = {
     liquidityPercentage: 0,
     removeLiquidityCSPR: false,
@@ -92,33 +99,56 @@ export const RemoveLiquidityDialog = ({ id, closeCallback, liquidityPoolData, is
             </SliderContainer>
             
             <TransactionsContainer>
-              {liquidityPoolData && liquidityPoolData.map(item => (
-                <TransactionDetails
-                  key={`transaction-details-${item.id}`}
-                  distribution={Distribution.SpaceEvenly}
-                  Icon={item.tokenImg}
-                  iconSize={45}
-                  tokenNames={item.tokenNames}
-                  tokenNameSymbols={item.tokenNameSymbols}
-                  amount={item.amount} />
-              ))}
+              <TransactionDetails
+                key={`transaction-details-${liquidityPoolData.id}`}
+                distribution={Distribution.SpaceEvenly}
+                Icon={liquidityPoolData.firstIcon}
+                OptIcon={liquidityPoolData.secondIcon}
+                iconSize={45}
+                tokenNames={[`${liquidityPoolData.firstName}-${liquidityPoolData.secondName}`]}
+                tokenNameSymbols={[liquidityPoolData.firstName, liquidityPoolData.secondName]}
+                amount={liquidityPoolData.liquidity} />
+              <TransactionDetails
+                key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.firstName}`}
+                distribution={Distribution.SpaceEvenly}
+                Icon={liquidityPoolData.firstIcon}
+                iconSize={45}
+                tokenNames={[liquidityPoolData.firstName]}
+                tokenNameSymbols={[liquidityPoolData.firstSymbol]}
+                amount={liquidityPoolData.firstLiquidity} />
+              <TransactionDetails
+                key={`transaction-details-${liquidityPoolData.secondName}`}
+                distribution={Distribution.SpaceEvenly}
+                Icon={liquidityPoolData.secondIcon}
+                iconSize={45}
+                tokenNames={[liquidityPoolData.secondName]}
+                tokenNameSymbols={[liquidityPoolData.secondSymbol]}
+                amount={liquidityPoolData.secondLiquidity} />
             </TransactionsContainer>
 
             <TransactionDetailsTextOnly
                 tokenInfo={[
-                  '1 Wrapper Ether = 391.361884674 Wrapper Casper',
-                  '1 Wrapper Casper = 0.002555180 Wrapper Ether'
+                  `1 ${liquidityPoolData.firstName} = ${liquidityPoolData.secondLiquidity} ${liquidityPoolData.secondName}`,
+                  `1 ${liquidityPoolData.secondName} = ${liquidityPoolData.firstLiquidity} ${liquidityPoolData.firstName}`
                 ]}
               />
           </TopSubContainer>
 
           <BottomSubContainer>
+            {
+              disabledAllowanceButton &&
+              <Button
+                type="large"
+                props={{onClick: () => handleSubmit() }}>
+                Approve {-liquidityPoolData.allowance} {liquidityPoolData.tokenName}
+              </Button>
+            }
             <Button
               type="large"
-              props={{ onClick: () => handleSubmit() }}>
+              props={{disabled: disabledButton, onClick: () => handleSubmit() }}>
               Remove Liquidity
             </Button>
-            
+
             <ToggleContainer>
               <Toggle
                 isActive={liquidityPool.removeLiquidityCSPR}
