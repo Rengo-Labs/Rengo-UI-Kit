@@ -24,13 +24,13 @@ import favoriteIconFill from './assets/favoriteFill.svg'
 
 export interface IPoolTableItem {
   id?: string
+  token0Icon: any
   token1Icon: any
-  token2Icon: any
   widthIcon: number
   heightIcon: number
   pool: string
   liquidity: string
-  volumen7d: string
+  volume7d: string
   fees7d: string
   apr: string
   isFavorite?: boolean
@@ -42,13 +42,13 @@ export interface IPoolTableItem {
 }
 
 export const PoolTableItem = ({
+  token0Icon,
   token1Icon,
-  token2Icon,
   widthIcon,
   heightIcon,
   pool,
   liquidity,
-  volumen7d,
+  volume7d,
   fees7d,
   apr,
   isFavorite,
@@ -80,13 +80,13 @@ export const PoolTableItem = ({
           onClick={favoriteHandler}
         />
         <IconWrapper>
+          <Icon src={token0Icon} alt={pool} width={widthIcon} height={heightIcon} />
           <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
-          <Icon src={token2Icon} alt={pool} width={widthIcon} height={heightIcon} />
         </IconWrapper>
         <Text>{pool}</Text>
       </TokenPairWrapper>
       <Text>${liquidity}</Text>
-      <Text>${volumen7d}</Text>
+      <Text>${volume7d}</Text>
       <Text>${fees7d}</Text>
       <Text>${apr}</Text>
       <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>

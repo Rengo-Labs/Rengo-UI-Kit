@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TableHeader from '../../atoms/TableHeader'
 import { Wrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
@@ -6,12 +6,12 @@ import { DeviceType } from '../../../hooks/types'
 import { PoolItemMobile, PoolTableItem } from '../../atoms'
 
 export interface IHeaderPool {
-  pool: string,
-  token0Icon: string,
-  token1Icon: string,
-  liquidity: string,
-  volume7d: string,
-  fees7d: string,
+  pool: string
+  token0Icon: string
+  token1Icon: string
+  liquidity: string
+  volume7d: string
+  fees7d: string
   apr: string
   actions?: string
   isFavorite?: boolean
@@ -21,8 +21,13 @@ export interface PoolableProps {
   data: IHeaderPool[]
   widthIcon?: number
   heightIcon?: number
+  handleSwap: (path: string, pool: string) => void
+  handleView: () => void
+  handleAddLiquidity: (path: string, pool: string) => void
+  handleTrash: () => void
+  favoriteHandler?: () => void
+  query?: string
 }
-
 
 const columns = [
   {
@@ -57,7 +62,16 @@ const columns = [
   }
 ]
 
-export const PoolTable = ({ data, widthIcon = 35, heightIcon = 35 }: PoolableProps) => {
+export const PoolTable = ({
+  data,
+  widthIcon = 30,
+  heightIcon = 30,
+  handleAddLiquidity,
+  handleSwap,
+  handleTrash,
+  handleView,
+  query = ''
+}: PoolableProps) => {
   const [balanceData, setBalanceData] = useState<IHeaderPool[]>(data)
   const deviceType = useDeviceType()
 
@@ -65,22 +79,17 @@ export const PoolTable = ({ data, widthIcon = 35, heightIcon = 35 }: PoolablePro
 
   const handleSort = (key: string, isAscending: boolean) => {
     const sortedData = [...balanceData].sort((a, b) => {
-      const sortMultiplier = isAscending ? 1 : -1;
-      const propA = a[key as keyof IHeaderPool];
-      const propB = b[key as keyof IHeaderPool];
-  
-      if (propA !== undefined && propB !== undefined) {
-        return propA > propB ? sortMultiplier : -sortMultiplier;
-      }
-  
-      return 0;
-    });
-    setBalanceData(sortedData);
-  };
+      const sortMultiplier = isAscending ? 1 : -1
+      const propA = a[key as keyof IHeaderPool]
+      const propB = b[key as keyof IHeaderPool]
 
-  const handleDelete = (id: string) => {
-    const filteredData = balanceData.filter((row) => row.pool !== id)
-    setBalanceData(filteredData)
+      if (propA !== undefined && propB !== undefined) {
+        return propA > propB ? sortMultiplier : -sortMultiplier
+      }
+
+      return 0
+    })
+    setBalanceData(sortedData)
   }
 
   const favoriteHandler = (id: string) => {
@@ -96,6 +105,27 @@ export const PoolTable = ({ data, widthIcon = 35, heightIcon = 35 }: PoolablePro
     setBalanceData(updatedData)
   }
 
+  const search = (query: string) => {
+    console.log('query: ', query)
+    if (query) {
+      const newData = balanceData.filter((item) => {
+        const values = Object.values(item)
+        console.log('values: ', values)
+        return values.some((value) => {
+          console.log('value: ', value)
+          return value.toString().toLowerCase().includes(query.toLowerCase())
+        })
+      })
+      setBalanceData(newData)
+    } else {
+      setBalanceData(data)
+    }
+  }
+
+  useEffect(() => {
+    search(query)
+  }, [query])
+
   return (
     <Wrapper isMobile={isMobile}>
       {!isMobile && <TableHeader columns={columns} onSort={handleSort} />}
@@ -103,38 +133,42 @@ export const PoolTable = ({ data, widthIcon = 35, heightIcon = 35 }: PoolablePro
         isMobile ? (
           <PoolItemMobile
             key={`pool-item-${row.pool}-mobile`}
-            token1Icon={row.token0Icon}
-            token2Icon={row.token1Icon}
+            token0Icon={row.token0Icon}
+            token1Icon={row.token1Icon}
             widthIcon={widthIcon}
             heightIcon={heightIcon}
             pool={row.pool}
             liquidity={row.liquidity}
-            volumen7d={row.volume7d}
+            volume7d={row.volume7d}
             fees7d={row.fees7d}
             apr={row.apr}
-            handleTrash={() => handleDelete(row.pool)}
-            handleSwap={() => console.log('swap')}
-            handleView={() => console.log('view')}
-            handleAddLiquidity={() => console.log('add liquidity')}
+            handleTrash={handleTrash}
+            handleSwap={() => handleSwap('/swap', row.pool)}
+            handleView={handleView}
+            handleAddLiquidity={() =>
+              handleAddLiquidity('/liquidity', row.pool)
+            }
             favoriteHandler={() => favoriteHandler(row.pool)}
             isFavorite={row.isFavorite}
           />
         ) : (
           <PoolTableItem
             key={`pool-item-${row.pool}-desktop`}
-            token1Icon={row.token0Icon}
-            token2Icon={row.token1Icon}
+            token0Icon={row.token0Icon}
+            token1Icon={row.token1Icon}
             widthIcon={widthIcon}
             heightIcon={heightIcon}
             pool={row.pool}
             liquidity={row.liquidity}
-            volumen7d={row.volume7d}
+            volume7d={row.volume7d}
             fees7d={row.fees7d}
             apr={row.apr}
-            handleTrash={() => handleDelete(row.pool)}
-            handleSwap={() => console.log('swap')}
-            handleView={() => console.log('view')}
-            handleAddLiquidity={() => console.log('add liquidity')}
+            handleTrash={handleTrash}
+            handleSwap={() => handleSwap('/swap', row.pool)}
+            handleView={handleView}
+            handleAddLiquidity={() =>
+              handleAddLiquidity('/liquidity', row.pool)
+            }
             favoriteHandler={() => favoriteHandler(row.pool)}
             isFavorite={row.isFavorite}
           />

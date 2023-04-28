@@ -81,6 +81,7 @@ const App = () => {
   const [settingOption, setSettingOption] = useState('')
   const [cardValue, setCardValue] = useState('')
   const [isFavorite, setIsFavorite] = useState(false)
+  const [query, setQuery] = useState('')
   const [tabs, setTabs] = useState([
     {
       id: 1,
@@ -375,8 +376,9 @@ const App = () => {
             </Column>
           </Row>
           <Row className='my-1'>
+            <input value={query} onChange={e => setQuery(e.target.value)}/>
             <Column props={{ xs: 12 }}>
-              <PoolTable data={POOL_TABLE_DATA} />
+              <PoolTable data={POOL_TABLE_DATA} query={query}/>
             </Column>
           </Row>
         </Container>
