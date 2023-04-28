@@ -20,8 +20,8 @@ export const Chart = ({
                           xAxisName,
                           chart0Name,
                           chart1Name,
-                          showChart0,
-                          showChart1
+                          showChart0 = true,
+                          showChart1 = true,
                       }: ChartProps) => {
     console.log('data', data, xAxisName,
         chart0Name,

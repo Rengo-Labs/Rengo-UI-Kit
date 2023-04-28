@@ -5,7 +5,7 @@ export interface TokenOptionProps {
     tokenImg: any;
     token: string;
     option1: boolean;
-    onClick: () => void;
+    onClick?: () => void;
     showColor?: boolean;
     height?: number;
     width?: number;
