@@ -47,7 +47,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean }>`
       `
     } else {
       return css`
-        transform: translateX(120vw);
+        transform: translateX(200vw);
       `
     }
   }}

@@ -11,7 +11,7 @@ export const Container = styled.div<IContainerProps>`
   width: 100%;
   height: 100vh;
   transform: ${({ isOpen }) =>
-    isOpen ? 'translateX(0)' : 'translateX(100vw)'};
+    isOpen ? 'translateX(0)' : 'translateX(200vw)'};
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
   background: ${({ theme }) =>  theme.color.tab.background};

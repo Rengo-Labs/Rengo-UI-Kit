@@ -19,6 +19,7 @@ export interface InputProps {
   value?: any,
   hasBackground?: boolean
   iconWrapperBackground?: string
+  textAlign?: string
 }
 
 export enum Status {

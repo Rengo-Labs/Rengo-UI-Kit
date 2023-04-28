@@ -7,6 +7,7 @@ interface Props {
   iconSize?: IconSize;
   hasBackground?: boolean;
   iconWrapperBackground?: string
+  textAlign?: string
 }
 
 
@@ -94,7 +95,7 @@ export const InputStyled = styled.input<Props>`
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
-  text-align: right;
+  text-align: ${({ textAlign }) => textAlign};
   color: ${({ theme}) =>theme.color.default};
 
   ::placeholder {
