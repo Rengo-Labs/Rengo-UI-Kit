@@ -10,5 +10,7 @@ export interface IHeader {
 }
 export interface BalaceTableProps {
     data: IHeader[];
+    widthIcon?: number;
+    heightIcon?: number;
 }
-export declare const BalanceTable: ({ data }: BalaceTableProps) => JSX.Element;
+export declare const BalanceTable: ({ data, widthIcon, heightIcon }: BalaceTableProps) => JSX.Element;

@@ -5,6 +5,7 @@ interface Props {
     iconSize?: IconSize;
     hasBackground?: boolean;
     iconWrapperBackground?: string;
+    textAlign?: string;
 }
 export declare const InputWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const InputInnerWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;

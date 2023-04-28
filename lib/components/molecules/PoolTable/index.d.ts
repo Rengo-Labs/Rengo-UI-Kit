@@ -1,8 +1,8 @@
 export interface IHeaderPool {
     id: number;
     pool: string;
-    tokenPairIcon: any;
-    tokenPairs: Array<string>;
+    token1Icon: any;
+    token2Icon: any;
     liquidity: string;
     volumen7d: string;
     fees7d: string;
@@ -12,5 +12,7 @@ export interface IHeaderPool {
 }
 export interface PoolableProps {
     data: IHeaderPool[];
+    widthIcon?: number;
+    heightIcon?: number;
 }
-export declare const PoolTable: ({ data }: PoolableProps) => JSX.Element;
+export declare const PoolTable: ({ data, widthIcon, heightIcon }: PoolableProps) => JSX.Element;

@@ -8,6 +8,7 @@ import { InputProps } from './types';
  * @param {string} label - The label to display above the input field.
  * @param {string} helperText - The helper text to display below the input field.
  * @param {string} iconWrapperBackground - The background color for the icon.
+ * @param {string} textAlign - The text alignment for the input
  * @param {React.ReactNode} rightAdornment - The adornment to be display at the right of the input, accepts a component or string
  * @param {React.ReactNode} Icon - The icon component to display inside the input field.
  * @param {IconSize} [iconSize='small'] - The size of the icon, one of 'small' or 'large', necessary if you pass an icon component.
@@ -16,4 +17,4 @@ import { InputProps } from './types';
  *
  * @returns {JSX.Element} The rendered input field.
  */
-export declare const Input: ({ placeholder, status, type, label, helperText, rightAdornment, hasBackground, Icon, iconSize, iconWrapperBackground, onChange, validator, value }: InputProps) => JSX.Element;
+export declare const Input: ({ placeholder, status, type, label, helperText, rightAdornment, hasBackground, Icon, iconSize, iconWrapperBackground, onChange, validator, value, textAlign }: InputProps) => JSX.Element;

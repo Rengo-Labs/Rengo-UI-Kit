@@ -1,8 +1,8 @@
 import { IHeader } from '../../molecules';
 interface BalanceMobileItemProps {
     row: IHeader;
-    height?: number;
-    width?: number;
+    heightIcon: number;
+    widthIcon: number;
 }
-export declare const BalanceMobileItem: ({ row, height, width }: BalanceMobileItemProps) => JSX.Element;
+export declare const BalanceMobileItem: ({ row, heightIcon, widthIcon }: BalanceMobileItemProps) => JSX.Element;
 export {};

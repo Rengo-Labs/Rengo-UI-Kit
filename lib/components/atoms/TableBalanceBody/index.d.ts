@@ -1,8 +1,8 @@
 import { IHeader } from '../../molecules';
 interface TableProps {
     row: IHeader;
-    height?: number;
-    width?: number;
+    heightIcon: number;
+    widthIcon: number;
 }
-export declare const TableBalanceBody: ({ row, height, width }: TableProps) => JSX.Element;
+export declare const TableBalanceBody: ({ row, heightIcon, widthIcon }: TableProps) => JSX.Element;
 export {};
