@@ -1,50 +1,25 @@
 import React from 'react'
-import { Chart, Column, KeyPairText, Row, TokenOption } from '../../atoms'
-import { RowStyled } from './styles'
+import {Chart, Column, KeyPairText, Row, TokenOption} from '../../atoms'
+import {RowStyled} from './styles'
 
 interface SwapPriceProps {
-  firstTokenImg: any
-  secondTokenImg: any
-  onClickButton?: () => void
+    firstTokenImg: any
+    secondTokenImg: any
+    firstTokenSymbol: string
+    secondTokenSymbol: string
+    graphicData: any
+    todayPrice: string
+    yesterdayPrice: string
+    xAxisName: string
+    chart0Name: string
+    chart1Name: string
+    showChart0: boolean
+    showChart1: boolean
+    onClickButton0: () => void
+    onClickButton1: () => void
+    charWidth?: number
+    charHeight?: number
 }
-
-const data = [
-  {
-    name: '01/23',
-    eth: 867,
-    cspr: 1245
-  },
-  {
-    name: '02/23',
-    eth: 1000,
-    cspr: 1398
-  },
-  {
-    name: '03/23',
-    eth: 1010,
-    cspr: 1410
-  },
-  {
-    name: '04/23',
-    eth: 1345,
-    cspr: 2035
-  },
-  {
-    name: '05/23',
-    eth: 867,
-    cspr: 1980
-  },
-  {
-    name: '06/23',
-    eth: 950,
-    cspr: 2010
-  },
-  {
-    name: '07/23',
-    eth: 650,
-    cspr: 2670
-  }
-]
 
 /**
  * Render a Swap Price Molecule.
@@ -54,28 +29,54 @@ const data = [
  * @returns  {JSX.Element} The rendered the token options and key pair text.
  */
 
-export const SwapPrice = ({ firstTokenImg, secondTokenImg, onClickButton }: SwapPriceProps) => {
-  return (
-    <>
-      <Row props={{ className: 'p-1 align-center' }}>
-        <Column props={{ xs: 12, md: 6 }}>
-          <RowStyled onClick={onClickButton}>
-            <TokenOption tokenImg={firstTokenImg} token='ETH' option1 />
-            <TokenOption tokenImg={secondTokenImg} token='CSPR' option1={false} />
-          </RowStyled>
-        </Column>
-        <Column props={{ xs: 12, md: 6 }}>
-          <RowStyled>
-            <KeyPairText keyText='Price' pairText='1.4589' />
-            <KeyPairText keyText='24H%' pairText='85.10' isPorcentage />
-          </RowStyled>
-        </Column>
-      </Row>
-      <Row>
-        <Column props={{ xs: 12 }}>
-          <Chart data={data} twoColors/>
-        </Column>
-      </Row>
-    </>
-  )
+export const SwapPrice = ({
+                              firstTokenImg,
+                              secondTokenImg,
+                              firstTokenSymbol,
+                              secondTokenSymbol,
+                              onClickButton0,
+                              onClickButton1,
+                              graphicData,
+                              todayPrice,
+                              yesterdayPrice,
+                              xAxisName,
+                              chart0Name,
+                              chart1Name,
+                              charWidth,
+                              charHeight,
+                              showChart1,
+                              showChart0
+                          }: SwapPriceProps) => {
+    return (
+        <>
+            <Row props={{className: 'p-1 align-center'}}>
+                <Column props={{xs: 12, md: 6}}>
+                    <RowStyled>
+                        <TokenOption onClick={onClickButton0} tokenImg={firstTokenImg} token={firstTokenSymbol} option1/>
+                        <TokenOption onClick={onClickButton1} tokenImg={secondTokenImg} token={secondTokenSymbol} option1={false}/>
+                    </RowStyled>
+                </Column>
+                <Column props={{xs: 12, md: 6}}>
+                    <RowStyled>
+                        <KeyPairText keyText='Price' pairText={todayPrice}/>
+                        <KeyPairText keyText='24H%' pairText={yesterdayPrice} isPorcentage/>
+                    </RowStyled>
+                </Column>
+            </Row>
+            <Row>
+                <Column props={{xs: 12}}>
+                    <Chart data={graphicData}
+                           width={charWidth}
+                           height={charHeight}
+                           xAxisName={xAxisName}
+                           chart0Name={chart0Name}
+                           chart1Name={chart1Name}
+                           twoColors
+                           showChart0={showChart0}
+                           showChart1={showChart1}
+                    />
+                </Column>
+            </Row>
+        </>
+    )
 }
