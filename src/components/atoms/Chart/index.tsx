@@ -23,9 +23,6 @@ export const Chart = ({
                           showChart0 = true,
                           showChart1 = true,
                       }: ChartProps) => {
-    console.log('data', data, xAxisName,
-        chart0Name,
-        chart1Name,)
     return (
         <AreaChart
             width={width}
