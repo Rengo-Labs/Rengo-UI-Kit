@@ -9,11 +9,22 @@ import csprImg from '../../assets/cspr-token.svg'
 // @ts-ignore
 import csprImgpair from '../../assets/eth-cspr-pair.svg'
 
-const REMOVE_LIQUIDITY_DATA = [
-  { id: 'd3jd92d', tokenNames: ['Wrapper Ether', 'Wrapper Casper'], tokenNameSymbols: ['WETH', 'CSPR'], amount: '0,3', tokenImg: csprImgpair },
-  { id: 'c9c843b', tokenNames: ['Wrapper Ether'], tokenNameSymbols: ['WETH'], amount: '0,3', tokenImg: ethImg },
-  { id: '1qwski4', tokenNames: ['Wrapper Casper'], tokenNameSymbols: ['CSPR'], amount: '0,3', tokenImg: csprImg }
-]
+const REMOVE_LIQUIDITY_DATA = {
+  id: 'fruteaeas',
+  tokenName: 'ETH-CSPR',
+  liquidity: '121231232.223232',
+  allowance: 123123123123,
+  firstIcon: ethImg,
+  firstName: 'Ethereum',
+  firstSymbol: 'ETH',
+  firstLiquidity: 13112323.23423423,
+  firstRate: 123.01,
+  secondIcon: csprImg,
+  secondName: 'Casper',
+  secondSymbol: 'CSPR',
+  secondLiquidity: 4333232.222,
+  secondRate: 3123122.333
+}
 
 export default {
     title: "Components/Molecules/RemoveLiquidityDialog",
@@ -28,5 +39,7 @@ Default.args = {
   id: 'f90c4f56-ae0a-4da8-bf3d-541c80c89f87',
   closeCallback: () => console.log('dialog is closed'),
   liquidityPoolData: REMOVE_LIQUIDITY_DATA,
-  isOpen: true
+  isOpen: true,
+  disabledButton: true,
+  disabledAllowanceButton: false
 };

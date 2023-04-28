@@ -17,6 +17,7 @@ export interface TransactionProps {
   LeftAdornment?: ReactNode | JSX.Element
   LeftAdornmentCallback?: () => void
   Icon?: string
+  OptIcon?: string
   iconSize?: IconSize
   tokenNames?: Array<string>
   tokenFullName?: string
