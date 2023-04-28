@@ -6,6 +6,7 @@ import { DeviceType } from '../../../hooks/types'
 import { PoolItemMobile, PoolTableItem } from '../../atoms'
 
 export interface IHeaderPool {
+  name: string
   pool: string
   token0Icon: string
   token1Icon: string
@@ -26,7 +27,7 @@ export interface PoolableProps {
   handleView: () => void
   handleAddLiquidity: (path: string, pool: string) => void
   handleTrash: () => void
-  favoriteHandler?: () => void
+  handleFavorite: (name: string) => void
   query?: string
   showStakedOnly?: boolean
 }
@@ -74,6 +75,7 @@ export const PoolTable = ({
   handleSwap,
   handleTrash,
   handleView,
+  handleFavorite,
   query = '',
   showStakedOnly
 }: PoolableProps) => {
@@ -97,9 +99,9 @@ export const PoolTable = ({
     setBalanceData(sortedData)
   }
 
-  const favoriteHandler = (id: string) => {
+  const favoriteHandler = (name: string) => {
     const updatedData = balanceData.map((row) => {
-      if (row.pool === id) {
+      if (row.name === name) {
         return {
           ...row,
           isFavorite: !row.isFavorite
@@ -108,6 +110,7 @@ export const PoolTable = ({
       return row
     })
     setBalanceData(updatedData)
+    handleFavorite(name)
   }
 
   const excludeKeys = (targetObj: IHeaderPool, keys: string[]) => {
@@ -191,7 +194,7 @@ export const PoolTable = ({
             handleAddLiquidity={() =>
               handleAddLiquidity('/liquidity', row.pool)
             }
-            favoriteHandler={() => favoriteHandler(row.pool)}
+            favoriteHandler={() => favoriteHandler(row.name)}
             isFavorite={row.isFavorite}
           />
         ) : (
