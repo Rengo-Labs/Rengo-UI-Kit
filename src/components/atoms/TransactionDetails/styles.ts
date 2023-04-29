@@ -158,11 +158,8 @@ export const AmountWrapper = styled.div<Props>`
   }};
 `;
 
-export const IconImage = styled.img.attrs<any>(({ width, height }) => ({
-  width: width,
-  height: height,
-}))<any>`
+export const IconImage = styled.img`
   &:first-child {
     margin-right: -15px
   }
-`;
+  `;

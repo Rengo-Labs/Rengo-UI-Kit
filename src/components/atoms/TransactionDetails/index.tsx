@@ -38,7 +38,7 @@ import { TransactionProps } from "./types";
 */
 export const TransactionDetails = ({
   distribution, LeftAdornment, LeftAdornmentCallback, Icon, OptIcon, iconSize, tokenNames, tokenFullName,
-  tokenNameSymbols, amount, isLast, onSelectToken}: TransactionProps) => {
+  tokenNameSymbols, amount, isLast, onSelectToken, iconHeight=45, iconWidth=45}: TransactionProps) => {
 
   return (
     <Wrapper
@@ -57,11 +57,11 @@ export const TransactionDetails = ({
         )}
 
         {Icon && (
-          <IconImage src={Icon} alt='token' iconSize={iconSize} />
+          <IconImage src={Icon} alt='token' height={iconHeight} width={iconWidth}/>
         )}
 
         {OptIcon && (
-          <IconImage src={OptIcon} alt='optional token' iconSize={iconSize} />
+          <IconImage src={OptIcon} alt='optional token' height={iconHeight} width={iconWidth}/>
         )}
 
         <TokenDetailsWrapper tokenNameSymbol={tokenNameSymbols}>

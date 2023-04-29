@@ -25,4 +25,6 @@ export interface TransactionProps {
   amount?: string
   isLast?: boolean
   onSelectToken?: () => void
+  iconWidth?: number
+  iconHeight?: number
 }
