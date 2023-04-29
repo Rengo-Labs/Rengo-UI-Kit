@@ -88,7 +88,7 @@ export const PoolTableItem = ({
       <Text>${liquidity}</Text>
       <Text>${volume7d}</Text>
       <Text>${fees7d}</Text>
-      <Text>${apr}</Text>
+      <Text>{apr} %</Text>
       <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
         <SeeActionsIcon
           color={

@@ -140,7 +140,7 @@ export const PoolItemMobile = ({
         </HeaderSubtitle>
         <HeaderSubtitle>
           <Subtitle>APR</Subtitle>
-          <SubtitleValue>{apr}</SubtitleValue>
+          <SubtitleValue>{apr} %</SubtitleValue>
         </HeaderSubtitle>
       </Footer>
     </Wrapper>
