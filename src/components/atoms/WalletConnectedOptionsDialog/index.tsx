@@ -38,6 +38,19 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options, isOpen}: W
     status: false
   })
 
+  const transformAccountHash = (accountHashString: string | null) => {
+    if (!accountHashString) {
+      return ''
+    }
+    const end = accountHashString.length;
+    const walletLabel = `${accountHashString.substring(
+        0,
+        6
+    )}...${accountHashString.substring(end - 11, end)}`;
+
+    return walletLabel;
+  }
+
   const handleMouseEnter = (item: Options) => {
     setHoveredItem({
       id: item.id,
@@ -65,13 +78,13 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options, isOpen}: W
     if (item.type === Types.Copy) {
       handleCopyToClipboard(item)
     } else {
-      console.log(`redirect to ${item.name}`);
-      
+      item.onClick && item.onClick()
       closeCallback()
     }
   }
 
   const handleCopyToClipboard = (item: Options) => {
+    console.log(`copy to clipboard ${item.name}`)
     navigator.clipboard.writeText(item.name)
 
     setCopied({
@@ -97,7 +110,7 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options, isOpen}: W
           </CloseButton>
         </DialogHeader>
       </DialogHeaderContainer>
-    
+
       <Container>
         {options && options.map((item, i) => (
           <Row
@@ -116,12 +129,12 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options, isOpen}: W
                 isBeingHovered={hoveredItem.id === item.id}>
                 {copied.id === item.id && item.key === 'wallet' ?
                  'Wallet number copied' :
-                  item.name
+                  item.key == 'wallet' ? transformAccountHash(item.name) : item.name
                 }
               </RowTitle>
-           
+
               {item.icon && (
-                <Image 
+                <Image
                 src={item.icon}
                 isLast={i === (options.length - 1)}
                 isBeingHovered={hoveredItem.id === item.id} />
@@ -133,7 +146,7 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options, isOpen}: W
                 fill='transparent'
                 size={24} />
           </Row>
-        ))}    
+        ))}
       </Container>
     </Dialog>
   )

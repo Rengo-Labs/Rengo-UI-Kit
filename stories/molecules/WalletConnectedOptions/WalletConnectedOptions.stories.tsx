@@ -33,6 +33,7 @@ const WALLET_CONNECTED_OPTIONS = [
         iconName: '',
         icon: lineBreakIcon,
         type: 'redirect',
+        onClick: () => { console.log("onclicked")}
     },
 ]
 export default {
