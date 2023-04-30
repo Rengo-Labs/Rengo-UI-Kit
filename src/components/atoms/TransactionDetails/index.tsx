@@ -1,17 +1,17 @@
 import React from "react";
 import {
   TokenInnerWrapper,
-    TokenFullName,
-    TokenName,
-    TokenDetailsWrapper,
-    Wrapper,
-    Image,
-    TokenNameSymbol,
-    LeftAdornmentWrapper,
-    AmountWrapper,
-    TokenNameSymbolWrapper,
-    TokenNamesWrapper
-  } from "./styles";
+  TokenFullName,
+  TokenName,
+  TokenDetailsWrapper,
+  Wrapper,
+  TokenNameSymbol,
+  LeftAdornmentWrapper,
+  AmountWrapper,
+  TokenNameSymbolWrapper,
+  TokenNamesWrapper,
+  IconImage
+} from "./styles";
 import { TransactionProps } from "./types";
 
 /**
@@ -37,8 +37,8 @@ import { TransactionProps } from "./types";
   @return {JSX.Element} - Rendered TransactionDetails component.
 */
 export const TransactionDetails = ({
-  distribution, LeftAdornment, LeftAdornmentCallback, Icon, iconSize, tokenNames, tokenFullName,
-  tokenNameSymbols, amount, isLast, onSelectToken}: TransactionProps) => {
+  distribution, LeftAdornment, LeftAdornmentCallback, Icon, OptIcon, iconSize, tokenNames, tokenFullName,
+  tokenNameSymbols, amount, isLast, onSelectToken, iconHeight=45, iconWidth=45}: TransactionProps) => {
 
   return (
     <Wrapper
@@ -57,7 +57,11 @@ export const TransactionDetails = ({
         )}
 
         {Icon && (
-          <Image src={Icon} alt='token' iconSize={iconSize} />
+          <IconImage src={Icon} alt='token' height={iconHeight} width={iconWidth}/>
+        )}
+
+        {OptIcon && (
+          <IconImage src={OptIcon} alt='optional token' height={iconHeight} width={iconWidth}/>
         )}
 
         <TokenDetailsWrapper tokenNameSymbol={tokenNameSymbols}>
