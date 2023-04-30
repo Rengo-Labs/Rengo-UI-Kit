@@ -176,7 +176,10 @@ export const SwapTabs = ({
     }
 
     return (
-        <Column props={{xs: 12}}>
+        <Column props={{
+            xs: 12,
+            id: 'swap-tabs'
+        }}>
             <Row>
                 <Tabs tabs={tabs} onClick={handleTabClick}/>
             </Row>
