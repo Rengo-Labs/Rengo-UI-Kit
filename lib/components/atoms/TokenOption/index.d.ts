@@ -2,6 +2,7 @@ export interface TokenOptionProps {
     tokenImg: any;
     token: string;
     option1: boolean;
+    onClick?: () => void;
     showColor?: boolean;
     height?: number;
     width?: number;
@@ -13,4 +14,4 @@ export interface TokenOptionProps {
  * @param {boolean} option1 - The grafic color to show in the ellipse.
  * @returns  {JSX.Element} The rendered the key-value text.
  */
-export declare const TokenOption: ({ tokenImg, token, option1, showColor, height, width }: TokenOptionProps) => JSX.Element;
+export declare const TokenOption: ({ tokenImg, token, option1, onClick, showColor, height, width }: TokenOptionProps) => JSX.Element;

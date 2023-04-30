@@ -3,6 +3,11 @@ interface ChartProps {
     width?: number;
     height?: number;
     twoColors?: boolean;
+    xAxisName: string;
+    chart0Name: string;
+    chart1Name?: string;
+    showChart0?: boolean;
+    showChart1?: boolean;
 }
-export declare const Chart: ({ data, width, height, twoColors }: ChartProps) => JSX.Element;
+export declare const Chart: ({ data, width, height, twoColors, xAxisName, chart0Name, chart1Name, showChart0, showChart1, }: ChartProps) => JSX.Element;
 export {};

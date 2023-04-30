@@ -21,4 +21,4 @@ import { TransactionProps } from "./types";
   @param {function} [props.onSelectToken] - onSelectToken select token.
   @return {JSX.Element} - Rendered TransactionDetails component.
 */
-export declare const TransactionDetails: ({ distribution, LeftAdornment, LeftAdornmentCallback, Icon, iconSize, tokenNames, tokenFullName, tokenNameSymbols, amount, isLast, onSelectToken }: TransactionProps) => JSX.Element;
+export declare const TransactionDetails: ({ distribution, LeftAdornment, LeftAdornmentCallback, Icon, OptIcon, iconSize, tokenNames, tokenFullName, tokenNameSymbols, amount, isLast, onSelectToken, iconHeight, iconWidth }: TransactionProps) => JSX.Element;

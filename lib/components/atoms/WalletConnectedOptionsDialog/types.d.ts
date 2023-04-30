@@ -14,6 +14,7 @@ export interface Options {
     iconName: string;
     icon: string;
     type: Types;
+    onClick?: () => void;
 }
 export interface WalletConnectedOptionsDialogProps {
     closeCallback: () => void;

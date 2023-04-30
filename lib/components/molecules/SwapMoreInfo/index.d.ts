@@ -1,4 +1,4 @@
-interface ISwapMoreInfoProps {
+export interface ISwapMoreInfoProps {
     firstSymbolToken: string;
     firstTokenAmount: number;
     secondSymbolToken: string;
@@ -30,4 +30,3 @@ interface ISwapMoreInfoProps {
  *  @returns  {JSX.Element} The rendered a list of key-value text and inputs.
  */
 export declare const SwapMoreInfo: ({ firstSymbolToken, firstTokenAmount, secondSymbolToken, secondTokenAmount, priceImpactMessage, priceImpact, platformGasFee, networkGasFee, networkGasFeeSetter, slippageTolerance, slippageSetter, pairPath, calculateMinimumTokenReceived }: ISwapMoreInfoProps) => JSX.Element;
-export {};
