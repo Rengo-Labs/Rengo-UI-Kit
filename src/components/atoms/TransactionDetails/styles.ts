@@ -157,3 +157,9 @@ export const AmountWrapper = styled.div<Props>`
     return '0 6%;'
   }};
 `;
+
+export const IconImage = styled.img`
+  &:first-child {
+    margin-right: -15px
+  }
+  `;

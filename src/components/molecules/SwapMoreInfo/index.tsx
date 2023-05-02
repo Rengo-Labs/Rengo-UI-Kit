@@ -3,7 +3,7 @@ import {Column, Divider, KeyValueInput, KeyValueText} from '../../atoms'
 import {Wrapper} from './styles'
 import {InputType} from '../../atoms/KeyValueInput/types'
 
-interface ISwapMoreInfoProps {
+export interface ISwapMoreInfoProps {
     firstSymbolToken: string;
     firstTokenAmount: number;
     secondSymbolToken: string;

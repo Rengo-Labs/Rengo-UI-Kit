@@ -11,50 +11,15 @@ import {
   Container
 } from './styles'
 
-const data = [
-  {
-    name: '01/23',
-    eth: 867,
-    cspr: 1245
-  },
-  {
-    name: '02/23',
-    eth: 1000,
-    cspr: 1398
-  },
-  {
-    name: '03/23',
-    eth: 1010,
-    cspr: 1410
-  },
-  {
-    name: '04/23',
-    eth: 1345,
-    cspr: 2035
-  },
-  {
-    name: '05/23',
-    eth: 867,
-    cspr: 1980
-  },
-  {
-    name: '06/23',
-    eth: 950,
-    cspr: 2010
-  },
-  {
-    name: '07/23',
-    eth: 650,
-    cspr: 2670
-  }
-]
-
 export interface LiquidityItemDetailProps {
   closeCallback: () => void
   isOpen: boolean
+  chartData: any[]
+  chart0Name: string
+  xAxisName: string
 }
 
-export const LiquidityItemDetail = ({ closeCallback, isOpen }: LiquidityItemDetailProps) => {
+export const LiquidityItemDetail = ({ closeCallback, isOpen, chartData, chart0Name, xAxisName }: LiquidityItemDetailProps) => {
   return (
     <Dialog
       isOpen={isOpen}
@@ -78,7 +43,11 @@ export const LiquidityItemDetail = ({ closeCallback, isOpen }: LiquidityItemDeta
           <CloseIcon size={16} onClick={closeCallback}/>
         </Wrapper>
         <Wrapper>
-          <Chart data={data} width={400} height={250} />
+          <Chart data={chartData}
+                 width={400}
+                 height={250}
+                 chart0Name={chart0Name}
+                 xAxisName={xAxisName}/>
         </Wrapper>
       </Container>
     </Dialog>

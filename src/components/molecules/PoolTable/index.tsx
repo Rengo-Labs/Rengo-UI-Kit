@@ -88,6 +88,12 @@ export const PoolTable = ({
   
   const isMobile = deviceType === DeviceType.MOBILE
 
+  const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
+
+  const toggleDialog = (name: string) => {
+    setActionsDialogActive((prev) => (prev === name ? null : name))
+  }
+
   const handleSort = (key: string, isAscending: boolean) => {
     const sortedData = [...balanceData].sort((a, b) => {
       const sortMultiplier = isAscending ? 1 : -1
@@ -200,6 +206,8 @@ export const PoolTable = ({
             }
             favoriteHandler={() => favoriteHandler(row.name)}
             isFavorite={row.isFavorite}
+            toggleDialog={() => toggleDialog(row.name)}
+            actionsDialogActive={actionsDialogActive === row.name}
           />
         ) : (
           <PoolTableItem
@@ -221,6 +229,8 @@ export const PoolTable = ({
             }
             favoriteHandler={() => favoriteHandler(row.name)}
             isFavorite={row.isFavorite}
+            toggleDialog={() => toggleDialog(row.name)}
+            actionsDialogActive={actionsDialogActive === row.name}
           />
         )
       )}
