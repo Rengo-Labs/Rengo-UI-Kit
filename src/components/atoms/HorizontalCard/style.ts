@@ -45,6 +45,9 @@ export const TokenPairsNamesWrapper = styled.div`
 
 export const Image = styled.img<Props>`
   height: 30px;
+  :first-child {
+    margin-right: -15px;
+  }
 `;
 export const TokenName = styled.p`
   font-family: ${({theme}) => theme.typography.secondaryFont};

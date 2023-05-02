@@ -1,10 +1,12 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {LPContainer} from "../../../src/components";
 // @ts-ignore
 import ethToken from '../../assets/eth-token.svg';
 // @ts-ignore
-import ethCsprIcon from '../../assets/eth-cspr-pair.svg'
+import csprToken from '../../assets/cspr-token.svg';
+// @ts-ignore
+import btcToken from '../../assets/bitcoin-token.svg';
 // @ts-ignore
 import usdIcon from '../../assets/usdc-token.svg'
 
@@ -23,9 +25,45 @@ export const Default = Template.bind({});
 Default.args = {
     title: 'My Liquidity',
     lpTokens: [
-        {icon: ethToken, isFavorite: false, firstSymbol: 'ETH', secondSymbol: 'CSPR', firstAmount: '200.00000002', secondAmount: '4000000.00000122', userLP: '10', totalLP: '232000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
-        {icon: ethCsprIcon, isFavorite: false, firstSymbol: 'BTC', secondSymbol: 'CSPR', firstAmount: '0.05', secondAmount: '9000000.00000122', userLP: '1.02', totalLP: '34000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
-        {icon: usdIcon, isFavorite: false, firstSymbol: 'USDT', secondSymbol: 'CSPR', firstAmount: '50.00000002', secondAmount: '4000.00000122', userLP: '19', totalLP: '23000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
+        {
+            firstTokenIcon: ethToken,
+            secondTokenIcon: csprToken,
+            isFavorite: false,
+            firstSymbol: 'ETH',
+            secondSymbol: 'CSPR',
+            firstAmount: '200.00000002',
+            secondAmount: '4000000.00000122',
+            userLP: '10',
+            totalLP: '232000',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            }
+        },
+        {
+            firstTokenIcon: btcToken,
+            secondTokenIcon: csprToken,
+            isFavorite: false,
+            firstSymbol: 'BTC',
+            secondSymbol: 'CSPR',
+            firstAmount: '0.05',
+            secondAmount: '9000000.00000122',
+            userLP: '1.02',
+            totalLP: '34000',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            }
+        },
+        {
+            firstTokenIcon: usdIcon,
+            secondTokenIcon: csprToken,
+            isFavorite: false,
+            firstSymbol: 'USDT',
+            secondSymbol: 'CSPR',
+            firstAmount: '50.00000002',
+            secondAmount: '4000.00000122',
+            userLP: '19',
+            totalLP: '23000',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            }
+        },
     ]
 };
 
@@ -34,8 +72,44 @@ export const LPFavorite = Template.bind({});
 LPFavorite.args = {
     title: 'My Liquidity',
     lpTokens: [
-        {icon: ethToken, isFavorite: true, firstSymbol: 'ETH', secondSymbol: 'CSPR', firstAmount: '200.00000002', secondAmount: '4000000.00000122', userLP: '10', totalLP: '232000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
-        {icon: ethCsprIcon, isFavorite: true, firstSymbol: 'BTC', secondSymbol: 'CSPR', firstAmount: '0.05', secondAmount: '9000000.00000122', userLP: '1.02', totalLP: '34000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
-        {icon: usdIcon, isFavorite: true, firstSymbol: 'USDT', secondSymbol: 'CSPR', firstAmount: '50.00000002', secondAmount: '4000.00000122', userLP: '19', totalLP: '23000', onOptionClick: (option, firstSymbol, secondSymbol) => {}},
+        {
+            firstTokenIcon: ethToken,
+            secondTokenIcon: csprToken,
+            isFavorite: true,
+            firstSymbol: 'ETH',
+            secondSymbol: 'CSPR',
+            firstAmount: '200.00000002',
+            secondAmount: '4000000.00000122',
+            userLP: '10',
+            totalLP: '232000',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            }
+        },
+        {
+            firstTokenIcon: btcToken,
+            secondTokenIcon: csprToken,
+            isFavorite: true,
+            firstSymbol: 'BTC',
+            secondSymbol: 'CSPR',
+            firstAmount: '0.05',
+            secondAmount: '9000000.00000122',
+            userLP: '1.02',
+            totalLP: '34000',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            }
+        },
+        {
+            firstTokenIcon: usdIcon,
+            secondTokenIcon: csprToken,
+            isFavorite: true,
+            firstSymbol: 'USDT',
+            secondSymbol: 'CSPR',
+            firstAmount: '50.00000002',
+            secondAmount: '4000.00000122',
+            userLP: '19',
+            totalLP: '23000',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            }
+        },
     ]
 };
