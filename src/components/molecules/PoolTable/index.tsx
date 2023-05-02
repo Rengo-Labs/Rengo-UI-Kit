@@ -82,6 +82,10 @@ export const PoolTable = ({
   const [balanceData, setBalanceData] = useState<IHeaderPool[]>(() => data)
   const deviceType = useDeviceType()
 
+  useEffect(() => {
+    setBalanceData(data)
+  }, [data])
+  
   const isMobile = deviceType === DeviceType.MOBILE
 
   const handleSort = (key: string, isAscending: boolean) => {
