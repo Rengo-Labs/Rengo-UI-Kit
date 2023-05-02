@@ -46,6 +46,7 @@ export {
     PoolTable,
     PoolTableItem,
     LPSearch,
-    WalletConnectedOptions
+    WalletConnectedOptions,
+    PoolItemDetails
 } from './components';
 export {InputType, ToggleVariant} from './types/index';
