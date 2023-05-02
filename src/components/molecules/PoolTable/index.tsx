@@ -202,6 +202,8 @@ export const PoolTable = ({
             }
             favoriteHandler={() => favoriteHandler(row.name)}
             isFavorite={row.isFavorite}
+            toggleDialog={() => toggleDialog(row.name)}
+            actionsDialogActive={actionsDialogActive === row.name}
           />
         ) : (
           <PoolTableItem

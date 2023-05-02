@@ -46,11 +46,12 @@ export const PoolItemMobile = ({
   handleTrash,
   handleSwap,
   handleView,
-  handleAddLiquidity
+  handleAddLiquidity,
+  toggleDialog,
+  actionsDialogActive
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
-  const [actionsDialogActive, setActionsDialogActive] = useState(false)
 
   useEffect(() => {
     setCurrentTheme(theme)
@@ -83,7 +84,7 @@ export const PoolItemMobile = ({
                 : currentTheme?.color.modalText
             }
             size={20}
-            onClick={() => setActionsDialogActive((prev) => !prev)}
+            onClick={toggleDialog}
           />
           <ActionsWrapper actionsDialogActive={actionsDialogActive}>
             <ActionsInnerWrapper>
