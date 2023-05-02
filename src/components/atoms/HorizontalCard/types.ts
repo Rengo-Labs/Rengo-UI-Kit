@@ -1,5 +1,6 @@
 export interface HorizontalCardProps {
-  icon: string
+  firstTokenIcon: string
+  secondTokenIcon: string
   tokenPairs: Array<string>
   pairsLiquidity: Array<{ name: string, value: string }>
   userPoolInfo: Array<string>
