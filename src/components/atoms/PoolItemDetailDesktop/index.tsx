@@ -32,7 +32,7 @@ export const PoolItemDetailDesktop = ({
   token0Symbol,
   token1Symbol,
   isFavorite,
-  favoriteHandler,
+  handleFavorite,
   yourLiquidity,
   liqudiity,
   assetsPooled,
@@ -62,7 +62,7 @@ export const PoolItemDetailDesktop = ({
                   src={isFavorite ? favoriteIconFill : favoriteIcon}
                   width={20}
                   height={20}
-                  onClick={favoriteHandler}
+                  onClick={handleFavorite}
                 />
                 <IconWrapper>
                   <Icon
@@ -84,21 +84,21 @@ export const PoolItemDetailDesktop = ({
               </TokenPairWrapper>
               <PoolKeyPairContainer>
                 <PoolKey>Your Liquidity</PoolKey>
-                <PoolValue>{yourLiquidity} CSPR</PoolValue>
+                <PoolValue>{yourLiquidity}</PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
                 <PoolKey>Assets Pooled</PoolKey>
                 <PoolValue>
-                  {assetsPooled} {token0Symbol}
+                  {assetsPooled.asset0}
                 </PoolValue>
                 <PoolValue>
-                  {assetsPooled} {token1Symbol}
+                  {assetsPooled.asset1}
                 </PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
                 <PoolKey>Your Share</PoolKey>
                 <PoolValue>
-                  {yourShare} {token1Symbol}
+                  {yourShare}
                 </PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>

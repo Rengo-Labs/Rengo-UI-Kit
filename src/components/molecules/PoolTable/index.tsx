@@ -19,12 +19,12 @@ export interface IHeaderPool {
   balance: string
 }
 
-export interface PoolableProps {
+export interface PoolTableProps {
   data: IHeaderPool[]
   widthIcon?: number
   heightIcon?: number
   handleSwap: (path: string, pool: string) => void
-  handleView: () => void
+  handleView: (name: string) => void
   handleAddLiquidity: (path: string, pool: string) => void
   handleTrash: () => void
   handleFavorite: (name: string) => void
@@ -78,7 +78,7 @@ export const PoolTable = ({
   handleFavorite,
   query = '',
   showStakedOnly
-}: PoolableProps) => {
+}: PoolTableProps) => {
   const [balanceData, setBalanceData] = useState<IHeaderPool[]>(() => data)
   const deviceType = useDeviceType()
 
@@ -190,7 +190,7 @@ export const PoolTable = ({
             apr={row.apr}
             handleTrash={handleTrash}
             handleSwap={() => handleSwap('/swap', row.pool)}
-            handleView={handleView}
+            handleView={() => handleView(row.name)}
             handleAddLiquidity={() =>
               handleAddLiquidity('/liquidity', row.pool)
             }
@@ -211,11 +211,11 @@ export const PoolTable = ({
             apr={row.apr}
             handleTrash={handleTrash}
             handleSwap={() => handleSwap('/swap', row.pool)}
-            handleView={handleView}
+            handleView={() => handleView(row.name)}
             handleAddLiquidity={() =>
               handleAddLiquidity('/liquidity', row.pool)
             }
-            favoriteHandler={() => favoriteHandler(row.pool)}
+            favoriteHandler={() => favoriteHandler(row.name)}
             isFavorite={row.isFavorite}
           />
         )

@@ -25,9 +25,6 @@ export const DialogHeaderContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 50px;
-  box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
   background: ${({ theme }) => theme.color.tab.background};
 `
 

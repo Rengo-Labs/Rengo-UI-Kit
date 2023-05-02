@@ -33,7 +33,7 @@ export const PoolItemDetailMobile = ({
   token0Symbol,
   token1Symbol,
   isFavorite,
-  favoriteHandler,
+  handleFavorite,
   yourLiquidity,
   liqudiity,
   assetsPooled,
@@ -61,7 +61,7 @@ export const PoolItemDetailMobile = ({
               src={isFavorite ? favoriteIconFill : favoriteIcon}
               width={20}
               height={20}
-              onClick={favoriteHandler}
+              onClick={handleFavorite}
             />
             <IconWrapper>
               <Icon
@@ -81,16 +81,16 @@ export const PoolItemDetailMobile = ({
           </TokenPairWrapper>
           <PoolKeyPairContainer>
             <PoolKey>Your Liquidity</PoolKey>
-            <PoolValue>{yourLiquidity} CSPR</PoolValue>
+            <PoolValue>{yourLiquidity}</PoolValue>
           </PoolKeyPairContainer>
           <PoolKeyPairContainer>
             <PoolKey>Assets Pooled</PoolKey>
-            <PoolValue>{assetsPooled} {token0Symbol}</PoolValue>
-            <PoolValue>{assetsPooled} {token1Symbol}</PoolValue>
+            <PoolValue>{assetsPooled.asset0}</PoolValue>
+            <PoolValue>{assetsPooled.asset1}</PoolValue>
           </PoolKeyPairContainer>
           <PoolKeyPairContainer>
             <PoolKey>Your Share</PoolKey>
-            <PoolValue>{yourShare} {token1Symbol}</PoolValue>
+            <PoolValue>{yourShare}</PoolValue>
           </PoolKeyPairContainer>
           <PoolKeyPairContainer>
             <PoolKey>Liquidity</PoolKey>
