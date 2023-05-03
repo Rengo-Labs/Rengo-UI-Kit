@@ -49,7 +49,8 @@ import { HorizontalCardProps } from './types'
 */
 
 export const HorizontalCard = ({
-  icon,
+  firstTokenIcon,
+  secondTokenIcon,
   tokenPairs,
   pairsLiquidity,
   userPoolInfo,
@@ -94,8 +95,12 @@ export const HorizontalCard = ({
             onClick={favoriteHandler}/>
           )}
 
-          {icon && (
-            <Image src={icon} alt='token' />
+          {firstTokenIcon && (
+            <Image src={firstTokenIcon} alt='token' />
+          )}
+
+          {secondTokenIcon && (
+              <Image src={secondTokenIcon} alt='token' />
           )}
 
           <TokenPairsNamesWrapper>

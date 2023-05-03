@@ -7,6 +7,7 @@ import {
   Trash2
 } from 'react-feather'
 import styled from 'styled-components'
+import { ImageProps } from '../../molecules/Menu/types'
 
 export interface Props {
   hidden?: boolean
@@ -18,7 +19,10 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-right: 80px;
+
+  @media screen and (min-width: 1250px) {
+    padding-right: 80px;
+  }
 `
 
 export const TokenPairWrapper = styled.div`
@@ -182,3 +186,18 @@ export const ViewIcon = styled(Eye)`
     filter: brightness(0.8);
   }
 `
+
+export const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Icon = styled.img.attrs<ImageProps>(({ width, height }) => ({
+  width: width,
+  height: height,
+}))<ImageProps>`
+  &:first-child {
+    margin-right: -15px
+  }
+`;

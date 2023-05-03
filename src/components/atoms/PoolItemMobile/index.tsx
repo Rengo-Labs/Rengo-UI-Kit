@@ -10,7 +10,6 @@ import {
   Title,
   Wrapper
 } from './styles'
-import { IHeader } from '../../molecules'
 import { Divider } from '../Divider'
 import { IPoolTableItem } from '../PoolTableItem'
 import favoriteIcon from '../PoolTableItem/assets/favorite.svg'
@@ -22,6 +21,8 @@ import {
   ActionsWrapper,
   AddLiquidityIcon,
   DeleteIcon,
+  Icon,
+  IconWrapper,
   SeeActionsIcon,
   SeeActionsIconWrapper,
   ShuffleIcon,
@@ -31,10 +32,13 @@ import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 
 export const PoolItemMobile = ({
-  tokenPairIcon,
-  tokenPairs,
+  token0Icon,
+  token1Icon,
+  widthIcon,
+  heightIcon,
+  pool,
   liquidity,
-  volumen7d,
+  volume7d,
   fees7d,
   apr,
   isFavorite,
@@ -42,11 +46,12 @@ export const PoolItemMobile = ({
   handleTrash,
   handleSwap,
   handleView,
-  handleAddLiquidity
+  handleAddLiquidity,
+  toggleDialog,
+  actionsDialogActive
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
-  const [actionsDialogActive, setActionsDialogActive] = useState(false)
 
   useEffect(() => {
     setCurrentTheme(theme)
@@ -65,10 +70,11 @@ export const PoolItemMobile = ({
             height={20}
             onClick={favoriteHandler}
           />
-          {tokenPairIcon && <img src={tokenPairIcon} alt={tokenPairs[0]} />}
-          <Title>
-            {tokenPairs[0]}-{tokenPairs[1]}
-          </Title>
+          <IconWrapper>
+            <Icon src={token0Icon} alt={pool} width={widthIcon} height={heightIcon} />
+            <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
+          </IconWrapper>
+          <Title>{pool}</Title>
         </HeaderTitle>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
@@ -78,7 +84,7 @@ export const PoolItemMobile = ({
                 : currentTheme?.color.modalText
             }
             size={20}
-            onClick={() => setActionsDialogActive((prev) => !prev)}
+            onClick={toggleDialog}
           />
           <ActionsWrapper actionsDialogActive={actionsDialogActive}>
             <ActionsInnerWrapper>
@@ -120,11 +126,11 @@ export const PoolItemMobile = ({
       <Footer>
         <HeaderSubtitle>
           <Subtitle>Liquidity</Subtitle>
-          <SubtitleValue>${liquidity}</SubtitleValue>
+          <SubtitleValue>{liquidity}</SubtitleValue>
         </HeaderSubtitle>
         <HeaderSubtitle>
           <Subtitle>Volumen 7D</Subtitle>
-          <SubtitleValue>{volumen7d}</SubtitleValue>
+          <SubtitleValue>{volume7d}</SubtitleValue>
         </HeaderSubtitle>
       </Footer>
       <Divider />
@@ -135,7 +141,7 @@ export const PoolItemMobile = ({
         </HeaderSubtitle>
         <HeaderSubtitle>
           <Subtitle>APR</Subtitle>
-          <SubtitleValue>{apr}</SubtitleValue>
+          <SubtitleValue>{apr} %</SubtitleValue>
         </HeaderSubtitle>
       </Footer>
     </Wrapper>

@@ -13,7 +13,9 @@ import {
   ShuffleIcon,
   Text,
   TokenPairWrapper,
-  Wrapper
+  Wrapper,
+  Icon,
+  IconWrapper
 } from './styles'
 import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
@@ -22,10 +24,13 @@ import favoriteIconFill from './assets/favoriteFill.svg'
 
 export interface IPoolTableItem {
   id?: string
-  tokenPairIcon: string
-  tokenPairs: Array<string>
+  token0Icon: any
+  token1Icon: any
+  widthIcon: number
+  heightIcon: number
+  pool: string
   liquidity: string
-  volumen7d: string
+  volume7d: string
   fees7d: string
   apr: string
   isFavorite?: boolean
@@ -34,13 +39,18 @@ export interface IPoolTableItem {
   handleSwap: () => void
   handleView: () => void
   handleAddLiquidity: () => void
+  toggleDialog?: () => void
+  actionsDialogActive?: boolean
 }
 
 export const PoolTableItem = ({
-  tokenPairIcon,
-  tokenPairs,
+  token0Icon,
+  token1Icon,
+  widthIcon,
+  heightIcon,
+  pool,
   liquidity,
-  volumen7d,
+  volume7d,
   fees7d,
   apr,
   isFavorite,
@@ -48,11 +58,12 @@ export const PoolTableItem = ({
   handleTrash,
   handleSwap,
   handleView,
-  handleAddLiquidity
+  handleAddLiquidity,
+  toggleDialog,
+  actionsDialogActive
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
-  const [actionsDialogActive, setActionsDialogActive] = useState(false)
 
   useEffect(() => {
     setCurrentTheme(theme)
@@ -61,8 +72,6 @@ export const PoolTableItem = ({
       setCurrentTheme(theme)
     }
   }, [theme])
-
-
 
   return (
     <Wrapper>
@@ -73,15 +82,16 @@ export const PoolTableItem = ({
           height={20}
           onClick={favoriteHandler}
         />
-        <img src={tokenPairIcon} alt={`${tokenPairs[0]}-${tokenPairs[1]}`} />
-        <Text>
-          {tokenPairs[0]}-{tokenPairs[1]}
-        </Text>
+        <IconWrapper>
+          <Icon src={token0Icon} alt={pool} width={widthIcon} height={heightIcon} />
+          <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
+        </IconWrapper>
+        <Text>{pool}</Text>
       </TokenPairWrapper>
       <Text>${liquidity}</Text>
-      <Text>${volumen7d}</Text>
+      <Text>${volume7d}</Text>
       <Text>${fees7d}</Text>
-      <Text>${apr}</Text>
+      <Text>{apr} %</Text>
       <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
         <SeeActionsIcon
           color={
@@ -90,7 +100,7 @@ export const PoolTableItem = ({
               : currentTheme?.color.modalText
           }
           size={20}
-          onClick={() => setActionsDialogActive((prev) => !prev)}
+          onClick={toggleDialog}
         />
         <ActionsWrapper actionsDialogActive={actionsDialogActive}>
           <ActionsInnerWrapper>

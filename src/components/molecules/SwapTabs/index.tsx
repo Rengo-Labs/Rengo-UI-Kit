@@ -23,6 +23,19 @@ export interface SwapTabsProps {
     priceImpact: number | string;
     priceImpactMessage: string;
     slippageSetter: (value: number) => void;
+    // graphic
+    onClickButton0: () => void,
+    onClickButton1: () => void,
+    graphicData: any[],
+    todayPrice: string,
+    yesterdayPrice: string,
+    xAxisName: string,
+    chart0Name: string,
+    chart1Name: string,
+    charWidth?: number,
+    charHeight?: number,
+    showChart1: boolean,
+    showChart0: boolean
 
 }
 
@@ -47,15 +60,40 @@ export const SwapTabs = ({
                              priceImpactMessage,
                              networkGasFee,
                              networkGasFeeSetter,
-                             slippageSetter
+                             slippageSetter,
+                             // graphic
+                             onClickButton0,
+                             onClickButton1,
+                             graphicData,
+                             todayPrice,
+                             yesterdayPrice,
+                             xAxisName,
+                             chart0Name,
+                             chart1Name,
+                             charWidth,
+                             charHeight,
+                             showChart1,
+                             showChart0
                          }: SwapTabsProps) => {
-    const swapPriceTab = ( <SwapPrice
-        firstTokenImg={firstTokenImg}
-        secondTokenImg={secondTokenImg}
-        onClickButton={() => {
-            console.log('click')
-        }}
-    />)
+    const swapPriceTab = (
+        <SwapPrice
+            firstTokenImg={firstTokenImg}
+            secondTokenImg={secondTokenImg}
+            firstTokenSymbol={firstSymbolToken}
+            secondTokenSymbol={secondSymbolToken}
+            onClickButton0={onClickButton0}
+            onClickButton1={onClickButton1}
+            graphicData={graphicData}
+            todayPrice={todayPrice}
+            yesterdayPrice={yesterdayPrice}
+            xAxisName={xAxisName}
+            chart0Name={chart0Name}
+            chart1Name={chart1Name}
+            charWidth={charWidth}
+            charHeight={charHeight}
+            showChart1={showChart1}
+            showChart0={showChart0}
+        />)
 
     const swapMoreInfoTab = (
         <SwapMoreInfo
@@ -138,7 +176,10 @@ export const SwapTabs = ({
     }
 
     return (
-        <Column props={{xs: 12}}>
+        <Column props={{
+            xs: 12,
+            id: 'swap-tabs'
+        }}>
             <Row>
                 <Tabs tabs={tabs} onClick={handleTabClick}/>
             </Row>

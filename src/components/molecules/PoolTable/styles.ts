@@ -13,5 +13,5 @@ export const Wrapper = styled.table<IWrapperProps>`
   width: 100%;
   background-color: ${({theme, isMobile}) => isMobile ? 'transparent' : theme.color.table.header.background};
   border-radius: 16px;
-  padding-left: 10px;
+  padding: 0 0 10px 10px;
 `

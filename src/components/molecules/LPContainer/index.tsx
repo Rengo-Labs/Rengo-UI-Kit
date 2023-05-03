@@ -3,7 +3,8 @@ import {LiquidityWrapped, LiquidityTitle} from './styles'
 import {LPOptionType} from './types'
 import {HorizontalCard} from '../../atoms'
 export interface LPToken {
-  icon: any,
+  firstTokenIcon: any,
+  secondTokenIcon: any,
   isFavorite: boolean,
   firstSymbol: string,
   secondSymbol: string,
@@ -48,7 +49,8 @@ export const LPContainer = ({ title, lpTokens = [] } : LPContainerPros) => {
         lpTokens.map((item, index) => {
           return <HorizontalCard
             key={`lp-token-${index}-card-${item.firstSymbol}-${item.secondSymbol}`}
-            icon={item.icon}
+            firstTokenIcon={item.firstTokenIcon}
+            secondTokenIcon={item.secondTokenIcon}
             hasFavorite={item.isFavorite}
             tokenPairs={[item.firstSymbol, item.secondSymbol]}
             pairsLiquidity={[

@@ -50,7 +50,9 @@ import {
   WalletConnection,
   PoolTableItem,
   PoolTable,
-  Notification
+  Notification,
+  LPSearch,
+  PoolItemDetails
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
 import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
@@ -82,6 +84,7 @@ const App = () => {
   const [cardValue, setCardValue] = useState('')
   const [isFavorite, setIsFavorite] = useState(false)
   const [notificationActive, setNotificationActive] = useState(true)
+  const [query, setQuery] = useState('')
   const [tabs, setTabs] = useState([
     {
       id: 1,
@@ -232,14 +235,6 @@ const App = () => {
       />
       <>
         <Container>
-          <button onClick={() => setShowConnectionPopup(true)}>Open</button>
-          <WalletConnection
-            closeCallback={handleConnectionPopup}
-            wallets={WALLETS_DATA}
-            isOpen={showConnectionPopup}
-          />
-        </Container>
-        <Container>
           <Row>
             <Column props={{ xs: 12 }}>
               <div
@@ -288,16 +283,16 @@ const App = () => {
                 max{' '}
               </Button>
             </Column>
-            <Column props={{ xs: 4 }}>
-              <Button
-                type='large'
-                props={{ onClick: () => console.log('clicked') }}
-              >
-                {' '}
-                Swap{' '}
-              </Button>
-            </Column>
           </Row>
+          <Column props={{ xs: 4 }}>
+            <Button
+              type='large'
+              props={{ onClick: () => console.log('clicked') }}
+            >
+              {' '}
+              Swap{' '}
+            </Button>
+          </Column>
         </Container>
         <Container>
           <TextIconTouchable
@@ -329,7 +324,7 @@ const App = () => {
             validator={inputValidator}
           />
         </Container>
-        <Container>
+        <Container props={{ xs: 12, padding: 0 }}>
           <Row>
             <Column props={{ xs: 12 }}>
               <Loader />
@@ -357,7 +352,7 @@ const App = () => {
             </Column>
           </Row>
           <Row>
-            {/* <Column props={{ xs: 12, md: 6 }}>
+            <Column props={{ xs: 12, md: 6 }}>
               <SwapTabs tokenImg={ethLogo} />
             </Column>
             <Column props={{ xs: 12, md: 6 }}>
@@ -367,16 +362,44 @@ const App = () => {
                 gasFee={15}
                 slippageTolerance={0.05}
               />
-            </Column> */}
-          </Row>
-          <Row className='my-1'>
-            <Column props={{ xs: 12}}>
-              <BalanceTable data={BALANCE_TABLE_DATA} />
             </Column>
           </Row>
           <Row className='my-1'>
             <Column props={{ xs: 12 }}>
-              <PoolTable data={POOL_TABLE_DATA} />
+              <BalanceTable data={BALANCE_TABLE_DATA} />
+            </Column>
+          </Row>
+          <Container>
+            <button onClick={() => setShowConnectionPopup(true)}>Open</button>
+            {/* <WalletConnection
+              closeCallback={handleConnectionPopup}
+              wallets={WALLETS_DATA}
+              isOpen={showConnectionPopup}
+            /> */}
+            <PoolItemDetails
+              isOpen={showConnectionPopup}
+              closeCallback={handleConnectionPopup}
+              token0Icon={ethToken}
+              token1Icon={ethToken}
+              token0Symbol='ETH'
+              token1Symbol='CSPR'
+              isFavorite={true}
+              handleFavorite={() => console.log('favorite clicked')}
+              widthIcon={45}
+              heightIcon={45}
+              yourLiquidity='71.54'
+              assetsPooled='71086.476565058'
+              yourShare='136,711.07'
+              liqudiity='4,653,213'
+              volume7D='4,653,213'
+              fees7D='4,653,213'
+              apr='4,653,213'
+            />
+          </Container>
+          <Row className='my-1'>
+            <input value={query} onChange={(e) => setQuery(e.target.value)} />
+            <Column props={{ xs: 12 }}>
+              <PoolTable data={POOL_TABLE_DATA} query={query} />
             </Column>
           </Row>
         </Container>
@@ -384,7 +407,6 @@ const App = () => {
           <div
             style={{
               margin: '30px 0 30px 0',
-              minWidth: '350px',
               maxWidth: '850px',
               height: '66px',
               background: 'white'
@@ -450,14 +472,12 @@ const App = () => {
           </Column>
         </Container>
         <Container>
-          {/* {showCreatePoolDialog && ( */}
-            <CreatePoolDialog
-              isOpen={showCreatePoolDialog}
-              closeCallback={() => setShowCreatePoolDialog(false)}
-              tokenListData={TOKEN_LIST_DATA_CREATE_POOL}
-              popularTokensData={POPULAR_TOKEN_LIST_DATA_CREATE_POOL}
-            />
-          {/* )} */}
+          <CreatePoolDialog
+            isOpen={showCreatePoolDialog}
+            closeCallback={() => setShowCreatePoolDialog(false)}
+            tokenListData={TOKEN_LIST_DATA_CREATE_POOL}
+            popularTokensData={POPULAR_TOKEN_LIST_DATA_CREATE_POOL}
+          />
         </Container>
         <Container>
           <Row className='my-2'>
@@ -478,26 +498,28 @@ const App = () => {
               onClick={handleWalletConnect}
             />
           </Row>
-          {/* {showWalletConnectedOptionsDialog && ( */}
-            <WalletConnectedOptionsDialog
-              isOpen={showWalletConnectedOptionsDialog}
-              closeCallback={() => setShowWalletConnectedOptionsDialog(false)}
-              options={WALLET_CONNECTED_OPTIONS}
-            />
-          {/* )} */}
+          <WalletConnectedOptionsDialog
+            isOpen={showWalletConnectedOptionsDialog}
+            closeCallback={() => setShowWalletConnectedOptionsDialog(false)}
+            options={WALLET_CONNECTED_OPTIONS}
+          />
         </Container>
         <Container>
-          {/* {showRemoveLiquidityDialog && ( */}
-            <RemoveLiquidityDialog
-              id='f90c4f56-ae0a-4da8-bf3d-541c80c89f87'
-              isOpen={showRemoveLiquidityDialog}
-              closeCallback={handleRemoveLiquidity}
-              liquidityPoolData={REMOVE_LIQUIDITY_DATA}
-            />
-          {/* )} */}
-          {/* {showItemDetail && ( */}
-            <LiquidityItemDetail isOpen={showItemDetail} closeCallback={handleItemDetail} />
-          {/* )} */}
+          <RemoveLiquidityDialog
+            id='f90c4f56-ae0a-4da8-bf3d-541c80c89f87'
+            isOpen={showRemoveLiquidityDialog}
+            closeCallback={handleRemoveLiquidity}
+            liquidityPoolData={REMOVE_LIQUIDITY_DATA}
+            calculatedAmounts={
+           {   lpAmount: 123123.123,
+              firstAmount: 123123.123,
+              secondAmount: 123123.123}
+            }
+          />
+          <LiquidityItemDetail
+            isOpen={showItemDetail}
+            closeCallback={handleItemDetail}
+          />
         </Container>
         <Container>
           <Row>
@@ -567,6 +589,9 @@ const App = () => {
             onClose={() => setNotificationActive(prev => !prev)}
             />
         )}
+        <Container>
+          <LPSearch handleOnlyShowStaked={(e) => console.log('LPSearch', e)} />
+        </Container>
       </>
     </UiProvider>
   )
