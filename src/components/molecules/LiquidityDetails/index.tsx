@@ -37,12 +37,10 @@ interface ILiquidityDetailsProps {
 export const LiquidityDetails = ({firstSymbol, secondSymbol, maxAmount, firstTotalLiquidity, secondTotalLiquidity, totalSupply, slippage, setSlippage, networkFee, setNetworkFee}: ILiquidityDetailsProps) => {
 
   const handleSlippageTolerance = (value: number) => {
-    console.log('handleSlippageTolerance', value)
     setSlippage(value)
   }
 
   const handleNetworkGasFee = (value: number) => {
-    console.log('handleNetworkGasFee', value)
     setNetworkFee(value)
   }
 
@@ -65,7 +63,7 @@ export const LiquidityDetails = ({firstSymbol, secondSymbol, maxAmount, firstTot
         onChange={handleSlippageTolerance}
       />
       <Divider />
-      
+
       <KeyValueInput
         keyText='Network gas fee'
         value={networkFee}
