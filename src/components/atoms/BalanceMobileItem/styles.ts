@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   border-radius: 16px;
   background-color: ${({ theme }) => theme.color.table.header.background};
 `

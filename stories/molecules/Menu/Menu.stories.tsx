@@ -1,6 +1,6 @@
 import React from 'react';
 import {ComponentMeta, ComponentStory} from "@storybook/react";
-import {Menu, MenuPros} from "../../../src/components";
+import {Menu} from "../../../src/components";
 // @ts-ignore
 import ethToken from '../../assets/eth-token.svg';
 // @ts-ignore
@@ -65,7 +65,8 @@ Default.args = {
     rightAction: rightAction,
     toggle: toggleAction,
     menuBackground: 'default',
-    isWalletConnected: false
+    isWalletConnected: false,
+    handleRedirect: () => console.log('handleRedirect')
 };
 export const WalletConnected = Template.bind({});
 WalletConnected.args = {
@@ -76,5 +77,6 @@ WalletConnected.args = {
     rightAction: rightActionConnected,
     toggle: toggleAction,
     menuBackground: 'default',
-    isWalletConnected: true
+    isWalletConnected: true,
+    handleRedirect: () => console.log('handleRedirect')
 };
