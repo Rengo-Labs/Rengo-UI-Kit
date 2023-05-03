@@ -84,7 +84,6 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options, isOpen}: W
   }
 
   const handleCopyToClipboard = (item: Options) => {
-    console.log(`copy to clipboard ${item.name}`)
     navigator.clipboard.writeText(item.name)
 
     setCopied({
