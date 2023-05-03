@@ -15,10 +15,10 @@ interface Props {
 export const Wrapper = styled.div<Props>`
   width: 100%;
   display: flex;
-  justify-content: ${(props) => props.distribution};
   align-items: center;
   background: ${({ theme }) => theme.color.tab.background};
   border-bottom: ${({ isLast, theme }) => isLast ? 'none' : `1px solid ${theme.border.default}`};
+  gap: 15px;
   &:hover {
     cursor: pointer;
     background-color: ${({ theme }) => theme.color.tab.hover};
