@@ -55,7 +55,10 @@ export const RemoveLiquidityDialog = ({
                                           handleChangeInput,
                                           handleToggle,
                                           handleRemoveLiquidity,
+                                          handleAllowanceLiquidity,
                                           calculatedAmounts,
+                                          showAllowance,
+                                          defaultValue
                                       }: RemoveLiquidityDialogProps): JSX.Element => {
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
@@ -77,6 +80,10 @@ export const RemoveLiquidityDialog = ({
         handleRemoveLiquidity()
     }
 
+    const handleAllowance = () => {
+        handleAllowanceLiquidity()
+    }
+
     return (
         <Dialog
             isOpen={isOpen}
@@ -95,7 +102,7 @@ export const RemoveLiquidityDialog = ({
                 <InnerContainer isMobile={isMobile}>
                     <TopSubContainer>
                         <SliderContainer>
-                            <Slider callback={handlePercentageChange}/>
+                            <Slider defaultValue={defaultValue} callback={handlePercentageChange}/>
                         </SliderContainer>
 
                         <TransactionsContainer>
@@ -105,8 +112,8 @@ export const RemoveLiquidityDialog = ({
                                 Icon={liquidityPoolData.firstIcon}
                                 OptIcon={liquidityPoolData.secondIcon}
                                 iconSize={45}
-                                tokenNames={[`${liquidityPoolData.firstName}-${liquidityPoolData.secondName}`]}
-                                tokenNameSymbols={[liquidityPoolData.firstName, liquidityPoolData.secondName]}
+                                tokenNames={[liquidityPoolData.firstName, liquidityPoolData.secondName]}
+                                tokenNameSymbols={[liquidityPoolData.firstSymbol, liquidityPoolData.secondSymbol]}
                                 amount={`${calculatedAmounts.lpAmount}`}/>
                             <TransactionDetails
                                 key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.firstName}`}
@@ -115,7 +122,7 @@ export const RemoveLiquidityDialog = ({
                                 iconSize={45}
                                 tokenNames={[liquidityPoolData.firstName]}
                                 tokenNameSymbols={[liquidityPoolData.firstSymbol]}
-                                amount={`${calculatedAmounts.secondAmount}`}/>
+                                amount={`${calculatedAmounts.firstAmount}`}/>
                             <TransactionDetails
                                 key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.secondName}`}
                                 distribution={Distribution.SpaceEvenly}
@@ -128,21 +135,21 @@ export const RemoveLiquidityDialog = ({
 
                         <TransactionDetailsTextOnly
                             tokenInfo={[
-                                `1 ${liquidityPoolData.firstName} = ${liquidityPoolData.secondLiquidity} ${liquidityPoolData.secondName}`,
-                                `1 ${liquidityPoolData.secondName} = ${liquidityPoolData.firstLiquidity} ${liquidityPoolData.firstName}`
+                                `1 ${liquidityPoolData.firstSymbol} = ${liquidityPoolData.secondLiquidity} ${liquidityPoolData.secondSymbol}`,
+                                `1 ${liquidityPoolData.secondSymbol} = ${liquidityPoolData.firstLiquidity} ${liquidityPoolData.firstSymbol}`
                             ]}
                         />
                     </TopSubContainer>
 
                     <BottomSubContainer>
                         {
-                            disabledAllowanceButton ?
+                            showAllowance ?
                                 <Button
                                     type="large"
                                     props={
-                                        {onClick: () => handleSubmit(), style: {padding: 0}}
+                                        {disabled: disabledAllowanceButton, onClick: () => handleAllowance(), style: {padding: 0}}
                                     }>
-                                    Approve {-liquidityPoolData.allowance} {liquidityPoolData.tokenName}
+                                    Approve {calculatedAmounts.allowance} {liquidityPoolData.tokenName}
                                 </Button>
                                 :
                                 <Button

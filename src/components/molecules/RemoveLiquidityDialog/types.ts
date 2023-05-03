@@ -19,15 +19,19 @@ export interface RemoveLiquidityDialogProps {
   closeCallback: () => void
   handleChangeInput: (value: number) => void
   handleRemoveLiquidity: () => void
+  handleAllowanceLiquidity: () => void
   handleToggle: (value: boolean) => void
   liquidityPoolData: PairData
   isOpen: boolean
   disabledButton: boolean
   disabledAllowanceButton: boolean,
+  showAllowance: boolean,
   isRemoveLiquidityCSPR: boolean,
+  defaultValue: number,
   calculatedAmounts: {
     lpAmount: number
     firstAmount: number
     secondAmount: number
+    allowance: number
   }
 }
