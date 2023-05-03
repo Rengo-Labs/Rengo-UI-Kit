@@ -36,6 +36,7 @@ export * from './ExchangeRate';
 export * from './ContainerLayout';
 export * from './PoolTableItem'
 export * from './PoolItemMobile'
+export * from './Notification'
 export * from './PoolItemDetailDesktop'
 export * from './PoolItemDetailMobile'
 

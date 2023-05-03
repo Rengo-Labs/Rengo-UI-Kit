@@ -50,6 +50,7 @@ import {
   WalletConnection,
   PoolTableItem,
   PoolTable,
+  Notification,
   LPSearch,
   PoolItemDetails
 } from 'rengo-ui-kit'
@@ -82,6 +83,7 @@ const App = () => {
   const [settingOption, setSettingOption] = useState('')
   const [cardValue, setCardValue] = useState('')
   const [isFavorite, setIsFavorite] = useState(false)
+  const [notificationActive, setNotificationActive] = useState(true)
   const [query, setQuery] = useState('')
   const [tabs, setTabs] = useState([
     {
@@ -508,6 +510,11 @@ const App = () => {
             isOpen={showRemoveLiquidityDialog}
             closeCallback={handleRemoveLiquidity}
             liquidityPoolData={REMOVE_LIQUIDITY_DATA}
+            calculatedAmounts={
+           {   lpAmount: 123123.123,
+              firstAmount: 123123.123,
+              secondAmount: 123123.123}
+            }
           />
           <LiquidityItemDetail
             isOpen={showItemDetail}
@@ -573,6 +580,15 @@ const App = () => {
             ]}
           />
         </Container>
+        {notificationActive && (
+          <Notification 
+            title='Liquidity correctly removed'
+            message="Checking the progress of your <a href='/deploy'>deploy</a>."
+            type='success'
+            position='top-center'
+            onClose={() => setNotificationActive(prev => !prev)}
+            />
+        )}
         <Container>
           <LPSearch handleOnlyShowStaked={(e) => console.log('LPSearch', e)} />
         </Container>
