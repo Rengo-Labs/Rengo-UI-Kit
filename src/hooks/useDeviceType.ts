@@ -5,7 +5,7 @@ export const useDeviceType = (): DeviceType => {
   const [deviceType, setDeviceType] = useState<DeviceType>(DeviceType.DESKTOP);
 
   const handleResize = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 900) {
       setDeviceType(DeviceType.MOBILE);
     } else if (window.innerWidth < 1024) {
       setDeviceType(DeviceType.TABLET);
