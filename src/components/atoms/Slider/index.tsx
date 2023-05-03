@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { PercentageLabel, Wrapper, Input, PercentageContainer } from './style';
 
 interface SliderProps {
+  defaultValue: number,
   callback: (selectedPercentage: number) => void
 }
 
@@ -12,11 +13,9 @@ interface SliderProps {
  * @param {function} props.callback - {(selectedPercentage: number) => void} - Callback function called when the percentage value changes
  * @returns {JSX.Element} - A React element representing the Slider component
 */
-export const Slider = ({ callback }: SliderProps) => {
-  const [value, setValue] = useState<number>(0);
-
+export const Slider = ({ defaultValue = 0, callback }: SliderProps) => {
+  
   const handleInputChange = (value: number) => {
-    setValue(value);
     callback(value)
   };
 
@@ -34,7 +33,7 @@ export const Slider = ({ callback }: SliderProps) => {
         type="range"
         min="0"
         max="100"
-        value={value}
+        defaultValue={defaultValue}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputChange(parseInt(event.target.value))}
         id="slider"
       />
@@ -42,7 +41,7 @@ export const Slider = ({ callback }: SliderProps) => {
         {percentages.map(item => (
           <PercentageLabel
             key={`percentage-item-${item.value}`}
-            isSelected={value === item.value}
+            isSelected={defaultValue === item.value}
             onClick={() => handleInputChange(item.value)}>
               {item.name}
           </PercentageLabel>

@@ -11,10 +11,10 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 16px 0 16px 0;
   flex-wrap: wrap;
+  gap: 24px;
 `;
 
 export const LeftWrapper = styled.div<{ isMobile: boolean}>`
