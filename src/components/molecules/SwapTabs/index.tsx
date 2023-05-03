@@ -36,7 +36,7 @@ export interface SwapTabsProps {
     charHeight?: number,
     showChart1: boolean,
     showChart0: boolean
-
+    tabDefault?: number
 }
 
 /**
@@ -73,7 +73,8 @@ export const SwapTabs = ({
                              charWidth,
                              charHeight,
                              showChart1,
-                             showChart0
+                             showChart0,
+                             tabDefault = 1
                          }: SwapTabsProps) => {
     const swapPriceTab = (
         <SwapPrice
@@ -117,13 +118,13 @@ export const SwapTabs = ({
         {
             id: 1,
             text: 'Price',
-            isActive: true,
+            isActive: tabDefault === 1 ? true : false,
             component: swapPriceTab
         },
         {
             id: 2,
             text: 'More Info',
-            isActive: false,
+            isActive: tabDefault === 2 ? true : false,
             component: swapMoreInfoTab
         }
     ]
