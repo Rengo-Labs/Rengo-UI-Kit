@@ -49,7 +49,8 @@ import {
   LPContainer,
   WalletConnection,
   PoolTableItem,
-  PoolTable
+  PoolTable,
+  Notification
 } from 'rengo-ui-kit'
 import ethLogo from './assets/icons/eth-logo.svg'
 import downwardsArrowIcon from './assets/icons/downwards-arrow-icon.svg'
@@ -80,6 +81,7 @@ const App = () => {
   const [settingOption, setSettingOption] = useState('')
   const [cardValue, setCardValue] = useState('')
   const [isFavorite, setIsFavorite] = useState(false)
+  const [notificationActive, setNotificationActive] = useState(true)
   const [tabs, setTabs] = useState([
     {
       id: 1,
@@ -556,6 +558,15 @@ const App = () => {
             ]}
           />
         </Container>
+        {notificationActive && (
+          <Notification 
+            title='Liquidity correctly removed'
+            message="Checking the progress of your <a href='/deploy'>deploy</a>."
+            type='success'
+            position='top-center'
+            onClose={() => setNotificationActive(prev => !prev)}
+            />
+        )}
       </>
     </UiProvider>
   )
