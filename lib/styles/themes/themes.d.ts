@@ -38,6 +38,11 @@ export interface theme {
         lavender: string;
         modalText: string;
         textInactive: string;
+        notification: {
+            title: string;
+            message: string;
+            anchor: string;
+        };
         error: {
             lighter: string;
             light: string;
@@ -127,6 +132,9 @@ export interface theme {
         toggle: {
             inverted: string;
         };
+        notification: {
+            default: string;
+        };
     };
     border: {
         darkLilac: string;
@@ -143,6 +151,11 @@ export interface theme {
         default: string;
         dialog: string;
         wallet: string;
+        notification: {
+            error: string;
+            success: string;
+            info: string;
+        };
     };
     defaultColor: string;
     primaryColor: string;

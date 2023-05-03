@@ -1,4 +1,5 @@
 interface SliderProps {
+    defaultValue: number;
     callback: (selectedPercentage: number) => void;
 }
 /**
@@ -8,5 +9,5 @@ interface SliderProps {
  * @param {function} props.callback - {(selectedPercentage: number) => void} - Callback function called when the percentage value changes
  * @returns {JSX.Element} - A React element representing the Slider component
 */
-export declare const Slider: ({ callback }: SliderProps) => JSX.Element;
+export declare const Slider: ({ defaultValue, callback }: SliderProps) => JSX.Element;
 export {};
