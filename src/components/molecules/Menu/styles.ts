@@ -21,6 +21,7 @@ export const LeftTextContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 `;
 
 export const CenterTextContainer = styled.div`
@@ -111,5 +112,7 @@ export const MobileMenuItemContainer = styled.div`
 export const Icon = styled.img.attrs<ImageProps>(({ width, height }) => ({
     width: width,
     height: height,
-  }))<ImageProps>``;
+  }))<ImageProps>`
+    cursor: pointer;
+  `;
 

@@ -23,7 +23,7 @@ export const Menu = forwardRef(({
   links,
   toggle,
   rightAction,
-  // ref
+  handleRedirect
 }: MenuPros, ref: ForwardedRef<HTMLDivElement>) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
@@ -47,7 +47,7 @@ export const Menu = forwardRef(({
               />
             </MobileMenuIcon>
             {isOpen && <MenuItemText size={24}>{title}</MenuItemText>}
-            <Icon src={menuIcon} width={45} height={45} alt={`${title} left icon`} />
+            <Icon src={menuIcon} width={45} height={45} alt={`${title} left icon`} onClick={handleRedirect}/>
             {!isOpen && <ButtonWallet
                 handleClick={rightAction?.isWalletConnected ?
                     rightAction?.onActionConnected :
@@ -82,7 +82,7 @@ export const Menu = forwardRef(({
         </>
       ) : (
         <MenuWrapper isTablet={isTablet} ref={ref}>
-          <LeftTextContainer>
+          <LeftTextContainer onClick={handleRedirect}>
             <Icon src={menuIcon} width={28} height={28} alt={`${title} left icon`} />
             <MenuItem>
               <Icon src={casperIcon} width={120} height={13} alt={`${title} left icon`} />
