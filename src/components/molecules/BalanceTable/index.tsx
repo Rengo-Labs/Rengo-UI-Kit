@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import TableHeader from '../../atoms/TableHeader'
 import { Wrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
@@ -63,6 +63,8 @@ export const BalanceTable = ({
   const [balanceData, setBalanceData] = useState<IHeader[]>([])
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
+  const cryptoColumnRef = useRef<HTMLTableCellElement>(null);
+  const cryptoColumnWidth = cryptoColumnRef.current?.clientWidth || 0
 
   useEffect(() => {
     setBalanceData(data)
@@ -78,9 +80,17 @@ export const BalanceTable = ({
     setBalanceData(sortedData)
   }
 
+  console.log('get the width', cryptoColumnWidth);
+  
+
   return (
     <Wrapper isMobile={isMobile}>
-      {!isMobile && <TableHeader columns={columns} onSort={handleSort} />}
+      {!isMobile && (
+        <TableHeader
+          columns={columns}
+          onSort={handleSort}
+          cryptoColumnRef={cryptoColumnRef} />
+      )}
       {balanceData.map((row) =>
         isMobile ? (
           <BalanceMobileItem
@@ -95,6 +105,7 @@ export const BalanceTable = ({
             row={row}
             widthIcon={widthIcon}
             heightIcon={heightIcon}
+            cryptoColumnWidth={cryptoColumnWidth}
           />
         )
       )}
