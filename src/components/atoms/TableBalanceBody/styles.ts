@@ -5,20 +5,22 @@ export const Body = styled.tbody`
   display: flex;
 `;
 
-export const TR = styled.tr`
+export const TR = styled.tr<{ cryptoColumnWidth: number }>`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   gap: 15px;
   width: 100%;
 `
-export const TD = styled.td`
+export const TD = styled.td<{ isCryptoColumn: boolean, cryptoColumnWidth: number }>`
   flex: 1;
+  width: ${({ cryptoColumnWidth, isCryptoColumn }) => isCryptoColumn && `${cryptoColumnWidth}px` };
   min-height: 32px;
   padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ isCryptoColumn }) => isCryptoColumn ? 'flex-start' : 'center' };
+  flex-wrap: wrap;
   gap: 2px;
 `
 
