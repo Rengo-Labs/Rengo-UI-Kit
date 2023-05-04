@@ -29,7 +29,7 @@ export const ConnectionMobile = ({
       <Content>
         <DialogHeaderContainer>
           <DialogHeader>
-            <DialogTitle>Connect your wallet to casperswap</DialogTitle>
+            <DialogTitle>Connect your wallet to CasperSwap</DialogTitle>
             <CloseButton onClick={closeCallback}>
               <Icons name='X' size={23} color={theme.color.modalText} />
             </CloseButton>
@@ -39,7 +39,7 @@ export const ConnectionMobile = ({
         <InnerContainer>
           <DialogBodyText>
             By connecting your wallet, you acknowledge that you have read,
-            understand and accept the terms in the Disclaimer
+            understand and accept the terms in the disclaimer
           </DialogBodyText>
           <WalletsContainer>
             {wallets.map((wallet) => (
@@ -49,7 +49,7 @@ export const ConnectionMobile = ({
         </InnerContainer>
         <Divider />
         <DialogFooter onClick={linkCallback}>
-          New here? Get started on Casperswap
+          New here? Get started on CasperSwap
         </DialogFooter>
       </Content>
     </Container>

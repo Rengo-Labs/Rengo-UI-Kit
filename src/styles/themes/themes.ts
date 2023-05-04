@@ -38,6 +38,11 @@ export interface theme {
         lavender: string
         modalText: string
         textInactive: string
+        notification: {
+          title: string,
+          message: string
+          anchor: string
+        },
         error: {
             lighter: string
             light: string
@@ -126,6 +131,9 @@ export interface theme {
       }
       toggle: {
         inverted: string
+      },
+      notification: {
+        default: string
       }
     }
     border: {
@@ -143,6 +151,12 @@ export interface theme {
       default: string
       dialog: string
       wallet: string
+
+      notification: {
+        error: string
+        success: string
+        info: string
+      }
     },
     defaultColor: string
     primaryColor: string
@@ -218,6 +232,11 @@ export const defaultTheme: theme = {
         lavender: '#E3DFFD',
         modalText: '#715FF5',
         textInactive: '#767676',
+        notification: {
+          title: '#000000',
+          message: '#000000',
+          anchor: '#715FF5'
+        },
         error: {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
@@ -306,6 +325,9 @@ export const defaultTheme: theme = {
       },
       toggle: {
         inverted: '#58E4C2'
+      },
+      notification: {
+        default: '#F9F9F9'
       }
     },
     border: {
@@ -322,7 +344,13 @@ export const defaultTheme: theme = {
       slider: '#715FF5',
       default: '#EAEBEC',
       dialog: '#EAEBEC',
-      wallet: '#EAEBEC'
+      wallet: '#EAEBEC',
+
+      notification: {
+        error: '#ED6767',
+        success: '#8AED67',
+        info: '#715FF5'
+      }
     },
     defaultColor: '#715FF5',
     primaryColor: '#0ab',
@@ -398,6 +426,11 @@ export const darkTheme: theme = {
         lavender: '#E3DFFD',
         modalText: '#FFFFFF',
         textInactive: '#FFFFFF',
+        notification: {
+          title: '#FFFFFF',
+          message: '#FFFFFF',
+          anchor: '#715FF5'
+        },
         error: {
             lighter: '#F7D4D6',
             light: '#FF1A1A',
@@ -486,6 +519,9 @@ export const darkTheme: theme = {
       },
       toggle: {
         inverted: '#58E4C2'
+      },
+      notification: {
+        default: '#241E52'
       }
     },
     border: {
@@ -502,7 +538,13 @@ export const darkTheme: theme = {
       slider: '#241E52',
       default: '#241E52',
       dialog: '#EAEBEC',
-      wallet: '#241E52'
+      wallet: '#241E52',
+
+      notification: {
+        error: '#ED6767',
+        success: '#8AED67',
+        info: '#715FF5'
+      }
     },
     defaultColor: '#FFFFFF',
     primaryColor: '#0ab',

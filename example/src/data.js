@@ -1,5 +1,6 @@
 import btcTokenIcon from "./assets/icons/bitcoin-token.svg";
 import ethTokenIcon from "./assets/icons/eth-token.svg";
+import csprTokenIcon from "./assets/icons/cspr-token.svg";
 import cstTokenIcon from "./assets/icons/casper-token.svg";
 import usdtTokenIcon from "./assets/icons/tether-token.svg";
 import usdcTokenIcon from "./assets/icons/usdc-token.svg";
@@ -26,11 +27,28 @@ export const POPULAR_TOKEN_LIST_DATA_CREATE_POOL = [
   { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000', tokenImg: ethTokenIcon }
 ]
 
-export const REMOVE_LIQUIDITY_DATA = [
-  { id: 'd3jd92d', tokenNames: ['Wrapper Ether', 'Wrapper Casper'], tokenNameSymbols: ['WETH', 'CSPR'], amount: '0,3', tokenImg: wethCsprPairTokenIcon },
-  { id: 'c9c843b', tokenNames: ['Wrapper Ether'], tokenNameSymbols: ['WETH'], amount: '0,3', tokenImg: ethTokenIcon },
-  { id: '1qwski4', tokenNames: ['Wrapper Casper'], tokenNameSymbols: ['CSPR'], amount: '0,3', tokenImg: cstTokenIcon }
-]
+// export const REMOVE_LIQUIDITY_DATA = [
+//   { id: 'd3jd92d', tokenNames: ['Wrapper Ether', 'Wrapper Casper'], tokenNameSymbols: ['WETH', 'CSPR'], amount: '0,3', tokenImg: wethCsprPairTokenIcon },
+//   { id: 'c9c843b', tokenNames: ['Wrapper Ether'], tokenNameSymbols: ['WETH'], amount: '0,3', tokenImg: ethTokenIcon },
+//   { id: '1qwski4', tokenNames: ['Wrapper Casper'], tokenNameSymbols: ['CSPR'], amount: '0,3', tokenImg: cstTokenIcon }
+// ]
+
+export const REMOVE_LIQUIDITY_DATA = {
+  id: 'fruteaeas',
+  tokenName: 'ETH-CSPR',
+  liquidity: '121231232.223232',
+  allowance: 123123123123,
+  firstIcon: ethTokenIcon,
+  firstName: 'Ethereum',
+  firstSymbol: 'ETH',
+  firstLiquidity: 13112323.23423423,
+  firstRate: 123.01,
+  secondIcon: csprTokenIcon,
+  secondName: 'Casper',
+  secondSymbol: 'CSPR',
+  secondLiquidity: 4333232.222,
+  secondRate: 3123122.333
+}
 
 export const BALANCE_TABLE_DATA = [
   {
