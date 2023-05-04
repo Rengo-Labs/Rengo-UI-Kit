@@ -1,0 +1,1 @@
+export declare const WrapperContainer: import("styled-components").StyledComponent<({ children, className, props }: import("../Container").ContainerProps) => JSX.Element, any, {}, never>;
