@@ -26,6 +26,7 @@ export interface MenuPros {
     rightAction?: OptAction;
     children?: React.ReactNode;
     ref?: React.ForwardedRef<HTMLDivElement>;
+    handleRedirect?: () => void;
 }
 export interface IMenuWrapper {
     isTablet: boolean;
