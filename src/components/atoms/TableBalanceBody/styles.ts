@@ -16,12 +16,13 @@ export const TD = styled.td<{ isCryptoColumn: boolean, cryptoColumnWidth: number
   flex: 1;
   width: ${({ cryptoColumnWidth, isCryptoColumn }) => isCryptoColumn && `${cryptoColumnWidth}px` };
   min-height: 32px;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   display: flex;
   align-items: center;
   justify-content: ${({ isCryptoColumn }) => isCryptoColumn ? 'flex-start' : 'center' };
   flex-wrap: wrap;
   gap: 2px;
+  overflow-wrap: anywhere;
 `
 
 export const Text = styled.p`
