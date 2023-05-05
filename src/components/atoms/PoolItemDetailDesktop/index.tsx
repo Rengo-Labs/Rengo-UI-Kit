@@ -98,7 +98,7 @@ export const PoolItemDetailDesktop = ({
               <PoolKeyPairContainer>
                 <PoolKey>Your Share</PoolKey>
                 <PoolValue>
-                  {yourShare}
+                  {yourShare} %
                 </PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
