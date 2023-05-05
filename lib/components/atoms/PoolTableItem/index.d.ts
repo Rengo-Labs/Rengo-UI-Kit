@@ -17,5 +17,6 @@ export interface IPoolTableItem {
     handleAddLiquidity: () => void;
     toggleDialog?: () => void;
     actionsDialogActive?: boolean;
+    hideRemoveLiquidity: boolean;
 }
-export declare const PoolTableItem: ({ token0Icon, token1Icon, widthIcon, heightIcon, pool, liquidity, volume7d, fees7d, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, }: IPoolTableItem) => JSX.Element;
+export declare const PoolTableItem: ({ token0Icon, token1Icon, widthIcon, heightIcon, pool, liquidity, volume7d, fees7d, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity }: IPoolTableItem) => JSX.Element;
