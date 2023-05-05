@@ -7,7 +7,7 @@ export default {
 } as ComponentMeta<typeof PoolTable>;
 
 // Create a master template for mapping args to render the LiquidityDetail component
-const Template: ComponentStory<typeof PoolTable> = (args) => <div style={{width: '1000px'}}><PoolTable {...args} /></div>;
+const Template: ComponentStory<typeof PoolTable> = (args) => <div style={{width: '1024px'}}><PoolTable {...args} /></div>;
 export const Default = Template.bind({});
 Default.args = {
     data: [
@@ -17,7 +17,7 @@ Default.args = {
             token2Icon: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
             pool: 'WETH-CSPR',
             liquidity: '4,653,213',
-            volumen7d: '4,653,213',
+            volume7d: '4,653,213',
             fees7d: '4,653,213',
             apr: '4,653,213',
             apr1: '4,653,213'
@@ -28,7 +28,7 @@ Default.args = {
             token2Icon: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
             pool: 'WETH-CSPR',
             liquidity: '4,653,213',
-            volumen7d: '4,453,213',
+            volume7d: '4,453,213',
             fees7d: '4,053,213',
             apr: '4,653,213',
             apr1: '4,653,213'
@@ -39,7 +39,7 @@ Default.args = {
             token2Icon: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
             pool: 'WETH-CSPR',
             liquidity: '4,653,213',
-            volumen7d: '4,153,213',
+            volume7d: '4,153,213',
             fees7d: '4,853,213',
             apr: '4,653,213',
             apr1: '4,653,213'

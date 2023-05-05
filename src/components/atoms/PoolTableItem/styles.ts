@@ -14,6 +14,26 @@ export interface Props {
   actionsDialogActive?: boolean
 }
 
+export const TR = styled.tr`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 15px;
+  width: 100%;
+`
+export const TD = styled.td`
+  flex: 1;
+ 
+  min-height: 32px;
+  padding: 10px 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8.94px;
+  overflow-wrap: anywhere;
+`
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
