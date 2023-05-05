@@ -4,6 +4,7 @@ import { Column } from '../../atoms';
 export const Wrapper = styled(Column)`
   background-color: ${({ theme }) => theme.color.tab.background};
   border-radius: 16px;
+  padding: 1rem 2rem 1rem 2rem;
 `;
 
 export const Text = styled.p`

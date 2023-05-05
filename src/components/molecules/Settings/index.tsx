@@ -33,7 +33,7 @@ export const Settings = ({
 
     return (
         <Dialog onClose={handleClose} isOpen={isOpen}>
-            <Wrapper props={{xs: 12}} className='py-1 px-2'>
+            <Wrapper props={{xs: 12}}>
                 <Row className='align-items-center justify-content-between'>
                     <Text>Slippage Tolerance</Text>
                     <CloseIcon size={16} onClick={handleClose}/>
