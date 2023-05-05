@@ -15,23 +15,26 @@ export interface Props {
 }
 
 export const Wrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
-
-  @media screen and (min-width: 1250px) {
-    padding-right: 80px;
-  }
 `
 
 export const TokenPairWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 6px;
-  margin-right: -40px;
 `
+
+export const TextContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+`;
 
 export const Text = styled.p`
   font-family: ${(props) => props.theme.typography.secondaryFont};
@@ -42,6 +45,7 @@ export const Text = styled.p`
   text-align: center;
   letter-spacing: 0.02em;
   color: ${(props) => props.theme.color.default};
+  align-self: center;
 `
 
 export const FavoriteIcon = styled.img`

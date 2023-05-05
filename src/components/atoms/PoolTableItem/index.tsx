@@ -15,7 +15,8 @@ import {
   TokenPairWrapper,
   Wrapper,
   Icon,
-  IconWrapper
+  IconWrapper,
+  TextContainer
 } from './styles'
 import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
@@ -74,63 +75,90 @@ export const PoolTableItem = ({
   }, [theme])
 
   return (
-    <Wrapper>
-      <TokenPairWrapper>
-        <FavoriteIcon
-          src={isFavorite ? favoriteIconFill : favoriteIcon}
-          width={20}
-          height={20}
-          onClick={favoriteHandler}
-        />
-        <IconWrapper>
-          <Icon src={token0Icon} alt={pool} width={widthIcon} height={heightIcon} />
-          <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
-        </IconWrapper>
-        <Text>{pool}</Text>
-      </TokenPairWrapper>
-      <Text>${liquidity}</Text>
-      <Text>${volume7d}</Text>
-      <Text>${fees7d}</Text>
-      <Text>{apr} %</Text>
-      <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
-        <SeeActionsIcon
-          color={
-            actionsDialogActive
-              ? currentTheme?.color.white
-              : currentTheme?.color.modalText
-          }
-          size={20}
-          onClick={toggleDialog}
-        />
-        <ActionsWrapper actionsDialogActive={actionsDialogActive}>
-          <ActionsInnerWrapper>
-            <ActionItem onClick={actionsDialogActive ? handleTrash : undefined}>
-              <DeleteIcon color={currentTheme?.color.modalText} size={20} />
-              <ActionName>Remove</ActionName>
-            </ActionItem>
+    <>
+      <Wrapper>
+        <TokenPairWrapper>
+          <FavoriteIcon
+            src={isFavorite ? favoriteIconFill : favoriteIcon}
+            width={20}
+            height={20}
+            onClick={favoriteHandler}
+          />
+          <IconWrapper>
+            <Icon
+              src={token0Icon}
+              alt={pool}
+              width={widthIcon}
+              height={heightIcon}
+            />
+            <Icon
+              src={token1Icon}
+              alt={pool}
+              width={widthIcon}
+              height={heightIcon}
+            />
+          </IconWrapper>
+          <Text>{pool}</Text>
+        </TokenPairWrapper>
+        <TextContainer>
+          <Text>${liquidity}</Text>
 
-            <ActionItem onClick={actionsDialogActive ? handleSwap : undefined}>
-              <ShuffleIcon color={currentTheme?.color.modalText} size={20} />
-              <ActionName>Swap</ActionName>
-            </ActionItem>
+          <Text>${volume7d}</Text>
 
-            <ActionItem onClick={actionsDialogActive ? handleView : undefined}>
-              <ViewIcon color={currentTheme?.color.modalText} size={20} />
-              <ActionName>View</ActionName>
-            </ActionItem>
+          <Text>${fees7d}</Text>
 
-            <ActionItem
-              onClick={actionsDialogActive ? handleAddLiquidity : undefined}
-            >
-              <AddLiquidityIcon
-                color={currentTheme?.color.modalText}
-                size={20}
-              />
-              <ActionName>Add</ActionName>
-            </ActionItem>
-          </ActionsInnerWrapper>
-        </ActionsWrapper>
-      </SeeActionsIconWrapper>
-    </Wrapper>
+          <Text>{apr} %</Text>
+
+          <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
+            <SeeActionsIcon
+              color={
+                actionsDialogActive
+                  ? currentTheme?.color.white
+                  : currentTheme?.color.modalText
+              }
+              size={20}
+              onClick={toggleDialog}
+            />
+            <ActionsWrapper actionsDialogActive={actionsDialogActive}>
+              <ActionsInnerWrapper>
+                <ActionItem
+                  onClick={actionsDialogActive ? handleTrash : undefined}
+                >
+                  <DeleteIcon color={currentTheme?.color.modalText} size={20} />
+                  <ActionName>Remove</ActionName>
+                </ActionItem>
+
+                <ActionItem
+                  onClick={actionsDialogActive ? handleSwap : undefined}
+                >
+                  <ShuffleIcon
+                    color={currentTheme?.color.modalText}
+                    size={20}
+                  />
+                  <ActionName>Swap</ActionName>
+                </ActionItem>
+
+                <ActionItem
+                  onClick={actionsDialogActive ? handleView : undefined}
+                >
+                  <ViewIcon color={currentTheme?.color.modalText} size={20} />
+                  <ActionName>View</ActionName>
+                </ActionItem>
+
+                <ActionItem
+                  onClick={actionsDialogActive ? handleAddLiquidity : undefined}
+                >
+                  <AddLiquidityIcon
+                    color={currentTheme?.color.modalText}
+                    size={20}
+                  />
+                  <ActionName>Add</ActionName>
+                </ActionItem>
+              </ActionsInnerWrapper>
+            </ActionsWrapper>
+          </SeeActionsIconWrapper>
+        </TextContainer>
+      </Wrapper>
+    </>
   )
 }
