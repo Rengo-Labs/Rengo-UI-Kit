@@ -31,7 +31,7 @@ Default.args = {
     asset0: '00 BTC',
     asset1: '00 ETH'
   },
-  yourShare: '0.00%',
+  yourShare: '2.123456789',
   liqudiity: '0.00000000',
   volume7D: '0.00000000',
   fees7D: '0.00000000',
