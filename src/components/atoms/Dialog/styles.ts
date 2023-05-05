@@ -11,10 +11,10 @@ export const Backdrop = styled.div`
   opacity: 0.5;
 `;
 
-export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean }>`
+export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean }>`
 
-  top: 50%;
-  left: 50%;
+  top: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
+  left: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
   transform: translate(-50%, -50%);
   position: fixed;
   display: flex;

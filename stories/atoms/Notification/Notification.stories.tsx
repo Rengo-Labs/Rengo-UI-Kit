@@ -18,7 +18,9 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Liquidity correctly removed',
   message: "Checking the progress of your <a href='/deploy'>deploy</a>.",
+  // @ts-ignore
   type: 'success',
+  // @ts-ignore
   position: 'top-center',
   onClose: () => console.log('close')
 };
