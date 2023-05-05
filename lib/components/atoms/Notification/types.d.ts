@@ -14,5 +14,5 @@ export interface NotificationProps {
     title: string;
     message: string;
     onClose: () => void;
-    autoCloseDelay: number;
+    autoCloseDelay?: number;
 }

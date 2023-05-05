@@ -3,6 +3,7 @@ export interface DialogProps {
     children: ReactNode;
     onClose: () => void;
     isOpen: boolean;
+    withoutEffect?: boolean;
 }
 /**
   React component for displaying a dialog box.
@@ -12,4 +13,4 @@ export interface DialogProps {
   @property {Function} isOpen - Boolean value to know the status of the dialog
   @returns {JSX.Element} - A JSX element representing the dialog box component.
 */
-export declare const Dialog: ({ children, onClose, isOpen }: DialogProps) => JSX.Element;
+export declare const Dialog: ({ children, onClose, isOpen, withoutEffect }: DialogProps) => JSX.Element;
