@@ -16,9 +16,10 @@ export const Wrapper = styled.div<Props>`
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: ${({ distribution }: Props) => distribution};
   background: ${({ theme }) => theme.color.tab.background};
   border-bottom: ${({ isLast, theme }) => isLast ? 'none' : `1px solid ${theme.border.default}`};
-  gap: 15px;
+  /* gap: 15px; */
   &:hover {
     cursor: pointer;
     background-color: ${({ theme }) => theme.color.tab.hover};
@@ -35,9 +36,9 @@ export const TokenInnerWrapper = styled.div<Props>`
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
-  margin: ${({ distribution }) => {
+  padding: ${({ distribution }) => {
     if (Distribution.Center !== distribution) {
-      return '16px 0 16px 5px;'
+      return '16px 0 16px 0;'
     }
 
     return '16px 0 16px 0;'
@@ -64,6 +65,7 @@ export const TokenDetailsWrapper = styled.div<Props>`
 export const TokenNamesWrapper = styled.div<Props>`
   height: 100%;
   display: flex;
+
   padding-left: ${({ tokenNames, distribution }) =>{
     if (distribution !== Distribution.Center && distribution !== Distribution.SpaceEvenly) {
       return '0px;'
@@ -71,6 +73,7 @@ export const TokenNamesWrapper = styled.div<Props>`
 
     return '16px;'
   }};
+
   flex-direction: ${({tokenNames}) => {
     if (tokenNames && tokenNames?.length > 1) {
       return 'column;'
@@ -101,6 +104,8 @@ export const TokenFullName = styled.p`
   line-height: 16px;
   letter-spacing: 0.02em;
   color: ${({ theme }) => theme.color.default};
+  text-align: start;
+  overflow-wrap: anywhere;
 `;
 
 export const TokenNameSymbol = styled.p`
@@ -122,11 +127,14 @@ export const TokenNameSymbolWrapper = styled.div`
 
 export const AmountWrapper = styled.div<Props>`
   height: 100%;
+  max-width: 40%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   font-family: ${({theme}) => theme.typography.secondaryFont};
   font-weight: 400;
+  overflow-wrap: anywhere;
+  padding: 16px 0px 16px 0px;
   font-size: ${({ distribution }) => {
     if (distribution !== Distribution.Center) {
       return '16px;'
