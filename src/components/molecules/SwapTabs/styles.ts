@@ -8,5 +8,5 @@ export const Item = styled.div`
 export const TabContent = styled(Row)`
   background-color: ${({ theme }) => theme.color.tab.background};
   border-radius: 0 0 16px 16px;
-  height: 370px;
+  height: 360px;
 `;

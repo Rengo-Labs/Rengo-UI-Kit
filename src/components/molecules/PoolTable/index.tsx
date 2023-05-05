@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TableHeader from '../../atoms/TableHeader'
-import { Wrapper } from './styles'
+import { Body, Wrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
 import { DeviceType } from '../../../hooks/types'
 import { PoolItemMobile, PoolTableItem } from '../../atoms'
@@ -185,55 +185,59 @@ export const PoolTable = ({
   return (
     <Wrapper isMobile={isMobile}>
       {!isMobile && <TableHeader columns={columns} onSort={handleSort} />}
-      {balanceData.map((row) =>
-        isMobile ? (
-          <PoolItemMobile
-            key={`pool-item-${row.pool}-mobile`}
-            token0Icon={row.token0Icon}
-            token1Icon={row.token1Icon}
-            widthIcon={widthIcon}
-            heightIcon={heightIcon}
-            pool={row.pool}
-            liquidity={row.liquidity}
-            volume7d={row.volume7d}
-            fees7d={row.fees7d}
-            apr={row.apr}
-            handleTrash={handleTrash}
-            handleSwap={() => handleSwap('/swap', row.pool)}
-            handleView={() => handleView(row.name)}
-            handleAddLiquidity={() =>
-              handleAddLiquidity('/liquidity', row.pool)
-            }
-            favoriteHandler={() => favoriteHandler(row.name)}
-            isFavorite={row.isFavorite}
-            toggleDialog={() => toggleDialog(row.name)}
-            actionsDialogActive={actionsDialogActive === row.name}
-          />
-        ) : (
-          <PoolTableItem
-            key={`pool-item-${row.pool}-desktop`}
-            token0Icon={row.token0Icon}
-            token1Icon={row.token1Icon}
-            widthIcon={widthIcon}
-            heightIcon={heightIcon}
-            pool={row.pool}
-            liquidity={row.liquidity}
-            volume7d={row.volume7d}
-            fees7d={row.fees7d}
-            apr={row.apr}
-            handleTrash={handleTrash}
-            handleSwap={() => handleSwap('/swap', row.pool)}
-            handleView={() => handleView(row.name)}
-            handleAddLiquidity={() =>
-              handleAddLiquidity('/liquidity', row.pool)
-            }
-            favoriteHandler={() => favoriteHandler(row.name)}
-            isFavorite={row.isFavorite}
-            toggleDialog={() => toggleDialog(row.name)}
-            actionsDialogActive={actionsDialogActive === row.name}
-          />
-        )
-      )}
+      <Body>
+
+        {balanceData.map((row) =>
+          isMobile ? (
+            <PoolItemMobile
+              key={`pool-item-${row.pool}-mobile`}
+              token0Icon={row.token0Icon}
+              token1Icon={row.token1Icon}
+              widthIcon={widthIcon}
+              heightIcon={heightIcon}
+              pool={row.pool}
+              liquidity={row.liquidity}
+              volume7d={row.volume7d}
+              fees7d={row.fees7d}
+              apr={row.apr}
+              handleTrash={handleTrash}
+              handleSwap={() => handleSwap('/swap', row.pool)}
+              handleView={() => handleView(row.name)}
+              handleAddLiquidity={() =>
+                handleAddLiquidity('/liquidity', row.pool)
+              }
+              favoriteHandler={() => favoriteHandler(row.name)}
+              isFavorite={row.isFavorite}
+              toggleDialog={() => toggleDialog(row.name)}
+              actionsDialogActive={actionsDialogActive === row.name}
+            />
+          ) : (
+            <PoolTableItem
+              key={`pool-item-${row.pool}-desktop`}
+              token0Icon={row.token0Icon}
+              token1Icon={row.token1Icon}
+              widthIcon={widthIcon}
+              heightIcon={heightIcon}
+              pool={row.pool}
+              liquidity={row.liquidity}
+              volume7d={row.volume7d}
+              fees7d={row.fees7d}
+              apr={row.apr}
+              handleTrash={handleTrash}
+              handleSwap={() => handleSwap('/swap', row.pool)}
+              handleView={() => handleView(row.name)}
+              handleAddLiquidity={() =>
+                handleAddLiquidity('/liquidity', row.pool)
+              }
+              favoriteHandler={() => favoriteHandler(row.name)}
+              isFavorite={row.isFavorite}
+              toggleDialog={() => toggleDialog(row.name)}
+              actionsDialogActive={actionsDialogActive === row.name}
+            />
+          )
+        )}
+      </Body>
+
     </Wrapper>
   )
 }
