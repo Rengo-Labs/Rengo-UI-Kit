@@ -26,6 +26,7 @@ export declare enum Status {
 }
 export declare enum Type {
     IconLabelHelperText = "icon-label-helper-text",
+    Number = "number",
     IconHelperText = "icon-helper-text",
     HelperTextOnly = "helper-text-only",
     Plain = "plain",
