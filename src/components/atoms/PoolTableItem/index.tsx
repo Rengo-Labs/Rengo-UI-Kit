@@ -12,8 +12,6 @@ import {
   SeeActionsIconWrapper,
   ShuffleIcon,
   Text,
-  TokenPairWrapper,
-  Wrapper,
   Icon,
   IconWrapper,
   TR,
@@ -62,7 +60,7 @@ export const PoolTableItem = ({
   handleView,
   handleAddLiquidity,
   toggleDialog,
-  actionsDialogActive
+  actionsDialogActive,
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
@@ -77,7 +75,7 @@ export const PoolTableItem = ({
 
   return (
     <TR>
-      <TD>
+      <TD isFirstItem={true} >
         <FavoriteIcon
           src={isFavorite ? favoriteIconFill : favoriteIcon}
           width={20}

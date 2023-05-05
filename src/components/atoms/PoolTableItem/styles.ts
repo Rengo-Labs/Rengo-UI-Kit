@@ -3,7 +3,6 @@ import {
   MoreHorizontal,
   PlusCircle,
   Shuffle,
-  Star,
   Trash2
 } from 'react-feather'
 import styled from 'styled-components'
@@ -21,14 +20,13 @@ export const TR = styled.tr`
   gap: 15px;
   width: 100%;
 `
-export const TD = styled.td`
+export const TD = styled.td<{ isFirstItem?: boolean }>`
   flex: 1;
- 
   min-height: 32px;
   padding: 10px 0 10px 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ isFirstItem }) => isFirstItem ? 'flex-start' : 'center'};
   flex-wrap: wrap;
   gap: 8.94px;
   overflow-wrap: anywhere;
