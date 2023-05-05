@@ -80,9 +80,6 @@ export const BalanceTable = ({
     setBalanceData(sortedData)
   }
 
-  console.log('get the width', cryptoColumnWidth);
-  
-
   return (
     <Wrapper isMobile={isMobile}>
       {!isMobile && (
