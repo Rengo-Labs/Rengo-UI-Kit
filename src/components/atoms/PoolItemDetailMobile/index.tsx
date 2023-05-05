@@ -90,7 +90,7 @@ export const PoolItemDetailMobile = ({
           </PoolKeyPairContainer>
           <PoolKeyPairContainer>
             <PoolKey>Your Share</PoolKey>
-            <PoolValue>{yourShare}</PoolValue>
+            <PoolValue>{yourShare} %</PoolValue>
           </PoolKeyPairContainer>
           <PoolKeyPairContainer>
             <PoolKey>Liquidity</PoolKey>
