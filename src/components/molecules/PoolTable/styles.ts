@@ -4,7 +4,7 @@ interface IWrapperProps {
   isMobile: boolean;
 }
 
-export const Wrapper = styled.table<IWrapperProps>`
+export const Wrapper = styled.div<IWrapperProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,3 +15,8 @@ export const Wrapper = styled.table<IWrapperProps>`
   border-radius: 16px;
   padding: 0 0 10px 10px;
 `
+export const Body = styled.tbody`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
