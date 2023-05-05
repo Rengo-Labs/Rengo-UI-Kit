@@ -210,6 +210,7 @@ export const PoolTable = ({
               isFavorite={row.isFavorite}
               toggleDialog={() => toggleDialog(row.name)}
               actionsDialogActive={actionsDialogActive === row.name}
+              hideRemoveLiquidity={Number(row.balance) === 0}
             />
           ) : (
             <PoolTableItem
@@ -233,6 +234,7 @@ export const PoolTable = ({
               isFavorite={row.isFavorite}
               toggleDialog={() => toggleDialog(row.name)}
               actionsDialogActive={actionsDialogActive === row.name}
+              hideRemoveLiquidity={Number(row.balance) === 0}
             />
           )
         )}

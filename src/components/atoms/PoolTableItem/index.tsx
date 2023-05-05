@@ -41,6 +41,7 @@ export interface IPoolTableItem {
   handleAddLiquidity: () => void
   toggleDialog?: () => void
   actionsDialogActive?: boolean
+  hideRemoveLiquidity: boolean
 }
 
 export const PoolTableItem = ({
@@ -61,6 +62,7 @@ export const PoolTableItem = ({
   handleAddLiquidity,
   toggleDialog,
   actionsDialogActive,
+  hideRemoveLiquidity = false
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
@@ -75,7 +77,7 @@ export const PoolTableItem = ({
 
   return (
     <TR>
-      <TD isFirstItem={true} >
+      <TD isFirstItem={true}>
         <FavoriteIcon
           src={isFavorite ? favoriteIconFill : favoriteIcon}
           width={20}
@@ -83,15 +85,33 @@ export const PoolTableItem = ({
           onClick={favoriteHandler}
         />
         <IconWrapper>
-          <Icon src={token0Icon} alt={pool} width={widthIcon} height={heightIcon} />
-          <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
+          <Icon
+            src={token0Icon}
+            alt={pool}
+            width={widthIcon}
+            height={heightIcon}
+          />
+          <Icon
+            src={token1Icon}
+            alt={pool}
+            width={widthIcon}
+            height={heightIcon}
+          />
         </IconWrapper>
         <Text>{pool}</Text>
       </TD>
-      <TD> <Text>${liquidity}</Text> </TD>
-      <TD> <Text>${volume7d}</Text> </TD>
-      <TD> <Text>${fees7d}</Text> </TD>
-      <TD> <Text>{apr} %</Text> </TD>
+      <TD>
+        <Text>${liquidity}</Text>
+      </TD>
+      <TD>
+        <Text>${volume7d}</Text>
+      </TD>
+      <TD>
+        <Text>${fees7d}</Text>
+      </TD>
+      <TD>
+        <Text>{apr} %</Text>
+      </TD>
       <TD>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
@@ -105,17 +125,25 @@ export const PoolTableItem = ({
           />
           <ActionsWrapper actionsDialogActive={actionsDialogActive}>
             <ActionsInnerWrapper>
-              <ActionItem onClick={actionsDialogActive ? handleTrash : undefined}>
-                <DeleteIcon color={currentTheme?.color.modalText} size={20} />
-                <ActionName>Remove</ActionName>
-              </ActionItem>
+              {!hideRemoveLiquidity && (
+                <ActionItem
+                  onClick={actionsDialogActive ? handleTrash : undefined}
+                >
+                  <DeleteIcon color={currentTheme?.color.modalText} size={20} />
+                  <ActionName>Remove</ActionName>
+                </ActionItem>
+              )}
 
-              <ActionItem onClick={actionsDialogActive ? handleSwap : undefined}>
+              <ActionItem
+                onClick={actionsDialogActive ? handleSwap : undefined}
+              >
                 <ShuffleIcon color={currentTheme?.color.modalText} size={20} />
                 <ActionName>Swap</ActionName>
               </ActionItem>
 
-              <ActionItem onClick={actionsDialogActive ? handleView : undefined}>
+              <ActionItem
+                onClick={actionsDialogActive ? handleView : undefined}
+              >
                 <ViewIcon color={currentTheme?.color.modalText} size={20} />
                 <ActionName>View</ActionName>
               </ActionItem>
