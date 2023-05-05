@@ -53,7 +53,7 @@ export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tok
           helperText=''
           label=''
           status={Status.Default}
-          type={Type.IconLabelHelperText}
+          type={Type.Number}
           rightAdornment={''}
           Icon={
             <TextIconTouchable
