@@ -16,7 +16,7 @@ Default.args = {
     maxAmount: 2000,
     firstTotalLiquidity: 1000000,
     secondTotalLiquidity: 10000000,
-    totalSupply: 1230,
+    totalSupply: '',
     slippage: 0.05,
     setSlippage: (value) => {console.log("slippage", value)},
     networkFee: 15,

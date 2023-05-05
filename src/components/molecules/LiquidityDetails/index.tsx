@@ -44,6 +44,13 @@ export const LiquidityDetails = ({firstSymbol, secondSymbol, maxAmount, firstTot
     setNetworkFee(value)
   }
 
+  const handleNullOrUndefined = (value: string | number | undefined) => {
+    if (value === undefined || value === null || value === '') {
+      return 0
+    }
+    return value
+  }
+
   return (
     <Wrapper props={{ xs: 12 }}>
       <KeyValueText keyText='Base' valueText={firstSymbol} />
@@ -54,7 +61,7 @@ export const LiquidityDetails = ({firstSymbol, secondSymbol, maxAmount, firstTot
       <Divider />
       <KeyValueText keyText={`Pool Liquidity (${secondSymbol})`} valueText={`${secondTotalLiquidity} ${secondSymbol}`} />
       <Divider />
-      <KeyValueText keyText='LP supply' valueText={`${totalSupply} ${firstSymbol}-${secondSymbol}`} />
+      <KeyValueText keyText='LP supply' valueText={`${handleNullOrUndefined(totalSupply)} ${firstSymbol}-${secondSymbol}`} />
       <Divider />
       <KeyValueInput
         keyText='Slippage Tolerance'

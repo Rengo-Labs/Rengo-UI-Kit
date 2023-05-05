@@ -73,7 +73,7 @@ export const SwapMoreInfo = ({
                     onChange={slippageSetter}
                 />
                 <Divider/>
-                <KeyValueText keyText='Swapp Fee' valueText={`${firstTokenAmount * platformGasFee} CSPR`}/>
+                <KeyValueText keyText='Swap Fee' valueText={`${firstTokenAmount * platformGasFee} CSPR`}/>
                 <Divider/>
                 <KeyValueInput
                     keyText='Network gas fee'

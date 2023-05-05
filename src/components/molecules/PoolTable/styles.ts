@@ -19,4 +19,5 @@ export const Body = styled.tbody`
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap:20px;
 `;
