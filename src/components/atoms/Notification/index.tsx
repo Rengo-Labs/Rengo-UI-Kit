@@ -38,19 +38,18 @@ export const Notification = ({ position, type, title, message, onClose, autoClos
 
   useEffect(() => {
     const interval = setInterval(() => onClose(), autoCloseDelay);
-
     return () => clearInterval(interval);
   }, [])
-  
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose()
       }
     };
-  
+
     document.addEventListener("keydown", handleKeyDown);
-  
+
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
@@ -74,7 +73,7 @@ export const Notification = ({ position, type, title, message, onClose, autoClos
 
   const iconColor = getIconColor(type)
   const sanitizedMessage = () => DOMPurify.sanitize(message);
-  
+
   return (
     <Container
       key={`notification-${message ? message.substring(0, 5) : title.substring(0, 5)}`}
@@ -89,7 +88,7 @@ export const Notification = ({ position, type, title, message, onClose, autoClos
               name={iconName}
               color={iconColor}
               size={24} />
-            
+
           </IconWrapper>
 
           <ContentContainer>
