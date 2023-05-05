@@ -33,7 +33,7 @@ export const Slider = ({ defaultValue = 0, callback }: SliderProps) => {
         type="range"
         min="0"
         max="100"
-        defaultValue={defaultValue}
+        value={defaultValue}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputChange(parseInt(event.target.value))}
         id="slider"
       />
