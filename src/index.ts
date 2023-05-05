@@ -49,5 +49,12 @@ export {
     Notification,
     LPSearch,
     PoolItemDetails,
+    NotificationMessage
 } from './components';
-export {InputType, ToggleVariant} from './types/index';
+export {
+    InputType,
+    ToggleVariant,
+    DeviceType,
+    NoticationTypes,
+    NotificationPositions
+} from './types/index';
