@@ -30,6 +30,7 @@ export enum Status {
 
 export enum Type {
   IconLabelHelperText = 'icon-label-helper-text',
+  Number = 'number',
   IconHelperText = 'icon-helper-text',
   HelperTextOnly = 'helper-text-only',
   Plain = 'plain',
@@ -39,7 +40,7 @@ export enum Type {
   IconPlain = 'icon-plain'
 }
 
-export const TYPES_WITH_ICON = [Type.IconHelperText, Type.IconPlain, Type.LabelIcon, Type.IconLabelHelperText]
+export const TYPES_WITH_ICON = [Type.IconHelperText, Type.IconPlain, Type.LabelIcon, Type.IconLabelHelperText, Type.Number]
 
 export const TYPES_WITH_HELPER_TEXT = [Type.HelperTextOnly, Type.IconHelperText, Type.IconLabelHelperText, Type.LabelHelperText]
 
