@@ -85,7 +85,7 @@ export const PoolTable = ({
   useEffect(() => {
     setBalanceData(data)
   }, [data])
-  
+
   const isMobile = deviceType === DeviceType.MOBILE
 
   const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
@@ -125,20 +125,20 @@ export const PoolTable = ({
 
   const excludeKeys = (targetObj: IHeaderPool, keys: string[]) => {
     const newObj = { ...targetObj };
-  
+
     keys.forEach((item: string) => {
       delete newObj[item as keyof IHeaderPool];
     });
-  
+
     return newObj;
   };
-  
+
   const search = (query: string) => {
     if (query) {
       const newData = data.filter(item => {
         const newObj = excludeKeys(item, NOT_SEARCHABLE_KEYS)
         const valuesArr = Object.values(newObj)
-        
+
         const exists = valuesArr.some((item) => {
           if (typeof item !== "string") {
             return false
@@ -146,10 +146,10 @@ export const PoolTable = ({
 
           return item.toLowerCase().includes(query.toLowerCase());
         });
-        
+
         if (exists) {
           return item
-        } 
+        }
       })
 
       return newData
@@ -180,7 +180,7 @@ export const PoolTable = ({
     }
 
   }, [showStakedOnly])
-  
+
 
   return (
     <Wrapper isMobile={isMobile}>
@@ -210,7 +210,7 @@ export const PoolTable = ({
               isFavorite={row.isFavorite}
               toggleDialog={() => toggleDialog(row.name)}
               actionsDialogActive={actionsDialogActive === row.name}
-              hideRemoveLiquidity={Number(row.balance) === 0}
+              hideRemoveLiquidity={Number(row.balance) >= 0}
             />
           ) : (
             <PoolTableItem
