@@ -51,7 +51,7 @@ export {
     PoolItemDetails,
     NotificationMessage,
     MyAccountInfoTable,
-    AccountTabs
+    AccountTabs,
 } from './components';
 export {
     InputType,
