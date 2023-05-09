@@ -49,7 +49,8 @@ export {
     Notification,
     LPSearch,
     PoolItemDetails,
-    NotificationMessage
+    NotificationMessage,
+    AccountTabs,
 } from './components';
 export {
     InputType,
