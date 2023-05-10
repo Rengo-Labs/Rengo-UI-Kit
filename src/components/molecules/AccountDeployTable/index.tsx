@@ -112,6 +112,7 @@ export const AccountDeployTable = ({
               price={row.price}
               widthIcon={widthIcon}
               heightIcon={heightIcon}
+              key={`account-deploy-mobile-${row.id}`}
             />
           ) : (
             <AccountDeployBody
@@ -125,6 +126,7 @@ export const AccountDeployTable = ({
               price={row.price}
               widthIcon={widthIcon}
               heightIcon={heightIcon}
+              key={`account-deploy-desktop-${row.id}`}
             />
           )
         )}

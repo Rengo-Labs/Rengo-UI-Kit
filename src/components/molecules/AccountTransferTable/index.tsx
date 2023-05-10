@@ -118,6 +118,7 @@ export const AccountTransferTable = ({
               price={row.price}
               widthIcon={widthIcon}
               heightIcon={heightIcon}
+              key={`account-transfer-mobile-${row.id}`}
             />
           ) : (
             <AccountTransferBody
@@ -132,6 +133,7 @@ export const AccountTransferTable = ({
               price={row.price}
               widthIcon={widthIcon}
               heightIcon={heightIcon}
+              key={`account-transfer-desktop-${row.id}`}
             />
           )
         )}
