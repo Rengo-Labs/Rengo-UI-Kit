@@ -4,6 +4,8 @@ import { Icons, KeyValueText } from '../../atoms'
 import DOMPurify from 'dompurify'
 import { useDeviceType } from '../../../hooks'
 import { DeviceType } from '../../../hooks/types'
+import {theme} from '../../../styles/themes/themes'
+import { useTheme } from 'styled-components'
 import { MyAccountInfoTableMobile } from './MyAccountInfoTableMobile'
 
 export enum MyAccountInfoDataTypes {
@@ -21,9 +23,9 @@ export interface MyAccountInfoTableProps {
   data: DataKeyValues[]
 }
 
-const SubItem = (text: string) => (
+const SubItem = (text: string, theme: theme) => (
   <>
-    <Icons name='CornerDownRight' fill='transparent' size={24} color='#B3B3B3' />
+    <Icons name='CornerDownRight' fill='transparent' size={24} color={theme.color.downRightArrow} />
     {text}
   </>
 )
@@ -45,35 +47,35 @@ const HEADERS = [
   },
   {
     id: 'e5690fdb-712e-4adf-a6f4-c7fa503b2a6e',
-    content: 'Total reward received',
+    content: 'Total rewards received',
     isStrongContent: false,
     type: 'item',
     alignment: 'left'
   },
   {
     id: '4c04bc5e-0ab1-4e9b-a507-89dc569294aa',
-    content: 'Delegated Participation',
+    content: 'Total Balance',
     isStrongContent: false,
     type: 'item',
     alignment: 'left'
   },
   {
     id: '3eee674f-4a0c-4263-bea6-d6025bf31e62',
-    content: 'Total Balance',
+    content: 'Liquid',
     type: 'sub-item',
     isStrongContent: false,
     alignment: 'center'
   },
   {
     id: 'df7fc928-d98f-40a3-b5c9-e1c2354b902f',
-    content: 'Liquidity',
+    content: 'Stake as Delegator',
     type: 'sub-item',
     isStrongContent: false,
     alignment: 'center'
   },
   {
     id: '368954d5-ddce-47dd-92b7-83e8c7d33fbb',
-    content: 'In Rescue',
+    content: 'Undelegating',
     type: 'sub-item',
     isStrongContent: false,
     alignment: 'center'
@@ -95,6 +97,7 @@ const HEADERS = [
 export const MyAccountInfoTable = ({ data }: MyAccountInfoTableProps) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
+  const theme = useTheme() as theme;
   
   DOMPurify.addHook('afterSanitizeAttributes', (node) => {
     if (node.nodeName === 'A') {
@@ -115,7 +118,7 @@ export const MyAccountInfoTable = ({ data }: MyAccountInfoTableProps) => {
           {HEADERS.map((header, idx) => (
             <Row key={header.id}>
               <KeyItem isStrong={header.isStrongContent} alignment={header.alignment}>
-                {header.type === 'sub-item' ? SubItem(header.content) : header.content}
+                {header.type === 'sub-item' ? SubItem(header.content, theme) : header.content}
               </KeyItem>
               {data[idx].type === MyAccountInfoDataTypes.Link ? (
                 <ValueItem dangerouslySetInnerHTML={{__html: sanitizedMessage(data[idx].value)}} />

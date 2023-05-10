@@ -3,6 +3,8 @@ import { ColumnMobile, ContentContainer, ImgContainerMobile, KeyItemMobile, RowM
 import DOMPurify from 'dompurify';
 import { DataKeyValues, MyAccountInfoDataTypes } from '.';
 import { Icons } from '../../atoms';
+import {theme} from '../../../styles/themes/themes'
+import { useTheme } from 'styled-components'
 
 type HeaderItem = {
   id: string;
@@ -17,18 +19,10 @@ interface MyAccountInfoTableMobileProps {
   data: DataKeyValues[]
 }
 
-/**
-
-    A mobile view table component to display account information with headers and corresponding data
-    @component
-    @param {MyAccountInfoTableProps} props - The props object containing the data to display
-    @param {DataKeyValues[]} props.data - The array of data objects, containing the key, type, and value of the data to display
-    @property {string} key - The key for the data object
-    @property {string} type - The type of the data object. Valid options are 'string' or 'link'
-    @property {string} value - The value of the data object
-    @return {JSX.Element} The MyAccountInfoTable component
-*/
-const Section = (headers: HeaderItem[], data: DataKeyValues[], sanitizedMessage: (arg0: string) => any) => (
+const Section = (headers: HeaderItem[], data: DataKeyValues[], sanitizedMessage: (arg0: string) => any) => {
+  const theme = useTheme() as theme;
+  
+  return (
   headers.map((header, idx) => (
     <RowMobile
       key={header.id}
@@ -36,7 +30,7 @@ const Section = (headers: HeaderItem[], data: DataKeyValues[], sanitizedMessage:
       isSubItem={header.type === 'sub-item'}>
         {header.type === 'sub-item' && (
           <ImgContainerMobile>
-            <Icons name='CornerDownRight' fill='transparent' size={24} color='#B3B3B3' />
+            <Icons name='CornerDownRight' fill='transparent' size={24} color={theme.color.downRightArrow} />
           </ImgContainerMobile>
         )}
 
@@ -52,8 +46,19 @@ const Section = (headers: HeaderItem[], data: DataKeyValues[], sanitizedMessage:
     </RowMobile>
   )
   )
-)
+)}
 
+/**
+
+    A mobile view table component to display account information with headers and corresponding data
+    @component
+    @param {MyAccountInfoTableProps} props - The props object containing the data to display
+    @param {DataKeyValues[]} props.data - The array of data objects, containing the key, type, and value of the data to display
+    @property {string} key - The key for the data object
+    @property {string} type - The type of the data object. Valid options are 'string' or 'link'
+    @property {string} value - The value of the data object
+    @return {JSX.Element} The MyAccountInfoTable component
+*/
 export const MyAccountInfoTableMobile = ({ headers, data }: MyAccountInfoTableMobileProps) => {
   DOMPurify.addHook('afterSanitizeAttributes', (node) => {
     if (node.nodeName === 'A') {

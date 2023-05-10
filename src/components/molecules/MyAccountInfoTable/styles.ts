@@ -44,7 +44,7 @@ export const RowMobile = styled.div<{ isLast: boolean, isSubItem: boolean }>`
 `;
 
 export const KeyItem = styled.div<{ isStrong?: boolean, alignment: string }>`
-  width: 195px;
+  width: 228px;
   display: flex;
   align-items: center;
   font-weight: ${({ isStrong }) => isStrong ? '600' : '400' };

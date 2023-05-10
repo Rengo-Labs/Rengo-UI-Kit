@@ -23,14 +23,9 @@ const data = [
     value: 'af6020ca609a800a04cbbba8d36b977032237e2ed3f3d503fa348a74f86b5426'
   },
   {
-    key: 'Total reward received',
+    key: 'Total rewards received',
     type: 'string',
     value: '0.00000 CSPR ($0.00)'
-  },
-  {
-    key: 'Delegated Participation',
-    type: 'string',
-    value: '10,860.00000 CSPR ($418.05)'
   },
   {
     key: 'Total Balance',
@@ -38,12 +33,17 @@ const data = [
     value: '10,860.00000 CSPR ($418.05)'
   },
   {
-    key: 'Liquidity',
+    key: 'Liquid',
+    type: 'string',
+    value: '10,860.00000 CSPR ($418.05)'
+  },
+  {
+    key: 'Stake as Delegator',
     type: 'string',
     value: '0.00000 CSPR ($0.00)'
   },
   {
-    key: 'In Rescue',
+    key: 'Undelegating',
     type: 'string',
     value: '0.00000 CSPR ($0.00)'
   }
