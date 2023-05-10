@@ -50,7 +50,8 @@ export {
     LPSearch,
     PoolItemDetails,
     NotificationMessage,
-    MyAccountInfoTable
+    MyAccountInfoTable,
+    AccountTabs,
 } from './components';
 export {
     InputType,
