@@ -56,7 +56,7 @@ export const KeyItem = styled.div<{ isStrong?: boolean, alignment: string }>`
   letter-spacing: 0.02em;
   
   gap: 12px;
-  padding: ${({ alignment }) => alignment === 'center' ? '4px 16px 4px 48px' : '4px 16px 4px 24px' };
+  padding: ${({ alignment }) => alignment === 'center' ? '4px 0 4px 48px' : '4px 0 4px 24px' };
 `;
 
 export const KeyItemMobile = styled(KeyItem)<{ type: string }>`
@@ -75,6 +75,7 @@ export const ValueItem = styled.div`
   font-family: ${({ theme }) => theme.typography.secondaryFont};
   color: ${({ theme }) => theme.color.default};
   letter-spacing: 0.02em;
+  padding-left: 16px;
 
   a {
     color: ${({ theme }) => theme.color.default};
