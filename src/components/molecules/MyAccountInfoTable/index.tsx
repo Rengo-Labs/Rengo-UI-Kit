@@ -78,13 +78,6 @@ const HEADERS = [
     isStrongContent: false,
     alignment: 'center'
   },
-  {
-    id: '368954d5-ddce-47dd-92b7-83e8c7d3332b',
-    content: 'Raw Data',
-    type: 'item',
-    isStrongContent: false,
-    alignment: 'left'
-  },
 ]
 
 /**

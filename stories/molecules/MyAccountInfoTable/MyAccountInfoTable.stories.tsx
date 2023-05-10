@@ -46,12 +46,7 @@ const data = [
     key: 'In Rescue',
     type: 'string',
     value: '0.00000 CSPR ($0.00)'
-  },
-  {
-    key: 'Raw Data',
-    type: 'link',
-    value: "<a href='https://testnet.cspr.live/deploy/6dfb274ff76ae9775d8d6436cb7ec7b9a9fb2f9d0ba0bebf95ba9ecd12d07140/' target='_blank'>Show Raw Data</a>"
-  },
+  }
 ]
 
 Default.args = {

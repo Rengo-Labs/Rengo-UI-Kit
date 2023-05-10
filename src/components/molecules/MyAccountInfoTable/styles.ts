@@ -50,8 +50,8 @@ export const KeyItem = styled.div<{ isStrong?: boolean, alignment: string }>`
   font-weight: ${({ isStrong }) => isStrong ? '600' : '400' };
   font-family: ${({ theme }) => theme.typography.secondaryFont};
   font-style: normal;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 32px;
   color: ${({ theme }) => theme.color.default};
   letter-spacing: 0.02em;
   
