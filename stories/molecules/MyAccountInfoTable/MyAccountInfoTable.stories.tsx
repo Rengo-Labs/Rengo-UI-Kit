@@ -23,7 +23,7 @@ const data = [
     value: 'af6020ca609a800a04cbbba8d36b977032237e2ed3f3d503fa348a74f86b5426'
   },
   {
-    key: 'Total rewards received',
+    key: 'Total Rewards Received',
     type: 'string',
     value: '0.00000 CSPR ($0.00)'
   },

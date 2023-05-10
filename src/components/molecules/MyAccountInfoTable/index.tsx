@@ -47,7 +47,7 @@ const HEADERS = [
   },
   {
     id: 'e5690fdb-712e-4adf-a6f4-c7fa503b2a6e',
-    content: 'Total rewards received',
+    content: 'Total Rewards Received',
     isStrongContent: false,
     type: 'item',
     alignment: 'left'
