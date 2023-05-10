@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
   Text,
   IconWrapper,
@@ -8,8 +8,6 @@ import {
   TDInnerContainer,
   TDText
 } from './styles'
-import { useTheme } from 'styled-components'
-import { theme } from '../../../styles/themes/themes'
 
 export interface IAccountDeployBody {
   id?: number
@@ -51,16 +49,6 @@ export const AccountDeployBody = ({
   widthIcon,
   heightIcon
 }: IAccountDeployBody) => {
-  const theme = useTheme() as theme
-  const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
-
-  useEffect(() => {
-    setCurrentTheme(theme)
-
-    return () => {
-      setCurrentTheme(theme)
-    }
-  }, [theme])
 
   return (
     <TR>

@@ -9,7 +9,7 @@ export default {
 
 // Create a master template for mapping args to render the AccountTabs component
 const Template: ComponentStory<typeof AccountTabs> = (args) => (
-  <div style={{ width: '1100px' }}>
+  <div style={{ width: '1150px' }}>
     <AccountTabs {...args} />
   </div>
 )
