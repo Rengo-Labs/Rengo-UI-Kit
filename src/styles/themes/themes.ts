@@ -21,6 +21,7 @@ export interface theme {
     }
     color: {
         default: string
+        downRightArrow: string
         accent1: string
         accent2: string
         accent3: string
@@ -216,6 +217,7 @@ export const defaultTheme: theme = {
     },
     color: {
         default: '#545454',
+        downRightArrow: '#B3B3B3',
         accent1: '#fafafa',
         accent2: '#EAEAEA',
         accent3: '#999',
@@ -412,6 +414,7 @@ export const darkTheme: theme = {
     },
     color: {
         default: '#FFFFFF',
+        downRightArrow: '#715FF5',
         accent1: '#111',
         accent2: '#333',
         accent3: '#444',
