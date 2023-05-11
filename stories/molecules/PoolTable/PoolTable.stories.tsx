@@ -50,6 +50,10 @@ Default.args = {
             apr1: '4,653,213',
             balance:'0'
           },
-    ]
+    ],
+    handleSwap: (path: string, pool: string) => console.log(path, pool),
+    handleView: (name: string) => console.log(name),
+    handleAddLiquidity: (path: string, pool: string) => console.log(path, pool),
+    handleTrash: (name: string) => console.log(name),
 }
 

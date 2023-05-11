@@ -17,7 +17,7 @@ Default.args = {
     isOpen: true,
     onClose: () => console.log('NotificationMessage'),
     title: 'Liquidity correctly removed',
-    subtitle: "Checking the progress of your <a href='/deploy'>deploy</a>.",
+    subtitle: "Checking the progress of your <a href='/deploy' target='_blank'>deploy</a>.",
     type: 'success'
 }
 export const Info = Template.bind({})
@@ -26,7 +26,7 @@ Info.args = {
     isOnlyNotification: true,
     onClose: () => console.log('NotificationMessage'),
     title: 'Liquidity correctly removed',
-    subtitle: "Checking the progress of your <a href='/deploy'>deploy</a>.",
+    subtitle: "Checking the progress of your <a href='/deploy' target='_blank'>deploy</a>.",
     type: 'info'
 }
 export const Error = Template.bind({})
@@ -35,7 +35,7 @@ Error.args = {
     isOnlyNotification: true,
     onClose: () => console.log('NotificationMessage'),
     title: 'Liquidity correctly removed',
-    subtitle: "Checking the progress of your <a href='/deploy'>deploy</a>.",
+    subtitle: "Checking the progress of your <a href='/deploy' target='_blank'>deploy</a>.",
     type: 'error'
 }
 
@@ -50,7 +50,7 @@ WithAutoClose.args = {
     isOnlyNotification: visible,
     onClose: setVisibility,
     title: 'Liquidity correctly removed',
-    subtitle: "Checking the progress of your <a href='/deploy'>deploy</a>.",
+    subtitle: "Checking the progress of your <a href='/deploy' target='_blank'>deploy</a>.",
     type: 'success',
     autoCloseDelay: 7000
 }

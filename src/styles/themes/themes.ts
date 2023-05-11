@@ -21,6 +21,7 @@ export interface theme {
     }
     color: {
         default: string
+        downRightArrow: string
         accent1: string
         accent2: string
         accent3: string
@@ -53,6 +54,7 @@ export interface theme {
         primary: {
             default: string
             dark: string
+            text: string
         }
         success: {
             lighter: string
@@ -215,6 +217,7 @@ export const defaultTheme: theme = {
     },
     color: {
         default: '#545454',
+        downRightArrow: '#B3B3B3',
         accent1: '#fafafa',
         accent2: '#EAEAEA',
         accent3: '#999',
@@ -246,7 +249,8 @@ export const defaultTheme: theme = {
         },
         primary: {
             default: '#715FF5',
-            dark: '#715FF5'
+            dark: '#715FF5',
+            text: '#787878'
         },
         success: {
             lighter: '#D3E5FF',
@@ -345,6 +349,7 @@ export const defaultTheme: theme = {
       default: '#EAEBEC',
       dialog: '#EAEBEC',
       wallet: '#EAEBEC',
+      
 
       notification: {
         error: '#ED6767',
@@ -409,6 +414,7 @@ export const darkTheme: theme = {
     },
     color: {
         default: '#FFFFFF',
+        downRightArrow: '#715FF5',
         accent1: '#111',
         accent2: '#333',
         accent3: '#444',
@@ -440,7 +446,8 @@ export const darkTheme: theme = {
         },
         primary: {
             default: '#715FF5',
-            dark: '#715FF5'
+            dark: '#715FF5',
+            text: '#FFFFFF'
         },
         success: {
             lighter: '#D3E5FF',

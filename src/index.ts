@@ -49,12 +49,15 @@ export {
     Notification,
     LPSearch,
     PoolItemDetails,
-    NotificationMessage
+    NotificationMessage,
+    MyAccountInfoTable,
+    AccountTabs,
 } from './components';
 export {
     InputType,
     ToggleVariant,
     DeviceType,
     NoticationTypes,
-    NotificationPositions
+    NotificationPositions,
+    MyAccountInfoDataTypes
 } from './types/index';
