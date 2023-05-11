@@ -18,7 +18,7 @@ export interface ITransferHeader {
   price: string
 }
 
-export interface DeployTableProps {
+export interface TransferTableProps {
   data: ITransferHeader[]
   widthIcon?: number
   heightIcon?: number
@@ -74,7 +74,7 @@ export const AccountTransferTable = ({
   data,
   widthIcon,
   heightIcon
-}: DeployTableProps) => {
+}: TransferTableProps) => {
   const [deployData, setDeployData] = useState<ITransferHeader[]>([])
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
