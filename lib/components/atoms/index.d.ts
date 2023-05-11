@@ -39,3 +39,5 @@ export * from './PoolItemMobile';
 export * from './Notification';
 export * from './PoolItemDetailDesktop';
 export * from './PoolItemDetailMobile';
+export * from './AccountDeployBody';
+export * from './AccountTransferBody';

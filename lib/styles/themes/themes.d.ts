@@ -21,6 +21,7 @@ export interface theme {
     };
     color: {
         default: string;
+        downRightArrow: string;
         accent1: string;
         accent2: string;
         accent3: string;
@@ -53,6 +54,7 @@ export interface theme {
         primary: {
             default: string;
             dark: string;
+            text: string;
         };
         success: {
             lighter: string;
