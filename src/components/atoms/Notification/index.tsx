@@ -72,7 +72,7 @@ export const Notification = ({ position, type, title, message, onClose, autoClos
   }
 
   const iconColor = getIconColor(type)
-  const sanitizedMessage = () => DOMPurify.sanitize(message);
+  const sanitizedMessage = () => DOMPurify.sanitize(message, { ADD_ATTR: ['target']});
 
   return (
     <Container
