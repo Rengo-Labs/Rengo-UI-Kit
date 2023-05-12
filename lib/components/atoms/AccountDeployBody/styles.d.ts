@@ -9,6 +9,7 @@ export declare const TD: import("styled-components").StyledComponent<"td", any, 
 }, never>;
 export declare const TDInnerContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const Text: import("styled-components").StyledComponent<"p", any, {}, never>;
+export declare const TextLink: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const TDText: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const IconWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const CheckIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;

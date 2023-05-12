@@ -13,7 +13,6 @@ import { IAccountDeployBody, IAccountTransferBody } from '../../atoms'
 import { Icon } from '../Menu/styles'
 
 export const AccountTransferMobile = ({
-  id,
   deploy_hash,
   block_hash,
   antiquity,
@@ -23,7 +22,8 @@ export const AccountTransferMobile = ({
   amount,
   price,
   widthIcon,
-  heightIcon
+  heightIcon,
+  handleCopy
 }: IAccountTransferBody) => {
   return (
     <Wrapper>
@@ -36,7 +36,7 @@ export const AccountTransferMobile = ({
           <CheckIcon width={widthIcon} height={heightIcon} />
           <IconWrapper>
             <Subtitle>{deploy_hash}</Subtitle>
-            <CopyIcon width={widthIcon} height={heightIcon} />
+            <CopyIcon width={widthIcon} height={heightIcon} onClick={handleCopy}/>
           </IconWrapper>
         </IconWrapper>
       </InnerContainer>
@@ -58,7 +58,7 @@ export const AccountTransferMobile = ({
       </InnerContainer>
       <InnerContainer>
         <Title>Cost</Title>
-        <Subtitle>{amount}</Subtitle>
+        <Subtitle>{amount} CSPR</Subtitle>
         <H5>${price}</H5>
       </InnerContainer>
     </Wrapper>

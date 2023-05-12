@@ -1,5 +1,4 @@
 export interface IAccountTransferBody {
-    id?: number;
     deploy_hash?: string;
     block_hash?: string;
     antiquity?: string;
@@ -10,6 +9,7 @@ export interface IAccountTransferBody {
     price?: string;
     widthIcon?: number;
     heightIcon?: number;
+    handleCopy?: () => void;
 }
 /**
  * Renders a body from transfer table
@@ -26,4 +26,4 @@ export interface IAccountTransferBody {
  * @param {number} heightIcon - Height of the icon
  * @returns {JSX.Element} - Body from transfer table
  */
-export declare const AccountTransferBody: ({ id, deploy_hash, block_hash, antiquity, of, forValue, transference_id, amount, price, widthIcon, heightIcon }: IAccountTransferBody) => JSX.Element;
+export declare const AccountTransferBody: ({ deploy_hash, block_hash, antiquity, of, forValue, transference_id, amount, price, widthIcon, heightIcon }: IAccountTransferBody) => JSX.Element;

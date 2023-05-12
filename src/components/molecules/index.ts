@@ -18,3 +18,6 @@ export * from './PoolItemDetails'
 export * from './NotificationMessage'
 export * from './MyAccountInfoTable'
 export * from './AccountTabs'
+export * from './AccountTransferTable'
+export * from './AccountDeployTable'
+

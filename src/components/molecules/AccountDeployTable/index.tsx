@@ -7,11 +7,14 @@ import { AccountDeployBody } from '../../atoms'
 import { AccountDeployMobile } from '../AccountDeployMobile'
 
 export interface IDeployHeader {
-  id: number
+  id: string
   deploy_hash: string
   block_hash: string
   antiquity: string
   contract: string
+  contractRedirect: () => void
+  handleCopy: () => void
+  entry_point: string
   amount: string
   cost: string
   price: string
@@ -99,28 +102,31 @@ export const AccountDeployTable = ({
         />
       )}
       <Body>
-        {deployData?.map((row) =>
+        {deployData?.map((row: IDeployHeader) =>
           isMobile ? (
             <AccountDeployMobile
-              id={row.id}
               deploy_hash={row.deploy_hash}
               block_hash={row.block_hash}
               antiquity={row.antiquity}
               contract={row.contract}
+              contractRedirect={row.contractRedirect}
+              entry_point={row.entry_point}
               amount={row.amount}
               cost={row.cost}
               price={row.price}
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               key={`account-deploy-mobile-${row.id}`}
+              handleCopy={row.handleCopy}
             />
           ) : (
             <AccountDeployBody
-              id={row.id}
               deploy_hash={row.deploy_hash}
               block_hash={row.block_hash}
               antiquity={row.antiquity}
               contract={row.contract}
+              contractRedirect={row.contractRedirect}
+              entry_point={row.entry_point}
               amount={row.amount}
               cost={row.cost}
               price={row.price}

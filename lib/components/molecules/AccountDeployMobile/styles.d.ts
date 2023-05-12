@@ -3,6 +3,9 @@ export declare const InnerContainer: import("styled-components").StyledComponent
 export declare const Title: import("styled-components").StyledComponent<"p", any, {
     isPrimary?: boolean | undefined;
 }, never>;
+export declare const SubtilteLink: import("styled-components").StyledComponent<"p", any, {
+    isPrimary?: boolean | undefined;
+}, never>;
 export declare const Subtitle: import("styled-components").StyledComponent<"p", any, {
     isPrimary?: boolean | undefined;
 }, never>;

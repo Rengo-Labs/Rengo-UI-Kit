@@ -1,9 +1,12 @@
 export interface IDeployHeader {
-    id: number;
+    id: string;
     deploy_hash: string;
     block_hash: string;
     antiquity: string;
     contract: string;
+    contractRedirect: () => void;
+    handleCopy: () => void;
+    entry_point: string;
     amount: string;
     cost: string;
     price: string;

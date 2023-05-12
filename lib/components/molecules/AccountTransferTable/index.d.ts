@@ -1,5 +1,5 @@
 export interface ITransferHeader {
-    id: number;
+    id: string;
     deploy_hash: string;
     block_hash: string;
     antiquity: string;
@@ -8,8 +8,9 @@ export interface ITransferHeader {
     transference_id: string;
     amount: string;
     price: string;
+    handleCopy: () => void;
 }
-export interface DeployTableProps {
+export interface TransferTableProps {
     data: ITransferHeader[];
     widthIcon?: number;
     heightIcon?: number;
@@ -21,4 +22,4 @@ export interface DeployTableProps {
  * @param {number} heightIcon - Height of the icon
  * @returns {JSX.Element} - Table with the data of the transfer
  */
-export declare const AccountTransferTable: ({ data, widthIcon, heightIcon }: DeployTableProps) => JSX.Element;
+export declare const AccountTransferTable: ({ data, widthIcon, heightIcon }: TransferTableProps) => JSX.Element;
