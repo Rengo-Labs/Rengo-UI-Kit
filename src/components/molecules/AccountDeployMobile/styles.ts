@@ -32,6 +32,11 @@ export const Title = styled.p<{ isPrimary?: boolean }>`
     isPrimary ? theme.color.modalText : theme.color.default};
 `
 
+export const SubtilteLink = styled(Title)`
+  color: ${({ theme }) => theme.color.modalText};
+  cursor: pointer;
+`
+
 export const Subtitle = styled(Title)`
   color: ${({ theme }) => theme.color.default};
   font-weight: 400;

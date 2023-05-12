@@ -7,7 +7,7 @@ import { AccountDeployBody, AccountTransferBody } from '../../atoms'
 import { AccountTransferMobile } from '../AccountTransferMobile'
 
 export interface ITransferHeader {
-  id: number
+  id: string
   deploy_hash: string
   block_hash: string
   antiquity: string
@@ -16,6 +16,7 @@ export interface ITransferHeader {
   transference_id: string
   amount: string
   price: string
+  handleCopy: () => void
 }
 
 export interface TransferTableProps {
@@ -107,7 +108,6 @@ export const AccountTransferTable = ({
         {deployData?.map((row) =>
           isMobile ? (
             <AccountTransferMobile
-              id={row.id}
               deploy_hash={row.deploy_hash}
               block_hash={row.block_hash}
               antiquity={row.antiquity}
@@ -119,10 +119,10 @@ export const AccountTransferTable = ({
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               key={`account-transfer-mobile-${row.id}`}
+              handleCopy={row.handleCopy}
             />
           ) : (
             <AccountTransferBody
-              id={row.id}
               deploy_hash={row.deploy_hash}
               block_hash={row.block_hash}
               antiquity={row.antiquity}

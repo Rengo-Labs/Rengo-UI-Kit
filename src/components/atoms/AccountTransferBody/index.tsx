@@ -10,7 +10,6 @@ import {
 } from './styles'
 
 export interface IAccountTransferBody {
-  id?: number
   deploy_hash?: string
   block_hash?: string
   antiquity?: string
@@ -21,6 +20,7 @@ export interface IAccountTransferBody {
   price?: string
   widthIcon?: number
   heightIcon?: number
+  handleCopy?: () => void
 }
 
 /**
@@ -40,7 +40,6 @@ export interface IAccountTransferBody {
  */
 
 export const AccountTransferBody = ({
-  id,
   deploy_hash,
   block_hash,
   antiquity,
@@ -78,7 +77,7 @@ export const AccountTransferBody = ({
       </TD>
       <TD>
         <TDInnerContainer>
-          <Text>{amount}</Text>
+          <Text>{amount} CSPR</Text>
           <TDText>${price}</TDText>
         </TDInnerContainer>
       </TD>
