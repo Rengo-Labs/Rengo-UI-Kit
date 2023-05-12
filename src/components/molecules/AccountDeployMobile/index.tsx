@@ -7,23 +7,26 @@ import {
   H5,
   IconWrapper,
   CheckIcon,
-  CopyIcon
+  CopyIcon,
+  SubtilteLink
 } from './styles'
 import { IAccountDeployBody } from '../../atoms'
-import { Icon } from '../Menu/styles'
 
 export const AccountDeployMobile = ({
-  id,
   deploy_hash,
   block_hash,
   antiquity,
   contract,
+  contractRedirect,
+  handleCopy,
+  entry_point,
   amount,
   cost,
   price,
   widthIcon,
   heightIcon
 }: IAccountDeployBody) => {
+
   return (
     <Wrapper>
       <InnerContainer>
@@ -35,7 +38,7 @@ export const AccountDeployMobile = ({
           <CheckIcon width={widthIcon} height={heightIcon} />
           <IconWrapper>
             <Subtitle>{deploy_hash}</Subtitle>
-            <CopyIcon width={widthIcon} height={heightIcon} />
+            <CopyIcon width={widthIcon} height={heightIcon} onClick={handleCopy}/>
           </IconWrapper>
         </IconWrapper>
       </InnerContainer>
@@ -49,12 +52,13 @@ export const AccountDeployMobile = ({
       </InnerContainer>
       <InnerContainer>
         <Title>Cost</Title>
-        <Subtitle>{cost}</Subtitle>
+        <Subtitle>{cost} CSPR</Subtitle>
         <H5>${price}</H5>
       </InnerContainer>
       <InnerContainer>
         <Title>Contract</Title>
-        <Subtitle>increase_allowance with {contract}</Subtitle>
+        <Subtitle>{entry_point}</Subtitle>
+        <SubtilteLink onClick={contractRedirect}>{contract}</SubtilteLink>
       </InnerContainer>
     </Wrapper>
   )

@@ -48,6 +48,11 @@ export const Text = styled.p`
   align-self: center;
 `
 
+export const TextLink = styled(Text)`
+  color: ${(props) => props.theme.color.modalText};
+  cursor: pointer;
+`
+
 export const TDText = styled(Text)`
   font-style: normal;
   font-weight: 400;

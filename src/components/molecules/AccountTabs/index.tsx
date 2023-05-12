@@ -100,7 +100,7 @@ export const AccountTabs = ({
         <Tabs tabs={tabs} onClick={handleTabClick} />
       </Row>
       <TabContent>
-        {tabs.map((tab, index) => {
+        {tabs.map((tab) => {
           if (tab.isActive) {
             return <Item key={tab.id}>{tab.component}</Item>
           }
