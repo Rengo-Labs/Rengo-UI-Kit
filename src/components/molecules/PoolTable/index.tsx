@@ -26,7 +26,7 @@ export interface PoolTableProps {
   handleSwap: (path: string, pool: string) => void
   handleView: (name: string) => void
   handleAddLiquidity: (path: string, pool: string) => void
-  handleTrash: (name: string) => void
+  handleTrash: (row: IHeaderPool) => void
   handleFavorite: (name: string) => void
   query?: string
   showStakedOnly?: boolean
@@ -200,7 +200,7 @@ export const PoolTable = ({
               volume7d={row.volume7d}
               fees7d={row.fees7d}
               apr={row.apr}
-              handleTrash={() => handleTrash(row.name)}
+              handleTrash={() => handleTrash(row)}
               handleSwap={() => handleSwap('/swap', row.pool)}
               handleView={() => handleView(row.name)}
               handleAddLiquidity={() =>
@@ -224,7 +224,7 @@ export const PoolTable = ({
               volume7d={row.volume7d}
               fees7d={row.fees7d}
               apr={row.apr}
-              handleTrash={() => handleTrash(row.name)}
+              handleTrash={() => handleTrash(row)}
               handleSwap={() => handleSwap('/swap', row.pool)}
               handleView={() => handleView(row.name)}
               handleAddLiquidity={() =>
