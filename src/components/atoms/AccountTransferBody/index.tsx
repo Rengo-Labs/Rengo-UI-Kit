@@ -16,8 +16,8 @@ export interface IAccountTransferBody {
   of?: string
   forValue?: string
   transference_id?: string
-  amount?: string
-  price?: string
+  amount?: number
+  price?: number
   widthIcon?: number
   heightIcon?: number
   handleCopy?: () => void

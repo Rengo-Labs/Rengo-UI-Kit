@@ -25,7 +25,7 @@ export const TableBalanceBody = ({ row, heightIcon, widthIcon, cryptoColumnWidth
                 {key === 'crypto' && (
                   <Icon src={row['cryptoIcon'] as string} alt={key} sizes='14' height={heightIcon} width={widthIcon}/>
                 )}
-                <Text>{row[key as keyof IHeader]}</Text>
+                <Text>{row[key as keyof IHeader]}{key !== 'mycrypto' && key !== 'crypto' && '%'}</Text>
               </TD>
             )
           }

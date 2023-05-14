@@ -18,9 +18,10 @@ export interface IAccountDeployBody {
   contractRedirect: () => void
   handleCopy?: () => void
   entry_point?: string
-  amount?: string
-  cost?: string
-  price?: string
+  amount?: number
+  amountSymbol?: string
+  cost?: number
+  price?: number
   widthIcon?: number
   heightIcon?: number
 }
@@ -50,6 +51,7 @@ export const AccountDeployBody = ({
   contractRedirect,
   entry_point,
   amount,
+  amountSymbol,
   cost,
   price,
   widthIcon,
@@ -77,7 +79,7 @@ export const AccountDeployBody = ({
         </TDInnerContainer>
       </TD>
       <TD>
-        <Text>{amount}</Text>
+        <Text>{amount} {amountSymbol}</Text>
       </TD>
       <TD>
         <TDInnerContainer>
