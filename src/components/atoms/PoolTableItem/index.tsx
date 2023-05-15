@@ -21,6 +21,7 @@ import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 import favoriteIcon from './assets/favorite.svg'
 import favoriteIconFill from './assets/favoriteFill.svg'
+import { convertNumber } from '../../../utils'
 
 export interface IPoolTableItem {
   id?: string
@@ -101,7 +102,7 @@ export const PoolTableItem = ({
         <Text>{pool}</Text>
       </TD>
       <TD>
-        <Text>${liquidity}</Text>
+        <Text>${convertNumber(liquidity)}</Text>
       </TD>
       <TD>
         <Text>${volume7d}</Text>
