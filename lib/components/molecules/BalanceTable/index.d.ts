@@ -3,10 +3,10 @@ export interface IHeader {
     crypto: string;
     cryptoIcon: string;
     mycrypto: number;
-    '24h': string;
-    '7d': string;
-    '15d': string;
-    '30d': string;
+    '24h': number;
+    '7d': number;
+    '15d': number;
+    '30d': number;
 }
 export interface BalaceTableProps {
     data: IHeader[];

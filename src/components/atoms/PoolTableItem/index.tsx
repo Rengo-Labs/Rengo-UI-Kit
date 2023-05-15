@@ -29,10 +29,10 @@ export interface IPoolTableItem {
   widthIcon: number
   heightIcon: number
   pool: string
-  liquidity: string
-  volume7d: string
-  fees7d: string
-  apr: string
+  liquidity: number
+  volume7d: number
+  fees7d: number
+  apr: number
   isFavorite?: boolean
   favoriteHandler?: () => void
   handleTrash: () => void

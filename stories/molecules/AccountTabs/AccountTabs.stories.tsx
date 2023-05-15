@@ -22,30 +22,36 @@ Default.args = {
       deploy_hash: '0da51...2191c',
       block_hash: 'cff58...3789d',
       antiquity: '3 days ago',
-      contract: 'Wrapped Ether ERC-20',
-      amount: '0.00003 WETH',
-      cost: '2.29277 CSPR',
-      price: '0.1025'
+      contract: 'Wrapped Ether',
+      entry_point: 'increase_allowance',
+      amount: 0.00003,
+      amountSymbol: 'WETH',
+      cost: 2.29277,
+      price: 3.1025
     },
     {
       id: 2,
       deploy_hash: '0da51...2191c',
       block_hash: 'cff58...3789d',
       antiquity: '3 days ago',
-      contract: 'Wrapped Ether ERC-20',
-      amount: '0.00003 WETH',
-      cost: '2.29277 CSPR',
-      price: '0.1025'
+      contract: 'Wrapped Ether',
+      entry_point: 'increase_allowance',
+      amount: 4.00003,
+      amountSymbol: 'WETH',
+      cost: -3.29277,
+      price: 1.1025
     },
     {
       id: 3,
       deploy_hash: '0da51...2191c',
       block_hash: 'cff58...3789d',
       antiquity: '3 days ago',
-      contract: 'Wrapped Ether ERC-20',
-      amount: '0.00003 WETH',
-      cost: '3.29277 CSPR',
-      price: '0.1025'
+      contract: 'Wrapped Ether',
+      entry_point: 'increase_allowance',
+      amount: -0.00003,
+      amountSymbol: 'WETH',
+      cost: -2.29277,
+      price: 2.1025
     },
   ],
   transferData: [
@@ -57,8 +63,8 @@ Default.args = {
       of: '012b3...7f525',
       for: '012b3...7f525',
       transference_id:'-',
-      amount: '2.29277 CSPR',
-      price: '0.1025'
+      amount: 2.29277,
+      price: 0.1025
     },
     {
       id: 2,
@@ -68,8 +74,8 @@ Default.args = {
       of: '012b3...7f525',
       for: '012b3...7f525',
       transference_id:'-',
-      amount: '3.29277 CSPR',
-      price: '0.1025'
+      amount: 4.29277,
+      price: 0.1025
     },
     {
       id: 3,
@@ -79,8 +85,8 @@ Default.args = {
       of: '012b3...7f525',
       for: '012b3...7f525',
       transference_id:'-',
-      amount: '2.29277 CSPR',
-      price: '0.1025'
+      amount: -2.29277,
+      price: 0.1025
     }
   ],
   widthIcon: 25,

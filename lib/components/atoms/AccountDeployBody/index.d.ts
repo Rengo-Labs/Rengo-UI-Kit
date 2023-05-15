@@ -6,9 +6,10 @@ export interface IAccountDeployBody {
     contractRedirect: () => void;
     handleCopy?: () => void;
     entry_point?: string;
-    amount?: string;
-    cost?: string;
-    price?: string;
+    amount?: number;
+    amountSymbol?: string;
+    cost?: number;
+    price?: number;
     widthIcon?: number;
     heightIcon?: number;
 }
@@ -28,4 +29,4 @@ export interface IAccountDeployBody {
  * @param {number} heightIcon - Height of the icon
  * @returns {JSX.Element} - Body from deploy table
  */
-export declare const AccountDeployBody: ({ deploy_hash, block_hash, antiquity, contract, contractRedirect, entry_point, amount, cost, price, widthIcon, heightIcon }: IAccountDeployBody) => JSX.Element;
+export declare const AccountDeployBody: ({ deploy_hash, block_hash, antiquity, contract, contractRedirect, entry_point, amount, amountSymbol, cost, price, widthIcon, heightIcon }: IAccountDeployBody) => JSX.Element;

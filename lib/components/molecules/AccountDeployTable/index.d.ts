@@ -7,9 +7,10 @@ export interface IDeployHeader {
     contractRedirect: () => void;
     handleCopy: () => void;
     entry_point: string;
-    amount: string;
-    cost: string;
-    price: string;
+    amount: number;
+    amountSymbol: string;
+    cost: number;
+    price: number;
 }
 export interface DeployTableProps {
     data: IDeployHeader[];
