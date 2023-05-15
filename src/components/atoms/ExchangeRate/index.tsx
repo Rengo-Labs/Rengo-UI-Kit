@@ -24,10 +24,10 @@ export const ExchangeRate = ({
             <ExchangeRateRow data-testid={switchRate} onClick={handleUpdateTokens}>
                 { switchRate ?
                     <ExchangeRateColumn>
-                        {exchangeRateB ? (exchangeRateB).toFixed(6): '???'} {tokenASymbol} ≈ 1 {tokenBSymbol}
+                        {exchangeRateB ? (exchangeRateB).toFixed(8): '???'} {tokenASymbol} ≈ 1 {tokenBSymbol}
                     </ExchangeRateColumn> :
                     <ExchangeRateColumn>
-                        {exchangeRateA ? (exchangeRateA).toFixed(6): '???'} {tokenBSymbol} ≈ 1 {tokenASymbol}
+                        {exchangeRateA ? (exchangeRateA).toFixed(8): '???'} {tokenBSymbol} ≈ 1 {tokenASymbol}
                     </ExchangeRateColumn>
                 }
             </ExchangeRateRow>
