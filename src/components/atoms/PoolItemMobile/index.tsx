@@ -30,6 +30,7 @@ import {
 } from '../PoolTableItem/styles'
 import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
+import { convertNumber } from '../../../utils'
 
 export const PoolItemMobile = ({
   token0Icon,
@@ -126,7 +127,7 @@ export const PoolItemMobile = ({
       <Footer>
         <HeaderSubtitle>
           <Subtitle>Liquidity</Subtitle>
-          <SubtitleValue>{liquidity}</SubtitleValue>
+          <SubtitleValue>{convertNumber(liquidity)}</SubtitleValue>
         </HeaderSubtitle>
         <HeaderSubtitle>
           <Subtitle>Volumen 7D</Subtitle>
