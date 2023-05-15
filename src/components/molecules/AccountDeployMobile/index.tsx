@@ -21,6 +21,7 @@ export const AccountDeployMobile = ({
   handleCopy,
   entry_point,
   amount,
+  amountSymbol,
   cost,
   price,
   widthIcon,
@@ -48,7 +49,7 @@ export const AccountDeployMobile = ({
       </InnerContainer>
       <InnerContainer>
         <Title>Amount</Title>
-        <Subtitle>{amount}</Subtitle>
+        <Subtitle>{amount} {amountSymbol}</Subtitle>
       </InnerContainer>
       <InnerContainer>
         <Title>Cost</Title>
