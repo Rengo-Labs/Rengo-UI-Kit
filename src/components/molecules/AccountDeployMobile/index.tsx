@@ -8,7 +8,8 @@ import {
   IconWrapper,
   CheckIcon,
   CopyIcon,
-  SubtilteLink
+  SubtilteLink,
+  AlertIcon
 } from './styles'
 import { IAccountDeployBody } from '../../atoms'
 
@@ -25,9 +26,9 @@ export const AccountDeployMobile = ({
   cost,
   price,
   widthIcon,
-  heightIcon
+  heightIcon,
+  errorMessage
 }: IAccountDeployBody) => {
-
   return (
     <Wrapper>
       <InnerContainer>
@@ -36,10 +37,19 @@ export const AccountDeployMobile = ({
           <Subtitle>{antiquity}</Subtitle>
         </IconWrapper>
         <IconWrapper>
-          <CheckIcon width={widthIcon} height={heightIcon} />
+          {errorMessage ? (
+            <AlertIcon width={widthIcon} height={heightIcon} />
+          ) : (
+            <CheckIcon width={widthIcon} height={heightIcon} />
+          )}
+
           <IconWrapper>
             <Subtitle>{deploy_hash}</Subtitle>
-            <CopyIcon width={widthIcon} height={heightIcon} onClick={handleCopy}/>
+            <CopyIcon
+              width={widthIcon}
+              height={heightIcon}
+              onClick={handleCopy}
+            />
           </IconWrapper>
         </IconWrapper>
       </InnerContainer>
@@ -49,7 +59,9 @@ export const AccountDeployMobile = ({
       </InnerContainer>
       <InnerContainer>
         <Title>Amount</Title>
-        <Subtitle>{amount} {amountSymbol}</Subtitle>
+        <Subtitle>
+          {amount} {amountSymbol}
+        </Subtitle>
       </InnerContainer>
       <InnerContainer>
         <Title>Cost</Title>
