@@ -19,6 +19,7 @@ export interface IDeployHeader {
   amountSymbol: string
   cost: number
   price: number
+  errorMessage: string
 }
 
 export interface DeployTableProps {
@@ -120,6 +121,7 @@ export const AccountDeployTable = ({
               heightIcon={heightIcon}
               key={`account-deploy-mobile-${row.id}`}
               handleCopy={row.handleCopy}
+              errorMessage={row.errorMessage}
             />
           ) : (
             <AccountDeployBody
@@ -136,6 +138,7 @@ export const AccountDeployTable = ({
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               key={`account-deploy-desktop-${row.id}`}
+              errorMessage={row.errorMessage}
             />
           )
         )}
