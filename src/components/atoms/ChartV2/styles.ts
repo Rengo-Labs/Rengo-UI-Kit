@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ChartWrapper = styled.div`
   height: 100%;
-  max-height: 340px;
+  max-height: 270px;
 `
 
 export const OptionsRow = styled.div`
