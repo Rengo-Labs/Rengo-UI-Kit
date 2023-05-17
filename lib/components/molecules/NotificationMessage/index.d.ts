@@ -1,3 +1,4 @@
+import React from 'react';
 export interface NotificationMessageProps {
     onClose: () => void;
     isOpen: boolean;
@@ -20,4 +21,4 @@ export interface NotificationMessageProps {
  * @returns {JSX.Element}
  * @constructor
  */
-export declare const NotificationMessage: ({ onClose, isOpen, isOnlyNotification, title, subtitle, type, autoCloseDelay, position }: NotificationMessageProps) => JSX.Element;
+export declare const NotificationMessage: ({ onClose, isOpen, isOnlyNotification, title, subtitle, type, autoCloseDelay, position }: NotificationMessageProps) => React.JSX.Element;

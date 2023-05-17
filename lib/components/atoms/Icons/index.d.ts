@@ -1,3 +1,4 @@
+import React from 'react';
 import { IconProps } from 'react-feather';
 export interface IconsProps extends IconProps {
     name: string;
@@ -6,4 +7,4 @@ export interface IconsProps extends IconProps {
     fill?: string;
 }
 export declare const iconNames: string[];
-export declare const Icons: ({ name, color, size, fill }: IconsProps) => JSX.Element | null;
+export declare const Icons: ({ name, color, size, fill }: IconsProps) => React.JSX.Element | null;

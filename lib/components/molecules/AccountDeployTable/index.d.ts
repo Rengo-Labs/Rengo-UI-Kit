@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IDeployHeader {
     id: string;
     deploy_hash: string;
@@ -11,6 +12,7 @@ export interface IDeployHeader {
     amountSymbol: string;
     cost: number;
     price: number;
+    errorMessage: string;
 }
 export interface DeployTableProps {
     data: IDeployHeader[];
@@ -24,4 +26,4 @@ export interface DeployTableProps {
  * @param {number} heightIcon - Height of the icon
  * @returns {JSX.Element} - Table with the data of the deploy
  */
-export declare const AccountDeployTable: ({ data, widthIcon, heightIcon }: DeployTableProps) => JSX.Element;
+export declare const AccountDeployTable: ({ data, widthIcon, heightIcon }: DeployTableProps) => React.JSX.Element;

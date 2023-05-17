@@ -1,3 +1,4 @@
+import React from 'react';
 import { WalletConnectedOptionsDialogProps } from './types';
 /**
   A React component for a dialog displaying wallet-connected options.
@@ -14,4 +15,4 @@ import { WalletConnectedOptionsDialogProps } from './types';
   @param {WalletConnectedOptionsDialogProps} props - The props of the component.
   @returns {JSX.Element} - A React component that displays a dialog with wallet-connected options.
 */
-export declare const WalletConnectedOptionsDialog: ({ closeCallback, options, isOpen }: WalletConnectedOptionsDialogProps) => JSX.Element;
+export declare const WalletConnectedOptionsDialog: ({ closeCallback, options, isOpen }: WalletConnectedOptionsDialogProps) => React.JSX.Element;

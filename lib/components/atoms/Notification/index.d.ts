@@ -1,3 +1,4 @@
+import React from 'react';
 import { NotificationProps } from './types';
 /**
 
@@ -12,4 +13,4 @@ import { NotificationProps } from './types';
   @param {number} props.autoCloseDelay - The autoCloseDelay number to close the notification.
   @return {JSX.Element} A React component that displays a notification.
   */
-export declare const Notification: ({ position, type, title, message, onClose, autoCloseDelay }: NotificationProps) => JSX.Element;
+export declare const Notification: ({ position, type, title, message, onClose, autoCloseDelay }: NotificationProps) => React.JSX.Element;

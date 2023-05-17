@@ -1,3 +1,4 @@
+import React from 'react';
 export interface LPSearchProps {
     handleOnlyShowStaked: (showStaked: boolean) => void;
     handleSearch: (e: string) => void;
@@ -16,4 +17,4 @@ export interface LPSearchProps {
   @param {Function} props.clearProgress - A function that clears the current reload progress.
   @returns {JSX.Element} The rendered LPSearch component.
 */
-export declare const LPSearch: ({ handleOnlyShowStaked, handleSearch, handleReloadButton, getProgress, clearProgress }: LPSearchProps) => JSX.Element;
+export declare const LPSearch: ({ handleOnlyShowStaked, handleSearch, handleReloadButton, getProgress, clearProgress }: LPSearchProps) => React.JSX.Element;

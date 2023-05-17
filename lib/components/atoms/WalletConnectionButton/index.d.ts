@@ -1,3 +1,4 @@
+import React from 'react';
 export interface WalletConnectionButtonProps {
     startIcon?: string;
     endIcon?: string;
@@ -15,4 +16,4 @@ export interface WalletConnectionButtonProps {
   @property {boolean} isWalletActive - Whether the wallet is currently active or not.
   @property {Function} onClick - The function to execute when the button is clicked.
 */
-export declare const WalletConnectionButton: ({ startIcon, endIcon, walletID, isWalletActive, onClick }: WalletConnectionButtonProps) => JSX.Element;
+export declare const WalletConnectionButton: ({ startIcon, endIcon, walletID, isWalletActive, onClick }: WalletConnectionButtonProps) => React.JSX.Element;

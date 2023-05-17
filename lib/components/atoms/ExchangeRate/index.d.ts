@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IExchangeRateProps {
     tokenASymbol: string;
     tokenBSymbol: string;
@@ -5,4 +6,4 @@ export interface IExchangeRateProps {
     exchangeRateB: number;
     className?: string;
 }
-export declare const ExchangeRate: ({ tokenASymbol, tokenBSymbol, exchangeRateA, exchangeRateB, className, }: IExchangeRateProps) => JSX.Element;
+export declare const ExchangeRate: ({ tokenASymbol, tokenBSymbol, exchangeRateA, exchangeRateB, className, }: IExchangeRateProps) => React.JSX.Element;

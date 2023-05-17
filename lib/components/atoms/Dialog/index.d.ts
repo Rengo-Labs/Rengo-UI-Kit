@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 export interface DialogProps {
     children: ReactNode;
     onClose: () => void;
@@ -13,4 +13,4 @@ export interface DialogProps {
   @property {Function} isOpen - Boolean value to know the status of the dialog
   @returns {JSX.Element} - A JSX element representing the dialog box component.
 */
-export declare const Dialog: ({ children, onClose, isOpen, withoutEffect }: DialogProps) => JSX.Element;
+export declare const Dialog: ({ children, onClose, isOpen, withoutEffect }: DialogProps) => React.JSX.Element;

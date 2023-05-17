@@ -1,3 +1,4 @@
+import React from 'react';
 export interface CoinCardPros {
     startIcon: string;
     endIcon: string;
@@ -28,4 +29,4 @@ export interface CoinCardPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export declare const CoinCard: ({ startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value }: CoinCardPros) => JSX.Element;
+export declare const CoinCard: ({ startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value }: CoinCardPros) => React.JSX.Element;

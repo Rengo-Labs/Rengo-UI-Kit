@@ -1,3 +1,4 @@
+import React from 'react';
 import { InputProps } from './types';
 /**
  * Renders an input field with an optional label, helper text, and icon.
@@ -17,4 +18,4 @@ import { InputProps } from './types';
  *
  * @returns {JSX.Element} The rendered input field.
  */
-export declare const Input: ({ placeholder, status, type, label, helperText, rightAdornment, hasBackground, Icon, iconSize, iconWrapperBackground, onChange, validator, value, textAlign }: InputProps) => JSX.Element;
+export declare const Input: ({ placeholder, status, type, label, helperText, rightAdornment, hasBackground, Icon, iconSize, iconWrapperBackground, onChange, validator, value, textAlign }: InputProps) => React.JSX.Element;

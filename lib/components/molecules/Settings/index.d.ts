@@ -1,3 +1,4 @@
+import React from 'react';
 export interface SettingsProps {
     slippageToleranceValue: number;
     customNodeUrlValue: string;
@@ -5,4 +6,4 @@ export interface SettingsProps {
     handleClose: () => void;
     isOpen: boolean;
 }
-export declare const Settings: ({ slippageToleranceValue, customNodeUrlValue, handleSave, handleClose, isOpen }: SettingsProps) => JSX.Element;
+export declare const Settings: ({ slippageToleranceValue, customNodeUrlValue, handleSave, handleClose, isOpen }: SettingsProps) => React.JSX.Element;

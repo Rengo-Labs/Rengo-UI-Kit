@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IHeaderPool {
     name: string;
     pool: string;
@@ -23,4 +24,4 @@ export interface PoolTableProps {
     query?: string;
     showStakedOnly?: boolean;
 }
-export declare const PoolTable: ({ data, widthIcon, heightIcon, handleAddLiquidity, handleSwap, handleTrash, handleView, handleFavorite, query, showStakedOnly }: PoolTableProps) => JSX.Element;
+export declare const PoolTable: ({ data, widthIcon, heightIcon, handleAddLiquidity, handleSwap, handleTrash, handleView, handleFavorite, query, showStakedOnly }: PoolTableProps) => React.JSX.Element;

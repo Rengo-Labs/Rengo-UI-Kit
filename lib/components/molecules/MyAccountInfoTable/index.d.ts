@@ -1,3 +1,4 @@
+import React from 'react';
 export declare enum MyAccountInfoDataTypes {
     String = "string",
     Link = "link"
@@ -21,4 +22,4 @@ export interface MyAccountInfoTableProps {
     @property {string} value - The value of the data object
     @return {JSX.Element} The MyAccountInfoTable component
 */
-export declare const MyAccountInfoTable: ({ data }: MyAccountInfoTableProps) => JSX.Element;
+export declare const MyAccountInfoTable: ({ data }: MyAccountInfoTableProps) => React.JSX.Element;

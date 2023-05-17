@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IExchangeRate {
     handleClickSwap: () => void;
     tokenASymbol: string;
@@ -9,4 +10,4 @@ export interface IExchangeRate {
     strokeWidth: number;
     handlerButtonCircle: () => Promise<void>;
 }
-export declare const ExchangeRates: ({ handleClickSwap, tokenASymbol, tokenBSymbol, exchangeRateA, exchangeRateB, getProgress, clearProgress, strokeWidth, handlerButtonCircle }: IExchangeRate) => JSX.Element;
+export declare const ExchangeRates: ({ handleClickSwap, tokenASymbol, tokenBSymbol, exchangeRateA, exchangeRateB, getProgress, clearProgress, strokeWidth, handlerButtonCircle }: IExchangeRate) => React.JSX.Element;

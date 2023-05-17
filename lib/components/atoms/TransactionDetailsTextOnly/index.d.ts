@@ -1,3 +1,4 @@
+import React from "react";
 /**
   A component that displays the token information for a transaction in text form only,
   including the token names and their respective values.
@@ -10,4 +11,4 @@
 export interface TransactionDetailsProps {
     tokenInfo: Array<string>;
 }
-export declare const TransactionDetailsTextOnly: ({ tokenInfo }: TransactionDetailsProps) => JSX.Element;
+export declare const TransactionDetailsTextOnly: ({ tokenInfo }: TransactionDetailsProps) => React.JSX.Element;

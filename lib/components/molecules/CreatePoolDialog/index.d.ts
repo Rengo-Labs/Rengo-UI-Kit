@@ -1,3 +1,4 @@
+import React from 'react';
 import { CreatePoolDialogProps } from './types';
 /**
   React component for creating a pool dialog.
@@ -8,4 +9,4 @@ import { CreatePoolDialogProps } from './types';
   @param {function} [props.onSelectToken] - onSelectToken select token.
   @returns {JSX.Element} - The create pool dialog component.
 */
-export declare const CreatePoolDialog: ({ isOpen, closeCallback, tokenListData, popularTokensData, onSelectToken, onSelectFavoriteToken, handleViewTokenList }: CreatePoolDialogProps) => JSX.Element;
+export declare const CreatePoolDialog: ({ isOpen, closeCallback, tokenListData, popularTokensData, onSelectToken, onSelectFavoriteToken, handleViewTokenList }: CreatePoolDialogProps) => React.JSX.Element;

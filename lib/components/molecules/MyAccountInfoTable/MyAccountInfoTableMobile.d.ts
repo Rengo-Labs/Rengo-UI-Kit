@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { DataKeyValues } from '.';
 type HeaderItem = {
     id: string;
@@ -22,5 +22,5 @@ interface MyAccountInfoTableMobileProps {
     @property {string} value - The value of the data object
     @return {JSX.Element} The MyAccountInfoTable component
 */
-export declare const MyAccountInfoTableMobile: ({ headers, data }: MyAccountInfoTableMobileProps) => JSX.Element;
+export declare const MyAccountInfoTableMobile: ({ headers, data }: MyAccountInfoTableMobileProps) => React.JSX.Element;
 export {};

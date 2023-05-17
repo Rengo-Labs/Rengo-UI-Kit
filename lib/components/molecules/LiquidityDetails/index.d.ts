@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IToken {
     amount?: string;
     allowance?: string;
@@ -27,5 +28,5 @@ interface ILiquidityDetailsProps {
  * Render a Liquidity Details.
  * @returns  {JSX.Element} The rendered a list of key-value text and inputs.
  */
-export declare const LiquidityDetails: ({ firstSymbol, secondSymbol, maxAmount, firstTotalLiquidity, secondTotalLiquidity, totalSupply, slippage, setSlippage, networkFee, setNetworkFee }: ILiquidityDetailsProps) => JSX.Element;
+export declare const LiquidityDetails: ({ firstSymbol, secondSymbol, maxAmount, firstTotalLiquidity, secondTotalLiquidity, totalSupply, slippage, setSlippage, networkFee, setNetworkFee }: ILiquidityDetailsProps) => React.JSX.Element;
 export {};

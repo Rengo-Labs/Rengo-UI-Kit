@@ -4,4 +4,4 @@ export interface ButtonProps {
     props: any;
     children: React.ReactNode;
 }
-export declare const Button: ({ type, props, children }: ButtonProps) => JSX.Element;
+export declare const Button: ({ type, props, children }: ButtonProps) => React.JSX.Element;

@@ -1,3 +1,4 @@
+import React from 'react';
 export interface LPToken {
     firstTokenIcon: any;
     secondTokenIcon: any;
@@ -29,4 +30,4 @@ export interface LPContainerPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export declare const LPContainer: ({ title, lpTokens }: LPContainerPros) => JSX.Element;
+export declare const LPContainer: ({ title, lpTokens }: LPContainerPros) => React.JSX.Element;

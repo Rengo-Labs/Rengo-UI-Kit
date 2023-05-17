@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IHeader {
     id: number;
     crypto: string;
@@ -13,4 +14,4 @@ export interface BalaceTableProps {
     widthIcon?: number;
     heightIcon?: number;
 }
-export declare const BalanceTable: ({ data, widthIcon, heightIcon }: BalaceTableProps) => JSX.Element;
+export declare const BalanceTable: ({ data, widthIcon, heightIcon }: BalaceTableProps) => React.JSX.Element;

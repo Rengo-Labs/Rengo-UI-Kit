@@ -1,3 +1,4 @@
+import React from "react";
 import { RowIconProps } from "./types";
 /**
  A reusable component to display a token with its icon, name, and full name in a row format.
@@ -10,4 +11,4 @@ import { RowIconProps } from "./types";
  @param {function} [props.onSelectToken] - onSelectToken select token.
  @return {JSX.Element} - The JSX markup of the component.
  */
-export declare const RowIcon: ({ tokenName, tokenFullName, Icon, iconSize, onSelectToken }: RowIconProps) => JSX.Element;
+export declare const RowIcon: ({ tokenName, tokenFullName, Icon, iconSize, onSelectToken }: RowIconProps) => React.JSX.Element;

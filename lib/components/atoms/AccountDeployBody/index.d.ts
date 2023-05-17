@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IAccountDeployBody {
     deploy_hash?: string;
     block_hash?: string;
@@ -12,6 +13,7 @@ export interface IAccountDeployBody {
     price?: number;
     widthIcon?: number;
     heightIcon?: number;
+    errorMessage?: string;
 }
 /**
  * Renders a body from deploy table
@@ -29,4 +31,4 @@ export interface IAccountDeployBody {
  * @param {number} heightIcon - Height of the icon
  * @returns {JSX.Element} - Body from deploy table
  */
-export declare const AccountDeployBody: ({ deploy_hash, block_hash, antiquity, contract, contractRedirect, entry_point, amount, amountSymbol, cost, price, widthIcon, heightIcon }: IAccountDeployBody) => JSX.Element;
+export declare const AccountDeployBody: ({ deploy_hash, block_hash, antiquity, contract, contractRedirect, entry_point, amount, amountSymbol, cost, price, widthIcon, heightIcon, errorMessage }: IAccountDeployBody) => React.JSX.Element;

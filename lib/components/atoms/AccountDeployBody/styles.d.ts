@@ -13,4 +13,5 @@ export declare const TextLink: import("styled-components").StyledComponent<"p", 
 export declare const TDText: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const IconWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const CheckIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
+export declare const AlertIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
 export declare const Icon: import("styled-components").StyledComponent<"img", any, ImageProps, never>;

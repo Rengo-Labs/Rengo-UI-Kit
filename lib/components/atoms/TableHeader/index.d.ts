@@ -1,4 +1,4 @@
-import { Ref } from 'react';
+import React, { Ref } from 'react';
 interface Column {
     key: string;
     name: string;
@@ -9,5 +9,5 @@ interface TableHeaderProps {
     onSort: (key: string, isAscending: boolean) => void;
     cryptoColumnRef?: Ref<HTMLTableCellElement>;
 }
-export declare const TableHeader: ({ columns, onSort, cryptoColumnRef }: TableHeaderProps) => JSX.Element;
+export declare const TableHeader: ({ columns, onSort, cryptoColumnRef }: TableHeaderProps) => React.JSX.Element;
 export default TableHeader;

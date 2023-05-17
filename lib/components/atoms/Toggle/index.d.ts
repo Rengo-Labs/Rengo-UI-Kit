@@ -1,3 +1,4 @@
+import React from 'react';
 import { ToggleProps } from './types';
 /**
   A toggle switch component with customizable variant and label.
@@ -9,4 +10,4 @@ import { ToggleProps } from './types';
   @param {string} [props.labelText=''] - The label text to be displayed next to the toggle switch.
   @return {JSX.Element}
 */
-export declare const Toggle: ({ isActive, toggle, variant, labelText }: ToggleProps) => JSX.Element;
+export declare const Toggle: ({ isActive, toggle, variant, labelText }: ToggleProps) => React.JSX.Element;

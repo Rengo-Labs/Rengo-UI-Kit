@@ -1,3 +1,4 @@
+import React from 'react';
 export interface ITransferHeader {
     id: string;
     deploy_hash: string;
@@ -22,4 +23,4 @@ export interface TransferTableProps {
  * @param {number} heightIcon - Height of the icon
  * @returns {JSX.Element} - Table with the data of the transfer
  */
-export declare const AccountTransferTable: ({ data, widthIcon, heightIcon }: TransferTableProps) => JSX.Element;
+export declare const AccountTransferTable: ({ data, widthIcon, heightIcon }: TransferTableProps) => React.JSX.Element;

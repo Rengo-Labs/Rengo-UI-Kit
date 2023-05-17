@@ -1,3 +1,4 @@
+import React from 'react';
 import { InputType } from './types';
 export interface KeyValueInputProps {
     keyText: string;
@@ -13,4 +14,4 @@ export interface KeyValueInputProps {
  * @param {InputType} inputType - The type of input to display.
  * @returns  {JSX.Element} The rendered the key-value text.
  */
-export declare const KeyValueInput: ({ keyText, value, onChange, inputType }: KeyValueInputProps) => JSX.Element;
+export declare const KeyValueInput: ({ keyText, value, onChange, inputType }: KeyValueInputProps) => React.JSX.Element;

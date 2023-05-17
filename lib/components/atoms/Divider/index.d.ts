@@ -1,1 +1,2 @@
-export declare const Divider: () => JSX.Element;
+import React from 'react';
+export declare const Divider: () => React.JSX.Element;

@@ -1,3 +1,4 @@
+import React from 'react';
 interface ITab {
     id: number;
     text: string;
@@ -12,5 +13,5 @@ export interface ITabsProps {
  * @param {ITab} tabs - The tabs to display.
  * @param {function} onClick - The function to call when the tab is clicked.
  */
-export declare const Tabs: ({ tabs, onClick }: ITabsProps) => JSX.Element;
+export declare const Tabs: ({ tabs, onClick }: ITabsProps) => React.JSX.Element;
 export {};

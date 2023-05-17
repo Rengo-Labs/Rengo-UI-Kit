@@ -1,3 +1,4 @@
+import React from 'react';
 import { IDeployHeader } from '../AccountDeployTable';
 import { ITransferHeader } from '../AccountTransferTable';
 export interface AccountTabsProps {
@@ -16,4 +17,4 @@ export interface AccountTabsProps {
  * @param {number} heightIcon - The height of the icon.
  * @returns  {JSX.Element} The rendered two tabs, the first one with a deploy table and the second one with a transfer table.
  */
-export declare const AccountTabs: ({ tabDefault, deployData, transferData, widthIcon, heightIcon }: AccountTabsProps) => JSX.Element;
+export declare const AccountTabs: ({ tabDefault, deployData, transferData, widthIcon, heightIcon }: AccountTabsProps) => React.JSX.Element;

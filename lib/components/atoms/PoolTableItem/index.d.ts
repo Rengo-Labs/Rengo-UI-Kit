@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IPoolTableItem {
     id?: string;
     token0Icon: any;
@@ -19,4 +20,4 @@ export interface IPoolTableItem {
     actionsDialogActive?: boolean;
     hideRemoveLiquidity: boolean;
 }
-export declare const PoolTableItem: ({ token0Icon, token1Icon, widthIcon, heightIcon, pool, liquidity, volume7d, fees7d, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity }: IPoolTableItem) => JSX.Element;
+export declare const PoolTableItem: ({ token0Icon, token1Icon, widthIcon, heightIcon, pool, liquidity, volume7d, fees7d, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity }: IPoolTableItem) => React.JSX.Element;

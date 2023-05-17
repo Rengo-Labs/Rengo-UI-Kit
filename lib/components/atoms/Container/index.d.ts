@@ -4,4 +4,4 @@ export interface ContainerProps {
     className?: string;
     props?: any;
 }
-export declare const Container: ({ children, className, props }: ContainerProps) => JSX.Element;
+export declare const Container: ({ children, className, props }: ContainerProps) => React.JSX.Element;

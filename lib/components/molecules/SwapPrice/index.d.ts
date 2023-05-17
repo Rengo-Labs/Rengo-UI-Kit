@@ -1,3 +1,4 @@
+import React from 'react';
 interface SwapPriceProps {
     firstTokenImg: any;
     secondTokenImg: any;
@@ -23,5 +24,5 @@ interface SwapPriceProps {
  * @param {() => void} onClickButton - The function to execute when the button is clicked.
  * @returns  {JSX.Element} The rendered the token options and key pair text.
  */
-export declare const SwapPrice: ({ firstTokenImg, secondTokenImg, firstTokenSymbol, secondTokenSymbol, onClickButton0, onClickButton1, graphicData, todayPrice, yesterdayPrice, xAxisName, chart0Name, chart1Name, charWidth, charHeight, showChart1, showChart0 }: SwapPriceProps) => JSX.Element;
+export declare const SwapPrice: ({ firstTokenImg, secondTokenImg, firstTokenSymbol, secondTokenSymbol, onClickButton0, onClickButton1, graphicData, todayPrice, yesterdayPrice, xAxisName, chart0Name, chart1Name, charWidth, charHeight, showChart1, showChart0 }: SwapPriceProps) => React.JSX.Element;
 export {};

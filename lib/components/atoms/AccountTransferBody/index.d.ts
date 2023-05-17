@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IAccountTransferBody {
     deploy_hash?: string;
     block_hash?: string;
@@ -26,4 +27,4 @@ export interface IAccountTransferBody {
  * @param {number} heightIcon - Height of the icon
  * @returns {JSX.Element} - Body from transfer table
  */
-export declare const AccountTransferBody: ({ deploy_hash, block_hash, antiquity, of, forValue, transference_id, amount, price, widthIcon, heightIcon }: IAccountTransferBody) => JSX.Element;
+export declare const AccountTransferBody: ({ deploy_hash, block_hash, antiquity, of, forValue, transference_id, amount, price, widthIcon, heightIcon }: IAccountTransferBody) => React.JSX.Element;

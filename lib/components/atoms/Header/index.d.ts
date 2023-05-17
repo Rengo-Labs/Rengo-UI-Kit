@@ -1,3 +1,4 @@
+import React from 'react';
 export interface IHeaderProps {
     text: string;
     balance: string;
@@ -8,4 +9,4 @@ export interface IHeaderProps {
  * @param {string} balance - The balance to display in the balance field.
  * @returns  {JSX.Element} The rendered the key-value text.
  */
-export declare const Header: ({ text, balance }: IHeaderProps) => JSX.Element;
+export declare const Header: ({ text, balance }: IHeaderProps) => React.JSX.Element;
