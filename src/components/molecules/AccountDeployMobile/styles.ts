@@ -1,4 +1,4 @@
-import { CheckCircle, Copy} from 'react-feather'
+import { AlertTriangle, CheckCircle, Copy} from 'react-feather'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
@@ -71,4 +71,9 @@ export const CheckIcon = styled(CheckCircle)`
 export const CopyIcon = styled(Copy)`
   color: ${(props) => props.theme.color.modalText};
   cursor: pointer;
+`
+
+export const AlertIcon = styled(AlertTriangle)`
+  color: ${(props) => props.theme.background.searchInput};
+  fill: red;
 `

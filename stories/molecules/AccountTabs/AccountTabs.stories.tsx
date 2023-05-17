@@ -27,7 +27,8 @@ Default.args = {
       amount: 0.00003,
       amountSymbol: 'WETH',
       cost: 2.29277,
-      price: 3.1025
+      price: 3.1025,
+      errorMessage: ''
     },
     {
       id: 2,
@@ -39,7 +40,8 @@ Default.args = {
       amount: 4.00003,
       amountSymbol: 'WETH',
       cost: -3.29277,
-      price: 1.1025
+      price: 1.1025,
+      errorMessage: 'Error'
     },
     {
       id: 3,
@@ -51,7 +53,8 @@ Default.args = {
       amount: -0.00003,
       amountSymbol: 'WETH',
       cost: -2.29277,
-      price: 2.1025
+      price: 2.1025,
+      errorMessage: ''
     },
   ],
   transferData: [

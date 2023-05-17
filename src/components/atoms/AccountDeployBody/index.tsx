@@ -7,7 +7,8 @@ import {
   CheckIcon,
   TDInnerContainer,
   TDText,
-  TextLink
+  TextLink,
+  AlertIcon
 } from './styles'
 
 export interface IAccountDeployBody {
@@ -24,6 +25,7 @@ export interface IAccountDeployBody {
   price?: number
   widthIcon?: number
   heightIcon?: number
+  errorMessage?: string
 }
 
 /**
@@ -55,14 +57,19 @@ export const AccountDeployBody = ({
   cost,
   price,
   widthIcon,
-  heightIcon
+  heightIcon,
+  errorMessage
 }: IAccountDeployBody) => {
-
   return (
     <TR>
       <TD isFirstItem={true}>
         <IconWrapper>
-          <CheckIcon width={widthIcon} height={heightIcon} />
+          {errorMessage ? (
+            <AlertIcon width={widthIcon} height={heightIcon} />
+          ) : (
+            <CheckIcon width={widthIcon} height={heightIcon} />
+          )}
+
           <Text>{deploy_hash}</Text>
         </IconWrapper>
       </TD>
@@ -79,7 +86,9 @@ export const AccountDeployBody = ({
         </TDInnerContainer>
       </TD>
       <TD>
-        <Text>{amount} {amountSymbol}</Text>
+        <Text>
+          {amount} {amountSymbol}
+        </Text>
       </TD>
       <TD>
         <TDInnerContainer>

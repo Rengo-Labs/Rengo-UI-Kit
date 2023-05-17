@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { ImageProps } from '../../molecules/Menu/types'
-import { CheckCircle } from 'react-feather'
+import { CheckCircle, AlertTriangle  } from 'react-feather'
 
 export interface Props {
   hidden?: boolean
@@ -73,6 +73,11 @@ export const IconWrapper = styled.div`
 export const CheckIcon = styled(CheckCircle)`
   color: ${(props) => props.theme.background.searchInput};
   fill: ${(props) => props.theme.border.greenMalachite};
+`
+
+export const AlertIcon = styled(AlertTriangle)`
+  color: ${(props) => props.theme.background.searchInput};
+  fill: red;
 `
 
 export const Icon = styled.img.attrs<ImageProps>(({ width, height }) => ({
