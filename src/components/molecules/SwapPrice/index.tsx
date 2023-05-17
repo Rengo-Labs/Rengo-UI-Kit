@@ -1,5 +1,5 @@
 import React from 'react'
-import {Chart, Column, KeyPairText, Row, TokenOption} from '../../atoms'
+import {Chart, ChartV2, Column, KeyPairText, Row, TokenOption} from '../../atoms'
 import {RowStyled} from './styles'
 
 interface SwapPriceProps {
@@ -10,15 +10,16 @@ interface SwapPriceProps {
     graphicData: any
     todayPrice: string
     yesterdayPrice: string
-    xAxisName: string
-    chart0Name: string
-    chart1Name: string
-    showChart0: boolean
-    showChart1: boolean
     onClickButton0: () => void
     onClickButton1: () => void
     charWidth?: number
     charHeight?: number
+    xAxisName?: string
+    chart0Name?: string
+    chart1Name?: string
+    showChart0?: boolean
+    showChart1?: boolean
+    showV2?: boolean
 }
 
 /**
@@ -45,7 +46,8 @@ export const SwapPrice = ({
                               charWidth,
                               charHeight,
                               showChart1,
-                              showChart0
+                              showChart0,
+                              showV2 = true
                           }: SwapPriceProps) => {
     return (
         <>
@@ -65,16 +67,21 @@ export const SwapPrice = ({
             </Row>
             <Row>
                 <Column props={{xs: 12}}>
-                    <Chart data={graphicData}
-                           width={charWidth}
-                           height={charHeight}
-                           xAxisName={xAxisName}
-                           chart0Name={chart0Name}
-                           chart1Name={chart1Name}
-                           twoColors
-                           showChart0={showChart0}
-                           showChart1={showChart1}
-                    />
+                    {showV2 ?
+                        <ChartV2 data={graphicData}/>
+                        :
+                        <Chart data={graphicData}
+                               width={charWidth}
+                               height={charHeight}
+                               xAxisName={xAxisName}
+                               chart0Name={chart0Name}
+                               chart1Name={chart1Name}
+                               twoColors
+                               showChart0={showChart0}
+                               showChart1={showChart1}
+                        />
+                    }
+
                 </Column>
             </Row>
         </>

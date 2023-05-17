@@ -102,6 +102,12 @@ export interface theme {
         },
         wallet: {
           background: string
+        },
+        chart: {
+            textColor: string
+            active: string,
+            inactive: string,
+            background: string
         }
     }
     shadow: {
@@ -298,6 +304,12 @@ export const defaultTheme: theme = {
         },
         wallet: {
           background: '#F7FCFE'
+        },
+        chart: {
+            textColor: '#080808',
+            active: '#715FF5',
+            inactive: '#EAEAEA',
+            background: '#d7d4ff'
         }
     },
     shadow: {
@@ -349,7 +361,7 @@ export const defaultTheme: theme = {
       default: '#EAEBEC',
       dialog: '#EAEBEC',
       wallet: '#EAEBEC',
-      
+
 
       notification: {
         error: '#ED6767',
@@ -495,6 +507,12 @@ export const darkTheme: theme = {
         },
         wallet: {
           background: '#3A308B'
+        },
+        chart: {
+            textColor: '#F4FBFE',
+            inactive: '#241E52',
+            active: '#A99EFB',
+            background: '#6a59e3'
         }
     },
     shadow: {
