@@ -3,17 +3,13 @@ import styled from "styled-components";
 export const ChartWrapper = styled.div`
   height: 100%;
   max-height: 340px;
-
-  @media screen and (max-width: 600px) {
-    min-height: 200px;
-  }
 `
 
 export const OptionsRow = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 5px;
 `
 
 export const EmptyCard = styled.div`

@@ -454,7 +454,8 @@ Default.args = {
     chart0Name: 'eth',
     chart1Name: 'cspr',
     showChart1: true,
-    showChart0: true
+    showChart0: true,
+    charHeight: 300
 }
 
 export const WithoutPair = Template.bind({});

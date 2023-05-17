@@ -23,7 +23,7 @@ export const toNiceDate = (date: number) => {
   return x;
 };
 
-export const toK = (num: number) => {
+export const toK = (num: any) => {
   if (num < 1) {
     return num;
   }
@@ -78,13 +78,14 @@ export const getTimeframe = (timeWindow: any) => {
 }
 
 export const formattedNum = (number: any, usd = false, acceptNegatives = false) => {
+  // @ts-ignore
   if (isNaN(number) || number === '' || number === undefined) {
     return usd ? '$0' : 0
   }
   let num = parseFloat(number)
 
   if (num > 500000000) {
-    return (usd ? '$' : '') + toK(num.toFixed(0), true)
+    return (usd ? '$' : '') + toK(num.toFixed(0))
   }
 
   if (num === 0) {
@@ -99,6 +100,7 @@ export const formattedNum = (number: any, usd = false, acceptNegatives = false) 
   }
 
   if (num > 1000) {
+    // @ts-ignore
     return usd ? formatDollarAmount(num, 0) : Number(parseFloat(num).toFixed(0)).toLocaleString()
   }
 
@@ -109,6 +111,6 @@ export const formattedNum = (number: any, usd = false, acceptNegatives = false) 
       return formatDollarAmount(num, 2)
     }
   }
-
+  // @ts-ignore
   return Number(parseFloat(num).toFixed(4)).toString()
 }

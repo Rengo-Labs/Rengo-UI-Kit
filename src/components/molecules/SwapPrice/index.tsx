@@ -68,12 +68,14 @@ export const SwapPrice = ({
             <Row>
                 <Column props={{xs: 12}}>
                     {showV2 ?
-                        <ChartV2 data={graphicData}/>
+                        <ChartV2 data={graphicData} height={charHeight} width={charWidth}/>
                         :
                         <Chart data={graphicData}
                                width={charWidth}
                                height={charHeight}
+                               // @ts-ignore
                                xAxisName={xAxisName}
+                               // @ts-ignore
                                chart0Name={chart0Name}
                                chart1Name={chart1Name}
                                twoColors

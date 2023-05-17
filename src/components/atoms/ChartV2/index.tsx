@@ -15,14 +15,14 @@ export interface ChartV2Props {
     showChart0?: boolean
     showChart1?: boolean
 }
-export const ChartV2 = ({data}: ChartV2Props) => {
+export const ChartV2 = ({data, height = 300}: ChartV2Props) => {
     const [chartFilter, setChartFilter] = useState(CHART_VIEW.LIQUIDITY)
     const [timeWindow, setTimeWindow] = useState(timeframeOptions.MONTH)
     const theme = useTheme()
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
     const isTablet = deviceType === DeviceType.TABLET
-    const aspect = isMobile ?  60 / 20 : isTablet ? 60 / 28 : 60 / 22
+    const aspect = isMobile ?  60 / 22 : isTablet ? 60 / 28 : 60 / 26
 
     // @ts-ignore
     const color = theme.defaultColor
@@ -79,7 +79,7 @@ export const ChartV2 = ({data}: ChartV2Props) => {
                 </AutoRowJustify>
             </OptionsRow>
             {chartFilter === CHART_VIEW.LIQUIDITY && (
-                <ResponsiveContainer aspect={aspect}>
+                <ResponsiveContainer aspect={aspect} maxHeight={height}>
                     <AreaChart margin={{top: 0, right: 10, bottom: 6, left: 0}} barCategoryGap={1} data={chartData}>
                         <defs>
                             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -140,7 +140,7 @@ export const ChartV2 = ({data}: ChartV2Props) => {
             )}
 
             {chartFilter === CHART_VIEW.VOLUME && (
-                <ResponsiveContainer aspect={aspect}>
+                <ResponsiveContainer aspect={aspect} maxHeight={height}>
                     <BarChart
                         margin={{ top: 0, right: 0, bottom: 6, left: false ? 0 : 10 }}
                         barCategoryGap={1}
