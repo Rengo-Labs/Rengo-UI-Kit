@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CloseIcon, Container, ContentContainer, IconWrapper, Message, SubContainer, Title } from './styles'
+import { Backdrop, CloseIcon, Container, ContentContainer, IconWrapper, Message, SubContainer, Title } from './styles'
 import { Icons } from '../Icons'
 import {theme} from '../../../styles/themes/themes'
 import { useTheme } from 'styled-components'
@@ -75,6 +75,8 @@ export const Notification = ({ position, type, title, message, onClose, autoClos
   const sanitizedMessage = () => DOMPurify.sanitize(message, { ADD_ATTR: ['target']});
 
   return (
+    <>
+    {title.length > 0 && <Backdrop /> }
     <Container
       key={`notification-${message ? message.substring(0, 5) : title.substring(0, 5)}`}
       position={position}
@@ -109,5 +111,6 @@ export const Notification = ({ position, type, title, message, onClose, autoClos
 
         </CloseIcon>
     </Container>
+    </>
   )
 }

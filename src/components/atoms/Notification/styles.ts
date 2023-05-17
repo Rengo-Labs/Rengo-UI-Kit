@@ -17,9 +17,20 @@ const fadeIn = keyframes`
   }
 `;
 
+export const Backdrop = styled.div`
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.color.primary.default};
+  opacity: 0.5;
+`;
+
 export const Container = styled.div<Props>`
   position: fixed;
-  z-index: 9999999;
+  z-index: 99999;
   top: 137px;
   border-radius: 8px;
   padding: 15px 13.75px 10px 27px;
