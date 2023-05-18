@@ -10,7 +10,8 @@ import {
   AmountWrapper,
   TokenNameSymbolWrapper,
   TokenNamesWrapper,
-  IconImage
+  IconImage,
+  TokenNamesInnerContainer
 } from "./styles";
 import { TransactionProps } from "./types";
 
@@ -34,17 +35,20 @@ import { TransactionProps } from "./types";
   @param {string} [props.amount] - Amount of the token to be displayed on the component.
   @param {Boolean} [props.isLast] - isLast of the iteration elements.
   @param {function} [props.onSelectToken] - onSelectToken select token.
+  @param {function} [props.containerWidth] - custom width of the component
+  
   @return {JSX.Element} - Rendered TransactionDetails component.
 */
 export const TransactionDetails = ({
   distribution, LeftAdornment, LeftAdornmentCallback, Icon, OptIcon, iconSize, tokenNames, tokenFullName,
-  tokenNameSymbols, amount, isLast, onSelectToken, iconHeight=45, iconWidth=45}: TransactionProps) => {
+  tokenNameSymbols, amount, isLast, onSelectToken, iconHeight=45, iconWidth=45, containerWidth}: TransactionProps) => {
 
   return (
     <Wrapper
       distribution={distribution}
       isLast={isLast}
-      onClick={onSelectToken}>
+      onClick={onSelectToken}
+      containerWidth={containerWidth}>
       <TokenInnerWrapper>
         {LeftAdornment && (
           <LeftAdornmentWrapper onClick={(e) => {
@@ -57,18 +61,21 @@ export const TransactionDetails = ({
         )}
 
         {Icon && (
-          <IconImage src={Icon} alt='token' height={iconHeight} width={iconWidth}/>
+          <IconImage src={Icon} optIconExists={false} alt='token' height={iconHeight} width={iconWidth}/>
         )}
 
         {OptIcon && (
-          <IconImage src={OptIcon} alt='optional token' height={iconHeight} width={iconWidth}/>
+          <IconImage src={OptIcon} optIconExists={true} alt='optional token' height={iconHeight} width={iconWidth}/>
         )}
 
         <TokenDetailsWrapper tokenNameSymbol={tokenNameSymbols}>
 
           <TokenNamesWrapper tokenNames={tokenNames} distribution={distribution}>
-            {tokenNames && tokenNames?.length > 0 && tokenNames?.map(name => (
-              <TokenName key={`token-${name}`}>{name}</TokenName>
+            {tokenNames && tokenNames?.length > 0 && tokenNames?.map((name, index) => (
+              <TokenNamesInnerContainer>
+                <TokenName key={`token-${name}`}>{name}</TokenName>
+                <TokenNameSymbol>{tokenNameSymbols && tokenNameSymbols[index]}</TokenNameSymbol>
+              </TokenNamesInnerContainer>
             ))}
           </TokenNamesWrapper>
 
@@ -76,17 +83,11 @@ export const TransactionDetails = ({
             <TokenFullName>{tokenFullName}</TokenFullName>
           )}
 
-          {tokenNameSymbols && tokenNameSymbols?.length > 0 && (
-            <TokenNameSymbolWrapper>
-              <TokenNameSymbol>{tokenNameSymbols[0]}</TokenNameSymbol>
-              <TokenNameSymbol>{tokenNameSymbols[1]}</TokenNameSymbol>
-            </TokenNameSymbolWrapper>
-          )}
 
         </TokenDetailsWrapper>
       </TokenInnerWrapper>
 
-      <AmountWrapper distribution={distribution}>
+      <AmountWrapper distribution={distribution} containerWidth={containerWidth}>
         {amount}
       </AmountWrapper>
 
