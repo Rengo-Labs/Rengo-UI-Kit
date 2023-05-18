@@ -178,3 +178,8 @@ export const TokenNotFoundText = styled.p`
   text-align: center;
   margin: 16px auto;
 `;
+
+export const TokenItemContainer = styled.div`
+  width: '100%';
+  border-bottom: ${({ theme }) => `1px solid ${theme.border.default}` };
+`;

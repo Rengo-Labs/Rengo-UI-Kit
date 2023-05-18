@@ -67,7 +67,6 @@ export const PercentageLabel = styled.span<Props>`
     isSelected &&
     css`
       animation: slideIn 0.3s forwards ease-in-out;
-      padding-top: 5px;
       font-weight: bold;
     `}
 `;
