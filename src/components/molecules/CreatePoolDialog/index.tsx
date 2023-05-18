@@ -13,6 +13,7 @@ import {
   PopularTokensItemsContainer,
   SearchInputContainer,
   SectionTitle,
+  TokenItemContainer,
   TokenListContainer,
   TokenNotFoundText,
   TopSubContainer,
@@ -142,24 +143,26 @@ export const CreatePoolDialog = ({
                 <BalanceSectionTitle>Balance</BalanceSectionTitle>
               )}
               {tokenList.length > 0 ? tokenList.map((item, i) => (
-                <TransactionDetails
-                  key={`transaction-item-${item.name}`}
-                  distribution={Distribution.SpaceBetween}
-                  Icon={item.tokenImg}
-                  iconSize={transactionDetailsIconSize.Small}
-                  LeftAdornment={
-                    <Icons
-                      name="Star"
-                      color={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}
-                      size={24}
-                      fill={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}/>}
-                  LeftAdornmentCallback={() => handlerFavorite(i, item.name)}
-                  tokenNames={[item.name]}
-                  tokenFullName={item.fullName}
-                  amount={item.amount}
-                  isLast={i === tokenList.length - 1}
-                  onSelectToken={() => onSelectToken(item.name)}
-                />
+                <TokenItemContainer key={`transaction-item-${item.name}`}>
+                  <TransactionDetails
+                    containerWidth="100%"
+                    distribution={Distribution.SpaceBetween}
+                    Icon={item.tokenImg}
+                    iconSize={transactionDetailsIconSize.Small}
+                    LeftAdornment={
+                      <Icons
+                        name="Star"
+                        color={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}
+                        size={24}
+                        fill={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}/>}
+                    LeftAdornmentCallback={() => handlerFavorite(i, item.name)}
+                    tokenNames={[item.name]}
+                    tokenFullName={item.fullName}
+                    amount={item.amount}
+                    isLast={i === tokenList.length - 1}
+                    onSelectToken={() => onSelectToken(item.name)}
+                  />
+                </TokenItemContainer>
               )) : (
                 <TokenNotFoundText>Token not found</TokenNotFoundText>
               )}

@@ -93,3 +93,10 @@ export const ToggleContainer = styled.div`
   align-items: center;
   margin: 16px 0 32px 0;
 `;
+
+export const TransactionsInnerContainer = styled.div`
+  display: flex;
+  justify-content: center; 
+  width: 100%; 
+  border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`};
+`;

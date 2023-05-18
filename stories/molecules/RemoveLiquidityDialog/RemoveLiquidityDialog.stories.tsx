@@ -11,17 +11,17 @@ import csprImgpair from '../../assets/eth-cspr-pair.svg'
 
 const REMOVE_LIQUIDITY_DATA = {
   id: 'fruteaeas',
-  tokenName: 'ETH-CSPR',
+  tokenName: 'WETH-WCSPR',
   liquidity: '121231232.223232',
   allowance: 123123123123,
   firstIcon: ethImg,
-  firstName: 'Ethereum',
-  firstSymbol: 'ETH',
+  firstName: 'Wrapper Ether',
+  firstSymbol: 'WETH',
   firstLiquidity: 13112323.23423423,
   firstRate: 123.01,
   secondIcon: csprImg,
-  secondName: 'Casper',
-  secondSymbol: 'CSPR',
+  secondName: 'Wrapper Casper',
+  secondSymbol: 'WCSPR',
   secondLiquidity: 4333232.222,
   secondRate: 3123122.333
 }
@@ -50,9 +50,9 @@ Default.args = {
   handleToggle: (e) => console.log('toggle is changed', e),
   handleRemoveLiquidity: () => console.log('remove liquidity button is clicked'),
   calculatedAmounts: {
-    lpAmount: 123123.123,
-    firstAmount: 123123.123,
-    secondAmount: 123123.123
+    lpAmount: '0,3',
+    firstAmount: '0,3',
+    secondAmount: '0,3'
   }
 };
 
