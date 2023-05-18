@@ -1,4 +1,6 @@
 export interface HorizontalCardProps {
+    networkLink: string;
+    contractPackage: string;
     firstTokenIcon: string;
     secondTokenIcon: string;
     tokenPairs: Array<string>;

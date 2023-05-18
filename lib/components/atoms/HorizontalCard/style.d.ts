@@ -2,7 +2,7 @@ import { Props } from './types';
 export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TokenInfoWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TokenInfoInnerWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const TokenPairsNamesWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const TokenPairsNamesWrapper: import("styled-components").StyledComponent<"div", any, any, never>;
 export declare const Image: import("styled-components").StyledComponent<"img", any, Props, never>;
 export declare const TokenName: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const RowWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;

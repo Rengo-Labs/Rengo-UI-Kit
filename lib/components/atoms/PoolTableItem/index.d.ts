@@ -1,5 +1,7 @@
 import React from 'react';
 export interface IPoolTableItem {
+    networkLink: string;
+    contractPackage: string;
     id?: string;
     token0Icon: any;
     token1Icon: any;
@@ -20,4 +22,4 @@ export interface IPoolTableItem {
     actionsDialogActive?: boolean;
     hideRemoveLiquidity: boolean;
 }
-export declare const PoolTableItem: ({ token0Icon, token1Icon, widthIcon, heightIcon, pool, liquidity, volume7d, fees7d, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity }: IPoolTableItem) => React.JSX.Element;
+export declare const PoolTableItem: ({ networkLink, contractPackage, token0Icon, token1Icon, widthIcon, heightIcon, pool, liquidity, volume7d, fees7d, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity }: IPoolTableItem) => React.JSX.Element;

@@ -1,5 +1,6 @@
 import React from 'react';
 export interface LPToken {
+    contractPackage: string;
     firstTokenIcon: any;
     secondTokenIcon: any;
     isFavorite: boolean;
@@ -12,6 +13,7 @@ export interface LPToken {
     onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any;
 }
 export interface LPContainerPros {
+    networkLink: string;
     title: string;
     lpTokens: LPToken[];
 }
@@ -30,4 +32,4 @@ export interface LPContainerPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export declare const LPContainer: ({ title, lpTokens }: LPContainerPros) => React.JSX.Element;
+export declare const LPContainer: ({ networkLink, title, lpTokens }: LPContainerPros) => React.JSX.Element;

@@ -1,5 +1,6 @@
 import React from 'react';
 export interface IHeaderPool {
+    contractPackage: string;
     name: string;
     pool: string;
     token0Icon: string;
@@ -13,6 +14,7 @@ export interface IHeaderPool {
     balance: string;
 }
 export interface PoolTableProps {
+    networkLink: string;
     data: IHeaderPool[];
     widthIcon?: number;
     heightIcon?: number;
@@ -24,4 +26,4 @@ export interface PoolTableProps {
     query?: string;
     showStakedOnly?: boolean;
 }
-export declare const PoolTable: ({ data, widthIcon, heightIcon, handleAddLiquidity, handleSwap, handleTrash, handleView, handleFavorite, query, showStakedOnly }: PoolTableProps) => React.JSX.Element;
+export declare const PoolTable: ({ networkLink, data, widthIcon, heightIcon, handleAddLiquidity, handleSwap, handleTrash, handleView, handleFavorite, query, showStakedOnly }: PoolTableProps) => React.JSX.Element;

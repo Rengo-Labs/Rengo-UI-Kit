@@ -10,7 +10,7 @@ export declare const TD: import("styled-components").StyledComponent<"td", any, 
 export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TokenPairWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TextContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const Text: import("styled-components").StyledComponent<"p", any, {}, never>;
+export declare const Text: import("styled-components").StyledComponent<"p", any, any, never>;
 export declare const FavoriteIcon: import("styled-components").StyledComponent<"img", any, {}, never>;
 export declare const ActionsWrapper: import("styled-components").StyledComponent<"div", any, Props, never>;
 export declare const ActionsInnerWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;

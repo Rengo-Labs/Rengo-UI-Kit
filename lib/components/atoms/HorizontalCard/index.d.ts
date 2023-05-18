@@ -18,4 +18,4 @@ import { HorizontalCardProps } from './types';
   @param {Function} props.favoriteHandler - The function to handle favorite action.
   @returns {JSX.Element} A React JSX Element that displays the token pair, liquidity and user pool information with associated action buttons.
 */
-export declare const HorizontalCard: ({ firstTokenIcon, secondTokenIcon, tokenPairs, pairsLiquidity, userPoolInfo, hasFavorite, trashHandler, swapHandler, viewHandler, itemHandler, addLiquidityHandler, favoriteHandler }: HorizontalCardProps) => React.JSX.Element;
+export declare const HorizontalCard: ({ networkLink, contractPackage, firstTokenIcon, secondTokenIcon, tokenPairs, pairsLiquidity, userPoolInfo, hasFavorite, trashHandler, swapHandler, viewHandler, itemHandler, addLiquidityHandler, favoriteHandler }: HorizontalCardProps) => React.JSX.Element;
