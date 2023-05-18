@@ -8,6 +8,8 @@ interface Props {
     leftAdornment?: ReactNode | ReactElement;
     iconSize?: IconSize;
     isLast?: boolean;
+    containerWidth?: string;
+    optIconExists?: boolean;
 }
 export declare const Wrapper: import("styled-components").StyledComponent<"div", any, Props, never>;
 export declare const TokenInnerWrapper: import("styled-components").StyledComponent<"div", any, Props, never>;
@@ -20,5 +22,6 @@ export declare const TokenFullName: import("styled-components").StyledComponent<
 export declare const TokenNameSymbol: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const TokenNameSymbolWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const AmountWrapper: import("styled-components").StyledComponent<"div", any, Props, never>;
-export declare const IconImage: import("styled-components").StyledComponent<"img", any, {}, never>;
+export declare const IconImage: import("styled-components").StyledComponent<"img", any, Props, never>;
+export declare const TokenNamesInnerContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export {};

@@ -23,3 +23,4 @@ export declare const SectionTitle: import("styled-components").StyledComponent<"
 export declare const BalanceSectionTitle: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const SearchInputContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TokenNotFoundText: import("styled-components").StyledComponent<"p", any, {}, never>;
+export declare const TokenItemContainer: import("styled-components").StyledComponent<"div", any, {}, never>;

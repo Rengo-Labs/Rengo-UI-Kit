@@ -15,3 +15,4 @@ export declare const CloseButton: import("styled-components").StyledComponent<"b
 export declare const TopSubContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const BottomSubContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ToggleContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const TransactionsInnerContainer: import("styled-components").StyledComponent<"div", any, {}, never>;

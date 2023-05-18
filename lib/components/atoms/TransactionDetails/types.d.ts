@@ -10,7 +10,7 @@ export declare enum IconSize {
     Large = 45
 }
 export interface TransactionProps {
-    key: string;
+    key?: string;
     distribution: Distribution;
     LeftAdornment?: ReactNode | JSX.Element;
     LeftAdornmentCallback?: () => void;
@@ -25,4 +25,5 @@ export interface TransactionProps {
     onSelectToken?: () => void;
     iconWidth?: number;
     iconHeight?: number;
+    containerWidth: string;
 }

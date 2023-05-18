@@ -20,6 +20,8 @@ import { TransactionProps } from "./types";
   @param {string} [props.amount] - Amount of the token to be displayed on the component.
   @param {Boolean} [props.isLast] - isLast of the iteration elements.
   @param {function} [props.onSelectToken] - onSelectToken select token.
+  @param {function} [props.containerWidth] - custom width of the component
+  
   @return {JSX.Element} - Rendered TransactionDetails component.
 */
-export declare const TransactionDetails: ({ distribution, LeftAdornment, LeftAdornmentCallback, Icon, OptIcon, iconSize, tokenNames, tokenFullName, tokenNameSymbols, amount, isLast, onSelectToken, iconHeight, iconWidth }: TransactionProps) => React.JSX.Element;
+export declare const TransactionDetails: ({ distribution, LeftAdornment, LeftAdornmentCallback, Icon, OptIcon, iconSize, tokenNames, tokenFullName, tokenNameSymbols, amount, isLast, onSelectToken, iconHeight, iconWidth, containerWidth }: TransactionProps) => React.JSX.Element;
