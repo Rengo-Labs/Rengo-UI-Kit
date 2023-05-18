@@ -15,9 +15,11 @@ export interface IDeployHeader {
   contractRedirect: () => void
   handleCopy: () => void
   entry_point: string
-  amount: string
-  cost: string
-  price: string
+  amount: number
+  amountSymbol: string
+  cost: number
+  price: number
+  errorMessage: string
 }
 
 export interface DeployTableProps {
@@ -112,12 +114,14 @@ export const AccountDeployTable = ({
               contractRedirect={row.contractRedirect}
               entry_point={row.entry_point}
               amount={row.amount}
+              amountSymbol={row.amountSymbol}
               cost={row.cost}
               price={row.price}
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               key={`account-deploy-mobile-${row.id}`}
               handleCopy={row.handleCopy}
+              errorMessage={row.errorMessage}
             />
           ) : (
             <AccountDeployBody
@@ -128,11 +132,13 @@ export const AccountDeployTable = ({
               contractRedirect={row.contractRedirect}
               entry_point={row.entry_point}
               amount={row.amount}
+              amountSymbol={row.amountSymbol}
               cost={row.cost}
               price={row.price}
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               key={`account-deploy-desktop-${row.id}`}
+              errorMessage={row.errorMessage}
             />
           )
         )}

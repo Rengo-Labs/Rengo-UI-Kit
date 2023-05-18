@@ -38,7 +38,7 @@ export const TableBalanceBody = ({ networkLink, row, heightIcon, widthIcon, cryp
                 }
                 {
                   key !== 'crypto' && (
-                    <Text>{row[key as keyof IHeader]}</Text>
+                    <Text>{row[key as keyof IHeader]}{key !== 'mycrypto' && key !== 'crypto' && '%'}</Text>
                   )
                 }
               </TD>

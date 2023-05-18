@@ -10,7 +10,8 @@ import {
     SliderContainer,
     ToggleContainer,
     TopSubContainer,
-    TransactionsContainer
+    TransactionsContainer,
+    TransactionsInnerContainer
 } from "./styles"
 import {
     Button,
@@ -106,37 +107,46 @@ export const RemoveLiquidityDialog = ({
                         </SliderContainer>
 
                         <TransactionsContainer>
+                          <TransactionsInnerContainer>
                             <TransactionDetails
                                 key={`transaction-details-${liquidityPoolData.id}`}
-                                distribution={Distribution.SpaceEvenly}
+                                containerWidth="80%"
+                                distribution={Distribution.SpaceBetween}
                                 Icon={liquidityPoolData.firstIcon}
                                 OptIcon={liquidityPoolData.secondIcon}
                                 iconSize={45}
                                 tokenNames={[liquidityPoolData.firstName, liquidityPoolData.secondName]}
                                 tokenNameSymbols={[liquidityPoolData.firstSymbol, liquidityPoolData.secondSymbol]}
                                 amount={`${calculatedAmounts.lpAmount}`}/>
+                          </TransactionsInnerContainer>
+                          <TransactionsInnerContainer>
                             <TransactionDetails
                                 key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.firstName}`}
-                                distribution={Distribution.SpaceEvenly}
+                                containerWidth="80%"
+                                distribution={Distribution.SpaceBetween}
                                 Icon={liquidityPoolData.firstIcon}
                                 iconSize={45}
                                 tokenNames={[liquidityPoolData.firstName]}
                                 tokenNameSymbols={[liquidityPoolData.firstSymbol]}
                                 amount={`${calculatedAmounts.firstAmount}`}/>
+                          </TransactionsInnerContainer>
+                          <TransactionsInnerContainer>
                             <TransactionDetails
                                 key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.secondName}`}
-                                distribution={Distribution.SpaceEvenly}
+                                containerWidth="80%"
+                                distribution={Distribution.SpaceBetween}
                                 Icon={liquidityPoolData.secondIcon}
                                 iconSize={45}
                                 tokenNames={[liquidityPoolData.secondName]}
                                 tokenNameSymbols={[liquidityPoolData.secondSymbol]}
                                 amount={`${calculatedAmounts.secondAmount}`}/>
+                          </TransactionsInnerContainer>
                         </TransactionsContainer>
 
                         <TransactionDetailsTextOnly
                             tokenInfo={[
-                                `1 ${liquidityPoolData.firstSymbol} = ${liquidityPoolData.secondLiquidity} ${liquidityPoolData.secondSymbol}`,
-                                `1 ${liquidityPoolData.secondSymbol} = ${liquidityPoolData.firstLiquidity} ${liquidityPoolData.firstSymbol}`
+                                `1 ${liquidityPoolData.firstSymbol} = ${liquidityPoolData.firstRate} ${liquidityPoolData.secondSymbol}`,
+                                `1 ${liquidityPoolData.secondSymbol} = ${liquidityPoolData.secondRate} ${liquidityPoolData.firstSymbol}`
                             ]}
                         />
                     </TopSubContainer>

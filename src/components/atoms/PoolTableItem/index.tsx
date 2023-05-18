@@ -21,6 +21,7 @@ import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 import favoriteIcon from './assets/favorite.svg'
 import favoriteIconFill from './assets/favoriteFill.svg'
+import { convertNumber } from '../../../utils'
 
 export interface IPoolTableItem {
   networkLink: string
@@ -31,10 +32,10 @@ export interface IPoolTableItem {
   widthIcon: number
   heightIcon: number
   pool: string
-  liquidity: string
-  volume7d: string
-  fees7d: string
-  apr: string
+  liquidity: number
+  volume7d: number
+  fees7d: number
+  apr: number
   isFavorite?: boolean
   favoriteHandler?: () => void
   handleTrash: () => void
@@ -110,7 +111,7 @@ export const PoolTableItem = ({
         <Text linkable={true} onClick={() => redirectToNetwork(contractPackage)}>{pool}</Text>
       </TD>
       <TD>
-        <Text>${liquidity}</Text>
+        <Text>${convertNumber(liquidity)}</Text>
       </TD>
       <TD>
         <Text>${volume7d}</Text>

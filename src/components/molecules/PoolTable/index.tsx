@@ -11,10 +11,10 @@ export interface IHeaderPool {
   pool: string
   token0Icon: string
   token1Icon: string
-  liquidity: string
-  volume7d: string
-  fees7d: string
-  apr: string
+  liquidity: number
+  volume7d: number
+  fees7d: number
+  apr: number
   actions?: string
   isFavorite?: boolean
   balance: string

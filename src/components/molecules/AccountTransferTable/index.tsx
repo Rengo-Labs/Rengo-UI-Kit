@@ -14,8 +14,8 @@ export interface ITransferHeader {
   of: string
   for: string
   transference_id: string
-  amount: string
-  price: string
+  amount: number
+  price: number
   handleCopy: () => void
 }
 
