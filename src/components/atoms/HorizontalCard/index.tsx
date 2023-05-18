@@ -49,6 +49,8 @@ import { HorizontalCardProps } from './types'
 */
 
 export const HorizontalCard = ({
+  networkLink,
+  contractPackage,
   firstTokenIcon,
   secondTokenIcon,
   tokenPairs,
@@ -63,6 +65,11 @@ export const HorizontalCard = ({
   favoriteHandler }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
   const [actionsDialogActive, setActionsDialogActive] = useState(false)
+
+  const redirectToNetwork = (contractPackage: string) => {
+    const link = `${networkLink}${contractPackage}`
+    window.open(link, '_blank')
+  }
 
   const handleItemDetails = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation()
@@ -103,7 +110,7 @@ export const HorizontalCard = ({
               <Image src={secondTokenIcon} alt='token' />
           )}
 
-          <TokenPairsNamesWrapper>
+          <TokenPairsNamesWrapper linkable={true} onClick={() => redirectToNetwork(contractPackage)}>
             {tokenPairs && tokenPairs.map((name, i) => (
               <TokenName key={`token-name${name}-${i}`}>
                 {i !== 0 && '\u00A0'}

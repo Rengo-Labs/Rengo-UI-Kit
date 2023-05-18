@@ -3,6 +3,7 @@ import {LiquidityWrapped, LiquidityTitle} from './styles'
 import {LPOptionType} from './types'
 import {HorizontalCard} from '../../atoms'
 export interface LPToken {
+  contractPackage: string,
   firstTokenIcon: any,
   secondTokenIcon: any,
   isFavorite: boolean,
@@ -16,6 +17,7 @@ export interface LPToken {
 }
 
 export interface LPContainerPros {
+  networkLink: string,
   title: string,
   lpTokens: LPToken[],
 }
@@ -35,7 +37,7 @@ export interface LPContainerPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export const LPContainer = ({ title, lpTokens = [] } : LPContainerPros) => {
+export const LPContainer = ({ networkLink, title, lpTokens = [] } : LPContainerPros) => {
 
   const getPercentage = (userLiquidity: string, totalLiquidity: string) => {
     return (100 * (parseFloat(userLiquidity) / parseFloat(totalLiquidity))).toFixed(2)
@@ -48,6 +50,8 @@ export const LPContainer = ({ title, lpTokens = [] } : LPContainerPros) => {
         lpTokens.length > 0 &&
         lpTokens.map((item, index) => {
           return <HorizontalCard
+            networkLink={networkLink}
+            contractPackage={item.contractPackage}
             key={`lp-token-${index}-card-${item.firstSymbol}-${item.secondSymbol}`}
             firstTokenIcon={item.firstTokenIcon}
             secondTokenIcon={item.secondTokenIcon}

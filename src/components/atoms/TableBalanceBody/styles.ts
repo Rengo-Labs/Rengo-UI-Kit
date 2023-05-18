@@ -25,7 +25,8 @@ export const TD = styled.td<{ isCryptoColumn: boolean, cryptoColumnWidth: number
   overflow-wrap: anywhere;
 `
 
-export const Text = styled.p`
+export const Text = styled.p<any>`
+  ${props => props.linkable ? 'cursor: pointer;' : ''}
   font-family: ${({ theme }) => theme.typography.secondaryFont};
   font-style: normal;
   font-weight: 400;
@@ -33,6 +34,7 @@ export const Text = styled.p`
   line-height: 24px;
   letter-spacing: 0.02em;
   color: ${({ theme }) => theme.color.table.body.text};
+  ${props => props.linkable ? '&:hover{color: blue;}' : ''}
 `
 
 export const Icon = styled.img`

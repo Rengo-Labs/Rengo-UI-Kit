@@ -23,6 +23,8 @@ import favoriteIcon from './assets/favorite.svg'
 import favoriteIconFill from './assets/favoriteFill.svg'
 
 export interface IPoolTableItem {
+  networkLink: string
+  contractPackage: string
   id?: string
   token0Icon: any
   token1Icon: any
@@ -45,6 +47,8 @@ export interface IPoolTableItem {
 }
 
 export const PoolTableItem = ({
+  networkLink,
+  contractPackage,
   token0Icon,
   token1Icon,
   widthIcon,
@@ -75,6 +79,11 @@ export const PoolTableItem = ({
     }
   }, [theme])
 
+  const redirectToNetwork = (hash: string) => {
+    const link = `${networkLink}${hash}`
+    window.open(link, '_blank')
+  }
+  
   return (
     <TR>
       <TD isFirstItem={true}>
@@ -98,7 +107,7 @@ export const PoolTableItem = ({
             height={heightIcon}
           />
         </IconWrapper>
-        <Text>{pool}</Text>
+        <Text linkable={true} onClick={() => redirectToNetwork(contractPackage)}>{pool}</Text>
       </TD>
       <TD>
         <Text>${liquidity}</Text>

@@ -28,6 +28,8 @@ export interface RemoveLiquidityDialogProps {
   showAllowance: boolean,
   isRemoveLiquidityCSPR: boolean,
   defaultValue: number,
+  firstRate: string,
+  secondRate: string,
   calculatedAmounts: {
     lpAmount: number
     firstAmount: number

@@ -36,11 +36,13 @@ export const TokenInfoInnerWrapper = styled.div`
   gap: 8px;
 `;
 
-export const TokenPairsNamesWrapper = styled.div`
+export const TokenPairsNamesWrapper = styled.div<any>`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  ${props => props.linkable ? 'cursor: pointer;':''}
+  ${props => props.linkable ? '&:hover{ color: blue; }':''}
 `;
 
 export const Image = styled.img<Props>`

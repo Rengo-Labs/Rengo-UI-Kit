@@ -32,6 +32,8 @@ import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 
 export const PoolItemMobile = ({
+  networkLink,
+  contractPackage,
   token0Icon,
   token1Icon,
   widthIcon,
@@ -60,6 +62,12 @@ export const PoolItemMobile = ({
       setCurrentTheme(theme)
     }
   }, [theme])
+
+  const redirectToNetwork = (contractPackage: string) => {
+    const link = `${networkLink}${contractPackage}`
+    window.open(link, '_blank')
+  }
+  
   return (
     <Wrapper>
       <Header>
@@ -74,7 +82,7 @@ export const PoolItemMobile = ({
             <Icon src={token0Icon} alt={pool} width={widthIcon} height={heightIcon} />
             <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
           </IconWrapper>
-          <Title>{pool}</Title>
+          <Title linkable={true} onClick={() => redirectToNetwork(contractPackage)}>{pool}</Title>
         </HeaderTitle>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
