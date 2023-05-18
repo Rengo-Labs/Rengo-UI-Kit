@@ -18,6 +18,8 @@ const Template: ComponentStory<typeof HorizontalCard> = (args: HorizontalCardPro
 export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {
+  networkLink: 'https://testnet.cspr.live/contract-package/',
+  contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
   icon: ethCsprPair,
   hasFavorite: true,
   tokenPairs: ['ETH', 'CSPR'],

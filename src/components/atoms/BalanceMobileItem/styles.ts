@@ -40,7 +40,7 @@ export const Footer = styled.div`
   width: 100%;
 `
 
-export const Title = styled.p`
+export const Title = styled.p<any>`
   font-family: ${({ theme }) => theme.typography.secondaryFont};
   font-style: normal;
   font-weight: 700;
@@ -48,6 +48,8 @@ export const Title = styled.p`
   line-height: 18px;
   letter-spacing: 0.02em;
   color: ${({ theme }) => theme.color.default};
+  ${props => props.linkable ? 'cursor: pointer;':''}
+  ${props => props.linkable ? '&:hover {color: blue;}':''}
 `
 
 export const Subtitle = styled.p`
