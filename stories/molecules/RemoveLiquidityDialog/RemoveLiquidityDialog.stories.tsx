@@ -49,6 +49,8 @@ Default.args = {
   handleChangeInput: (e) => console.log('input value is changed', e),
   handleToggle: (e) => console.log('toggle is changed', e),
   handleRemoveLiquidity: () => console.log('remove liquidity button is clicked'),
+  firstRate: "10.00000000",
+  secondRate: "5.00000000",
   calculatedAmounts: {
     lpAmount: '0,3',
     firstAmount: '0,3',
@@ -71,6 +73,8 @@ Allowance.args = {
   handleChangeInput: (e) => console.log('input value is changed', e),
   handleToggle: (e) => console.log('toggle is changed', e),
   handleRemoveLiquidity: () => console.log('remove liquidity button is clicked'),
+  firstRate: "10.00000000",
+  secondRate: "5.00000000",
   calculatedAmounts: {
     lpAmount: 123123.123,
     firstAmount: 1234.123,

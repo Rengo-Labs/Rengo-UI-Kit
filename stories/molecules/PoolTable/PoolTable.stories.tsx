@@ -10,6 +10,7 @@ export default {
 const Template: ComponentStory<typeof PoolTable> = (args) => <div style={{width: '1250px'}}><PoolTable {...args} /></div>;
 export const Default = Template.bind({});
 Default.args = {
+    networkLink: 'https://testnet.cspr.live/contract-package/',
     data: [
         {
             id: 1,
@@ -21,7 +22,8 @@ Default.args = {
             volume7d: -5.456,
             fees7d: -2.123,
             apr: 6.12345,
-            balance:'0'
+            balance:'0',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
           },
           {
             id: 2,
@@ -33,7 +35,8 @@ Default.args = {
             volume7d: 4.123,
             fees7d: -404.678,
             apr: -1.12,
-            balance:'100000'
+            balance:'100000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
           },
           {
             id: 3,
@@ -45,7 +48,8 @@ Default.args = {
             volume7d: 3.40,
             fees7d: -90.234,
             apr: 2.09,
-            balance:'0'
+            balance:'0',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
           },
     ],
     handleSwap: (path: string, pool: string) => console.log(path, pool),

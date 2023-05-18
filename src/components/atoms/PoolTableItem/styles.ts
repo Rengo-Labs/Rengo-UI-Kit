@@ -54,7 +54,7 @@ export const TextContainer = styled.div`
   flex: 1;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<any>`
   font-family: ${(props) => props.theme.typography.secondaryFont};
   font-style: normal;
   font-weight: 400;
@@ -64,6 +64,8 @@ export const Text = styled.p`
   letter-spacing: 0.02em;
   color: ${(props) => props.theme.color.default};
   align-self: center;
+  ${props => props.linkable ? 'cursor: pointer;':''}
+  ${props => props.linkable ? '&:hover{ color: blue; }':''}
 `
 
 export const FavoriteIcon = styled.img`

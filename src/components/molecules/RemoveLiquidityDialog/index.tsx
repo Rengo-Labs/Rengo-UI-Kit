@@ -145,8 +145,8 @@ export const RemoveLiquidityDialog = ({
 
                         <TransactionDetailsTextOnly
                             tokenInfo={[
-                                `1 ${liquidityPoolData.firstSymbol} = ${liquidityPoolData.secondLiquidity} ${liquidityPoolData.secondSymbol}`,
-                                `1 ${liquidityPoolData.secondSymbol} = ${liquidityPoolData.firstLiquidity} ${liquidityPoolData.firstSymbol}`
+                                `1 ${liquidityPoolData.firstSymbol} = ${liquidityPoolData.firstRate} ${liquidityPoolData.secondSymbol}`,
+                                `1 ${liquidityPoolData.secondSymbol} = ${liquidityPoolData.secondRate} ${liquidityPoolData.firstSymbol}`
                             ]}
                         />
                     </TopSubContainer>

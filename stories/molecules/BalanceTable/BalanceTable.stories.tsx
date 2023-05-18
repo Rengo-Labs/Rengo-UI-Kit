@@ -15,9 +15,11 @@ const Template: ComponentStory<typeof BalanceTable> = (args) => (
 )
 export const Default = Template.bind({})
 Default.args = {
+  networkLink: 'https://testnet.cspr.live/contract-package/',
   data: [
     {
       id: 1,
+      contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
       crypto: 'Casper',
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
@@ -29,6 +31,7 @@ Default.args = {
     },
     {
       id: 2,
+      contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
       crypto: 'CasperSwap',
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
@@ -40,6 +43,7 @@ Default.args = {
     },
     {
       id: 3,
+      contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
       crypto: 'Wrapped Bitcoin',
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
@@ -51,6 +55,7 @@ Default.args = {
     },
     {
       id: 4,
+      contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
       crypto: 'Wrapped Ether',
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
@@ -62,7 +67,8 @@ Default.args = {
     },
     {
       id: 5,
-      crypto: 'Wrapped BTC',
+      contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+      crypto: 'Debug Wrapped BTC',
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
       mycrypto: -180.6,

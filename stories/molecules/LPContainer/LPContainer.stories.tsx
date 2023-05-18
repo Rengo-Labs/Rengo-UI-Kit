@@ -24,6 +24,7 @@ export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {
     title: 'My Liquidity',
+    networkLink: 'https://testnet.cspr.live/contract-package/',
     lpTokens: [
         {
             firstTokenIcon: ethToken,
@@ -35,6 +36,7 @@ Default.args = {
             secondAmount: '4000000.00000122',
             userLP: '10',
             totalLP: '232000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
         },
@@ -48,6 +50,7 @@ Default.args = {
             secondAmount: '9000000.00000122',
             userLP: '1.02',
             totalLP: '34000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
         },
@@ -61,6 +64,7 @@ Default.args = {
             secondAmount: '4000.00000122',
             userLP: '19',
             totalLP: '23000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
         },
@@ -71,6 +75,7 @@ export const LPFavorite = Template.bind({});
 // @ts-ignore
 LPFavorite.args = {
     title: 'My Liquidity',
+    networkLink: 'https://testnet.cspr.live/contract-package/',
     lpTokens: [
         {
             firstTokenIcon: ethToken,
@@ -82,6 +87,7 @@ LPFavorite.args = {
             secondAmount: '4000000.00000122',
             userLP: '10',
             totalLP: '232000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
         },
@@ -95,6 +101,7 @@ LPFavorite.args = {
             secondAmount: '9000000.00000122',
             userLP: '1.02',
             totalLP: '34000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
         },
@@ -108,6 +115,7 @@ LPFavorite.args = {
             secondAmount: '4000.00000122',
             userLP: '19',
             totalLP: '23000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
         },
