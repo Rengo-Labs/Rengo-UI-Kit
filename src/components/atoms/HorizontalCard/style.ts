@@ -7,11 +7,11 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 72px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 16px;
   background: ${({ theme }) =>  theme.background.wallet.connectedOptions};
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     height: auto;
     flex-direction: column;
   }
@@ -22,13 +22,14 @@ export const TokenInfoWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     height: 50px;
     justify-content: space-between;
   }
 `;
 
 export const TokenInfoInnerWrapper = styled.div`
+  min-width: 190px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -61,18 +62,32 @@ export const TokenName = styled.p`
 `;
 
 export const RowWrapper = styled.div`
+  width: 60%;
   display: flex;
-  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     width: 100%;
     gap: 0px;
     display: flex;
     justify-content: space-evenly;
-    height: 60px;
+    min-height: 60px;
     padding: 0 12px;
     border-top: ${({ theme }) => `1px solid ${theme.border.table}`};
     border-bottom: ${({ theme }) => `1px solid ${theme.border.table}`};
+  }
+`;
+
+export const TableRow = styled.div`
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  @media (max-width: 900px) {
+    gap: 0%;
+    width: 100%;
   }
 `;
 
@@ -80,7 +95,7 @@ export const RowUserPoolInfo = styled.div`
   display: flex;
   gap: 30px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -94,8 +109,9 @@ export const PairsLiquidityWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     width: 50%;
     min-height: 60px;
     flex-direction: column;
@@ -117,7 +133,7 @@ export const PairLiquidityValue = styled.p`
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.02em;
-  word-wrap: break-word;
+  word-wrap: anywhere;
   color: ${({ theme }) => theme.color.modalText};
 `;
 
@@ -125,9 +141,10 @@ export const UserPoolInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  flex: 1;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     width: 50%;
     min-height: 60px;
     flex-direction: column;
@@ -149,7 +166,7 @@ export const UserPoolInfoValue = styled.p`
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.02em;
-  word-wrap: break-word;
+  word-wrap: anywhere;
   color: ${({ theme }) => theme.color.modalText};
 `;
 
@@ -158,8 +175,9 @@ export const ActionsWrapper = styled.div<Props>`
   justify-content: center;
   align-items: center;
   width: 132px;
+  margin-right: 32px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     position: absolute;
     width: 117px;
     height: 171px;
@@ -183,7 +201,7 @@ export const ActionsInnerWrapper = styled.div`
   display: flex;
   justify-content: space-around;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -197,7 +215,7 @@ export const ActionItem = styled.div<Props>`
   display: flex;
   gap: 10px;
 
-  @media (min-width: 800px) {
+  @media (min-width: 840px) {
     display: ${({ hidden }) => hidden ? 'none;' : 'flex;'};
     gap: ${({ hidden }) => hidden ? '0px;' : '10px;'};
   }
@@ -216,7 +234,7 @@ export const ActionItem = styled.div<Props>`
 export const ActionName = styled.p`
   display: none;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     display: flex;
     font-family: ${({theme}) => theme.typography.secondaryFont};
     font-weight: 400;
@@ -299,7 +317,7 @@ export const SeeActionsIcon = styled(MoreHorizontal)<Props>`
     filter: brightness(0.8);
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     display: none;
   }
 `;
