@@ -17,9 +17,8 @@ export default {
 } as ComponentMeta<typeof LPContainer>;
 
 // Create a master template for mapping args to render the LPContainer component
-const Template: ComponentStory<typeof LPContainer> = (args) => <div style={{width: '100%', height: '100%'}}>
+const Template: ComponentStory<typeof LPContainer> = (args) => 
     <LPContainer {...args} />
-</div>;
 export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {
@@ -30,12 +29,12 @@ Default.args = {
             firstTokenIcon: ethToken,
             secondTokenIcon: csprToken,
             isFavorite: false,
-            firstSymbol: 'ETH',
-            secondSymbol: 'CSPR',
-            firstAmount: '200.00000002',
-            secondAmount: '4000000.00000122',
-            userLP: '10',
-            totalLP: '232000',
+            firstSymbol: 'WCSPR',
+            secondSymbol: 'CST',
+            firstAmount: '1099.41',
+            secondAmount: '50.479464214',
+            userLP: '238.043704472',
+            totalLP: '0.04 %',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
@@ -44,12 +43,12 @@ Default.args = {
             firstTokenIcon: btcToken,
             secondTokenIcon: csprToken,
             isFavorite: false,
-            firstSymbol: 'BTC',
-            secondSymbol: 'CSPR',
-            firstAmount: '0.05',
-            secondAmount: '9000000.00000122',
-            userLP: '1.02',
-            totalLP: '34000',
+            firstSymbol: 'WCSPR',
+            secondSymbol: 'dWBTC',
+            firstAmount: '932.875505373',
+            secondAmount: '6.6',
+            userLP: '84.188231479',
+            totalLP: '0.34 %',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
@@ -58,12 +57,12 @@ Default.args = {
             firstTokenIcon: usdIcon,
             secondTokenIcon: csprToken,
             isFavorite: false,
-            firstSymbol: 'USDT',
-            secondSymbol: 'CSPR',
-            firstAmount: '50.00000002',
-            secondAmount: '4000.00000122',
-            userLP: '19',
-            totalLP: '23000',
+            firstSymbol: 'WCSPR',
+            secondSymbol: 'USDT',
+            firstAmount: '945.734609797',
+            secondAmount: '219.439138052',
+            userLP: '455.012169092',
+            totalLP: '0.46 %',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
