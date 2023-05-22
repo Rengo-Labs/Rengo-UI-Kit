@@ -34,7 +34,6 @@ export const ChartV2 = ({data, height = 300}: ChartV2Props) => {
     let utcStartTime = getTimeframe(timeWindow)
     const chartData = data?.filter((entry: { date: number; }) => entry.date >= utcStartTime)
 
-
     if (chartData && chartData.length === 0) {
         return (
             <ChartWrapper>
@@ -79,8 +78,8 @@ export const ChartV2 = ({data, height = 300}: ChartV2Props) => {
                 </AutoRowJustify>
             </OptionsRow>
             {chartFilter === CHART_VIEW.LIQUIDITY && (
-                <ResponsiveContainer aspect={aspect} maxHeight={height}>
-                    <AreaChart margin={{top: 0, right: 10, bottom: 6, left: 0}} barCategoryGap={1} data={chartData}>
+                <ResponsiveContainer aspect={aspect} maxHeight={height} key={`rc_${data.chartData}`}>
+                    <AreaChart margin={{top: 0, right: 10, bottom: 6, left: 0}} barCategoryGap={1} data={chartData} key={`a_${data.chartData}`}>
                         <defs>
                             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                                 <stop offset="5%" stopColor={color} stopOpacity={0.35}/>
@@ -126,11 +125,13 @@ export const ChartV2 = ({data, height = 300}: ChartV2Props) => {
                             wrapperStyle={{top: -70, left: -10}}
                         />
                         <Area
+                            key={`ar_${data.chartData}`}
+                            stackId="2"
                             strokeWidth={2}
                             dot={false}
                             type="monotone"
-                            name={' (USD)'}
-                            dataKey={'reserveUSDValue'}
+                            name={'Liquidity'}
+                            dataKey={'totalLiquidityUSDValue'}
                             yAxisId={0}
                             stroke={color}
                             fill="url(#colorUv)"
