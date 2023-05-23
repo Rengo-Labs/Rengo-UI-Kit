@@ -1371,12 +1371,12 @@ const data = [
     {
         "date": 1684494555,
         "dayString": 1684494555,
-        "dailyVolumeUSD": 1116767349.9053807,
-        "dailyVolumeUSDValue": 1.1167673499053807,
-        "priceUSD": "31.401658132864269509958588883229417429993233623010164465",
-        "totalLiquidityUSD": "45763459008704.470244577071758380621412070063361069383433148289932245",
-        "totalLiquidityUSDValue": 45763.45900870447,
-        "totalLiquidityTokenValue": 1457.358041893
+        "dailyVolumeUSD": 652672018277.3024,
+        "dailyVolumeUSDValue": 652.6720182773024,
+        "priceUSD": "28.754738384711745295866206388844551389783578283619303228",
+        "totalLiquidityUSD": "42429860676366.226942299891624056000762487427181550483219527995197480",
+        "totalLiquidityUSDValue": 42429.860676366225,
+        "totalLiquidityTokenValue": 1475.57804591
     },
     {
         "date": 1684503494,
@@ -1386,6 +1386,34 @@ const data = [
         "priceUSD": "36.167570497182507124854297701129522215905694375849467216",
         "totalLiquidityUSD": "47334084826251.770357919217383840925284886880371306872025512472410288",
         "totalLiquidityUSDValue": 47334.084826251776
+    },
+    {
+        "date": 1684589894,
+        "dayString": 1684589894,
+        "dailyVolumeUSD": 0,
+        "dailyVolumeUSDValue": 0,
+        "priceUSD": "36.167570497182507124854297701129522215905694375849467216",
+        "totalLiquidityUSD": "47334084826251.770357919217383840925284886880371306872025512472410288",
+        "totalLiquidityUSDValue": 47334.084826251776
+    },
+    {
+        "date": 1684709607,
+        "dayString": 1684709607,
+        "dailyVolumeUSD": 33597255931.375732,
+        "dailyVolumeUSDValue": 33.597255931375734,
+        "priceUSD": "28.918792182286430475498298191706768553522494376758619259",
+        "totalLiquidityUSD": "42705207747581.994063565097236357688619970274997603623860505474117718",
+        "totalLiquidityUSDValue": 42705.20774758199,
+        "totalLiquidityTokenValue": 1476.728608802
+    },
+    {
+        "date": 1684762694,
+        "dayString": 1684762694,
+        "dailyVolumeUSD": 0,
+        "dailyVolumeUSDValue": 0,
+        "priceUSD": "41.442503996850186924940511672440433767259115420775448007",
+        "totalLiquidityUSD": "58396252667339.507479919585697994285139627091318736151395184760950892",
+        "totalLiquidityUSDValue": 58396.25266733951
     }
 ]
 export const Default = Template.bind({});
