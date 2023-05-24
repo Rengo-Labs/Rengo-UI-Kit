@@ -88,6 +88,7 @@ export interface theme {
             hover: string;
         };
         toggleButton: {
+            active: string;
             default: string;
             invertedActive: string;
         };
