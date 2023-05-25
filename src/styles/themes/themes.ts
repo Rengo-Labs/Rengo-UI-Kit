@@ -109,6 +109,7 @@ export interface theme {
             active: string,
             inactive: string,
             background: string
+            secondary: string
         }
     }
     shadow: {
@@ -311,7 +312,8 @@ export const defaultTheme: theme = {
             textColor: '#080808',
             active: '#715FF5',
             inactive: '#EAEAEA',
-            background: '#d7d4ff'
+            background: '#d7d4ff',
+            secondary: '#3dcbad',
         }
     },
     shadow: {
@@ -515,7 +517,8 @@ export const darkTheme: theme = {
             textColor: '#F4FBFE',
             inactive: '#241E52',
             active: '#A99EFB',
-            background: '#6a59e3'
+            background: '#6a59e3',
+            secondary: '#3dcbad',
         }
     },
     shadow: {

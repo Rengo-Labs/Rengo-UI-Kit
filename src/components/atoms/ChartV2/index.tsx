@@ -15,7 +15,7 @@ export interface ChartV2Props {
     showChart0?: boolean
     showChart1?: boolean
 }
-export const ChartV2 = ({data, height = 300}: ChartV2Props) => {
+export const ChartV2 = ({data, height = 300, showChart0}: ChartV2Props) => {
     const [chartFilter, setChartFilter] = useState(CHART_VIEW.LIQUIDITY)
     const [timeWindow, setTimeWindow] = useState(timeframeOptions.MONTH)
     const theme = useTheme()
@@ -25,7 +25,7 @@ export const ChartV2 = ({data, height = 300}: ChartV2Props) => {
     const aspect = isMobile ?  60 / 22 : isTablet ? 60 / 28 : 60 / 26
 
     // @ts-ignore
-    const color = theme.defaultColor
+    const color = showChart0 ? theme.defaultColor : theme.color.chart.secondary
     // @ts-ignore
     const textColor = theme.color.chart.textColor
     // @ts-ignore

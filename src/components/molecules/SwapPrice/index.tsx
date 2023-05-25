@@ -68,7 +68,12 @@ export const SwapPrice = ({
             <Row>
                 <Column props={{xs: 12}}>
                     {showV2 ?
-                        <ChartV2 data={graphicData} height={charHeight} width={charWidth}/>
+                        <ChartV2
+                            data={graphicData}
+                            height={charHeight}
+                            width={charWidth}
+                            showChart0={showChart0}
+                        />
                         :
                         <Chart data={graphicData}
                                width={charWidth}
