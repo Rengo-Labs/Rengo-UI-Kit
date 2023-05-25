@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { HorizontalCard } from "../../../src/components";
-import { HorizontalCardProps } from "../../../src/components/atoms/HorizontalCard/types";
+import { HorizontalCardProps } from "../../../src/components/atoms/HorizontalMobileCard/types";
 import ethCsprPair from '../../assets/eth-cspr-pair.svg'
 
 export default {
@@ -27,7 +27,7 @@ Default.args = {
       { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
       { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
   ],
-  userPoolInfo: ['5.00100931 LP', '0.19%'],
+  userPoolInfo: [{title: 'Your Liquidity', value: '5.00100931 LP'}, {title: 'Your Share', value: '0.19%'}],
   trashHandler: () => console.log('horizontal card: delete'),
   swapHandler: () => console.log('horizontal card: swap'),
   viewHandler: () => console.log('horizontal card: view'),
