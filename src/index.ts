@@ -14,6 +14,7 @@ export {
     KeyPairText,
     TokenOption,
     Input,
+    ChartV2,
     Header,
     Tabs,
     TransactionDetails,
