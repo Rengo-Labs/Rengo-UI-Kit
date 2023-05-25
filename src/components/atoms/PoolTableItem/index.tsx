@@ -35,7 +35,9 @@ export interface IPoolTableItem {
   liquidity: number
   volume7d: number
   fees7d: number
-  apr: number
+  assetsPoolToken0: string
+  assetsPoolToken1: string
+  yourShare: string
   isFavorite?: boolean
   favoriteHandler?: () => void
   handleTrash: () => void
@@ -58,7 +60,9 @@ export const PoolTableItem = ({
   liquidity,
   volume7d,
   fees7d,
-  apr,
+  assetsPoolToken0,
+  assetsPoolToken1,
+  yourShare,
   isFavorite,
   favoriteHandler,
   handleTrash,
@@ -114,15 +118,21 @@ export const PoolTableItem = ({
         <Text>${convertNumber(liquidity)}</Text>
       </TD>
       <TD>
+        <Text>{assetsPoolToken0}</Text>
+      </TD>
+      <TD>
+        <Text>{assetsPoolToken1}</Text>
+      </TD>
+      <TD>
         <Text>${volume7d}</Text>
       </TD>
       <TD>
         <Text>${fees7d}</Text>
       </TD>
       <TD>
-        <Text>{apr} %</Text>
+        <Text>{yourShare} %</Text>
       </TD>
-      <TD>
+      <TD isLastItem={true}>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
             color={
@@ -135,6 +145,16 @@ export const PoolTableItem = ({
           />
           <ActionsWrapper actionsDialogActive={actionsDialogActive}>
             <ActionsInnerWrapper>
+                <ActionItem
+                  onClick={actionsDialogActive ? handleAddLiquidity : undefined}
+                >
+                  <AddLiquidityIcon
+                    color={currentTheme?.color.modalText}
+                    size={20}
+                  />
+                  <ActionName>Add</ActionName>
+                </ActionItem>
+
               {!hideRemoveLiquidity && (
                 <ActionItem
                   onClick={actionsDialogActive ? handleTrash : undefined}
@@ -158,15 +178,7 @@ export const PoolTableItem = ({
                 <ActionName>View</ActionName>
               </ActionItem>
 
-              <ActionItem
-                onClick={actionsDialogActive ? handleAddLiquidity : undefined}
-              >
-                <AddLiquidityIcon
-                  color={currentTheme?.color.modalText}
-                  size={20}
-                />
-                <ActionName>Add</ActionName>
-              </ActionItem>
+
             </ActionsInnerWrapper>
           </ActionsWrapper>
         </SeeActionsIconWrapper>

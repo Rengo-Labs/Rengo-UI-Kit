@@ -21,7 +21,6 @@ export const HeaderTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
   padding: 10px;
 `;
 
@@ -30,7 +29,7 @@ export const HeaderSubtitle = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  align-items: center;
+  align-items: flex-start;
   padding: 10px;
 `
 
@@ -58,7 +57,7 @@ export const Subtitle = styled.p`
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 18px;
   letter-spacing: 0.02em;
   color: ${({ theme }) => theme.color.default};
 `
@@ -66,10 +65,11 @@ export const Subtitle = styled.p`
 export const SubtitleValue = styled.p`
   font-family: ${({ theme }) => theme.typography.secondaryFont};
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 18px;
   letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
   color: ${({ theme }) => theme.color.table.header.text};
 `
 
@@ -78,11 +78,35 @@ export const FavoriteIcon = styled.img`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   color: ${({ theme }) => theme.color.default};
+  margin-right: 8px;
+
   &:active {
     transform: scale(0.9);
     filter: brightness(0.8);
   }
 `;
 
+export const Table = styled.table`
+  width: 100%;
+  border-radius: 16px;
+  background-color: ${({ theme }) => theme.color.table.header.background};
+`;
 
+export const TR = styled.tr`
+  display: flex;
+  justify-content: space-between;
+`;
 
+export const TH = styled.th`
+  display: flex;
+  justify-content: flex-start;
+`;
+
+export const BTR = styled.tr`
+  display: flex;
+`;
+
+export const TD = styled.td`
+  text-align: start;
+  flex: 1;
+`;

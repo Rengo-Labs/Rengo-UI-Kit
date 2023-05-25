@@ -34,12 +34,11 @@ export const PoolItemDetailDesktop = ({
   isFavorite,
   handleFavorite,
   yourLiquidity,
-  liqudiity,
+  liquidity,
   assetsPooled,
   yourShare,
   volume7D,
   fees7D,
-  apr
 }: PoolItemDetailsProps) => {
   const theme = useTheme() as theme
 
@@ -84,10 +83,14 @@ export const PoolItemDetailDesktop = ({
               </TokenPairWrapper>
               <PoolKeyPairContainer>
                 <PoolKey>Your Liquidity</PoolKey>
+                <PoolValue>${liquidity}</PoolValue>
+              </PoolKeyPairContainer>
+              <PoolKeyPairContainer>
+                <PoolKey>Your Liquidity Tokens</PoolKey>
                 <PoolValue>{yourLiquidity}</PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
-                <PoolKey>Assets Pooled</PoolKey>
+                <PoolKey>Your Assets</PoolKey>
                 <PoolValue>
                   {assetsPooled.asset0}
                 </PoolValue>
@@ -98,24 +101,16 @@ export const PoolItemDetailDesktop = ({
               <PoolKeyPairContainer>
                 <PoolKey>Your Share</PoolKey>
                 <PoolValue>
-                  {yourShare} %
+                  {yourShare}%
                 </PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
-                <PoolKey>Liquidity</PoolKey>
-                <PoolValue>{liqudiity}</PoolValue>
-              </PoolKeyPairContainer>
-              <PoolKeyPairContainer>
                 <PoolKey>Volume 7D</PoolKey>
-                <PoolValue>{volume7D}</PoolValue>
+                <PoolValue>${volume7D}</PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
                 <PoolKey>FEES 7D</PoolKey>
-                <PoolValue>{fees7D}</PoolValue>
-              </PoolKeyPairContainer>
-              <PoolKeyPairContainer>
-                <PoolKey>APR</PoolKey>
-                <PoolValue>{apr}</PoolValue>
+                <PoolValue>${fees7D}</PoolValue>
               </PoolKeyPairContainer>
             </InnerContainer>
           </Container>

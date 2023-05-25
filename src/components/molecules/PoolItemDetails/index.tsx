@@ -15,7 +15,7 @@ export interface PoolItemDetailsProps {
   isFavorite?: boolean
   handleFavorite?: () => void
   yourLiquidity?: string
-  liqudiity?: string
+  liquidity?: string
   assetsPooled: {
     asset0: string;
     asset1: string;
@@ -23,7 +23,6 @@ export interface PoolItemDetailsProps {
   yourShare?: string
   volume7D?: string
   fees7D?: string
-  apr?: string
 }
 
 export const PoolItemDetails = ({
@@ -38,12 +37,11 @@ export const PoolItemDetails = ({
   isFavorite,
   handleFavorite,
   yourLiquidity,
-  liqudiity,
+  liquidity,
   assetsPooled,
   yourShare,
   volume7D,
   fees7D,
-  apr
 }: PoolItemDetailsProps) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
@@ -63,12 +61,11 @@ export const PoolItemDetails = ({
           isFavorite={isFavorite}
           handleFavorite={handleFavorite}
           yourLiquidity={yourLiquidity}
-          liqudiity={liqudiity}
+          liquidity={liquidity}
           assetsPooled={assetsPooled}
           yourShare={yourShare}
           volume7D={volume7D}
           fees7D={fees7D}
-          apr={apr}
         />
       ) : (
         <PoolItemDetailDesktop
@@ -83,12 +80,11 @@ export const PoolItemDetails = ({
           isFavorite={isFavorite}
           handleFavorite={handleFavorite}
           yourLiquidity={yourLiquidity}
-          liqudiity={liqudiity}
+          liquidity={liquidity}
           assetsPooled={assetsPooled}
           yourShare={yourShare}
           volume7D={volume7D}
           fees7D={fees7D}
-          apr={apr}
         />
       )}
     </>
