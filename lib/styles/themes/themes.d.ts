@@ -104,6 +104,13 @@ export interface theme {
         wallet: {
             background: string;
         };
+        chart: {
+            textColor: string;
+            active: string;
+            inactive: string;
+            background: string;
+            secondary: string;
+        };
     };
     shadow: {
         small: string;

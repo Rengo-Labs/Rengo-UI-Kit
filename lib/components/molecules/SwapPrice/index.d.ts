@@ -7,15 +7,16 @@ interface SwapPriceProps {
     graphicData: any;
     todayPrice: string;
     yesterdayPrice: string;
-    xAxisName: string;
-    chart0Name: string;
-    chart1Name: string;
-    showChart0: boolean;
-    showChart1: boolean;
     onClickButton0: () => void;
     onClickButton1: () => void;
     charWidth?: number;
     charHeight?: number;
+    xAxisName?: string;
+    chart0Name?: string;
+    chart1Name?: string;
+    showChart0?: boolean;
+    showChart1?: boolean;
+    showV2?: boolean;
 }
 /**
  * Render a Swap Price Molecule.
@@ -24,5 +25,5 @@ interface SwapPriceProps {
  * @param {() => void} onClickButton - The function to execute when the button is clicked.
  * @returns  {JSX.Element} The rendered the token options and key pair text.
  */
-export declare const SwapPrice: ({ firstTokenImg, secondTokenImg, firstTokenSymbol, secondTokenSymbol, onClickButton0, onClickButton1, graphicData, todayPrice, yesterdayPrice, xAxisName, chart0Name, chart1Name, charWidth, charHeight, showChart1, showChart0 }: SwapPriceProps) => React.JSX.Element;
+export declare const SwapPrice: ({ firstTokenImg, secondTokenImg, firstTokenSymbol, secondTokenSymbol, onClickButton0, onClickButton1, graphicData, todayPrice, yesterdayPrice, xAxisName, chart0Name, chart1Name, charWidth, charHeight, showChart1, showChart0, showV2 }: SwapPriceProps) => React.JSX.Element;
 export {};

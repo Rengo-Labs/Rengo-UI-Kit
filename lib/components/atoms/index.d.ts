@@ -22,6 +22,7 @@ export * from './SettingOption';
 export * from './Icons';
 export * from './Divider';
 export * from './Chart';
+export * from './ChartV2';
 export * from './Slider';
 export * from './Dialog';
 export * from './RowIcon';
