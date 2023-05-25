@@ -5,7 +5,7 @@ export interface HorizontalCardProps {
   secondTokenIcon: string
   tokenPairs: Array<string>
   pairsLiquidity: Array<{ name: string, value: string }>
-  userPoolInfo: Array<string>
+  userPoolInfo: Array<PoolInfoProps>
   hasFavorite: boolean
   trashHandler: () => void
   swapHandler: () => void
@@ -13,6 +13,11 @@ export interface HorizontalCardProps {
   itemHandler?: () => void
   addLiquidityHandler: () => void
   favoriteHandler: () => void
+}
+
+export interface PoolInfoProps {
+  title: string
+  value: string
 }
 
 export interface Props {
