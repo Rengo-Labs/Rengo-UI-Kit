@@ -7,6 +7,7 @@ import { BalanceMobileItem, TableBalanceBody } from '../../atoms'
 
 export interface IHeader {
   id: number
+  contractPackage: string
   crypto: string
   cryptoIcon: string
   mycrypto: number
@@ -17,6 +18,7 @@ export interface IHeader {
 }
 
 export interface BalaceTableProps {
+  networkLink: string
   data: IHeader[]
   widthIcon?: number
   heightIcon?: number
@@ -56,6 +58,7 @@ const columns = [
 ]
 
 export const BalanceTable = ({
+  networkLink,
   data,
   widthIcon = 30,
   heightIcon = 30
@@ -91,6 +94,7 @@ export const BalanceTable = ({
       {balanceData.map((row) =>
         isMobile ? (
           <BalanceMobileItem
+            networkLink={networkLink}
             key={row.id}
             row={row}
             widthIcon={widthIcon}
@@ -98,6 +102,7 @@ export const BalanceTable = ({
           />
         ) : (
           <TableBalanceBody
+            networkLink={networkLink}
             key={row.id}
             row={row}
             widthIcon={widthIcon}

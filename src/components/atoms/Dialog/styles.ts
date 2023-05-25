@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const Backdrop = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: 888;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,7 +21,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   flex-direction: column;
   align-items: center;
   padding: 0px;
-  z-index: 9999;
+  z-index: 900;
   background: ${({ theme }) =>  theme.background.wallet.connectedOptions};
   border: ${({ theme }) => `1px solid ${theme.border.default}`};
   box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);

@@ -6,6 +6,7 @@ import { DeviceType } from '../../../hooks/types'
 import { PoolItemMobile, PoolTableItem } from '../../atoms'
 
 export interface IHeaderPool {
+  contractPackage: string
   name: string
   pool: string
   token0Icon: string
@@ -20,6 +21,7 @@ export interface IHeaderPool {
 }
 
 export interface PoolTableProps {
+  networkLink: string
   data: IHeaderPool[]
   widthIcon?: number
   heightIcon?: number
@@ -68,6 +70,7 @@ const columns = [
 const NOT_SEARCHABLE_KEYS = ['token1Icon', 'token0Icon']
 
 export const PoolTable = ({
+  networkLink,
   data,
   widthIcon = 30,
   heightIcon = 30,
@@ -190,6 +193,8 @@ export const PoolTable = ({
         {balanceData.map((row) =>
           isMobile ? (
             <PoolItemMobile
+              networkLink={networkLink}
+              contractPackage={row.contractPackage}
               key={`pool-item-${row.pool}-mobile`}
               token0Icon={row.token0Icon}
               token1Icon={row.token1Icon}
@@ -214,6 +219,8 @@ export const PoolTable = ({
             />
           ) : (
             <PoolTableItem
+              networkLink={networkLink}
+              contractPackage={row.contractPackage}
               key={`pool-item-${row.pool}-desktop`}
               token0Icon={row.token0Icon}
               token1Icon={row.token1Icon}

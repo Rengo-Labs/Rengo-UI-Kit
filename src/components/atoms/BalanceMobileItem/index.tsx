@@ -13,13 +13,15 @@ import { IHeader } from '../../molecules'
 import { Divider } from '../Divider'
 
 interface BalanceMobileItemProps {
+  networkLink: string
   row: IHeader
   heightIcon: number
   widthIcon: number
 }
 
-export const BalanceMobileItem = ({ row, heightIcon, widthIcon}: BalanceMobileItemProps) => {
+export const BalanceMobileItem = ({ networkLink, row, heightIcon, widthIcon}: BalanceMobileItemProps) => {
   const {
+    contractPackage,
     crypto,
     cryptoIcon,
     mycrypto,
@@ -28,12 +30,18 @@ export const BalanceMobileItem = ({ row, heightIcon, widthIcon}: BalanceMobileIt
     '15d': d15,
     '30d': d30
   } = row
+  
+  const redirectToNetwork = (contractPackage: string) => {
+    const link = `${networkLink}${contractPackage}`
+    window.open(link, '_blank')
+  }
+  
   return (
     <Wrapper>
       <Header>
         <HeaderTitle>
           {cryptoIcon && <img src={cryptoIcon} alt={crypto} height={heightIcon} width={widthIcon}/>}
-          <Title>{crypto}</Title>
+          <Title linkeable={true} onClick={() => redirectToNetwork(contractPackage)}>{crypto}</Title>
         </HeaderTitle>
         <HeaderSubtitle>
           <Subtitle>My Crypto</Subtitle>

@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Distribution, IconSize } from './types';
 
 interface Props {
@@ -10,16 +10,17 @@ interface Props {
   leftAdornment?: ReactNode | ReactElement
   iconSize?: IconSize
   isLast?: boolean
+  containerWidth?: string
+  optIconExists?: boolean
 }
 
 export const Wrapper = styled.div<Props>`
-  width: 100%;
+  width: ${({ containerWidth }) => containerWidth};
   display: flex;
   align-items: center;
   justify-content: ${({ distribution }: Props) => distribution};
   background: ${({ theme }) => theme.color.tab.background};
-  border-bottom: ${({ isLast, theme }) => isLast ? 'none' : `1px solid ${theme.border.default}`};
-  /* gap: 15px; */
+
   &:hover {
     cursor: pointer;
     background-color: ${({ theme }) => theme.color.tab.hover};
@@ -65,6 +66,7 @@ export const TokenDetailsWrapper = styled.div<Props>`
 export const TokenNamesWrapper = styled.div<Props>`
   height: 100%;
   display: flex;
+  gap: 5px;
 
   padding-left: ${({ tokenNames, distribution }) =>{
     if (distribution !== Distribution.Center && distribution !== Distribution.SpaceEvenly) {
@@ -87,14 +89,8 @@ export const TokenName = styled.p<Props>`
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.02em;
-  font-weight: ${({ distribution }) => {
-    if (distribution !== Distribution.Center) {
-      return '600;'
-    }
-
-    return '400;'
-  }};
-  color: ${({ theme }) => theme.color.default};
+  font-weight: 400;
+  color: ${({ theme }) => theme.color.keyPairText.keyTextColor};
 `;
 
 export const TokenFullName = styled.p`
@@ -151,23 +147,32 @@ export const AmountWrapper = styled.div<Props>`
     return '26px;'
   }};
   letter-spacing: 0.02em;
-  color: ${({ theme, distribution }) => {
-    if (distribution !== Distribution.Center && distribution !== Distribution.SpaceEvenly) {
-      return theme.color.default
-    }
-    return theme.color.modalText
-  }};
-  margin: ${({ distribution }) => {
-    if (Distribution.Center !== distribution) {
-      return '0 5px;'
+  color: ${({ theme, containerWidth }) => {
+    if (containerWidth !== '100%') {
+      return theme.color.modalText
     }
 
-    return '0 6%;'
+    return theme.color.default
   }};
 `;
 
-export const IconImage = styled.img`
-  &:first-child {
-    margin-right: -15px
-  }
-  `;
+export const IconImage = styled.img<Props>`
+  ${({ optIconExists }) => {
+    if (optIconExists) {
+      return css`
+        &:first-child {
+          margin-right: -15px;
+        }
+
+        &:nth-child(2) {
+          margin-left: -15px;
+        }
+      `;
+      }
+  }}
+`;
+
+export const TokenNamesInnerContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;

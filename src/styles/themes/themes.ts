@@ -88,6 +88,7 @@ export interface theme {
             hover: string
         },
         toggleButton: {
+          active: string
           default: string
           invertedActive: string
         },
@@ -290,6 +291,7 @@ export const defaultTheme: theme = {
             hover: '#F5F5F5'
         },
         toggleButton: {
+          active: '#715FF5',
           default: '#6EEBD0',
           invertedActive: '#715FF5',
         },
@@ -493,8 +495,9 @@ export const darkTheme: theme = {
             hover: '#715FF5'
         },
         toggleButton: {
-          default: '#6EEBD0',
-          invertedActive: '#715FF5',
+          active: '#3A308B',
+          default: '#53D9B8',
+          invertedActive: '#3A308B',
         },
         table: {
           header: {
@@ -543,7 +546,7 @@ export const darkTheme: theme = {
         onHoverDisconnect: '#E83C3C'
       },
       toggle: {
-        inverted: '#58E4C2'
+        inverted: '#53D9B8'
       },
       notification: {
         default: '#241E52'

@@ -80,10 +80,10 @@ export const ToggleHandle = styled.span<Props>`
     }
 
     if (variant === Variant.InvertedColors) {
-      return theme.color.toggleButton.invertedActive;;
+      return theme.color.toggleButton.invertedActive;
     }
 
-    return theme.color.primary.default
+    return theme.color.toggleButton.active
   }};
   transition: transform 0.2s ease-in-out;
   transform: ${({ isActive, variant, invertStyleWhenActive }) => {

@@ -24,10 +24,13 @@ import {
   ActionItem,
   ViewIcon,
   ActionsInnerWrapper,
-  SeeActionsIconWrapper} from './style'
+  SeeActionsIconWrapper,
+  TableRow} from './style'
 import { useTheme } from 'styled-components'
 import {theme} from '../../../styles/themes/themes'
 import { HorizontalCardProps } from './types'
+import { useDeviceType } from '../../../hooks'
+import { DeviceType } from '../../../hooks/types'
 
 /**
   HorizontalCard Component.
@@ -49,6 +52,8 @@ import { HorizontalCardProps } from './types'
 */
 
 export const HorizontalCard = ({
+  networkLink,
+  contractPackage,
   firstTokenIcon,
   secondTokenIcon,
   tokenPairs,
@@ -63,6 +68,13 @@ export const HorizontalCard = ({
   favoriteHandler }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
   const [actionsDialogActive, setActionsDialogActive] = useState(false)
+  const deviceType = useDeviceType()
+  const isMobile = deviceType === DeviceType.MOBILE
+  
+  const redirectToNetwork = (contractPackage: string) => {
+    const link = `${networkLink}${contractPackage}`
+    window.open(link, '_blank')
+  }
 
   const handleItemDetails = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation()
@@ -103,7 +115,7 @@ export const HorizontalCard = ({
               <Image src={secondTokenIcon} alt='token' />
           )}
 
-          <TokenPairsNamesWrapper>
+          <TokenPairsNamesWrapper linkable={true} onClick={() => redirectToNetwork(contractPackage)}>
             {tokenPairs && tokenPairs.map((name, i) => (
               <TokenName key={`token-name${name}-${i}`}>
                 {i !== 0 && '\u00A0'}
@@ -114,32 +126,46 @@ export const HorizontalCard = ({
           </TokenPairsNamesWrapper>
         </TokenInfoInnerWrapper>
 
-        <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
-          <SeeActionsIcon
-            color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
-            size={20}
-            onClick={() => setActionsDialogActive(prev => !prev)}/>
-        </SeeActionsIconWrapper>
+        {isMobile && (
+          <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
+            <SeeActionsIcon
+              color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
+              size={20}
+              onClick={() => setActionsDialogActive(prev => !prev)}/>
+          </SeeActionsIconWrapper>
+        )}
 
       </TokenInfoWrapper>
 
       <RowWrapper>
+        <TableRow>
         {pairsLiquidity && pairsLiquidity.map((pair, i) => (
           <PairsLiquidityWrapper key={`pairs-liquidity-${pair.name}-${pair.value}`}>
             <PairLiquidityName>{pair.name}</PairLiquidityName>
             <PairLiquidityValue>{pair.value}</PairLiquidityValue>
           </PairsLiquidityWrapper>
         ))}
-      </RowWrapper>
 
-      <RowUserPoolInfo>
-        {userPoolInfo && userPoolInfo.map((info, i) => (
+        {(userPoolInfo && !isMobile) && userPoolInfo.map((info, i) => (
           <UserPoolInfoWrapper key={`user-pool-info-${info}-${i}`}>
             <UserPoolInfoName>{i === 0 ? 'Your Liquidity' : 'Your share' }</UserPoolInfoName>
             <UserPoolInfoValue>{info}</UserPoolInfoValue>
           </UserPoolInfoWrapper>
         ))}
-      </RowUserPoolInfo>
+        </TableRow>
+      </RowWrapper>
+
+      {isMobile && (
+        <RowUserPoolInfo>
+          {userPoolInfo && userPoolInfo.map((info, i) => (
+            <UserPoolInfoWrapper key={`user-pool-info-${info}-${i}`}>
+              <UserPoolInfoName>{i === 0 ? 'Your Liquidity' : 'Your share' }</UserPoolInfoName>
+              <UserPoolInfoValue>{info}</UserPoolInfoValue>
+            </UserPoolInfoWrapper>
+          ))}
+        </RowUserPoolInfo>
+
+      )}
 
       <ActionsWrapper actionsDialogActive={actionsDialogActive}>
         <ActionsInnerWrapper>
