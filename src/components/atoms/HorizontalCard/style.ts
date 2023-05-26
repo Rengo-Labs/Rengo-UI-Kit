@@ -51,11 +51,16 @@ export const TokenPairsNamesWrapper = styled.div<any>`
   ${props => props.linkable ? '&:hover{ color: blue; }':''}
 `;
 
+
+export const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 52px;
+`;
+
 export const Image = styled.img<Props>`
   height: 30px;
-  :first-child {
-    margin-right: -15px;
-  }
+  margin-right: -10px;
 `;
 export const TokenName = styled.p`
   font-family: ${({theme}) => theme.typography.secondaryFont};
@@ -135,12 +140,14 @@ export const PairsLiquidityMobileWrapper = styled.div`
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
+  justify-content: flex-start;
   
-  @media (max-width: 800px) {
-    min-height: 60px;
+  @media (max-width: 900px) {
+    min-height: 78px;
     align-items: flex-start;
     border-top: ${({ theme }) => `1px solid ${theme.border.table}`};
     align-items: center;
+    justify-content: flex-start;
   }
 `;
 
@@ -151,9 +158,10 @@ export const PairLiquidityName = styled.p`
   font-weight: 400;
   letter-spacing: 0.02em;
   
-  @media (max-width: 800px) {
-    align-items: flex-start;
-    flex: 1;
+  @media (max-width: 900px) {
+    display: grid;
+    align-content: center;
+    justify-self: start;
   }
 `;
 
@@ -166,9 +174,10 @@ export const PairLiquidityValue = styled.p`
   word-wrap: anywhere;
   color: ${({ theme }) => theme.color.modalText};
   
-  @media (max-width: 800px) {
-    text-align: right;
-    flex: 1;
+  @media (max-width: 900px) {
+    display: grid;
+    align-content: center;
+    justify-self: start;
   }
 `;
 
@@ -187,18 +196,33 @@ export const UserPoolInfoWrapper = styled.div<any>`
   }
 `;
 
+export const MobilleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const MobileRow = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const MobileTextContent = styled.div`
+  display: grid;
+  align-items: center;
+`;
+
 export const UserPoolInfoMobileWrapper = styled.div<any>`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   flex: ${props => props.isLiquidity ? '1.2' : '1'};
   padding-left: 10px;
   padding-right: 10px;
 
-  @media (max-width: 800px) {
-    min-height: 60px;
+  @media (max-width: 900px) {
+    min-height: 78px;
     border-top: ${({ theme }) => `1px solid ${theme.border.table}`};
-    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -210,8 +234,9 @@ export const UserPoolInfoName = styled.p`
   letter-spacing: 0.02em;
   
   @media (max-width: 800px) {
-    justify-content: left;
-    flex: 1;
+    display: grid;
+    align-content: center;
+    justify-self: start;
   }
 `;
 
@@ -225,8 +250,9 @@ export const UserPoolInfoValue = styled.p`
   color: ${({ theme }) => theme.color.modalText};
   
   @media (max-width: 800px) {
-    text-align: right;
-    flex: 1;
+    display: grid;
+    align-content: center;
+    justify-self: start;
   }
 `;
 
@@ -325,7 +351,7 @@ export const FavoriteIcon = styled(Star)`
     filter: brightness(0.8);
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     display: none;
   }
 `;
@@ -342,7 +368,7 @@ export const SeeActionsIconWrapper = styled.div<Props>`
   user-select: none;
   align-self: center;
 
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     display: ${({ hidden }) => hidden ? 'none' : 'flex'};
   }
 `;
@@ -357,7 +383,7 @@ export const SeeActionsIcon = styled(MoreHorizontal)<Props>`
     filter: brightness(0.8);
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     display: ${({ hidden }) => hidden ? 'none' : 'flex'};
   }
 `;

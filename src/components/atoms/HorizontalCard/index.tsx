@@ -26,7 +26,11 @@ import {
   ActionsInnerWrapper,
   SeeActionsIconWrapper,
   UserPoolInfoMobileWrapper,
-  PairsLiquidityMobileWrapper
+  PairsLiquidityMobileWrapper,
+  MobilleContainer,
+  MobileRow,
+  MobileTextContent,
+  ImageContainer
 } from './style'
 import { useTheme } from 'styled-components'
 import {theme} from '../../../styles/themes/themes'
@@ -98,6 +102,8 @@ export const HorizontalCard = ({
     viewHandler()
   }
 
+  const pairsLiquidityMiddleIndex = Math.floor(pairsLiquidity.length / 2);
+
   return (
     <Wrapper onClick={handleItemDetails}>
       <TokenInfoWrapper>
@@ -108,14 +114,16 @@ export const HorizontalCard = ({
             size={20}
             onClick={favoriteHandler}/>
           )}
-
+          <ImageContainer>
+            
           {firstTokenIcon && (
             <Image src={firstTokenIcon} alt='token' />
-          )}
+            )}
 
           {secondTokenIcon && (
-              <Image src={secondTokenIcon} alt='token' />
-          )}
+            <Image src={secondTokenIcon} alt='token' />
+            )}
+            </ImageContainer>
 
           <TokenPairsNamesWrapper linkable={true} onClick={() => redirectToNetwork(contractPackage)}>
             {tokenPairs && tokenPairs.map((name, i) => (
@@ -149,14 +157,6 @@ export const HorizontalCard = ({
           </RowUserPoolInfo>
         )
       }
-      {isMobile && userPoolInfo && userPoolInfo.map((info, i) => (
-          <UserPoolInfoMobileWrapper isLiquidity={info.title !== 'Your Share'}
-                               key={`user-pool-mobile-info-${info.value}-${i}`}>
-            <UserPoolInfoName>{info.title}</UserPoolInfoName>
-            <UserPoolInfoValue>{info.value}</UserPoolInfoValue>
-          </UserPoolInfoMobileWrapper>
-      ))}
-      
       
       {!isMobile && (
           <RowWrapper>
@@ -169,12 +169,50 @@ export const HorizontalCard = ({
           </RowWrapper>
         )
       }
-      {isMobile && pairsLiquidity && pairsLiquidity.map((pair, i) => (
-        <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
-          <PairLiquidityName>{pair.name}</PairLiquidityName>
-          <PairLiquidityValue>{pair.value}</PairLiquidityValue>
-        </PairsLiquidityMobileWrapper>
-      ))}
+
+      {isMobile && (
+        <MobilleContainer>
+          <MobileRow>
+            {userPoolInfo && userPoolInfo.map((info, i) => (
+              <UserPoolInfoMobileWrapper isLiquidity={info.title !== 'Your Share'}
+                                  key={`user-pool-mobile-info-${info.value}-${i}`}>
+                <MobileTextContent>
+                  <UserPoolInfoName>{info.title}</UserPoolInfoName>
+                  <UserPoolInfoValue>{info.value}</UserPoolInfoValue>
+                </MobileTextContent>
+              </UserPoolInfoMobileWrapper>
+            ))}
+          </MobileRow>
+            
+          <MobileRow>
+            {pairsLiquidity && pairsLiquidity.slice(0, pairsLiquidityMiddleIndex).map((pair, i) => (
+
+              <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
+              <MobileTextContent>
+                <PairLiquidityName>{pair.name}</PairLiquidityName>
+                <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+                </MobileTextContent>
+              </PairsLiquidityMobileWrapper>
+
+            ))}
+          </MobileRow>
+
+          <MobileRow>
+            {pairsLiquidity && pairsLiquidity.slice(pairsLiquidityMiddleIndex).map((pair, i) => (
+
+            <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
+            <MobileTextContent>
+              <PairLiquidityName>{pair.name}</PairLiquidityName>
+              <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+              </MobileTextContent>
+            </PairsLiquidityMobileWrapper>
+
+            ))}
+          </MobileRow>
+        </MobilleContainer>
+
+      )}
+
 
       <SeeActionsIconWrapper hidden={false} actionsDialogActive={actionsDialogActive}>
         <SeeActionsIcon
@@ -186,6 +224,15 @@ export const HorizontalCard = ({
 
       <ActionsWrapper actionsDialogActive={actionsDialogActive}>
         <ActionsInnerWrapper>
+          <ActionItem
+            onClick={actionsDialogActive ? addLiquidityHandler : undefined}>
+            <AddLiquidityIcon
+              color={theme?.color.modalText}
+              size={20}
+              onClick={actionsDialogActive ? undefined : addLiquidityHandler}/>
+            <ActionName>Add</ActionName>
+          </ActionItem>
+
           <ActionItem
             onClick={actionsDialogActive ? handleTrash : undefined}>
             <DeleteIcon
@@ -214,14 +261,6 @@ export const HorizontalCard = ({
             <ActionName>View</ActionName>
           </ActionItem>
 
-          <ActionItem
-            onClick={actionsDialogActive ? addLiquidityHandler : undefined}>
-            <AddLiquidityIcon
-              color={theme?.color.modalText}
-              size={20}
-              onClick={actionsDialogActive ? undefined : addLiquidityHandler}/>
-            <ActionName>Add</ActionName>
-          </ActionItem>
         </ActionsInnerWrapper>
       </ActionsWrapper>
     </Wrapper>
