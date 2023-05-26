@@ -1,18 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import {SwapTabs} from "../../../src/components";
-// @ts-ignore
-import casperToken from "../../assets/casper-token.svg";
-// @ts-ignore
-import bitcoinToken from "../../assets/bitcoin-token.svg";
+import { ChartV2 } from "../../../src/components";
 
 export default {
-    title: "Components/Molecules/SwapTabs",
-    component: SwapTabs,
-} as ComponentMeta<typeof SwapTabs>;
+    title: "Components/Atoms/ChartV2",
+    component: ChartV2,
+}as ComponentMeta<typeof ChartV2>
 
-// Create a master template for mapping args to render the SwapPrice component
-const Template: ComponentStory<typeof SwapTabs> = (args) => <div style={{width: '500px'}}><SwapTabs {...args} /></div>;
 const data = [
     {
         "date": 1673444294,
@@ -1371,12 +1365,12 @@ const data = [
     {
         "date": 1684494555,
         "dayString": 1684494555,
-        "dailyVolumeUSD": 652672018277.3024,
-        "dailyVolumeUSDValue": 652.6720182773024,
-        "priceUSD": "28.754738384711745295866206388844551389783578283619303228",
-        "totalLiquidityUSD": "42429860676366.226942299891624056000762487427181550483219527995197480",
-        "totalLiquidityUSDValue": 42429.860676366225,
-        "totalLiquidityTokenValue": 1475.57804591
+        "dailyVolumeUSD": 1116767349.9053807,
+        "dailyVolumeUSDValue": 1.1167673499053807,
+        "priceUSD": "31.401658132864269509958588883229417429993233623010164465",
+        "totalLiquidityUSD": "45763459008704.470244577071758380621412070063361069383433148289932245",
+        "totalLiquidityUSDValue": 45763.45900870447,
+        "totalLiquidityTokenValue": 1457.358041893
     },
     {
         "date": 1684503494,
@@ -1386,154 +1380,15 @@ const data = [
         "priceUSD": "36.167570497182507124854297701129522215905694375849467216",
         "totalLiquidityUSD": "47334084826251.770357919217383840925284886880371306872025512472410288",
         "totalLiquidityUSDValue": 47334.084826251776
-    },
-    {
-        "date": 1684589894,
-        "dayString": 1684589894,
-        "dailyVolumeUSD": 0,
-        "dailyVolumeUSDValue": 0,
-        "priceUSD": "36.167570497182507124854297701129522215905694375849467216",
-        "totalLiquidityUSD": "47334084826251.770357919217383840925284886880371306872025512472410288",
-        "totalLiquidityUSDValue": 47334.084826251776
-    },
-    {
-        "date": 1684709607,
-        "dayString": 1684709607,
-        "dailyVolumeUSD": 33597255931.375732,
-        "dailyVolumeUSDValue": 33.597255931375734,
-        "priceUSD": "28.918792182286430475498298191706768553522494376758619259",
-        "totalLiquidityUSD": "42705207747581.994063565097236357688619970274997603623860505474117718",
-        "totalLiquidityUSDValue": 42705.20774758199,
-        "totalLiquidityTokenValue": 1476.728608802
-    },
-    {
-        "date": 1684762694,
-        "dayString": 1684762694,
-        "dailyVolumeUSD": 0,
-        "dailyVolumeUSDValue": 0,
-        "priceUSD": "41.442503996850186924940511672440433767259115420775448007",
-        "totalLiquidityUSD": "58396252667339.507479919585697994285139627091318736151395184760950892",
-        "totalLiquidityUSDValue": 58396.25266733951
     }
 ]
+const Template: ComponentStory<typeof ChartV2> = (args) => <div style={{width:"800px", height:"500px"}}> <ChartV2 {...args} /> </div>;
 export const Default = Template.bind({});
 Default.args = {
-    firstTokenImg: casperToken,
-    secondTokenImg: bitcoinToken,
-    platformGasFee: 0.1,
-    slippageTolerance: 0.005,
-    calculateMinimumTokenReceived: (() =>  200),
-    firstSymbolToken: 'CSPR',
-    firstTokenAmount: 1000,
-    pairPath: ['CSPR', 'ETH'],
-    secondSymbolToken: 'ETH',
-    secondTokenAmount: 200,
-    priceImpact: 1.5,
-    priceImpactMessage: 'Low Price Impact',
-    networkGasFee: 40,
-    networkGasFeeSetter    : (value) => {console.log("new networkGasFee", value)},
-    slippageSetter  : (value) => {console.log("new slippage", value)},
-    // graphic
-    onClickButton0: () => {console.log("onClickButton0")},
-    onClickButton1: () => {console.log("onClickButton1")},
-    graphicData: data,
-    todayPrice: '1000',
-    yesterdayPrice: '2000',
-    xAxisName: 'name',
-    chart0Name: 'eth',
-    chart1Name: 'cspr',
-    showChart1: true,
-    showChart0: true,
-    charHeight: 300
+    data: data
 }
 
-export const WithoutPair = Template.bind({});
-WithoutPair.args = {
-    firstTokenImg: casperToken,
-    secondTokenImg: bitcoinToken,
-    platformGasFee: 0.1,
-    slippageTolerance: 0.005,
-    calculateMinimumTokenReceived: (() =>  200),
-    firstSymbolToken: 'WETH',
-    firstTokenAmount: 1000,
-    pairPath: [],
-    secondSymbolToken: 'ETH',
-    secondTokenAmount: 200,
-    priceImpact: 1.5,
-    priceImpactMessage: 'Low Price Impact',
-    networkGasFee: 40,
-    networkGasFeeSetter    : (value) => {console.log("new networkGasFee", value)},
-    slippageSetter  : (value) => {console.log("new slippage", value)},
-    // graphic
-    onClickButton0: () => {console.log("onClickButton0")},
-    onClickButton1: () => {console.log("onClickButton1")},
-    graphicData: data,
-    todayPrice: '1000',
-    yesterdayPrice: '2000',
-    xAxisName: 'name',
-    chart0Name: 'eth',
-    chart1Name: 'cspr',
-    showChart1: true,
-    showChart0: true
-}
-
-export const WithMoreThanOnePair = Template.bind({});
-WithMoreThanOnePair.args = {
-    firstTokenImg: casperToken,
-    secondTokenImg: bitcoinToken,
-    platformGasFee: 0.1,
-    slippageTolerance: 0.005,
-    calculateMinimumTokenReceived: (() =>  200),
-    firstSymbolToken: 'CSPR',
-    firstTokenAmount: 1000,
-    pairPath: ['ETH', 'CSPR', 'BTC'],
-    secondSymbolToken: 'ETH',
-    secondTokenAmount: 200,
-    priceImpact: 1.5,
-    priceImpactMessage: 'Low Price Impact',
-    networkGasFee: 40,
-    networkGasFeeSetter    : (value) => {console.log("new networkGasFee", value)},
-    slippageSetter  : (value) => {console.log("new slippage", value)},
-    // graphic
-    onClickButton0: () => {console.log("onClickButton0")},
-    onClickButton1: () => {console.log("onClickButton1")},
-    graphicData: data,
-    todayPrice: '1000',
-    yesterdayPrice: '2000',
-    xAxisName: 'name',
-    chart0Name: 'eth',
-    chart1Name: 'cspr',
-    showChart1: true,
-    showChart0: false
-}
-
-export const WithTabDefault = Template.bind({});
-WithTabDefault.args = {
-    firstTokenImg: casperToken,
-    secondTokenImg: bitcoinToken,
-    platformGasFee: 0.1,
-    slippageTolerance: 0.005,
-    calculateMinimumTokenReceived: (() =>  200),
-    firstSymbolToken: 'CSPR',
-    firstTokenAmount: 1000,
-    pairPath: ['ETH', 'CSPR', 'BTC'],
-    secondSymbolToken: 'ETH',
-    secondTokenAmount: 200,
-    priceImpact: 1.5,
-    priceImpactMessage: 'Low Price Impact',
-    networkGasFee: 40,
-    networkGasFeeSetter    : (value) => {console.log("new networkGasFee", value)},
-    slippageSetter  : (value) => {console.log("new slippage", value)},
-    // graphic
-    onClickButton0: () => {console.log("onClickButton0")},
-    onClickButton1: () => {console.log("onClickButton1")},
-    graphicData: data,
-    todayPrice: '1000',
-    yesterdayPrice: '2000',
-    xAxisName: 'name',
-    chart0Name: 'eth',
-    chart1Name: 'cspr',
-    showChart1: true,
-    showChart0: false,
-    tabDefault: 2
+export const Empty = Template.bind({});
+Empty.args = {
+    data: []
 }

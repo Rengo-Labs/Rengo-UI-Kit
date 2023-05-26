@@ -24,10 +24,15 @@ import {
   ActionItem,
   ViewIcon,
   ActionsInnerWrapper,
-  SeeActionsIconWrapper} from './style'
+  SeeActionsIconWrapper,
+  UserPoolInfoMobileWrapper,
+  PairsLiquidityMobileWrapper
+} from './style'
 import { useTheme } from 'styled-components'
 import {theme} from '../../../styles/themes/themes'
 import { HorizontalCardProps } from './types'
+import { useDeviceType } from '../../../hooks'
+import { DeviceType } from '../../../hooks/types'
 
 /**
   HorizontalCard Component.
@@ -65,6 +70,8 @@ export const HorizontalCard = ({
   favoriteHandler }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
   const [actionsDialogActive, setActionsDialogActive] = useState(false)
+  const deviceType = useDeviceType()
+  const isMobile = deviceType === DeviceType.MOBILE
 
   const redirectToNetwork = (contractPackage: string) => {
     const link = `${networkLink}${contractPackage}`
@@ -121,8 +128,9 @@ export const HorizontalCard = ({
           </TokenPairsNamesWrapper>
         </TokenInfoInnerWrapper>
 
-        <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
+        <SeeActionsIconWrapper hidden={true} actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
+            hidden={true}
             color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
             size={20}
             onClick={() => setActionsDialogActive(prev => !prev)}/>
@@ -130,61 +138,89 @@ export const HorizontalCard = ({
 
       </TokenInfoWrapper>
 
-      <RowWrapper>
-        {pairsLiquidity && pairsLiquidity.map((pair, i) => (
-          <PairsLiquidityWrapper key={`pairs-liquidity-${pair.name}-${pair.value}`}>
-            <PairLiquidityName>{pair.name}</PairLiquidityName>
-            <PairLiquidityValue>{pair.value}</PairLiquidityValue>
-          </PairsLiquidityWrapper>
-        ))}
-      </RowWrapper>
+      {!isMobile && (
+          <RowUserPoolInfo>
+            {userPoolInfo && userPoolInfo.map((info, i) => (
+              <UserPoolInfoWrapper isLiquidity={info.title !== 'Your Share'} key={`user-pool-info-${info.value}-${i}`}>
+                <UserPoolInfoName>{info.title}</UserPoolInfoName>
+                <UserPoolInfoValue>{info.value}</UserPoolInfoValue>
+              </UserPoolInfoWrapper>
+            ))}
+          </RowUserPoolInfo>
+        )
+      }
+      {isMobile && userPoolInfo && userPoolInfo.map((info, i) => (
+          <UserPoolInfoMobileWrapper isLiquidity={info.title !== 'Your Share'}
+                               key={`user-pool-mobile-info-${info.value}-${i}`}>
+            <UserPoolInfoName>{info.title}</UserPoolInfoName>
+            <UserPoolInfoValue>{info.value}</UserPoolInfoValue>
+          </UserPoolInfoMobileWrapper>
+      ))}
+      
+      
+      {!isMobile && (
+          <RowWrapper>
+            {pairsLiquidity && pairsLiquidity.map((pair, i) => (
+              <PairsLiquidityWrapper key={`pairs-liquidity-${pair.name}-${pair.value}`}>
+                <PairLiquidityName>{pair.name}</PairLiquidityName>
+                <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+              </PairsLiquidityWrapper>
+            ))}
+          </RowWrapper>
+        )
+      }
+      {isMobile && pairsLiquidity && pairsLiquidity.map((pair, i) => (
+        <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
+          <PairLiquidityName>{pair.name}</PairLiquidityName>
+          <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+        </PairsLiquidityMobileWrapper>
+      ))}
 
-      <RowUserPoolInfo>
-        {userPoolInfo && userPoolInfo.map((info, i) => (
-          <UserPoolInfoWrapper key={`user-pool-info-${info}-${i}`}>
-            <UserPoolInfoName>{i === 0 ? 'Your Liquidity' : 'Your share' }</UserPoolInfoName>
-            <UserPoolInfoValue>{info}</UserPoolInfoValue>
-          </UserPoolInfoWrapper>
-        ))}
-      </RowUserPoolInfo>
+      <SeeActionsIconWrapper hidden={false} actionsDialogActive={actionsDialogActive}>
+        <SeeActionsIcon
+          hidden={false}
+          color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
+          size={20}
+          onClick={() => setActionsDialogActive(prev => !prev)}/>
+      </SeeActionsIconWrapper>
 
       <ActionsWrapper actionsDialogActive={actionsDialogActive}>
         <ActionsInnerWrapper>
           <ActionItem
-            onClick={actionsDialogActive ?  handleTrash : undefined}>
+            onClick={actionsDialogActive ? handleTrash : undefined}>
             <DeleteIcon
               color={theme?.color.modalText}
               size={20}
-              onClick={actionsDialogActive ?  undefined : handleTrash} />
+              onClick={actionsDialogActive ? undefined : handleTrash}/>
             <ActionName>Remove</ActionName>
           </ActionItem>
 
           <ActionItem
-            onClick={actionsDialogActive ?  handleSwap : undefined}>
+            onClick={actionsDialogActive ? handleSwap : undefined}>
             <ShuffleIcon
               color={theme?.color.modalText}
               size={20}
-              onClick={actionsDialogActive ?  undefined : handleSwap} />
+              onClick={actionsDialogActive ? undefined : handleSwap}/>
             <ActionName>Swap</ActionName>
           </ActionItem>
 
           <ActionItem
             hidden={true}
-            onClick={actionsDialogActive ?  handleView : undefined}>
+            onClick={actionsDialogActive ? handleView : undefined}>
             <ViewIcon
               color={theme?.color.modalText}
               size={20}
-              onClick={actionsDialogActive ?  undefined : handleView} />
-              <ActionName>View</ActionName>
+              onClick={actionsDialogActive ? undefined : handleView}/>
+            <ActionName>View</ActionName>
           </ActionItem>
 
           <ActionItem
-            onClick={actionsDialogActive ?  addLiquidityHandler : undefined}>
+            onClick={actionsDialogActive ? addLiquidityHandler : undefined}>
             <AddLiquidityIcon
               color={theme?.color.modalText}
               size={20}
-              onClick={actionsDialogActive ?  undefined : addLiquidityHandler} />
-              <ActionName>Add</ActionName>
+              onClick={actionsDialogActive ? undefined : addLiquidityHandler}/>
+            <ActionName>Add</ActionName>
           </ActionItem>
         </ActionsInnerWrapper>
       </ActionsWrapper>

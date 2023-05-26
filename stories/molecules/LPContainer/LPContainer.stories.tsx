@@ -17,9 +17,8 @@ export default {
 } as ComponentMeta<typeof LPContainer>;
 
 // Create a master template for mapping args to render the LPContainer component
-const Template: ComponentStory<typeof LPContainer> = (args) => <div style={{width: '100%', height: '100%'}}>
+const Template: ComponentStory<typeof LPContainer> = (args) => 
     <LPContainer {...args} />
-</div>;
 export const Default = Template.bind({});
 // @ts-ignore
 Default.args = {
@@ -34,7 +33,7 @@ Default.args = {
             secondSymbol: 'CSPR',
             firstAmount: '200.00000002',
             secondAmount: '4000000.00000122',
-            userLP: '10',
+            userLP: '10.22110000',
             totalLP: '232000',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
@@ -48,7 +47,7 @@ Default.args = {
             secondSymbol: 'CSPR',
             firstAmount: '0.05',
             secondAmount: '9000000.00000122',
-            userLP: '1.02',
+            userLP: '1.22110000',
             totalLP: '34000',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
@@ -62,7 +61,7 @@ Default.args = {
             secondSymbol: 'CSPR',
             firstAmount: '50.00000002',
             secondAmount: '4000.00000122',
-            userLP: '19',
+            userLP: '19.22110000',
             totalLP: '23000',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
@@ -99,7 +98,7 @@ LPFavorite.args = {
             secondSymbol: 'CSPR',
             firstAmount: '0.05',
             secondAmount: '9000000.00000122',
-            userLP: '1.02',
+            userLP: '1.02124355',
             totalLP: '34000',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
@@ -113,7 +112,7 @@ LPFavorite.args = {
             secondSymbol: 'CSPR',
             firstAmount: '50.00000002',
             secondAmount: '4000.00000122',
-            userLP: '19',
+            userLP: '19.22110000',
             totalLP: '23000',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
