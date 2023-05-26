@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
+  BTR,
   FavoriteIcon,
   Footer,
   Header,
@@ -7,6 +8,10 @@ import {
   HeaderTitle,
   Subtitle,
   SubtitleValue,
+  TD,
+  TH,
+  TR,
+  Table,
   Title,
   Wrapper
 } from './styles'
@@ -40,10 +45,12 @@ export const PoolItemMobile = ({
   widthIcon,
   heightIcon,
   pool,
-  liquidity,
+  yourLiquidity,
   volume7d,
   fees7d,
-  apr,
+  assetsPoolToken0,
+  assetsPoolToken1,
+  yourShare,  
   isFavorite,
   favoriteHandler,
   handleTrash,
@@ -70,89 +77,124 @@ export const PoolItemMobile = ({
   }
   
   return (
-    <Wrapper>
-      <Header>
-        <HeaderTitle>
-          <FavoriteIcon
-            src={isFavorite ? favoriteIconFill : favoriteIcon}
-            width={20}
-            height={20}
-            onClick={favoriteHandler}
-          />
-          <IconWrapper>
-            <Icon src={token0Icon} alt={pool} width={widthIcon} height={heightIcon} />
-            <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
-          </IconWrapper>
-          <Title linkable={true} onClick={() => redirectToNetwork(contractPackage)}>{pool}</Title>
-        </HeaderTitle>
-        <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
-          <SeeActionsIcon
-            color={
-              actionsDialogActive
-                ? currentTheme?.color.white
-                : currentTheme?.color.modalText
-            }
-            size={20}
-            onClick={toggleDialog}
-          />
-          <ActionsWrapper actionsDialogActive={actionsDialogActive}>
-            <ActionsInnerWrapper>
+    <Table>
+      <thead>
+      <TR>
+        <TH>
+          <HeaderTitle>
+            <FavoriteIcon
+              src={isFavorite ? favoriteIconFill : favoriteIcon}
+              width={20}
+              height={20}
+              onClick={favoriteHandler}
+            />
+            <IconWrapper>
+              <Icon src={token0Icon} alt={pool} width={widthIcon} height={heightIcon} />
+              <Icon src={token1Icon} alt={pool} width={widthIcon} height={heightIcon} />
+            </IconWrapper>
+            <Title linkable={true} onClick={() => redirectToNetwork(contractPackage)}>{pool}</Title>
+          </HeaderTitle>
+        </TH>
+        <TH>
+          <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
+            <SeeActionsIcon
+              color={
+                actionsDialogActive
+                  ? currentTheme?.color.white
+                  : currentTheme?.color.modalText
+              }
+              size={20}
+              onClick={toggleDialog}
+            />
+            <ActionsWrapper actionsDialogActive={actionsDialogActive}>
+              <ActionsInnerWrapper>
               <ActionItem
-                onClick={actionsDialogActive ? handleTrash : undefined}
-              >
-                <DeleteIcon color={currentTheme?.color.modalText} size={20} />
-                <ActionName>Remove</ActionName>
-              </ActionItem>
+                  onClick={actionsDialogActive ? handleAddLiquidity : undefined}
+                >
+                  <AddLiquidityIcon
+                    color={currentTheme?.color.modalText}
+                    size={20}
+                  />
+                  <ActionName>Add</ActionName>
+                </ActionItem>
 
-              <ActionItem
-                onClick={actionsDialogActive ? handleSwap : undefined}
-              >
-                <ShuffleIcon color={currentTheme?.color.modalText} size={20} />
-                <ActionName>Swap</ActionName>
-              </ActionItem>
+                <ActionItem
+                  onClick={actionsDialogActive ? handleTrash : undefined}
+                >
+                  <DeleteIcon color={currentTheme?.color.modalText} size={20} />
+                  <ActionName>Remove</ActionName>
+                </ActionItem>
 
-              <ActionItem
-                onClick={actionsDialogActive ? handleView : undefined}
-              >
-                <ViewIcon color={currentTheme?.color.modalText} size={20} />
-                <ActionName>View</ActionName>
-              </ActionItem>
+                <ActionItem
+                  onClick={actionsDialogActive ? handleSwap : undefined}
+                >
+                  <ShuffleIcon color={currentTheme?.color.modalText} size={20} />
+                  <ActionName>Swap</ActionName>
+                </ActionItem>
 
-              <ActionItem
-                onClick={actionsDialogActive ? handleAddLiquidity : undefined}
-              >
-                <AddLiquidityIcon
-                  color={currentTheme?.color.modalText}
-                  size={20}
-                />
-                <ActionName>Add</ActionName>
-              </ActionItem>
-            </ActionsInnerWrapper>
-          </ActionsWrapper>
-        </SeeActionsIconWrapper>
-      </Header>
+                <ActionItem
+                  onClick={actionsDialogActive ? handleView : undefined}
+                >
+                  <ViewIcon color={currentTheme?.color.modalText} size={20} />
+                  <ActionName>View</ActionName>
+                </ActionItem>
+              </ActionsInnerWrapper>
+            </ActionsWrapper>
+          </SeeActionsIconWrapper>
+        </TH>
+        </TR>
+      </thead>
+
       <Divider />
-      <Footer>
-        <HeaderSubtitle>
-          <Subtitle>Liquidity</Subtitle>
-          <SubtitleValue>{convertNumber(liquidity)}</SubtitleValue>
-        </HeaderSubtitle>
-        <HeaderSubtitle>
-          <Subtitle>Volumen 7D</Subtitle>
-          <SubtitleValue>{volume7d}</SubtitleValue>
-        </HeaderSubtitle>
-      </Footer>
-      <Divider />
-      <Footer>
-        <HeaderSubtitle>
-          <Subtitle>Fees 7D</Subtitle>
-          <SubtitleValue>{fees7d}</SubtitleValue>
-        </HeaderSubtitle>
-        <HeaderSubtitle>
-          <Subtitle>APR</Subtitle>
-          <SubtitleValue>{apr} %</SubtitleValue>
-        </HeaderSubtitle>
-      </Footer>
-    </Wrapper>
+      <tbody>
+        <BTR>
+          <TD>
+            <HeaderSubtitle>
+              <Subtitle>Liquidity</Subtitle>
+              <SubtitleValue>{yourLiquidity}</SubtitleValue>
+            </HeaderSubtitle>
+          </TD>
+          <TD>
+            <HeaderSubtitle>
+              <Subtitle>Your share</Subtitle>
+              <SubtitleValue>{yourShare} %</SubtitleValue>
+            </HeaderSubtitle>
+          </TD>
+        </BTR>
+
+        <Divider />
+          <BTR>
+            <TD>
+              <HeaderSubtitle>
+                <Subtitle>Asset 1</Subtitle>
+                <SubtitleValue>{assetsPoolToken0}</SubtitleValue>
+              </HeaderSubtitle>
+            </TD>
+            <TD>
+              <HeaderSubtitle>
+                <Subtitle>Asset 2</Subtitle>
+                <SubtitleValue>{assetsPoolToken1}</SubtitleValue>
+              </HeaderSubtitle>
+            </TD>
+          </BTR>
+
+        <Divider />
+      <BTR>
+        <TD>
+          <HeaderSubtitle>
+            <Subtitle>Volume 7D</Subtitle>
+            <SubtitleValue>{volume7d}</SubtitleValue>
+          </HeaderSubtitle>
+        </TD>
+        <TD>
+          <HeaderSubtitle>
+            <Subtitle>Fees 7D</Subtitle>
+            <SubtitleValue>{fees7d}</SubtitleValue>
+          </HeaderSubtitle>
+        </TD>
+      </BTR>
+
+      </tbody>
+    </Table>
   )
 }

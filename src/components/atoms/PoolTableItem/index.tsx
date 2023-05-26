@@ -21,7 +21,6 @@ import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 import favoriteIcon from './assets/favorite.svg'
 import favoriteIconFill from './assets/favoriteFill.svg'
-import { convertNumber } from '../../../utils'
 
 export interface IPoolTableItem {
   networkLink: string
@@ -32,10 +31,12 @@ export interface IPoolTableItem {
   widthIcon: number
   heightIcon: number
   pool: string
-  liquidity: number
-  volume7d: number
-  fees7d: number
-  apr: number
+  yourLiquidity: string
+  volume7d: string
+  fees7d: string
+  assetsPoolToken0: string
+  assetsPoolToken1: string
+  yourShare: string
   isFavorite?: boolean
   favoriteHandler?: () => void
   handleTrash: () => void
@@ -55,10 +56,12 @@ export const PoolTableItem = ({
   widthIcon,
   heightIcon,
   pool,
-  liquidity,
+  yourLiquidity,
   volume7d,
   fees7d,
-  apr,
+  assetsPoolToken0,
+  assetsPoolToken1,
+  yourShare,
   isFavorite,
   favoriteHandler,
   handleTrash,
@@ -111,18 +114,24 @@ export const PoolTableItem = ({
         <Text linkable={true} onClick={() => redirectToNetwork(contractPackage)}>{pool}</Text>
       </TD>
       <TD>
-        <Text>${convertNumber(liquidity)}</Text>
+        <Text>{yourLiquidity}</Text>
       </TD>
       <TD>
-        <Text>${volume7d}</Text>
+        <Text>{assetsPoolToken0}</Text>
       </TD>
       <TD>
-        <Text>${fees7d}</Text>
+        <Text>{assetsPoolToken1}</Text>
       </TD>
       <TD>
-        <Text>{apr} %</Text>
+        <Text>{volume7d}</Text>
       </TD>
       <TD>
+        <Text>{fees7d}</Text>
+      </TD>
+      <TD>
+        <Text>{yourShare} %</Text>
+      </TD>
+      <TD isLastItem={true}>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
             color={
@@ -135,6 +144,16 @@ export const PoolTableItem = ({
           />
           <ActionsWrapper actionsDialogActive={actionsDialogActive}>
             <ActionsInnerWrapper>
+                <ActionItem
+                  onClick={actionsDialogActive ? handleAddLiquidity : undefined}
+                >
+                  <AddLiquidityIcon
+                    color={currentTheme?.color.modalText}
+                    size={20}
+                  />
+                  <ActionName>Add</ActionName>
+                </ActionItem>
+
               {!hideRemoveLiquidity && (
                 <ActionItem
                   onClick={actionsDialogActive ? handleTrash : undefined}
@@ -158,15 +177,7 @@ export const PoolTableItem = ({
                 <ActionName>View</ActionName>
               </ActionItem>
 
-              <ActionItem
-                onClick={actionsDialogActive ? handleAddLiquidity : undefined}
-              >
-                <AddLiquidityIcon
-                  color={currentTheme?.color.modalText}
-                  size={20}
-                />
-                <ActionName>Add</ActionName>
-              </ActionItem>
+
             </ActionsInnerWrapper>
           </ActionsWrapper>
         </SeeActionsIconWrapper>

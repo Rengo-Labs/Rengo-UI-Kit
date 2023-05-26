@@ -6,23 +6,23 @@ interface Column {
   key: string
   name: string
   isSorteable: boolean
+  width?: string
 }
 
 interface TableHeaderProps {
   columns: Column[]
   onSort: (key: string, isAscending: boolean) => void
-  cryptoColumnRef?: Ref<HTMLTableCellElement>
+  firstColumnRef?: Ref<HTMLTableCellElement>
 }
 
-export const TableHeader = ({ columns, onSort, cryptoColumnRef}: TableHeaderProps) => {
+export const TableHeader = ({ columns, onSort, firstColumnRef }: TableHeaderProps) => {
   return (
     <Head>
       <TR>
-        {columns.map((column) => {
-        const Ref = column.key === 'crypto' ? cryptoColumnRef : null;
-          
+        {columns.map((column, i) => {
+        const Ref = column.key === 'crypto' || column.key === 'pool' ? firstColumnRef : null;
           return (
-            <TD key={column.key} ref={Ref}>
+            <TD key={column.key} ref={Ref} customWidth={column.width} isFirstColumn={i === 0} lastColumn={i === columns.length -1}>
               <Text>{column.name}</Text>
               {column.isSorteable && (
                 <Icon>

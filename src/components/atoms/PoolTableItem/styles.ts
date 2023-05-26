@@ -14,21 +14,23 @@ export interface Props {
 }
 
 export const TR = styled.tr`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
   gap: 15px;
-  width: 100%;
+  height: 108px;
+  border-bottom: 1px solid #EAEBEC;
+  border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`};
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
 `
-export const TD = styled.td<{ isFirstItem?: boolean }>`
-  flex: 1;
+export const TD = styled.td<{ isFirstItem?: boolean, isLastItem?: boolean }>`
   min-height: 32px;
-  padding: 10px 0 10px 10px;
   display: flex;
   align-items: center;
-  justify-content: ${({ isFirstItem }) => isFirstItem ? 'flex-start' : 'center'};
+  justify-content: ${({ isLastItem }) => isLastItem ? 'center': 'flex-start' };
   flex-wrap: wrap;
   gap: 8.94px;
+  padding-left: ${({ isFirstItem }) => isFirstItem ? '16.94px' : 0};
+  padding-right: ${({ isLastItem }) => isLastItem ? '23px' : 0};
   overflow-wrap: anywhere;
 `
 
@@ -60,7 +62,6 @@ export const Text = styled.p<any>`
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  text-align: center;
   letter-spacing: 0.02em;
   color: ${(props) => props.theme.color.default};
   align-self: center;

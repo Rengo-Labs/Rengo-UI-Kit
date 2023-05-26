@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import TableHeader from '../../atoms/TableHeader'
 import { Body, Wrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
@@ -11,10 +11,12 @@ export interface IHeaderPool {
   pool: string
   token0Icon: string
   token1Icon: string
-  liquidity: number
-  volume7d: number
-  fees7d: number
-  apr: number
+  yourLiquidity: string
+  volume7d: string
+  fees7d: string
+  assetsPoolToken0: string
+  assetsPoolToken1: string
+  yourShare: string
   actions?: string
   isFavorite?: boolean
   balance: string
@@ -38,32 +40,43 @@ const columns = [
   {
     key: 'pool',
     name: 'Pool',
-    isSorteable: true
+    isSorteable: true,
+    width: '30%'
   },
   {
-    key: 'liquidity',
+    key: 'yourLiquidity',
     name: 'Liquidity',
-    isSorteable: true
+    isSorteable: true,
+  },
+  {
+    key: 'assetsPoolToken0',
+    name: 'Asset 1',
+    isSorteable: true,
+  },
+  {
+    key: 'assetsPoolToken1',
+    name: 'Asset 2',
+    isSorteable: true,
   },
   {
     key: 'volume7d',
     name: 'Volume 7D',
-    isSorteable: true
+    isSorteable: true,
   },
   {
     key: 'fees7d',
     name: 'Fees 7D',
-    isSorteable: true
+    isSorteable: true,
   },
   {
-    key: 'apr',
-    name: 'APR',
-    isSorteable: true
+    key: 'yourShare',
+    name: 'Your Share',
+    isSorteable: true,
   },
   {
     key: 'actions',
     name: 'Actions',
-    isSorteable: false
+    isSorteable: false,
   }
 ]
 
@@ -84,6 +97,7 @@ export const PoolTable = ({
 }: PoolTableProps) => {
   const [balanceData, setBalanceData] = useState<IHeaderPool[]>(() => data)
   const deviceType = useDeviceType()
+  const tableRef = useRef<HTMLTableElement>(null);
 
   useEffect(() => {
     setBalanceData(data)
@@ -92,16 +106,26 @@ export const PoolTable = ({
   const isMobile = deviceType === DeviceType.MOBILE
 
   const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
+  const cryptoColumnRef = useRef<HTMLTableCellElement>(null)
 
   const toggleDialog = (name: string) => {
     setActionsDialogActive((prev) => (prev === name ? null : name))
   }
 
+
   const handleSort = (key: string, isAscending: boolean) => {
     const sortedData = [...balanceData].sort((a, b) => {
       const sortMultiplier = isAscending ? 1 : -1
-      const propA = a[key as keyof IHeaderPool]
-      const propB = b[key as keyof IHeaderPool]
+      
+      const propA = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
+      ? parseFloat((a as any)[key].replace(/[$,]/g, ''))
+      : (a as any)[key as keyof IHeaderPool];
+
+    const propB = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
+      ? parseFloat((b as any)[key].replace(/[$,]/g, ''))
+      : (b as any)[key as keyof IHeaderPool];
+
+
 
       if (propA !== undefined && propB !== undefined) {
         return propA > propB ? sortMultiplier : -sortMultiplier
@@ -184,13 +208,12 @@ export const PoolTable = ({
 
   }, [showStakedOnly])
 
-
   return (
-    <Wrapper isMobile={isMobile}>
-      {!isMobile && <TableHeader columns={columns} onSort={handleSort} />}
-      <Body>
+    <Wrapper isMobile={isMobile} ref={tableRef}>
+      {!isMobile && <TableHeader columns={columns} onSort={handleSort} firstColumnRef={cryptoColumnRef} />}
+      <Body isMobile={isMobile}>
 
-        {balanceData.map((row) =>
+        {balanceData.map((row, i) =>
           isMobile ? (
             <PoolItemMobile
               networkLink={networkLink}
@@ -201,10 +224,12 @@ export const PoolTable = ({
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               pool={row.pool}
-              liquidity={row.liquidity}
+              yourLiquidity={row.yourLiquidity}
               volume7d={row.volume7d}
               fees7d={row.fees7d}
-              apr={row.apr}
+              assetsPoolToken0={row.assetsPoolToken0}
+              assetsPoolToken1={row.assetsPoolToken1}
+              yourShare={row.yourShare}
               handleTrash={() => handleTrash(row.name)}
               handleSwap={() => handleSwap('/swap', row.pool)}
               handleView={() => handleView(row.name)}
@@ -227,10 +252,12 @@ export const PoolTable = ({
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               pool={row.pool}
-              liquidity={row.liquidity}
+              yourLiquidity={row.yourLiquidity}
               volume7d={row.volume7d}
               fees7d={row.fees7d}
-              apr={row.apr}
+              assetsPoolToken0={row.assetsPoolToken0}
+              assetsPoolToken1={row.assetsPoolToken1}
+              yourShare={row.yourShare}
               handleTrash={() => handleTrash(row.name)}
               handleSwap={() => handleSwap('/swap', row.pool)}
               handleView={() => handleView(row.name)}
