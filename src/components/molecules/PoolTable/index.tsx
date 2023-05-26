@@ -11,9 +11,9 @@ export interface IHeaderPool {
   pool: string
   token0Icon: string
   token1Icon: string
-  liquidity: number
-  volume7d: number
-  fees7d: number
+  yourLiquidity: string
+  volume7d: string
+  fees7d: string
   assetsPoolToken0: string
   assetsPoolToken1: string
   yourShare: string
@@ -41,50 +41,42 @@ const columns = [
     key: 'pool',
     name: 'Pool',
     isSorteable: true,
-    // width: '250px'
     width: '30%'
   },
   {
-    key: 'liquidity',
+    key: 'yourLiquidity',
     name: 'Liquidity',
     isSorteable: true,
-    // width: '100px'
   },
   {
     key: 'assetsPoolToken0',
     name: 'Asset 1',
     isSorteable: true,
-    // width: '150px'
   },
   {
     key: 'assetsPoolToken1',
     name: 'Asset 2',
     isSorteable: true,
-    // width: '150px'
   },
   {
     key: 'volume7d',
     name: 'Volume 7D',
     isSorteable: true,
-    // width: '150px'
   },
   {
     key: 'fees7d',
     name: 'Fees 7D',
     isSorteable: true,
-    // width: '120px'
   },
   {
     key: 'yourShare',
     name: 'Your Share',
     isSorteable: true,
-    // width: '120px'
   },
   {
     key: 'actions',
     name: 'Actions',
     isSorteable: false,
-    // width: '80px'
   }
 ]
 
@@ -122,17 +114,16 @@ export const PoolTable = ({
 
 
   const handleSort = (key: string, isAscending: boolean) => {
-    
     const sortedData = [...balanceData].sort((a, b) => {
       const sortMultiplier = isAscending ? 1 : -1
+      
+      const propA = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
+      ? parseFloat((a as any)[key].replace(/[$,]/g, ''))
+      : (a as any)[key as keyof IHeaderPool];
 
-      const propA = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' ?
-                                  parseFloat(a[key].replace(/[a-zA-Z]/g, '')) :
-                                  a[key as keyof IHeaderPool]
-
-      const propB = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' ?
-                                  parseFloat(b[key].replace(/[a-zA-Z]/g, '')) :
-                                  b[key as keyof IHeaderPool]
+    const propB = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
+      ? parseFloat((b as any)[key].replace(/[$,]/g, ''))
+      : (b as any)[key as keyof IHeaderPool];
 
 
 
@@ -217,24 +208,6 @@ export const PoolTable = ({
 
   }, [showStakedOnly])
 
-
-
-
-  // useEffect(() => {
-  //   const table = tableRef.current;
-  //   if (table) {
-  //     const thElements = Array.from(table.getElementsByTagName('th'));
-
-  //     for (let i = 0; i < thElements.length; i++) {
-  //       const th = thElements[i];
-  //       const tdElements = Array.from(table.querySelectorAll(`tbody tr td:nth-child(${i + 1})`)) as HTMLElement[];
-  //       tdElements.forEach((td) => {
-  //         td.style.width = `${th.offsetWidth}px`;
-  //       });
-  //     }
-  //   }
-  // }, [deviceType]);
-
   return (
     <Wrapper isMobile={isMobile} ref={tableRef}>
       {!isMobile && <TableHeader columns={columns} onSort={handleSort} firstColumnRef={cryptoColumnRef} />}
@@ -251,7 +224,7 @@ export const PoolTable = ({
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               pool={row.pool}
-              liquidity={row.liquidity}
+              yourLiquidity={row.yourLiquidity}
               volume7d={row.volume7d}
               fees7d={row.fees7d}
               assetsPoolToken0={row.assetsPoolToken0}
@@ -279,7 +252,7 @@ export const PoolTable = ({
               widthIcon={widthIcon}
               heightIcon={heightIcon}
               pool={row.pool}
-              liquidity={row.liquidity}
+              yourLiquidity={row.yourLiquidity}
               volume7d={row.volume7d}
               fees7d={row.fees7d}
               assetsPoolToken0={row.assetsPoolToken0}

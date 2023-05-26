@@ -45,7 +45,7 @@ export const PoolItemMobile = ({
   widthIcon,
   heightIcon,
   pool,
-  liquidity,
+  yourLiquidity,
   volume7d,
   fees7d,
   assetsPoolToken0,
@@ -108,6 +108,16 @@ export const PoolItemMobile = ({
             />
             <ActionsWrapper actionsDialogActive={actionsDialogActive}>
               <ActionsInnerWrapper>
+              <ActionItem
+                  onClick={actionsDialogActive ? handleAddLiquidity : undefined}
+                >
+                  <AddLiquidityIcon
+                    color={currentTheme?.color.modalText}
+                    size={20}
+                  />
+                  <ActionName>Add</ActionName>
+                </ActionItem>
+
                 <ActionItem
                   onClick={actionsDialogActive ? handleTrash : undefined}
                 >
@@ -128,16 +138,6 @@ export const PoolItemMobile = ({
                   <ViewIcon color={currentTheme?.color.modalText} size={20} />
                   <ActionName>View</ActionName>
                 </ActionItem>
-
-                <ActionItem
-                  onClick={actionsDialogActive ? handleAddLiquidity : undefined}
-                >
-                  <AddLiquidityIcon
-                    color={currentTheme?.color.modalText}
-                    size={20}
-                  />
-                  <ActionName>Add</ActionName>
-                </ActionItem>
               </ActionsInnerWrapper>
             </ActionsWrapper>
           </SeeActionsIconWrapper>
@@ -151,7 +151,7 @@ export const PoolItemMobile = ({
           <TD>
             <HeaderSubtitle>
               <Subtitle>Liquidity</Subtitle>
-              <SubtitleValue>${convertNumber(liquidity)}</SubtitleValue>
+              <SubtitleValue>{yourLiquidity}</SubtitleValue>
             </HeaderSubtitle>
           </TD>
           <TD>
@@ -183,13 +183,13 @@ export const PoolItemMobile = ({
         <TD>
           <HeaderSubtitle>
             <Subtitle>Volume 7D</Subtitle>
-            <SubtitleValue>${volume7d}</SubtitleValue>
+            <SubtitleValue>{volume7d}</SubtitleValue>
           </HeaderSubtitle>
         </TD>
         <TD>
           <HeaderSubtitle>
             <Subtitle>Fees 7D</Subtitle>
-            <SubtitleValue>${fees7d}</SubtitleValue>
+            <SubtitleValue>{fees7d}</SubtitleValue>
           </HeaderSubtitle>
         </TD>
       </BTR>

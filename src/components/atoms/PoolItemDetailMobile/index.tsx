@@ -34,8 +34,8 @@ export const PoolItemDetailMobile = ({
   token1Symbol,
   isFavorite,
   handleFavorite,
+  yourLiquidityTokens,
   yourLiquidity,
-  liquidity,
   assetsPooled,
   yourShare,
   volume7D,
@@ -80,20 +80,20 @@ export const PoolItemDetailMobile = ({
           </TokenPairWrapper>
           <PoolKeyPairContainer>
             <PoolKey>Your Liquidity</PoolKey>
-            <PoolValue>${liquidity}</PoolValue>
-          </PoolKeyPairContainer>
-          <PoolKeyPairContainer>
-            <PoolKey>Your Liquidity Tokens</PoolKey>
             <PoolValue>{yourLiquidity}</PoolValue>
           </PoolKeyPairContainer>
           <PoolKeyPairContainer>
-            <PoolKey>Assets Pooled</PoolKey>
+            <PoolKey>Your Liquidity Tokens</PoolKey>
+            <PoolValue>{yourLiquidityTokens}</PoolValue>
+          </PoolKeyPairContainer>
+          <PoolKeyPairContainer>
+            <PoolKey>Your Assets</PoolKey>
             <PoolValue>{assetsPooled.asset0}</PoolValue>
             <PoolValue>{assetsPooled.asset1}</PoolValue>
           </PoolKeyPairContainer>
           <PoolKeyPairContainer>
             <PoolKey>Your Share</PoolKey>
-            <PoolValue>{yourShare} %</PoolValue>
+            <PoolValue>{yourShare}%</PoolValue>
           </PoolKeyPairContainer>
    
           <PoolKeyPairContainer>

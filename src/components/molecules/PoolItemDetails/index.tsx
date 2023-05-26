@@ -14,8 +14,8 @@ export interface PoolItemDetailsProps {
   token1Symbol: string
   isFavorite?: boolean
   handleFavorite?: () => void
+  yourLiquidityTokens?: string
   yourLiquidity?: string
-  liquidity?: string
   assetsPooled: {
     asset0: string;
     asset1: string;
@@ -36,8 +36,8 @@ export const PoolItemDetails = ({
   token1Symbol,
   isFavorite,
   handleFavorite,
+  yourLiquidityTokens,
   yourLiquidity,
-  liquidity,
   assetsPooled,
   yourShare,
   volume7D,
@@ -60,8 +60,8 @@ export const PoolItemDetails = ({
           token1Symbol={token1Symbol}
           isFavorite={isFavorite}
           handleFavorite={handleFavorite}
+          yourLiquidityTokens={yourLiquidityTokens}
           yourLiquidity={yourLiquidity}
-          liquidity={liquidity}
           assetsPooled={assetsPooled}
           yourShare={yourShare}
           volume7D={volume7D}
@@ -79,8 +79,8 @@ export const PoolItemDetails = ({
           token1Symbol={token1Symbol}
           isFavorite={isFavorite}
           handleFavorite={handleFavorite}
+          yourLiquidityTokens={yourLiquidityTokens}
           yourLiquidity={yourLiquidity}
-          liquidity={liquidity}
           assetsPooled={assetsPooled}
           yourShare={yourShare}
           volume7D={volume7D}

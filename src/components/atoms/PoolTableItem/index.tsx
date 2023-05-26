@@ -21,7 +21,6 @@ import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
 import favoriteIcon from './assets/favorite.svg'
 import favoriteIconFill from './assets/favoriteFill.svg'
-import { convertNumber } from '../../../utils'
 
 export interface IPoolTableItem {
   networkLink: string
@@ -32,9 +31,9 @@ export interface IPoolTableItem {
   widthIcon: number
   heightIcon: number
   pool: string
-  liquidity: number
-  volume7d: number
-  fees7d: number
+  yourLiquidity: string
+  volume7d: string
+  fees7d: string
   assetsPoolToken0: string
   assetsPoolToken1: string
   yourShare: string
@@ -57,7 +56,7 @@ export const PoolTableItem = ({
   widthIcon,
   heightIcon,
   pool,
-  liquidity,
+  yourLiquidity,
   volume7d,
   fees7d,
   assetsPoolToken0,
@@ -115,7 +114,7 @@ export const PoolTableItem = ({
         <Text linkable={true} onClick={() => redirectToNetwork(contractPackage)}>{pool}</Text>
       </TD>
       <TD>
-        <Text>${convertNumber(liquidity)}</Text>
+        <Text>{yourLiquidity}</Text>
       </TD>
       <TD>
         <Text>{assetsPoolToken0}</Text>
@@ -124,10 +123,10 @@ export const PoolTableItem = ({
         <Text>{assetsPoolToken1}</Text>
       </TD>
       <TD>
-        <Text>${volume7d}</Text>
+        <Text>{volume7d}</Text>
       </TD>
       <TD>
-        <Text>${fees7d}</Text>
+        <Text>{fees7d}</Text>
       </TD>
       <TD>
         <Text>{yourShare} %</Text>

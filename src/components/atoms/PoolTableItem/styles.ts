@@ -31,7 +31,7 @@ export const TD = styled.td<{ isFirstItem?: boolean, isLastItem?: boolean }>`
   gap: 8.94px;
   padding-left: ${({ isFirstItem }) => isFirstItem ? '16.94px' : 0};
   padding-right: ${({ isLastItem }) => isLastItem ? '23px' : 0};
-
+  overflow-wrap: anywhere;
 `
 
 export const Wrapper = styled.div`

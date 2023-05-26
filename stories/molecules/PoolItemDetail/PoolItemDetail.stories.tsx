@@ -26,13 +26,13 @@ Default.args = {
   handleFavorite: () => console.log('handleFavorite'),
   widthIcon: 45,
   heightIcon: 45,
-  yourLiquidity: '228.521956293 WCSPR-CST',
+  yourLiquidityTokens: '228.521956293 WCSPR-CST',
   assetsPooled: {
     asset0: '1055.512409755 BTC',
     asset1: '48.456722835 ETH'
   },
-  yourShare: '2.12',
-  liquidity: '607636.8263',
-  volume7D: '0.00000000',
-  fees7D: '0.00000000',
+  yourShare: '2,12',
+  yourLiquidity: '$607,636.83',
+  volume7D: '$4,653,213',
+  fees7D: '$4,653,213',
 }

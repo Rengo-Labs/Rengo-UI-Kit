@@ -33,8 +33,8 @@ export const PoolItemDetailDesktop = ({
   token1Symbol,
   isFavorite,
   handleFavorite,
+  yourLiquidityTokens,
   yourLiquidity,
-  liquidity,
   assetsPooled,
   yourShare,
   volume7D,
@@ -83,11 +83,11 @@ export const PoolItemDetailDesktop = ({
               </TokenPairWrapper>
               <PoolKeyPairContainer>
                 <PoolKey>Your Liquidity</PoolKey>
-                <PoolValue>${liquidity}</PoolValue>
+                <PoolValue>{yourLiquidity}</PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
                 <PoolKey>Your Liquidity Tokens</PoolKey>
-                <PoolValue>{yourLiquidity}</PoolValue>
+                <PoolValue>{yourLiquidityTokens}</PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
                 <PoolKey>Your Assets</PoolKey>
@@ -106,11 +106,11 @@ export const PoolItemDetailDesktop = ({
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
                 <PoolKey>Volume 7D</PoolKey>
-                <PoolValue>${volume7D}</PoolValue>
+                <PoolValue>{volume7D}</PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
                 <PoolKey>FEES 7D</PoolKey>
-                <PoolValue>${fees7D}</PoolValue>
+                <PoolValue>{fees7D}</PoolValue>
               </PoolKeyPairContainer>
             </InnerContainer>
           </Container>
