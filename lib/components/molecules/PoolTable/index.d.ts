@@ -5,10 +5,12 @@ export interface IHeaderPool {
     pool: string;
     token0Icon: string;
     token1Icon: string;
-    liquidity: number;
-    volume7d: number;
-    fees7d: number;
-    apr: number;
+    yourLiquidity: string;
+    volume7d: string;
+    fees7d: string;
+    assetsPoolToken0: string;
+    assetsPoolToken1: string;
+    yourShare: string;
     actions?: string;
     isFavorite?: boolean;
     balance: string;

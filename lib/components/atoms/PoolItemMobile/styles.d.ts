@@ -7,3 +7,8 @@ export declare const Title: import("styled-components").StyledComponent<"p", any
 export declare const Subtitle: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const SubtitleValue: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const FavoriteIcon: import("styled-components").StyledComponent<"img", any, {}, never>;
+export declare const Table: import("styled-components").StyledComponent<"table", any, {}, never>;
+export declare const TR: import("styled-components").StyledComponent<"tr", any, {}, never>;
+export declare const TH: import("styled-components").StyledComponent<"th", any, {}, never>;
+export declare const BTR: import("styled-components").StyledComponent<"tr", any, {}, never>;
+export declare const TD: import("styled-components").StyledComponent<"td", any, {}, never>;

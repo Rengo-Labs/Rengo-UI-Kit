@@ -6,6 +6,7 @@ export interface Props {
 export declare const TR: import("styled-components").StyledComponent<"tr", any, {}, never>;
 export declare const TD: import("styled-components").StyledComponent<"td", any, {
     isFirstItem?: boolean | undefined;
+    isLastItem?: boolean | undefined;
 }, never>;
 export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TokenPairWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;

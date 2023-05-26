@@ -10,6 +10,7 @@ export interface LPToken {
     secondAmount: string;
     userLP: string;
     totalLP: string;
+    yourShare: string;
     onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any;
 }
 export interface LPContainerPros {

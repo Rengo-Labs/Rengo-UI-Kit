@@ -8,10 +8,12 @@ export interface IPoolTableItem {
     widthIcon: number;
     heightIcon: number;
     pool: string;
-    liquidity: number;
-    volume7d: number;
-    fees7d: number;
-    apr: number;
+    yourLiquidity: string;
+    volume7d: string;
+    fees7d: string;
+    assetsPoolToken0: string;
+    assetsPoolToken1: string;
+    yourShare: string;
     isFavorite?: boolean;
     favoriteHandler?: () => void;
     handleTrash: () => void;
@@ -22,4 +24,4 @@ export interface IPoolTableItem {
     actionsDialogActive?: boolean;
     hideRemoveLiquidity: boolean;
 }
-export declare const PoolTableItem: ({ networkLink, contractPackage, token0Icon, token1Icon, widthIcon, heightIcon, pool, liquidity, volume7d, fees7d, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity }: IPoolTableItem) => React.JSX.Element;
+export declare const PoolTableItem: ({ networkLink, contractPackage, token0Icon, token1Icon, widthIcon, heightIcon, pool, yourLiquidity, volume7d, fees7d, assetsPoolToken0, assetsPoolToken1, yourShare, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity }: IPoolTableItem) => React.JSX.Element;

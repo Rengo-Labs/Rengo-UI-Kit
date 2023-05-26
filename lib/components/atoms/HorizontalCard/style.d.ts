@@ -3,6 +3,7 @@ export declare const Wrapper: import("styled-components").StyledComponent<"div",
 export declare const TokenInfoWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TokenInfoInnerWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TokenPairsNamesWrapper: import("styled-components").StyledComponent<"div", any, any, never>;
+export declare const ImageContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const Image: import("styled-components").StyledComponent<"img", any, Props, never>;
 export declare const TokenName: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const RowWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
@@ -13,6 +14,9 @@ export declare const PairsLiquidityMobileWrapper: import("styled-components").St
 export declare const PairLiquidityName: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const PairLiquidityValue: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const UserPoolInfoWrapper: import("styled-components").StyledComponent<"div", any, any, never>;
+export declare const MobilleContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const MobileRow: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const MobileTextContent: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const UserPoolInfoMobileWrapper: import("styled-components").StyledComponent<"div", any, any, never>;
 export declare const UserPoolInfoName: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const UserPoolInfoValue: import("styled-components").StyledComponent<"p", any, {}, never>;
