@@ -2,7 +2,8 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { HorizontalCard } from "../../../src/components";
 import { HorizontalCardProps } from "../../../src/components/atoms/HorizontalMobileCard/types";
-import ethCsprPair from '../../assets/eth-cspr-pair.svg'
+import ethToken from '../../assets/eth-token.svg'
+import csprToken from '../../assets/cspr-token.svg'
 
 export default {
   title: "Components/Atoms/HorizontalCard",
@@ -20,14 +21,17 @@ export const Default = Template.bind({});
 Default.args = {
   networkLink: 'https://testnet.cspr.live/contract-package/',
   contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
-  icon: ethCsprPair,
-  hasFavorite: true,
+  firstTokenIcon: csprToken,
+  secondTokenIcon:ethToken,
+  hasFavorite: false,
   tokenPairs: ['ETH', 'CSPR'],
-    pairsLiquidity: [
-      { name: 'Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
-      { name: 'Pooled (WETH)', value: '0.016286696 WETH' }
+  pairsLiquidity: [
+    { name: 'Your Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
+    { name: 'Your Pooled (WETH)', value: '0.016286696 WETH' },
+    { name: `Your Balance (WCSPR-CST)`, value: '217250.092919301' },
+    { name: 'Your Share', value: '0.19%'}
   ],
-  userPoolInfo: [{title: 'Your Liquidity', value: '5.00100931 LP'}, {title: 'Your Share', value: '0.19%'}],
+  userPoolInfo: [{title: 'Total liquidity ($)', value: '$ 608K'}, {title: "Your Liquidity ($)", value: `$ 22`}],
   trashHandler: () => console.log('horizontal card: delete'),
   swapHandler: () => console.log('horizontal card: swap'),
   viewHandler: () => console.log('horizontal card: view'),

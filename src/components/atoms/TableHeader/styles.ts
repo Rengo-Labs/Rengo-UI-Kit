@@ -11,11 +11,25 @@ export const Head = styled.thead`
   }
 `
 
-export const TR = styled.tr`
+export const TR = styled.tr<{ columnsQty: number }>`
   width: 100%;
   gap: 15px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: ${({ columnsQty }) => {
+    let gridColumns = ''
+    Array.from({ length: columnsQty - 1 }, (_, index) => {
+      gridColumns += ' 1fr'
+    });
+
+    if (columnsQty <= 6) {
+      return `1fr ${gridColumns}`
+    }
+    
+    return `2fr ${gridColumns}`
+  }};
+  ${({ columnsQty }) => columnsQty <= 6 && css`
+      justify-items: center;
+  ` }
 `
 
 export const TD = styled.th<{ customWidth?: string, isFirstColumn?: boolean, lastColumn?: boolean }>`
