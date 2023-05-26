@@ -23,6 +23,7 @@ export const TD = styled.td<{ isCryptoColumn: boolean, cryptoColumnWidth: number
   flex-wrap: wrap;
   gap: 2px;
   overflow-wrap: anywhere;
+  flex-wrap: nowrap;
 `
 
 export const Text = styled.p<any>`

@@ -89,7 +89,7 @@ export const BalanceTable = ({
         <TableHeader
           columns={columns}
           onSort={handleSort}
-          cryptoColumnRef={cryptoColumnRef} />
+          firstColumnRef={cryptoColumnRef} />
       )}
       {balanceData.map((row) =>
         isMobile ? (

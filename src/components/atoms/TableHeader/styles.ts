@@ -1,27 +1,33 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Head = styled.thead`
   width: 100%;
   display: flex;
   border-bottom: 1px solid ${({ theme }) => theme.color.table.header.text};
+  padding: 20px 16px 20px 0;
+  th {
+    text-align: left;
+    white-space: nowrap;
+  }
 `
 
 export const TR = styled.tr`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 10px;
   width: 100%;
+  gap: 15px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 `
 
-export const TD = styled.td`
-  flex: 1;
+export const TD = styled.th<{ customWidth?: string, isFirstColumn?: boolean, lastColumn?: boolean }>`
+  ${({ customWidth }) => !customWidth && css`
+    flex: 1;
+  `
+  }
   min-height: 32px;
-  padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2px;
+  justify-content: ${({ isFirstColumn, lastColumn }) => isFirstColumn || lastColumn ? 'center' : 'flex-start'};
+  gap: 10px;
 `
 
 export const Text = styled.p`

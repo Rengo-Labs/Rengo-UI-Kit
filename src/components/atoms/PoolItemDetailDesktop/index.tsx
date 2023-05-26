@@ -33,13 +33,12 @@ export const PoolItemDetailDesktop = ({
   token1Symbol,
   isFavorite,
   handleFavorite,
+  yourLiquidityTokens,
   yourLiquidity,
-  liqudiity,
   assetsPooled,
   yourShare,
   volume7D,
   fees7D,
-  apr
 }: PoolItemDetailsProps) => {
   const theme = useTheme() as theme
 
@@ -87,7 +86,11 @@ export const PoolItemDetailDesktop = ({
                 <PoolValue>{yourLiquidity}</PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
-                <PoolKey>Assets Pooled</PoolKey>
+                <PoolKey>Your Liquidity Tokens</PoolKey>
+                <PoolValue>{yourLiquidityTokens}</PoolValue>
+              </PoolKeyPairContainer>
+              <PoolKeyPairContainer>
+                <PoolKey>Your Assets</PoolKey>
                 <PoolValue>
                   {assetsPooled.asset0}
                 </PoolValue>
@@ -98,12 +101,8 @@ export const PoolItemDetailDesktop = ({
               <PoolKeyPairContainer>
                 <PoolKey>Your Share</PoolKey>
                 <PoolValue>
-                  {yourShare} %
+                  {yourShare}%
                 </PoolValue>
-              </PoolKeyPairContainer>
-              <PoolKeyPairContainer>
-                <PoolKey>Liquidity</PoolKey>
-                <PoolValue>{liqudiity}</PoolValue>
               </PoolKeyPairContainer>
               <PoolKeyPairContainer>
                 <PoolKey>Volume 7D</PoolKey>
@@ -112,10 +111,6 @@ export const PoolItemDetailDesktop = ({
               <PoolKeyPairContainer>
                 <PoolKey>FEES 7D</PoolKey>
                 <PoolValue>{fees7D}</PoolValue>
-              </PoolKeyPairContainer>
-              <PoolKeyPairContainer>
-                <PoolKey>APR</PoolKey>
-                <PoolValue>{apr}</PoolValue>
               </PoolKeyPairContainer>
             </InnerContainer>
           </Container>
