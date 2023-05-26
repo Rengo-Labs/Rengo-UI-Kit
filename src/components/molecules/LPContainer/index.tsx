@@ -13,6 +13,7 @@ export interface LPToken {
   secondAmount: string,
   userLP: string,
   totalLP: string,
+  yourShare: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any
 }
 
@@ -39,9 +40,6 @@ export interface LPContainerPros {
  */
 export const LPContainer = ({ networkLink, title, lpTokens = [] } : LPContainerPros) => {
 
-  const getPercentage = (userLiquidity: string, totalLiquidity: string) => {
-    return (100 * (parseFloat(userLiquidity) / parseFloat(totalLiquidity))).toFixed(2)
-  }
 
   return (
     <LiquidityWrapped>
@@ -58,11 +56,12 @@ export const LPContainer = ({ networkLink, title, lpTokens = [] } : LPContainerP
             hasFavorite={item.isFavorite}
             tokenPairs={[item.firstSymbol, item.secondSymbol]}
             pairsLiquidity={[
-              { name: `Pooled (${item.firstSymbol})`, value: `${item.firstAmount}` },
-              { name: `Pooled (${item.secondSymbol})`, value: `${item.secondAmount}` },
+              { name: `Your Pooled (${item.firstSymbol})`, value: `${item.firstAmount}` },
+              { name: `Your Pooled (${item.secondSymbol})`, value: `${item.secondAmount}` },
               { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.totalLP}` },
+              { name: "Your Share", value: `${item.yourShare}%`}
             ]}
-            userPoolInfo={[{title: "Total Liquidity", value: `${item.totalLP}`}, {title: "Your Liquidity", value: `${item.userLP}`}, {title: "Your Share", value: `${getPercentage(item.userLP, item.totalLP)} %`}]}
+            userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalLP}`}, {title: "Your Liquidity ($)", value: `${item.userLP}`}]}
             trashHandler={() => item.onOptionClick(LPOptionType.DELETE, item.firstSymbol, item.secondSymbol)}
             swapHandler={() => item.onOptionClick(LPOptionType.SWAP, item.firstSymbol, item.secondSymbol)}
             viewHandler={() => item.onOptionClick(LPOptionType.VIEW, item.firstSymbol, item.secondSymbol)}

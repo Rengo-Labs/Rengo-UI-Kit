@@ -16,9 +16,10 @@ interface TableHeaderProps {
 }
 
 export const TableHeader = ({ columns, onSort, firstColumnRef }: TableHeaderProps) => {
+  
   return (
     <Head>
-      <TR>
+      <TR columnsQty={columns.length}>
         {columns.map((column, i) => {
         const Ref = column.key === 'crypto' || column.key === 'pool' ? firstColumnRef : null;
           return (
