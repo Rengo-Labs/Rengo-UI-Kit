@@ -7,6 +7,7 @@ export const Container = styled.div<{ isMobile: boolean }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 16px;
 `;
 
 export const InnerContainer = styled.div<{ isMobile: boolean}>`
@@ -91,7 +92,7 @@ export const ToggleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 16px 0 32px 0;
+  margin: 16px 0 0 0;
 `;
 
 export const TransactionsInnerContainer = styled.div`

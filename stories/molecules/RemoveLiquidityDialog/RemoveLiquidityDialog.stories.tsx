@@ -55,7 +55,8 @@ Default.args = {
     lpAmount: '0,3',
     firstAmount: '0,3',
     secondAmount: '0,3'
-  }
+  },
+  showToggle: true
 };
 
 export const Allowance = Template.bind({});
@@ -79,5 +80,31 @@ Allowance.args = {
     lpAmount: 123123.123,
     firstAmount: 1234.123,
     secondAmount: 123.123
-  }
+  },
+  showToggle: true
+};
+
+export const HideToggle = Template.bind({});
+HideToggle.args = {
+  id: 'f90c4f56-ae0a-4da8-bf3d-541c80c89f87',
+  closeCallback: () => console.log('dialog is closed'),
+  // @ts-ignore
+  liquidityPoolData: REMOVE_LIQUIDITY_DATA,
+  isOpen: true,
+  disabledButton: true,
+  disabledAllowanceButton: true,
+  showAllowance: true,
+  defaultValue: 0,
+  isRemoveLiquidityCSPR: true,
+  handleChangeInput: (e) => console.log('input value is changed', e),
+  handleToggle: (e) => console.log('toggle is changed', e),
+  handleRemoveLiquidity: () => console.log('remove liquidity button is clicked'),
+  firstRate: "10.00000000",
+  secondRate: "5.00000000",
+  calculatedAmounts: {
+    lpAmount: 123123.123,
+    firstAmount: 1234.123,
+    secondAmount: 123.123
+  },
+  showToggle: false
 };
