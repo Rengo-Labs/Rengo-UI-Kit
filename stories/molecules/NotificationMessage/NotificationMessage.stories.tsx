@@ -27,7 +27,8 @@ Info.args = {
     onClose: () => console.log('NotificationMessage'),
     title: 'Liquidity correctly removed',
     subtitle: "Checking the progress of your <a href='/deploy' target='_blank'>deploy</a>.",
-    type: 'info'
+    type: 'info',
+    closeManually: true
 }
 export const Error = Template.bind({})
 Error.args = {

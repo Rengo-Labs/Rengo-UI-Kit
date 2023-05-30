@@ -34,6 +34,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
     right: 0;
     left: 0;
     transition: transform 0.3s ease-in-out;
+    z-index: 9999;
   `}
 
   ${({ isMobile, isOpen }) => {

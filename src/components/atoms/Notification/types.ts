@@ -17,4 +17,5 @@ export interface NotificationProps {
   message: string
   onClose: () => void
   autoCloseDelay?: number
+  closeManually?: boolean
 }
