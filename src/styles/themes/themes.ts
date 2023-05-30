@@ -39,6 +39,7 @@ export interface theme {
         lavender: string
         modalText: string
         textInactive: string
+        textLinkLight: string
         notification: {
           title: string,
           message: string
@@ -243,6 +244,7 @@ export const defaultTheme: theme = {
         lavender: '#E3DFFD',
         modalText: '#715FF5',
         textInactive: '#767676',
+        textLinkLight: '#715FF5',
         notification: {
           title: '#000000',
           message: '#000000',
@@ -448,6 +450,7 @@ export const darkTheme: theme = {
         lavender: '#E3DFFD',
         modalText: '#FFFFFF',
         textInactive: '#FFFFFF',
+        textLinkLight: '#7AEDD4',
         notification: {
           title: '#FFFFFF',
           message: '#FFFFFF',

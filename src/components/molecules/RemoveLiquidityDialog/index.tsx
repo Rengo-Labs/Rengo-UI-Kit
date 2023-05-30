@@ -59,7 +59,8 @@ export const RemoveLiquidityDialog = ({
                                           handleAllowanceLiquidity,
                                           calculatedAmounts,
                                           showAllowance,
-                                          defaultValue
+                                          defaultValue,
+                                          showToggle
                                       }: RemoveLiquidityDialogProps): JSX.Element => {
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
@@ -168,13 +169,16 @@ export const RemoveLiquidityDialog = ({
                                     Remove Liquidity
                                 </Button>
                         }
+                      {
+                        showToggle && 
                         <ToggleContainer>
-                            <Toggle
-                                isActive={isRemoveLiquidityCSPR}
-                                toggle={(e) => handleCSPRChange(e)}
-                                variant={Variant.Default}
-                                labelText="Remove liquidity CSPR"/>
+                          <Toggle
+                            isActive={isRemoveLiquidityCSPR}
+                            toggle={(e) => handleCSPRChange(e)}
+                            variant={Variant.Default}
+                            labelText="Remove liquidity CSPR"/>
                         </ToggleContainer>
+                      }
                     </BottomSubContainer>
                 </InnerContainer>
             </Container>
