@@ -39,6 +39,7 @@ export interface theme {
         lavender: string;
         modalText: string;
         textInactive: string;
+        textLinkLight: string;
         notification: {
             title: string;
             message: string;

@@ -35,4 +35,5 @@ export interface RemoveLiquidityDialogProps {
         secondAmount: number;
         allowance: number;
     };
+    showToggle: boolean;
 }
