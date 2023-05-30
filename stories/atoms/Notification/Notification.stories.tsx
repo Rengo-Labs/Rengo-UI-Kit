@@ -22,5 +22,7 @@ Default.args = {
   type: 'success',
   // @ts-ignore
   position: 'top-center',
-  onClose: () => console.log('close')
+  onClose: () => console.log('close'),
+  closeManually: false,
+  autoCloseDelay: 5000
 };

@@ -12,6 +12,7 @@ export interface NotificationMessageProps {
     type: string
     autoCloseDelay?: number
     position?: string
+    closeManually?: boolean
 }
 
 /**
@@ -23,6 +24,7 @@ export interface NotificationMessageProps {
  * @param {string} type  - Type of the notification (success, error, info)
  * @param {number | undefined} autoCloseDelay - Time in milliseconds to close the notification (milliseconds)
  * @param {string | undefined} position - Position of the notification (top, right, center)
+ * @param {boolean} closeManually - Boolean to decide if the notification should close manually
  * @returns {JSX.Element}
  * @constructor
  */
@@ -34,7 +36,8 @@ export const NotificationMessage = ({
                                         subtitle,
                                         type,
                                         autoCloseDelay = 5000,
-                                        position = 'top'
+                                        position = 'top',
+                                        closeManually
                                     }: NotificationMessageProps) => {
     const getNotificationType = (type: string) => {
         switch (type) {
@@ -75,6 +78,7 @@ export const NotificationMessage = ({
                     position={getNotificationPosition(position)}
                     onClose={onClose}
                     autoCloseDelay={autoCloseDelay}
+                    closeManually={closeManually}
                 />
             }
         </>
