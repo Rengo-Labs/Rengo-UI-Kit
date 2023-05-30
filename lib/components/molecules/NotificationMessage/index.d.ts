@@ -8,6 +8,7 @@ export interface NotificationMessageProps {
     type: string;
     autoCloseDelay?: number;
     position?: string;
+    closeManually?: boolean;
 }
 /**
  * Renders the NotificationMessage component
@@ -18,7 +19,8 @@ export interface NotificationMessageProps {
  * @param {string} type  - Type of the notification (success, error, info)
  * @param {number | undefined} autoCloseDelay - Time in milliseconds to close the notification (milliseconds)
  * @param {string | undefined} position - Position of the notification (top, right, center)
+ * @param {boolean} closeManually - Boolean to decide if the notification should close manually
  * @returns {JSX.Element}
  * @constructor
  */
-export declare const NotificationMessage: ({ onClose, isOpen, isOnlyNotification, title, subtitle, type, autoCloseDelay, position }: NotificationMessageProps) => React.JSX.Element;
+export declare const NotificationMessage: ({ onClose, isOpen, isOnlyNotification, title, subtitle, type, autoCloseDelay, position, closeManually }: NotificationMessageProps) => React.JSX.Element;

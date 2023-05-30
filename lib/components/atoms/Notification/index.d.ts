@@ -11,6 +11,7 @@ import { NotificationProps } from './types';
   @param {string} props.message - The message to display in the notification.
   @param {function} props.onClose - The function to execute when the notification is close.
   @param {number} props.autoCloseDelay - The autoCloseDelay number to close the notification.
+  @param {boolean} props.closeManually - The closeManually boolean to decide if the notification should close manually
   @return {JSX.Element} A React component that displays a notification.
   */
-export declare const Notification: ({ position, type, title, message, onClose, autoCloseDelay }: NotificationProps) => React.JSX.Element;
+export declare const Notification: ({ position, type, title, message, onClose, autoCloseDelay, closeManually }: NotificationProps) => React.JSX.Element;
