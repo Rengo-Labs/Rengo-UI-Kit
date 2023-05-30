@@ -49,7 +49,7 @@ export const Text = styled.p`
 `
 
 export const TextLink = styled(Text)`
-  color: ${(props) => props.theme.color.modalText};
+  color: ${({ theme }) => theme.color.textLinkLight };
   cursor: pointer;
 `
 
