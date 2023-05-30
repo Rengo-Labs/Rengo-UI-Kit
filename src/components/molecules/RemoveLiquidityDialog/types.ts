@@ -35,5 +35,6 @@ export interface RemoveLiquidityDialogProps {
     firstAmount: number
     secondAmount: number
     allowance: number
-  }
+  },
+  showToggle: boolean
 }
