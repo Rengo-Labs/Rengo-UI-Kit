@@ -29,16 +29,24 @@ const ICON_NAMES: IconNames = {
   @param {string} props.message - The message to display in the notification.
   @param {function} props.onClose - The function to execute when the notification is close.
   @param {number} props.autoCloseDelay - The autoCloseDelay number to close the notification.
+  @param {boolean} props.closeManually - The closeManually boolean to decide if the notification should close manually
   @return {JSX.Element} A React component that displays a notification.
   */
-export const Notification = ({ position, type, title, message, onClose, autoCloseDelay = 5000 }: NotificationProps) => {
+export const Notification = ({ position, type, title, message, onClose, autoCloseDelay = 5000, closeManually = false }: NotificationProps) => {
   const theme = useTheme() as theme;
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
 
   useEffect(() => {
-    const interval = setInterval(() => onClose(), autoCloseDelay);
-    return () => clearInterval(interval);
+    let interval: ReturnType<typeof setInterval>
+    
+    if (!closeManually) {
+      interval = setInterval(() => onClose(), autoCloseDelay);
+    }
+
+    return () => {
+      clearInterval(interval)
+    };
   }, [])
 
   useEffect(() => {
