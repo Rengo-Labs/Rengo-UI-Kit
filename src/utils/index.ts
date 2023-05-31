@@ -1,3 +1,4 @@
+import humanFormat from "human-format";
 
 const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 export const convertNumber = (number: number) => {
@@ -29,7 +30,9 @@ export const toK = (num: any) => {
   }
 
   if (num >= 1000) {
-    return (num / 1000).toFixed(0) + 'k';
+    return humanFormat(num, {
+      maxDecimals: 3,
+    });
   }
 
   return num.toString();
