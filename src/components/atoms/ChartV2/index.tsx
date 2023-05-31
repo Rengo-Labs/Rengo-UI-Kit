@@ -107,7 +107,7 @@ export const ChartV2 = ({data, height = 300, showChart0}: ChartV2Props) => {
                             interval="preserveEnd"
                             minTickGap={80}
                             yAxisId={0}
-                            tickMargin={16}
+                            tickMargin={1}
                             tick={{fill: textColor}}
                         />
                         <Tooltip
@@ -162,7 +162,7 @@ export const ChartV2 = ({data, height = 300, showChart0}: ChartV2Props) => {
                         <YAxis
                             type="number"
                             axisLine={false}
-                            tickMargin={16}
+                            tickMargin={1}
                             tickFormatter={(tick) => '$' + toK(tick)}
                             tickLine={false}
                             interval="preserveEnd"
