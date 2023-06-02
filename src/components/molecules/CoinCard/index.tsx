@@ -15,7 +15,8 @@ export interface CoinCardPros {
   value: string | number,
   onChangeToken: any,
   onChangeValue: any,
-  validator?: any
+  validator?: any,
+  gasFee?: number
 }
 
 /***
@@ -34,14 +35,16 @@ export interface CoinCardPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value}: CoinCardPros) => {
+export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value, gasFee}: CoinCardPros) => {
 
   const onHalfButton = () => {
     onChangeValue(parseFloat(tokenBalance)/2)
   }
 
   const onMaxButton = () => {
-    onChangeValue(parseFloat(tokenBalance))
+    const maxBalance = tokenName === 'CSPR' && gasFee ? parseFloat(tokenBalance) - gasFee : parseFloat(tokenBalance)
+
+    onChangeValue(maxBalance)
   }
 
   return (
