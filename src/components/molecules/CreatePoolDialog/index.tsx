@@ -38,6 +38,7 @@ import { DeviceType } from '../../../hooks/types'
   @param {Array} props.tokenListData - An array of TokenData objects containing information about the tokens in the pool. This is an array item example { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000' },
   @param {Array} props.popularTokensData - An array of TokenData objects containing information about the popular tokens. The item is similar as the tokenListData item
   @param {function} [props.onSelectToken] - onSelectToken select token.
+  @param {function} [props.onSelectFavoriteToken] - onSelectFavoriteToken callback to persist favorite token.
   @returns {JSX.Element} - The create pool dialog component.
 */
 
@@ -52,9 +53,13 @@ export const CreatePoolDialog = ({
  }: CreatePoolDialogProps) => {
    const theme = useTheme() as theme;
    const deviceType = useDeviceType()
-   const [tokenList, setTokenList] = useState<TokenData[]>(() => tokenListData)
-   const [favoriteTokenList, setFavoriteTokenList] = useState<Map<number, boolean>>(new Map());
+   const [tokenList, setTokenList] = useState<TokenData[]>()
    const isMobile = deviceType === DeviceType.MOBILE
+
+  useEffect(() => {
+    const newData = structuredClone(tokenListData)
+    setTokenList(newData)
+  }, [tokenListData])
 
   const handlerInput = (value: string) => {
     const filteredTokenList = tokenListData.filter(item => {
@@ -68,18 +73,6 @@ export const CreatePoolDialog = ({
     })
 
     setTokenList(filteredTokenList)
-  }
-
-  const handlerFavorite = (key: number, name: string) => {
-    const currentValue = favoriteTokenList.get(key)
-    if (currentValue !== undefined) {
-      favoriteTokenList.set(key, !currentValue)
-    } else {
-      favoriteTokenList.set(key, true)
-    }
-    setFavoriteTokenList(new Map(favoriteTokenList))
-
-    if (onSelectFavoriteToken != null) onSelectFavoriteToken(name, currentValue !== undefined ? !currentValue : true)
   }
 
   const handleClose = () => {
@@ -139,10 +132,10 @@ export const CreatePoolDialog = ({
             </PopularTokens>
 
             <TokenListContainer>
-              {tokenList.length > 0 && (
+              {tokenList && tokenList.length > 0 && (
                 <BalanceSectionTitle>Balance</BalanceSectionTitle>
               )}
-              {tokenList.length > 0 ? tokenList.map((item, i) => (
+              {tokenList && tokenList.length > 0 ? (tokenList as TokenData[]).map((item, i) => (
                 <TokenItemContainer key={`transaction-item-${item.name}`}>
                   <TransactionDetails
                     containerWidth="100%"
@@ -152,14 +145,14 @@ export const CreatePoolDialog = ({
                     LeftAdornment={
                       <Icons
                         name="Star"
-                        color={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}
+                        color={item.isFavorite ? theme.color.primary.dark : theme.background.inactiveLavander}
                         size={24}
-                        fill={favoriteTokenList.get(i) ? theme.color.primary.dark : theme.background.inactiveLavander}/>}
-                    LeftAdornmentCallback={() => handlerFavorite(i, item.name)}
+                        fill={item.isFavorite ? theme.color.primary.dark : theme.background.inactiveLavander}/>}
+                    LeftAdornmentCallback={() => onSelectFavoriteToken(item.name)}
                     tokenNames={[item.name]}
                     tokenFullName={item.fullName}
                     amount={item.amount}
-                    isLast={i === tokenList.length - 1}
+                    isLast={i === (tokenList as TokenData[]).length - 1}
                     onSelectToken={() => onSelectToken(item.name)}
                   />
                 </TokenItemContainer>
