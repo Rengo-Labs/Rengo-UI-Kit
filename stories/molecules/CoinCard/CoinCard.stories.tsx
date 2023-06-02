@@ -4,6 +4,8 @@ import {CoinCard, CoinCardPros} from "../../../src/components";
 // @ts-ignore
 import ethToken from '../../assets/eth-token.svg';
 // @ts-ignore
+import csprToken from '../../assets/casper-token.svg';
+// @ts-ignore
 import downwardsArrowIcon from '../../assets/downwards-arrow-icon.svg'
 
 export default {
@@ -16,6 +18,7 @@ const Template: ComponentStory<typeof CoinCard> = (args) => <div style={{width: 
     <CoinCard {...args} />
 </div>;
 export const Default = Template.bind({});
+export const UsingCSPR = Template.bind({});
 
 
 // @ts-ignore
@@ -31,5 +34,23 @@ Default.args = {
     onChangeToken:() => {},
     onChangeValue:() => {},
     validator:() => {},
-    value: 0
+    value: 0,
+    gasFee: 20
+};
+
+// @ts-ignore
+UsingCSPR.args = {
+    startIcon:csprToken,
+    endIcon:downwardsArrowIcon,
+    iconSize:'large',
+    title:'To',
+    tokenBalance:'20000.000000',
+    tokenName:'CSPR',
+    tokenPrice:'34.33',
+    placeholder:'0.000000000',
+    onChangeToken:() => {},
+    onChangeValue:() => {},
+    validator:() => {},
+    value: 0,
+    gasFee: 20
 };
