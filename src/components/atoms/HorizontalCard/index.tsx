@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
   TokenInfoWrapper,
   TokenName,
@@ -54,6 +54,8 @@ import { DeviceType } from '../../../hooks/types'
   @param {Function} props.itemHandler - The function to handle item click action.
   @param {Function} props.addLiquidityHandler - The function to handle add liquidity action.
   @param {Function} props.favoriteHandler - The function to handle favorite action.
+  @param {Function} props.toggleDialog - The function to handle toggle dialog action.
+  @param {boolean} props.actionsDialogActive - Boolean to control the display of the ActionsDialog
   @returns {JSX.Element} A React JSX Element that displays the token pair, liquidity and user pool information with associated action buttons.
 */
 
@@ -71,17 +73,17 @@ export const HorizontalCard = ({
   viewHandler,
   itemHandler,
   addLiquidityHandler,
-  favoriteHandler }: HorizontalCardProps) => {
+  favoriteHandler,
+  toggleDialog,
+  actionsDialogActive
+  }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
-  const [actionsDialogActive, setActionsDialogActive] = useState(false)
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
-
   const redirectToNetwork = (contractPackage: string) => {
     const link = `${networkLink}${contractPackage}`
     window.open(link, '_blank')
   }
-
   const handleItemDetails = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation()
     itemHandler && itemHandler()
@@ -115,7 +117,7 @@ export const HorizontalCard = ({
             onClick={favoriteHandler}/>
           )}
           <ImageContainer>
-            
+
           {firstTokenIcon && (
             <Image src={firstTokenIcon} alt='token' />
             )}
@@ -141,7 +143,7 @@ export const HorizontalCard = ({
             hidden={true}
             color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
             size={20}
-            onClick={() => setActionsDialogActive(prev => !prev)}/>
+            onClick={() => toggleDialog()}/>
         </SeeActionsIconWrapper>
 
       </TokenInfoWrapper>
@@ -157,7 +159,7 @@ export const HorizontalCard = ({
           </RowUserPoolInfo>
         )
       }
-      
+
       {!isMobile && (
           <RowWrapper>
             {pairsLiquidity && pairsLiquidity.map((pair, i) => (
@@ -183,7 +185,7 @@ export const HorizontalCard = ({
               </UserPoolInfoMobileWrapper>
             ))}
           </MobileRow>
-            
+
           <MobileRow>
             {pairsLiquidity && pairsLiquidity.slice(0, pairsLiquidityMiddleIndex).map((pair, i) => (
 
@@ -219,7 +221,7 @@ export const HorizontalCard = ({
           hidden={false}
           color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
           size={20}
-          onClick={() => setActionsDialogActive(prev => !prev)}/>
+          onClick={() => toggleDialog()}/>
       </SeeActionsIconWrapper>
 
       <ActionsWrapper actionsDialogActive={actionsDialogActive}>

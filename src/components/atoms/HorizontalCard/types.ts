@@ -13,6 +13,8 @@ export interface HorizontalCardProps {
   itemHandler?: () => void
   addLiquidityHandler: () => void
   favoriteHandler: () => void
+  toggleDialog: () => void
+  actionsDialogActive: boolean
 }
 
 export interface PoolInfoProps {
