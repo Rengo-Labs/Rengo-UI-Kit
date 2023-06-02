@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {LiquidityWrapped, LiquidityTitle} from './styles'
 import {LPOptionType} from './types'
 import {HorizontalCard} from '../../atoms'
@@ -40,6 +40,10 @@ export interface LPContainerPros {
  */
 export const LPContainer = ({ networkLink, title, lpTokens = [] } : LPContainerPros) => {
 
+  const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
+  const toggleDialog = (name: string) => {
+    setActionsDialogActive((prev) => (prev === name ? null : name))
+  }
 
   return (
     <LiquidityWrapped>
@@ -67,6 +71,8 @@ export const LPContainer = ({ networkLink, title, lpTokens = [] } : LPContainerP
             viewHandler={() => item.onOptionClick(LPOptionType.VIEW, item.firstSymbol, item.secondSymbol)}
             addLiquidityHandler={() => item.onOptionClick(LPOptionType.ADD_LIQUIDITY, item.firstSymbol, item.secondSymbol)}
             favoriteHandler={() => {}}
+            toggleDialog={() => toggleDialog(`${item.firstSymbol}-${item.secondSymbol}`)}
+            actionsDialogActive={actionsDialogActive === `${item.firstSymbol}-${item.secondSymbol}`}
           />
         })
       }
