@@ -88,7 +88,7 @@ export const formattedNum = (number: any, usd = false, acceptNegatives = false) 
   let num = parseFloat(number)
 
   if (num > 500000000) {
-    return (usd ? '$' : '') + toK(num.toFixed(0))
+    return (usd ? '$' : '') + toK(num)
   }
 
   if (num === 0) {
