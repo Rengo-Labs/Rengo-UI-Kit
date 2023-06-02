@@ -96,43 +96,65 @@ export const PoolTable = ({
   showStakedOnly
 }: PoolTableProps) => {
   const [balanceData, setBalanceData] = useState<IHeaderPool[]>(() => data)
+  const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
+  const cryptoColumnRef = useRef<HTMLTableCellElement>(null)
   const deviceType = useDeviceType()
   const tableRef = useRef<HTMLTableElement>(null);
+  const isMobile = deviceType === DeviceType.MOBILE
 
   useEffect(() => {
     setBalanceData(data)
+
+    if (balanceData.length > 0) {
+      handleSort('pool', true)
+    }
+    
   }, [data])
-
-  const isMobile = deviceType === DeviceType.MOBILE
-
-  const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
-  const cryptoColumnRef = useRef<HTMLTableCellElement>(null)
 
   const toggleDialog = (name: string) => {
     setActionsDialogActive((prev) => (prev === name ? null : name))
   }
 
-
   const handleSort = (key: string, isAscending: boolean) => {
+    const EXCLUDED_KEYS =['yourShare', 'actions', 'pool']
     const sortedData = [...balanceData].sort((a, b) => {
-      const sortMultiplier = isAscending ? 1 : -1
-      
-      const propA = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
-      ? parseFloat((a as any)[key].replace(/[$,]/g, ''))
-      : (a as any)[key as keyof IHeaderPool];
-
-    const propB = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
-      ? parseFloat((b as any)[key].replace(/[$,]/g, ''))
-      : (b as any)[key as keyof IHeaderPool];
-
-
-
-      if (propA !== undefined && propB !== undefined) {
-        return propA > propB ? sortMultiplier : -sortMultiplier
+      if (a.isFavorite && !b.isFavorite) {
+        return -1
       }
+    
+      if (!a.isFavorite && b.isFavorite) {
+        return 1
+      }
+    
+      const sortMultiplier = isAscending ? 1 : -1
 
+      
+    
+      const propA = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
+        ? parseFloat((a as any)[key].replace(/[$,]/g, ''))
+        : (a as any)[key as keyof IHeaderPool]
+
+      // const propA = !EXCLUDED_KEYS.includes(key)
+      // ? parseFloat((a as any)[key].replace(/[$,]/g, ''))
+      // : (a as any)[key as keyof IHeaderPool]
+    
+      const propB = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
+        ? parseFloat((b as any)[key].replace(/[$,]/g, ''))
+        : (b as any)[key as keyof IHeaderPool]
+    
+      // const propB = !EXCLUDED_KEYS.includes(key)
+      //   ? parseFloat((b as any)[key].replace(/[$,]/g, ''))
+      //   : (b as any)[key as keyof IHeaderPool]
+    
+      if (propA !== undefined && propB !== undefined) {
+        return (propA > propB ? sortMultiplier : -sortMultiplier)
+      }
+    
       return 0
-    })
+    });
+
+
+    
     setBalanceData(sortedData)
   }
 
