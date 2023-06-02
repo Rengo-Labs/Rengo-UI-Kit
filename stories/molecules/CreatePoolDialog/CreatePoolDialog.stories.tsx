@@ -15,11 +15,11 @@ import usdtTokenIcon from "../../assets/tether-token.svg";
 import usdcTokenIcon from "../../assets/usdc-token.svg";
 
 const TOKEN_LIST_DATA_CREATE_POOL = [
-  { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000', tokenImg: cstTokenIcon },
-  { id: 'd3r4rfgj7j7', name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000', tokenImg: btcTokenIcon },
-  { id: '9j90fjgf8he', name: 'USDT', fullName: 'Teather', amount: '10000', tokenImg: usdtTokenIcon },
-  { id: '1jkjaasm2k1', name: 'USDC', fullName: 'USD Coin', amount: '10000', tokenImg: usdcTokenIcon },
-  { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000', tokenImg: ethTokenIcon }
+  { id: '3d3dfimfw33', name: 'CST', fullName: 'CasperSwap', amount: '1000000', tokenImg: cstTokenIcon, favorite: false },
+  { id: 'd3r4rfgj7j7', name: 'WBTC', fullName: 'Wrapped Bitcoin', amount: '10000', tokenImg: btcTokenIcon, favorite: true },
+  { id: '9j90fjgf8he', name: 'USDT', fullName: 'Teather', amount: '10000', tokenImg: usdtTokenIcon, favorite: true },
+  { id: '1jkjaasm2k1', name: 'USDC', fullName: 'USD Coin', amount: '10000', tokenImg: usdcTokenIcon, favorite: false },
+  { id: 'dd333d3es2s', name: 'WETH', fullName: 'Wrapped Ether', amount: '1000000', tokenImg: ethTokenIcon, favorite: false }
 ]
 
 const POPULAR_TOKEN_LIST_DATA_CREATE_POOL = [
