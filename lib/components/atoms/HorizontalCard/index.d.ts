@@ -16,6 +16,8 @@ import { HorizontalCardProps } from './types';
   @param {Function} props.itemHandler - The function to handle item click action.
   @param {Function} props.addLiquidityHandler - The function to handle add liquidity action.
   @param {Function} props.favoriteHandler - The function to handle favorite action.
+  @param {Function} props.toggleDialog - The function to handle toggle dialog action.
+  @param {boolean} props.actionsDialogActive - Boolean to control the display of the ActionsDialog
   @returns {JSX.Element} A React JSX Element that displays the token pair, liquidity and user pool information with associated action buttons.
 */
-export declare const HorizontalCard: ({ networkLink, contractPackage, firstTokenIcon, secondTokenIcon, tokenPairs, pairsLiquidity, userPoolInfo, hasFavorite, trashHandler, swapHandler, viewHandler, itemHandler, addLiquidityHandler, favoriteHandler }: HorizontalCardProps) => React.JSX.Element;
+export declare const HorizontalCard: ({ networkLink, contractPackage, firstTokenIcon, secondTokenIcon, tokenPairs, pairsLiquidity, userPoolInfo, hasFavorite, trashHandler, swapHandler, viewHandler, itemHandler, addLiquidityHandler, favoriteHandler, toggleDialog, actionsDialogActive }: HorizontalCardProps) => React.JSX.Element;
