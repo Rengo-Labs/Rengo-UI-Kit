@@ -4,7 +4,7 @@ export interface TokenData {
     fullName: string;
     amount: string;
     tokenImg: string;
-    favorite: boolean;
+    isFavorite: boolean;
 }
 export interface CreatePoolDialogProps {
     isOpen: boolean;
@@ -12,6 +12,6 @@ export interface CreatePoolDialogProps {
     tokenListData: TokenData[];
     popularTokensData: TokenData[];
     onSelectToken: (name: string) => void;
-    onSelectFavoriteToken?: (name: string, value: boolean) => void;
+    onSelectFavoriteToken: (name: string) => void;
     handleViewTokenList?: () => void;
 }
