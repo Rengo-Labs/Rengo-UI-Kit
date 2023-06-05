@@ -13,7 +13,8 @@ export const Default = Template.bind({});
 Default.args = {
     firstSymbol: 'ETH',
     secondSymbol: 'USDT',
-    maxAmount: 2000,
+    baseAmount: 10,
+    minAmount: 2000,
     firstTotalLiquidity: 1000000,
     secondTotalLiquidity: 10000000,
     totalSupply: '',
