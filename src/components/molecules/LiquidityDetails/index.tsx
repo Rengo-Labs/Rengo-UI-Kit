@@ -16,10 +16,11 @@ export interface IToken {
   symbol: string
   priceUSD?: string,
 }
-interface ILiquidityDetailsProps {
+export interface ILiquidityDetailsProps {
   firstSymbol: string,
   secondSymbol: string,
-  maxAmount: string | number,
+  baseAmount: string | number,
+  minAmount: string | number,
   firstTotalLiquidity: string | number,
   secondTotalLiquidity: string | number,
   totalSupply: string | number,
@@ -34,7 +35,7 @@ interface ILiquidityDetailsProps {
  * @returns  {JSX.Element} The rendered a list of key-value text and inputs.
  */
 
-export const LiquidityDetails = ({firstSymbol, secondSymbol, maxAmount, firstTotalLiquidity, secondTotalLiquidity, totalSupply, slippage, setSlippage, networkFee, setNetworkFee}: ILiquidityDetailsProps) => {
+export const LiquidityDetails = ({firstSymbol, secondSymbol, baseAmount, minAmount, firstTotalLiquidity, secondTotalLiquidity, totalSupply, slippage, setSlippage, networkFee, setNetworkFee}: ILiquidityDetailsProps) => {
 
   const handleSlippageTolerance = (value: number) => {
     setSlippage(value)
@@ -53,9 +54,9 @@ export const LiquidityDetails = ({firstSymbol, secondSymbol, maxAmount, firstTot
 
   return (
     <Wrapper props={{ xs: 12 }}>
-      <KeyValueText keyText='Base' valueText={firstSymbol} />
+      <KeyValueText keyText='Min Amount' valueText={`${baseAmount} ${firstSymbol}`} />
       <Divider />
-      <KeyValueText keyText='Max Amount' valueText={`${maxAmount} ${secondSymbol}`} />
+      <KeyValueText keyText='Min Token Amount' valueText={`${minAmount} ${secondSymbol}`} />
       <Divider />
       <KeyValueText keyText={`Pool Liquidity (${firstSymbol})`} valueText={`${firstTotalLiquidity} ${firstSymbol}`} />
       <Divider />
