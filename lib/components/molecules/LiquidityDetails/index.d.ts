@@ -12,10 +12,11 @@ export interface IToken {
     symbol: string;
     priceUSD?: string;
 }
-interface ILiquidityDetailsProps {
+export interface ILiquidityDetailsProps {
     firstSymbol: string;
     secondSymbol: string;
-    maxAmount: string | number;
+    baseAmount: string | number;
+    minAmount: string | number;
     firstTotalLiquidity: string | number;
     secondTotalLiquidity: string | number;
     totalSupply: string | number;
@@ -28,5 +29,4 @@ interface ILiquidityDetailsProps {
  * Render a Liquidity Details.
  * @returns  {JSX.Element} The rendered a list of key-value text and inputs.
  */
-export declare const LiquidityDetails: ({ firstSymbol, secondSymbol, maxAmount, firstTotalLiquidity, secondTotalLiquidity, totalSupply, slippage, setSlippage, networkFee, setNetworkFee }: ILiquidityDetailsProps) => React.JSX.Element;
-export {};
+export declare const LiquidityDetails: ({ firstSymbol, secondSymbol, baseAmount, minAmount, firstTotalLiquidity, secondTotalLiquidity, totalSupply, slippage, setSlippage, networkFee, setNetworkFee }: ILiquidityDetailsProps) => React.JSX.Element;
