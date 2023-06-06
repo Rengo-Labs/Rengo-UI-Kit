@@ -15,4 +15,5 @@ export interface CreatePoolDialogProps {
   onSelectToken: (name: string) => void,
   onSelectFavoriteToken: (name: string) => void,
   handleViewTokenList?: () => void
+  explicitMarginTop?: number
 }

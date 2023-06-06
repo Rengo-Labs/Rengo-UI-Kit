@@ -11,7 +11,7 @@ export const Backdrop = styled.div`
   opacity: 0.5;
 `;
 
-export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean }>`
+export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean, explicitMarginTop?: number }>`
 
   top: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
   left: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
@@ -26,8 +26,17 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   border: ${({ theme }) => `1px solid ${theme.border.default}`};
   box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);
   border-radius: ${({ isMobile }) => isMobile ? '0px' : '16px'};
+  position: absolute;
+  overflow-y: scroll;
+
+  ${({ explicitMarginTop }) => explicitMarginTop && css`
+      margin-top: calc(10% + ${explicitMarginTop}px);
+  `}
 
   ${({ isMobile }) => isMobile && css`
+    margin-top: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
     width: 100%;
     height: 100%;
     top: 0;
@@ -35,6 +44,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
     left: 0;
     transition: transform 0.3s ease-in-out;
     z-index: 9999;
+    position: fixed;
   `}
 
   ${({ isMobile, isOpen }) => {

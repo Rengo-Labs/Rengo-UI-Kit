@@ -37,4 +37,5 @@ export interface RemoveLiquidityDialogProps {
     allowance: number
   },
   showToggle: boolean
+  explicitMarginTop?: number
 }

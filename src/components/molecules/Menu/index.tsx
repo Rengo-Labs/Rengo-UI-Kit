@@ -38,7 +38,7 @@ export const Menu = forwardRef(({
     <>
       {isMobile ? (
         <>
-          <MenuWrapperMobile ref={ref}>
+          <MenuWrapperMobile ref={ref} className='menu-target-id'>
             <MobileMenuIcon onClick={toggleMenu}>
               <BurgerButton
                 key={'burger-menu-mobile'}
@@ -81,7 +81,7 @@ export const Menu = forwardRef(({
           </MobileMenuWrapper>
         </>
       ) : (
-        <MenuWrapper isTablet={isTablet} ref={ref}>
+        <MenuWrapper isTablet={isTablet} ref={ref} className='menu-target-id'>
           <LeftTextContainer onClick={handleRedirect}>
             <Icon src={menuIcon} width={28} height={28} alt={`${title} left icon`} />
             <MenuItem>
