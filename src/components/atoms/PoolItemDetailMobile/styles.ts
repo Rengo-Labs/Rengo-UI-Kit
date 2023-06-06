@@ -12,6 +12,7 @@ export const Container = styled.div<{isOpen: boolean}>`
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
   background: ${({ theme }) =>  theme.color.tab.background};
+  overflow-y: scroll;
 `
 
 export const Content = styled.div`

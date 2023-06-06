@@ -23,6 +23,7 @@ export interface PoolItemDetailsProps {
   yourShare?: string
   volume7D?: string
   fees7D?: string
+  explicitMarginTop?: number
 }
 
 export const PoolItemDetails = ({
@@ -42,6 +43,7 @@ export const PoolItemDetails = ({
   yourShare,
   volume7D,
   fees7D,
+  explicitMarginTop
 }: PoolItemDetailsProps) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
@@ -85,6 +87,7 @@ export const PoolItemDetails = ({
           yourShare={yourShare}
           volume7D={volume7D}
           fees7D={fees7D}
+          explicitMarginTop={explicitMarginTop}
         />
       )}
     </>

@@ -49,7 +49,8 @@ export const CreatePoolDialog = ({
   popularTokensData,
   onSelectToken,
   onSelectFavoriteToken,
-  handleViewTokenList
+  handleViewTokenList,
+  explicitMarginTop
  }: CreatePoolDialogProps) => {
    const theme = useTheme() as theme;
    const deviceType = useDeviceType()
@@ -83,6 +84,7 @@ export const CreatePoolDialog = ({
     <Dialog
       isOpen={isOpen}
       onClose={() => handleClose()}
+      explicitMarginTop={explicitMarginTop}
       >
       <Container isMobile={isMobile} isOpen={isOpen}>
         <TopSubContainer>
@@ -163,12 +165,6 @@ export const CreatePoolDialog = ({
           </InnerContainer>
         </TopSubContainer>
 
-        <BottomContainer>
-          <ViewTokenListTitle
-            onClick={handleViewTokenList}>
-            View token list
-          </ViewTokenListTitle>
-        </BottomContainer>
       </Container>
     </Dialog>
   )

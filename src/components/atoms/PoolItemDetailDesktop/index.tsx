@@ -39,13 +39,14 @@ export const PoolItemDetailDesktop = ({
   yourShare,
   volume7D,
   fees7D,
+  explicitMarginTop
 }: PoolItemDetailsProps) => {
   const theme = useTheme() as theme
 
   return (
     <>
       {isOpen && (
-        <Dialog onClose={closeCallback} isOpen={isOpen}>
+        <Dialog onClose={closeCallback} isOpen={isOpen} explicitMarginTop={explicitMarginTop}>
           <Container>
             <DialogHeaderContainer>
               <DialogHeader>
