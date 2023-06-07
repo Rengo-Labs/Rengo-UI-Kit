@@ -15,4 +15,4 @@ import { RemoveLiquidityDialogProps } from "./types";
 
  @returns {JSX.Element} - A JSX element representing the Remove Liquidity dialog box.
  */
-export declare const RemoveLiquidityDialog: ({ closeCallback, liquidityPoolData, isOpen, disabledButton, disabledAllowanceButton, isRemoveLiquidityCSPR, handleChangeInput, handleToggle, handleRemoveLiquidity, handleAllowanceLiquidity, calculatedAmounts, showAllowance, defaultValue, showToggle, explicitMarginTop }: RemoveLiquidityDialogProps) => JSX.Element;
+export declare const RemoveLiquidityDialog: ({ closeCallback, liquidityPoolData, isOpen, disabledButton, disabledAllowanceButton, isRemoveLiquidityCSPR, handleChangeInput, handleToggle, handleRemoveLiquidity, handleAllowanceLiquidity, calculatedAmounts, showAllowance, defaultValue, showToggle, }: RemoveLiquidityDialogProps) => JSX.Element;

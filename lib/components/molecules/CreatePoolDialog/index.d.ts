@@ -10,4 +10,4 @@ import { CreatePoolDialogProps } from './types';
   @param {function} [props.onSelectFavoriteToken] - onSelectFavoriteToken callback to persist favorite token.
   @returns {JSX.Element} - The create pool dialog component.
 */
-export declare const CreatePoolDialog: ({ isOpen, closeCallback, tokenListData, popularTokensData, onSelectToken, onSelectFavoriteToken, handleViewTokenList, explicitMarginTop }: CreatePoolDialogProps) => React.JSX.Element;
+export declare const CreatePoolDialog: ({ isOpen, closeCallback, tokenListData, popularTokensData, onSelectToken, onSelectFavoriteToken, handleViewTokenList, }: CreatePoolDialogProps) => React.JSX.Element;

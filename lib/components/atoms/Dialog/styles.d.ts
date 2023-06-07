@@ -3,5 +3,4 @@ export declare const Container: import("styled-components").StyledComponent<"dia
     isOpen?: boolean | undefined;
     isMobile: boolean;
     withoutEffect: boolean;
-    explicitMarginTop?: number | undefined;
 }, never>;
