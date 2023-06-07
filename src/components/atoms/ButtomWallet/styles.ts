@@ -13,6 +13,7 @@ export const ButtonWalletDesktop = styled.button`
   order: 1;
   flex-grow: 0;
   border: none;
+  cursor: pointer;
 
   :hover {
     background-color: ${({theme}) => theme.btnbackgroundColor};
@@ -36,6 +37,7 @@ export const ButtonWalletMobile = styled.button`
   order: 2;
   flex-grow: 0;
   border: none;
+  cursor: pointer;
 
   :hover {
     background-color: ${({theme}) => theme.btnbackgroundColor};
