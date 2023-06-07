@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Column, Divider, KeyValueInput, KeyValueText } from '../../atoms'
+import React from 'react'
+import { Divider, KeyValueInput, KeyValueText } from '../../atoms'
 import { InputType } from '../../atoms/KeyValueInput/types'
 import { Wrapper } from './styles'
 
