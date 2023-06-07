@@ -11,12 +11,10 @@ export const Backdrop = styled.div`
   opacity: 0.5;
 `;
 
-export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean, explicitMarginTop?: number }>`
-
-  top: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
+export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean }>`
+  top: ${({ withoutEffect }) => withoutEffect ? '0px' : '10vh'};
   left: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
-  transform: translate(-50%, -50%);
-  position: fixed;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,11 +25,11 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);
   border-radius: ${({ isMobile }) => isMobile ? '0px' : '16px'};
   position: absolute;
-  overflow-y: scroll;
 
-  ${({ explicitMarginTop }) => explicitMarginTop && css`
-      margin-top: calc(10% + ${explicitMarginTop}px);
-  `}
+  @media (min-height: 750px) and (max-height: 1000px) {
+    top: ${({ withoutEffect }) => withoutEffect ? '0px' : '5vh'};
+  }
+
 
   ${({ isMobile }) => isMobile && css`
     margin-top: 0;
@@ -45,6 +43,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
     transition: transform 0.3s ease-in-out;
     z-index: 9999;
     position: fixed;
+    transform: none;
   `}
 
   ${({ isMobile, isOpen }) => {
