@@ -61,7 +61,6 @@ export const RemoveLiquidityDialog = ({
                                           showAllowance,
                                           defaultValue,
                                           showToggle,
-                                          explicitMarginTop
                                       }: RemoveLiquidityDialogProps): JSX.Element => {
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
@@ -91,7 +90,6 @@ export const RemoveLiquidityDialog = ({
         <Dialog
             isOpen={isOpen}
             onClose={() => closeCallback()}
-            explicitMarginTop={explicitMarginTop}
         >
             <Container isMobile={isMobile}>
                 <DialogHeaderContainer isMobile={isMobile}>

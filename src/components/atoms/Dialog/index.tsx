@@ -8,7 +8,6 @@ export interface DialogProps {
   onClose: () => void
   isOpen: boolean
   withoutEffect?: boolean
-  explicitMarginTop?: number
 }
 
 /**
@@ -20,7 +19,7 @@ export interface DialogProps {
   @returns {JSX.Element} - A JSX element representing the dialog box component.
 */
 
-export const Dialog = ({ children, onClose, isOpen, withoutEffect = false, explicitMarginTop }: DialogProps) => {
+export const Dialog = ({ children, onClose, isOpen, withoutEffect = false }: DialogProps) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -53,7 +52,6 @@ export const Dialog = ({ children, onClose, isOpen, withoutEffect = false, expli
         onPointerDown={(e) => e.stopPropagation()}
         isOpen={isOpen}
         withoutEffect={withoutEffect}
-        explicitMarginTop={explicitMarginTop}
       >
         {children}
       </Container>
