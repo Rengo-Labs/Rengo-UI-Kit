@@ -32,7 +32,9 @@ export const Settings = ({
     }
 
     return (
-        <Dialog onClose={handleClose} isOpen={isOpen}>
+        <Dialog 
+          onClose={handleClose}
+          isOpen={isOpen}>
             <Wrapper props={{xs: 12}}>
                 <Row className='align-items-center justify-content-between'>
                     <Text>Slippage Tolerance</Text>
