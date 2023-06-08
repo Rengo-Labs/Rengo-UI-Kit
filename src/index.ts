@@ -23,6 +23,8 @@ export {
     KeyValueInput,
     HorizontalCard,
     SettingOption,
+    SettingOptionButton,
+    SettingInputOption,
     Icons,
     Divider,
     SwapTabs,

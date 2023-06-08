@@ -1,7 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const WrapperStyled = styled.div<{isSelect: boolean}>`
+export const WrapperStyled = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2px;
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
@@ -10,14 +13,13 @@ export const WrapperStyled = styled.div<{isSelect: boolean}>`
   background-color: ${({ theme }) => theme.background.default};
   border: 1px solid ${({ theme }) => theme.border.default};
   cursor: pointer;
+`;
 
-  ${({ isSelect, theme }) => isSelect && `
-        background-color: ${theme.color.primary.default};
-        p {
-         color:  ${theme.color.white};
-        }
-        border: 1px solid ${theme.color.primary.default};
-    `}
+export const InputWrapperContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 `;
 
 export const Text = styled.p`
@@ -34,10 +36,11 @@ export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `
 
-export const Input = styled.input`
-  max-width: 48px;
+export const InputOption = styled.input`
+  width: 100%;
   max-height: 26px;
   border: none;
   background-color: transparent;
