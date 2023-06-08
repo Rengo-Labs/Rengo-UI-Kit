@@ -38,12 +38,16 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   position: absolute;
 
   @media (min-height: 750px) and (max-height: 1000px) {
-    top: ${({ withoutEffect, forcePositionCenter }) => { 
+    top: ${({ withoutEffect, forcePositionCenter, isMobile }) => { 
       if (withoutEffect) {
         return '0px'
       }
 
       if (forcePositionCenter) {
+        return '0'
+      }
+
+      if (isMobile) {
         return '0'
       }
 
