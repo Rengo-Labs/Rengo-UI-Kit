@@ -25,7 +25,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
     return '10vh'
   }};
   left: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
-  transform: translateX(-50%);
+  transform: ${({ forcePositionCenter }) => forcePositionCenter ? 'translate(-50%, -50%)' : 'translateX(-50%)'};
   display: flex;
   flex-direction: column;
   align-items: center;
