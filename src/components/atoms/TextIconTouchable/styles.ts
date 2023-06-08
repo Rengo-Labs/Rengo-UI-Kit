@@ -28,6 +28,6 @@ export const NameStyled = styled.p<any>`
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   color: ${(props) => props.titleColor ?? props.theme.color.default};
+  ${({isUpperCase}) => isUpperCase && ` text-transform: uppercase;`}
 `;
