@@ -95,7 +95,7 @@ export const PoolTable = ({
   query = '',
   showStakedOnly
 }: PoolTableProps) => {
-  const [balanceData, setBalanceData] = useState<IHeaderPool[]>(() => data)
+  const [balanceData, setBalanceData] = useState<IHeaderPool[]>()
   const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
   const cryptoColumnRef = useRef<HTMLTableCellElement>(null)
   const deviceType = useDeviceType()
@@ -103,11 +103,8 @@ export const PoolTable = ({
   const isMobile = deviceType === DeviceType.MOBILE
 
   useEffect(() => {
-    setBalanceData(data)
-
-    if (balanceData.length > 0) {
-      handleSort('pool', true)
-    }
+    const initialSortedData = handleSort('pool', true, data)
+    setBalanceData(initialSortedData)
     
   }, [data])
 
@@ -115,9 +112,13 @@ export const PoolTable = ({
     setActionsDialogActive((prev) => (prev === name ? null : name))
   }
 
-  const handleSort = (key: string, isAscending: boolean) => {
+  const handleSort = (key: string, isAscending: boolean, initialSort?: IHeaderPool[]) => {
+    console.log('sort');
+    
     const EXCLUDED_KEYS =['yourShare', 'actions', 'pool']
-    const sortedData = [...balanceData].sort((a, b) => {
+    const originalData = initialSort && initialSort?.length > 0 ? initialSort : balanceData
+    
+    const sortedData = originalData?.sort((a, b) => {
       if (a.isFavorite && !b.isFavorite) {
         return -1
       }
@@ -128,23 +129,15 @@ export const PoolTable = ({
     
       const sortMultiplier = isAscending ? 1 : -1
 
-      
-    
-      const propA = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
-        ? parseFloat((a as any)[key].replace(/[$,]/g, ''))
-        : (a as any)[key as keyof IHeaderPool]
 
-      // const propA = !EXCLUDED_KEYS.includes(key)
-      // ? parseFloat((a as any)[key].replace(/[$,]/g, ''))
-      // : (a as any)[key as keyof IHeaderPool]
+      const propA = !EXCLUDED_KEYS.includes(key)
+      ? parseFloat((a as any)[key].replace(/[$,]/g, ''))
+      : (a as any)[key as keyof IHeaderPool]
     
-      const propB = key === 'assetsPoolToken0' || key === 'assetsPoolToken1' || key === 'yourLiquidity' || key === 'volume7d' || key === 'fees7d'
+    
+      const propB = !EXCLUDED_KEYS.includes(key)
         ? parseFloat((b as any)[key].replace(/[$,]/g, ''))
         : (b as any)[key as keyof IHeaderPool]
-    
-      // const propB = !EXCLUDED_KEYS.includes(key)
-      //   ? parseFloat((b as any)[key].replace(/[$,]/g, ''))
-      //   : (b as any)[key as keyof IHeaderPool]
     
       if (propA !== undefined && propB !== undefined) {
         return (propA > propB ? sortMultiplier : -sortMultiplier)
@@ -153,13 +146,16 @@ export const PoolTable = ({
       return 0
     });
 
-
     
-    setBalanceData(sortedData)
+    if (initialSort && initialSort?.length > 0) {
+      return sortedData
+    } else {
+      setBalanceData(sortedData)
+    }
   }
 
   const favoriteHandler = (name: string) => {
-    const updatedData = balanceData.map((row) => {
+    const updatedData = balanceData?.map((row) => {
       if (row.name === name) {
         return {
           ...row,
@@ -235,65 +231,66 @@ export const PoolTable = ({
       {!isMobile && <TableHeader columns={columns} onSort={handleSort} firstColumnRef={cryptoColumnRef} />}
       <Body isMobile={isMobile}>
 
-        {balanceData.map((row, i) =>
-          isMobile ? (
-            <PoolItemMobile
-              networkLink={networkLink}
-              contractPackage={row.contractPackage}
-              key={`pool-item-${row.pool}-mobile`}
-              token0Icon={row.token0Icon}
-              token1Icon={row.token1Icon}
-              widthIcon={widthIcon}
-              heightIcon={heightIcon}
-              pool={row.pool}
-              yourLiquidity={row.yourLiquidity}
-              volume7d={row.volume7d}
-              fees7d={row.fees7d}
-              assetsPoolToken0={row.assetsPoolToken0}
-              assetsPoolToken1={row.assetsPoolToken1}
-              yourShare={row.yourShare}
-              handleTrash={() => handleTrash(row.name)}
-              handleSwap={() => handleSwap('/swap', row.pool)}
-              handleView={() => handleView(row.name)}
-              handleAddLiquidity={() =>
-                handleAddLiquidity('/liquidity', row.pool)
-              }
-              favoriteHandler={() => favoriteHandler(row.name)}
-              isFavorite={row.isFavorite}
-              toggleDialog={() => toggleDialog(row.name)}
-              actionsDialogActive={actionsDialogActive === row.name}
-              hideRemoveLiquidity={Number(row.balance) >= 0}
-            />
-          ) : (
-            <PoolTableItem
-              networkLink={networkLink}
-              contractPackage={row.contractPackage}
-              key={`pool-item-${row.pool}-desktop`}
-              token0Icon={row.token0Icon}
-              token1Icon={row.token1Icon}
-              widthIcon={widthIcon}
-              heightIcon={heightIcon}
-              pool={row.pool}
-              yourLiquidity={row.yourLiquidity}
-              volume7d={row.volume7d}
-              fees7d={row.fees7d}
-              assetsPoolToken0={row.assetsPoolToken0}
-              assetsPoolToken1={row.assetsPoolToken1}
-              yourShare={row.yourShare}
-              handleTrash={() => handleTrash(row.name)}
-              handleSwap={() => handleSwap('/swap', row.pool)}
-              handleView={() => handleView(row.name)}
-              handleAddLiquidity={() =>
-                handleAddLiquidity('/liquidity', row.pool)
-              }
-              favoriteHandler={() => favoriteHandler(row.name)}
-              isFavorite={row.isFavorite}
-              toggleDialog={() => toggleDialog(row.name)}
-              actionsDialogActive={actionsDialogActive === row.name}
-              hideRemoveLiquidity={Number(row.balance) === 0}
-            />
-          )
-        )}
+        {balanceData && balanceData?.length > 0 ? (
+          balanceData?.map((row, i) =>
+            isMobile ? (
+              <PoolItemMobile
+                networkLink={networkLink}
+                contractPackage={row.contractPackage}
+                key={`pool-item-${row.pool}-mobile`}
+                token0Icon={row.token0Icon}
+                token1Icon={row.token1Icon}
+                widthIcon={widthIcon}
+                heightIcon={heightIcon}
+                pool={row.pool}
+                yourLiquidity={row.yourLiquidity}
+                volume7d={row.volume7d}
+                fees7d={row.fees7d}
+                assetsPoolToken0={row.assetsPoolToken0}
+                assetsPoolToken1={row.assetsPoolToken1}
+                yourShare={row.yourShare}
+                handleTrash={() => handleTrash(row.name)}
+                handleSwap={() => handleSwap('/swap', row.pool)}
+                handleView={() => handleView(row.name)}
+                handleAddLiquidity={() =>
+                  handleAddLiquidity('/liquidity', row.pool)
+                }
+                favoriteHandler={() => favoriteHandler(row.name)}
+                isFavorite={row.isFavorite}
+                toggleDialog={() => toggleDialog(row.name)}
+                actionsDialogActive={actionsDialogActive === row.name}
+                hideRemoveLiquidity={Number(row.balance) >= 0}
+              />
+            ) : (
+              <PoolTableItem
+                networkLink={networkLink}
+                contractPackage={row.contractPackage}
+                key={`pool-item-${row.pool}-desktop`}
+                token0Icon={row.token0Icon}
+                token1Icon={row.token1Icon}
+                widthIcon={widthIcon}
+                heightIcon={heightIcon}
+                pool={row.pool}
+                yourLiquidity={row.yourLiquidity}
+                volume7d={row.volume7d}
+                fees7d={row.fees7d}
+                assetsPoolToken0={row.assetsPoolToken0}
+                assetsPoolToken1={row.assetsPoolToken1}
+                yourShare={row.yourShare}
+                handleTrash={() => handleTrash(row.name)}
+                handleSwap={() => handleSwap('/swap', row.pool)}
+                handleView={() => handleView(row.name)}
+                handleAddLiquidity={() =>
+                  handleAddLiquidity('/liquidity', row.pool)
+                }
+                favoriteHandler={() => favoriteHandler(row.name)}
+                isFavorite={row.isFavorite}
+                toggleDialog={() => toggleDialog(row.name)}
+                actionsDialogActive={actionsDialogActive === row.name}
+                hideRemoveLiquidity={Number(row.balance) === 0}
+              />
+            )
+        )) : null}
       </Body>
 
     </Wrapper>
