@@ -6,7 +6,8 @@ export interface KeyValueInputProps {
   keyText: string
   value: number
   onChange?: (value: number) => void
-  inputType?: InputType
+  inputType?: InputType,
+  editable?: boolean
 }
 
 /**
@@ -22,23 +23,30 @@ export const KeyValueInput = ({
   keyText,
   value,
   onChange,
-  inputType = InputType.GASFEE
+  inputType = InputType.GASFEE,
+  editable = true
 }: KeyValueInputProps) => {
 
 
   return (
     <WrapperStyled>
       <Text>{keyText}</Text>
-      <InputWrapper>
-        <Input
-          value={value}
-          type='number'
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            onChange && onChange(Number(e.target.value))
-          }
-        />
-        <Text>{inputTypeMap[inputType]}</Text>
-      </InputWrapper>
+        {editable &&
+            <InputWrapper>
+                <Input
+                  value={value}
+                  type='number'
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    onChange && onChange(Number(e.target.value))
+                  }
+                />
+                <Text>{inputTypeMap[inputType]}</Text>
+            </InputWrapper>
+        }
+        {
+          !editable &&
+          <Text>{value} {inputTypeMap[inputType]}</Text>
+        }
     </WrapperStyled>
   )
 }

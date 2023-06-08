@@ -1537,3 +1537,35 @@ WithTabDefault.args = {
     showChart0: false,
     tabDefault: 2
 }
+
+export const WithNonEditableSlippageDefault = Template.bind({});
+WithNonEditableSlippageDefault.args = {
+    firstTokenImg: casperToken,
+    secondTokenImg: bitcoinToken,
+    platformGasFee: 0.1,
+    slippageTolerance: 0.005,
+    calculateMinimumTokenReceived: (() =>  200),
+    firstSymbolToken: 'CSPR',
+    firstTokenAmount: 1000,
+    pairPath: ['ETH', 'CSPR', 'BTC'],
+    secondSymbolToken: 'ETH',
+    secondTokenAmount: 200,
+    priceImpact: 1.5,
+    priceImpactMessage: 'Low Price Impact',
+    networkGasFee: 40,
+    networkGasFeeSetter    : (value) => {console.log("new networkGasFee", value)},
+    slippageSetter  : (value) => {console.log("new slippage", value)},
+    // graphic
+    onClickButton0: () => {console.log("onClickButton0")},
+    onClickButton1: () => {console.log("onClickButton1")},
+    graphicData: data,
+    todayPrice: '1000',
+    yesterdayPrice: '2000',
+    xAxisName: 'name',
+    chart0Name: 'eth',
+    chart1Name: 'cspr',
+    showChart1: true,
+    showChart0: false,
+    tabDefault: 2,
+    editableSlippage: false
+}

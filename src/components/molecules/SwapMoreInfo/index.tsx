@@ -17,6 +17,7 @@ export interface ISwapMoreInfoProps {
     slippageSetter: (value: number) => void;
     pairPath: any[];
     calculateMinimumTokenReceived: (secondTokenAmount: number, slippageTolerance: number) => number;
+    editableSlippage?: boolean
 }
 
 /**
@@ -49,7 +50,8 @@ export const SwapMoreInfo = ({
                                  slippageTolerance,
                                  slippageSetter,
                                  pairPath,
-                                 calculateMinimumTokenReceived
+                                 calculateMinimumTokenReceived,
+                                 editableSlippage = true
                              }: ISwapMoreInfoProps) => {
 
     const parirPathValue = pairPath.length > 0 ?
@@ -71,6 +73,7 @@ export const SwapMoreInfo = ({
                     value={slippageTolerance}
                     inputType={InputType.SLIPPAGETOLERANCE}
                     onChange={slippageSetter}
+                    editable={editableSlippage}
                 />
                 <Divider/>
                 <KeyValueText keyText='Swap Fee' valueText={`${firstTokenAmount * platformGasFee} CSPR`}/>
