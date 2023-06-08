@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Input, Row, SettingOption, Dialog} from '../../atoms'
+import {Button, Input, Row, SettingOption, Dialog, SettingOptionButton, SettingInputOption} from '../../atoms'
 import {CloseIcon, Text, Wrapper} from './styles'
 import {Status, Type} from '../../atoms/Input/types'
 export interface SettingsProps {
@@ -18,11 +18,12 @@ export const Settings = ({
                          }: SettingsProps) => {
     const [slippageTolerance, setSlippageTolerance] = React.useState<number>(slippageToleranceValue)
     const [customNodeUrl, setCustomNodeUrl] = React.useState<string>(customNodeUrlValue)
+    const [isCustomInput, setIsCustomInput] = React.useState<boolean>(false)
+    const valuesToSettingOption = [0.1, 0.5, 1.0]
 
     const handleSlippageTolerance = (value: number) => {
         setSlippageTolerance(value)
     }
-
     const handlerInput = (value: string) => {
         setCustomNodeUrl(value)
     }
@@ -31,8 +32,12 @@ export const Settings = ({
         handleSave(slippageTolerance, customNodeUrl)
     }
 
+    const handleCustomInput = () => {
+        setIsCustomInput(!isCustomInput)
+    }
+
     return (
-        <Dialog 
+        <Dialog
           onClose={handleClose}
           isOpen={isOpen}>
             <Wrapper props={{xs: 12}}>
@@ -41,14 +46,19 @@ export const Settings = ({
                     <CloseIcon size={16} onClick={handleClose}/>
                 </Row>
                 <Row className='align-items-center justify-content-between py-1'>
-                    <SettingOption value={0.1} handleValue={handleSlippageTolerance}/>
-                    <SettingOption value={0.5} handleValue={handleSlippageTolerance}/>
-                    <SettingOption value={1.0} handleValue={handleSlippageTolerance}/>
-                    <SettingOption
-                        value={slippageTolerance}
-                        handleValue={handleSlippageTolerance}
-                        isInput
-                    />
+                    {
+                        valuesToSettingOption.map((value, index) => {
+                            return (
+                                <SettingOption key={index} value={value} handleValue={handleSlippageTolerance} isSelect={slippageTolerance === value}/>
+                            )
+                        })
+                    }
+                    <SettingOptionButton value='Custom' handleValue={handleCustomInput} isSelect={!valuesToSettingOption.includes(slippageTolerance)} />
+                </Row>
+                <Row>
+                    {isCustomInput &&
+                        <SettingInputOption value={slippageTolerance} handleValue={handleSlippageTolerance}/>
+                    }
                 </Row>
                 <Row>
                     <Text>You have a custom node URL?</Text>
