@@ -44,7 +44,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
       }
 
       if (forcePositionCenter) {
-        return '50%'
+        return '0'
       }
 
       return '5vh'
