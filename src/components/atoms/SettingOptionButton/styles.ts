@@ -10,14 +10,21 @@ export const WrapperStyled = styled.div<{isSelect: boolean}>`
   background-color: ${({ theme }) => theme.background.default};
   border: 1px solid ${({ theme }) => theme.border.default};
   cursor: pointer;
-
-  ${({ isSelect, theme }) => isSelect && `
+  
+    ${({ isSelect, theme }) => isSelect && `
         background-color: ${theme.color.primary.default};
         p {
          color:  ${theme.color.white};
         }
         border: 1px solid ${theme.color.primary.default};
     `}
+`;
+
+export const InputWrapperContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 `;
 
 export const Text = styled.p`

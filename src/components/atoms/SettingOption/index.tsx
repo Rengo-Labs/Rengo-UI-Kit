@@ -5,15 +5,17 @@ export interface SettingOptionProps {
   value: number
   isInput?: boolean
   handleValue: (value: number) => void
+  isSelect?: boolean
 }
 
 export const SettingOption = ({
   value,
   handleValue,
-  isInput = false
+  isInput = false,
+  isSelect = false
 }: SettingOptionProps) => {
   return (
-    <WrapperStyled onClick={(e) => (!isInput ? handleValue(value) : null)}>
+    <WrapperStyled onClick={(e) => (!isInput ? handleValue(value) : null)} isSelect={isSelect}>
       {!isInput ? (
         <Text>{value} %</Text>
       ) : (
