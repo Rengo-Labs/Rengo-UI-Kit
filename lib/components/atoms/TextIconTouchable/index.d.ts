@@ -9,5 +9,6 @@ export interface TextIconTouchableProps {
     iconHeight?: number;
     iconWidth?: number;
     padding?: number;
+    isUpperCase?: boolean;
 }
-export declare const TextIconTouchable: ({ startIcon, name, endIcon, actionCallBack, background, color, iconHeight, iconWidth, padding }: TextIconTouchableProps) => React.JSX.Element;
+export declare const TextIconTouchable: ({ startIcon, name, endIcon, actionCallBack, background, color, iconHeight, iconWidth, padding, isUpperCase }: TextIconTouchableProps) => React.JSX.Element;

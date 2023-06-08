@@ -65,6 +65,7 @@ export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tok
               endIcon={endIcon}
               actionCallBack={onChangeToken}
               background='transparent'
+              isUpperCase={false}
             />
           }
           value={value}
