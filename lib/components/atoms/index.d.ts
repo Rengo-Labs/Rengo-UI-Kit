@@ -19,6 +19,8 @@ export * from './TransactionDetails';
 export * from './TransactionDetailsTextOnly';
 export * from './HorizontalCard';
 export * from './SettingOption';
+export * from './SettingOptionButton';
+export * from './SettingInputOption';
 export * from './Icons';
 export * from './Divider';
 export * from './Chart';
