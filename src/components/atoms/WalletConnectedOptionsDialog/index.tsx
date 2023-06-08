@@ -100,7 +100,8 @@ export const WalletConnectedOptionsDialog = ({closeCallback, options, isOpen}: W
   return (
     <Dialog
       isOpen={isOpen}
-      onClose={closeCallback}>
+      onClose={closeCallback}
+      forcePositionCenter={true}>
       <DialogHeaderContainer isMobile={isMobile}>
         <DialogHeader>
           <DialogTitle>Wallet Connected</DialogTitle>

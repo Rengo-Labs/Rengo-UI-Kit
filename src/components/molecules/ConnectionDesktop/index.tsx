@@ -28,7 +28,8 @@ export const ConnectionDesktop = ({
       {isOpen && (
         <Dialog
           onClose={closeCallback}
-          isOpen={isOpen}>
+          isOpen={isOpen}
+          forcePositionCenter={true}>
           <Container>
             <DialogHeaderContainer>
               <DialogHeader>

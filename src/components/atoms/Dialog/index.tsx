@@ -8,6 +8,7 @@ export interface DialogProps {
   onClose: () => void
   isOpen: boolean
   withoutEffect?: boolean
+  forcePositionCenter?: boolean
 }
 
 /**
@@ -19,7 +20,7 @@ export interface DialogProps {
   @returns {JSX.Element} - A JSX element representing the dialog box component.
 */
 
-export const Dialog = ({ children, onClose, isOpen, withoutEffect = false }: DialogProps) => {
+export const Dialog = ({ children, onClose, isOpen, withoutEffect = false, forcePositionCenter = false }: DialogProps) => {
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -52,6 +53,7 @@ export const Dialog = ({ children, onClose, isOpen, withoutEffect = false }: Dia
         onPointerDown={(e) => e.stopPropagation()}
         isOpen={isOpen}
         withoutEffect={withoutEffect}
+        forcePositionCenter={forcePositionCenter}
       >
         {children}
       </Container>

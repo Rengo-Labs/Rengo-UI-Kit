@@ -11,8 +11,19 @@ export const Backdrop = styled.div`
   opacity: 0.5;
 `;
 
-export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean }>`
-  top: ${({ withoutEffect }) => withoutEffect ? '0px' : '10vh'};
+export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean, forcePositionCenter?: boolean }>`
+  top: ${({ withoutEffect, forcePositionCenter }) => { 
+    withoutEffect ? '0px' : '10vh' 
+    if (withoutEffect) {
+      return '0px'
+    }
+
+    if (forcePositionCenter) {
+      return '50%'
+    }
+
+    return '10vh'
+  }};
   left: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
   transform: translateX(-50%);
   display: flex;
@@ -27,7 +38,17 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   position: absolute;
 
   @media (min-height: 750px) and (max-height: 1000px) {
-    top: ${({ withoutEffect }) => withoutEffect ? '0px' : '5vh'};
+    top: ${({ withoutEffect, forcePositionCenter }) => { 
+      if (withoutEffect) {
+        return '0px'
+      }
+
+      if (forcePositionCenter) {
+        return '50%'
+      }
+
+      return '5vh'
+  }};
   }
 
 
