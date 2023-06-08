@@ -11,21 +11,10 @@ export const Backdrop = styled.div`
   opacity: 0.5;
 `;
 
-export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean, forcePositionCenter?: boolean }>`
-  top: ${({ withoutEffect, forcePositionCenter }) => { 
-    withoutEffect ? '0px' : '10vh' 
-    if (withoutEffect) {
-      return '0px'
-    }
-
-    if (forcePositionCenter) {
-      return '50%'
-    }
-
-    return '10vh'
-  }};
+export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean }>`
+  top: ${({ withoutEffect }) => withoutEffect ? '0px' : 'calc(50% + 53px)'};
   left: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
-  transform: ${({ forcePositionCenter }) => forcePositionCenter ? 'translate(-50%, -50%)' : 'translateX(-50%)'};
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,26 +24,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   border: ${({ theme }) => `1px solid ${theme.border.default}`};
   box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);
   border-radius: ${({ isMobile }) => isMobile ? '0px' : '16px'};
-  position: absolute;
-
-  @media (min-height: 750px) and (max-height: 1000px) {
-    top: ${({ withoutEffect, forcePositionCenter, isMobile }) => { 
-      if (withoutEffect) {
-        return '0px'
-      }
-
-      if (forcePositionCenter) {
-        return '0'
-      }
-
-      if (isMobile) {
-        return '0'
-      }
-
-      return '5vh'
-  }};
-  }
-
+  position: fixed;
 
   ${({ isMobile }) => isMobile && css`
     margin-top: 0;
