@@ -5,6 +5,7 @@ export interface KeyValueInputProps {
     value: number;
     onChange?: (value: number) => void;
     inputType?: InputType;
+    editable?: boolean;
 }
 /**
  * Render a key-value text.
@@ -14,4 +15,4 @@ export interface KeyValueInputProps {
  * @param {InputType} inputType - The type of input to display.
  * @returns  {JSX.Element} The rendered the key-value text.
  */
-export declare const KeyValueInput: ({ keyText, value, onChange, inputType }: KeyValueInputProps) => React.JSX.Element;
+export declare const KeyValueInput: ({ keyText, value, onChange, inputType, editable }: KeyValueInputProps) => React.JSX.Element;

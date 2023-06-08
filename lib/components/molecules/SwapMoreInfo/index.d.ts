@@ -13,6 +13,7 @@ export interface ISwapMoreInfoProps {
     slippageSetter: (value: number) => void;
     pairPath: any[];
     calculateMinimumTokenReceived: (secondTokenAmount: number, slippageTolerance: number) => number;
+    editableSlippage?: boolean;
 }
 /**
  * Render a More info component.
@@ -30,4 +31,4 @@ export interface ISwapMoreInfoProps {
  *  @param {function} slippageSetter - The slippage setter value.
  *  @returns  {JSX.Element} The rendered a list of key-value text and inputs.
  */
-export declare const SwapMoreInfo: ({ firstSymbolToken, firstTokenAmount, secondSymbolToken, secondTokenAmount, priceImpactMessage, priceImpact, platformGasFee, networkGasFee, networkGasFeeSetter, slippageTolerance, slippageSetter, pairPath, calculateMinimumTokenReceived }: ISwapMoreInfoProps) => React.JSX.Element;
+export declare const SwapMoreInfo: ({ firstSymbolToken, firstTokenAmount, secondSymbolToken, secondTokenAmount, priceImpactMessage, priceImpact, platformGasFee, networkGasFee, networkGasFeeSetter, slippageTolerance, slippageSetter, pairPath, calculateMinimumTokenReceived, editableSlippage }: ISwapMoreInfoProps) => React.JSX.Element;

@@ -31,10 +31,11 @@ export interface SwapTabsProps {
     showChart1: boolean;
     showChart0: boolean;
     tabDefault?: number;
+    editableSlippage?: boolean;
 }
 /**
  * Render a Tabs.
  * @param {any} tokenImg - The image value to display in the img field.
  * @returns  {JSX.Element} The rendered two tabs, the first one with a Price component and the second one with the more info component.
  */
-export declare const SwapTabs: ({ firstTokenImg, secondTokenImg, platformGasFee, slippageTolerance, calculateMinimumTokenReceived, firstSymbolToken, firstTokenAmount, pairPath, secondSymbolToken, secondTokenAmount, priceImpact, priceImpactMessage, networkGasFee, networkGasFeeSetter, slippageSetter, onClickButton0, onClickButton1, graphicData, todayPrice, yesterdayPrice, xAxisName, chart0Name, chart1Name, charWidth, charHeight, showChart1, showChart0, tabDefault }: SwapTabsProps) => React.JSX.Element;
+export declare const SwapTabs: ({ firstTokenImg, secondTokenImg, platformGasFee, slippageTolerance, calculateMinimumTokenReceived, firstSymbolToken, firstTokenAmount, pairPath, secondSymbolToken, secondTokenAmount, priceImpact, priceImpactMessage, networkGasFee, networkGasFeeSetter, slippageSetter, onClickButton0, onClickButton1, graphicData, todayPrice, yesterdayPrice, xAxisName, chart0Name, chart1Name, charWidth, charHeight, showChart1, showChart0, tabDefault, editableSlippage }: SwapTabsProps) => React.JSX.Element;
