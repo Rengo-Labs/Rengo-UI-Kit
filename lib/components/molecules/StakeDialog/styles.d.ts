@@ -14,5 +14,4 @@ export declare const DialogTitle: import("styled-components").StyledComponent<"p
 export declare const CloseButton: import("styled-components").StyledComponent<"button", any, {}, never>;
 export declare const TopSubContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const BottomSubContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const ToggleContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TransactionsInnerContainer: import("styled-components").StyledComponent<"div", any, {}, never>;

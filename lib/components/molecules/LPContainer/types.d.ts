@@ -2,5 +2,8 @@ export declare enum LPOptionType {
     SWAP = "Swap",
     ADD_LIQUIDITY = "AddLiquidity",
     DELETE = "DeleteLP",
-    VIEW = "ViewLP"
+    VIEW = "ViewLP",
+    STAKE = "StakeLP",
+    UNSTAKE = "UnstakeLP",
+    CLAIM = "ClaimLP"
 }

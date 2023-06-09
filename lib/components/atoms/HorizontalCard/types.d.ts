@@ -14,10 +14,14 @@ export interface HorizontalCardProps {
     swapHandler: () => void;
     viewHandler: () => void;
     itemHandler?: () => void;
+    stakeHandler?: () => void;
+    unstakeHandler?: () => void;
+    claimHandler?: () => void;
     addLiquidityHandler: () => void;
     favoriteHandler: () => void;
     toggleDialog: () => void;
     actionsDialogActive: boolean;
+    hasStake: boolean;
 }
 export interface PoolInfoProps {
     title: string;

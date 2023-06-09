@@ -12,11 +12,14 @@ export interface LPToken {
     totalLP: string;
     yourShare: string;
     onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any;
+    hasStake: boolean;
 }
 export interface LPContainerPros {
     networkLink: string;
     title: string;
     lpTokens: LPToken[];
+    toggleActive: boolean;
+    toggleAction: any;
 }
 /***
  *
@@ -33,4 +36,4 @@ export interface LPContainerPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export declare const LPContainer: ({ networkLink, title, lpTokens }: LPContainerPros) => React.JSX.Element;
+export declare const LPContainer: ({ networkLink, title, lpTokens, toggleActive, toggleAction }: LPContainerPros) => React.JSX.Element;
