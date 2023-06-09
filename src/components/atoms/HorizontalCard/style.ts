@@ -260,7 +260,9 @@ export const ActionsWrapper = styled.div<Props>`
     z-index: 10;
     position: absolute;
     width: 117px;
-    height: 171px;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
