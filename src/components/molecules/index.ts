@@ -20,4 +20,5 @@ export * from './MyAccountInfoTable'
 export * from './AccountTabs'
 export * from './AccountTransferTable'
 export * from './AccountDeployTable'
+export * from './StakeDialog'
 

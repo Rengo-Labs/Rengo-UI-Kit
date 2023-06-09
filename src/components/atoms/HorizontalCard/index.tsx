@@ -72,10 +72,14 @@ export const HorizontalCard = ({
   swapHandler,
   viewHandler,
   itemHandler,
+  stakeHandler,
+  unstakeHandler,
+  claimHandler,
   addLiquidityHandler,
   favoriteHandler,
   toggleDialog,
-  actionsDialogActive
+  actionsDialogActive,
+  hasStake = false
   }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
   const deviceType = useDeviceType()
@@ -102,6 +106,27 @@ export const HorizontalCard = ({
   const handleView = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
     e.stopPropagation()
     viewHandler()
+  }
+
+  const handleStake = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
+    e.stopPropagation()
+    if (stakeHandler != undefined) {
+      stakeHandler()
+    }
+  }
+
+  const handleUnstake = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
+    e.stopPropagation()
+    if (unstakeHandler != undefined) {
+      unstakeHandler()
+    }
+  }
+
+  const handleClaim = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
+    e.stopPropagation()
+    if (claimHandler != undefined) {
+      claimHandler()
+    }
   }
 
   const pairsLiquidityMiddleIndex = Math.floor(pairsLiquidity.length / 2);
@@ -262,6 +287,39 @@ export const HorizontalCard = ({
               onClick={actionsDialogActive ? undefined : handleView}/>
             <ActionName>View</ActionName>
           </ActionItem>
+
+          <ActionItem
+            onClick={actionsDialogActive ? handleStake : undefined}>
+            <AddLiquidityIcon
+              color={theme?.color.modalText}
+              size={20}
+              onClick={actionsDialogActive ? undefined : handleStake}/>
+            <ActionName>Stake</ActionName>
+          </ActionItem>
+
+          {
+            hasStake &&
+            <ActionItem
+              onClick={actionsDialogActive ? handleUnstake : undefined}>
+              <DeleteIcon
+                color={theme?.color.modalText}
+                size={20}
+                onClick={actionsDialogActive ? undefined : handleUnstake}/>
+              <ActionName>Unstake</ActionName>
+            </ActionItem>
+          }
+
+          {
+            hasStake &&
+              <ActionItem
+                  onClick={actionsDialogActive ? handleClaim : undefined}>
+                  <AddLiquidityIcon
+                      color={theme?.color.modalText}
+                      size={20}
+                      onClick={actionsDialogActive ? undefined : handleClaim}/>
+                  <ActionName>Claim</ActionName>
+              </ActionItem>
+          }
 
         </ActionsInnerWrapper>
       </ActionsWrapper>
