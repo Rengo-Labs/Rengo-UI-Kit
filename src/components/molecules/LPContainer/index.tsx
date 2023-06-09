@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
-import {LiquidityWrapped, LiquidityTitle} from './styles'
+import {LiquidityWrapped, LiquidityTitle, TitleWrapped} from './styles'
 import {LPOptionType} from './types'
-import {HorizontalCard} from '../../atoms'
+import {HorizontalCard, Toggle} from '../../atoms'
+import { Variant } from '../../atoms/Toggle/types'
+
 export interface LPToken {
   contractPackage: string,
   firstTokenIcon: any,
@@ -15,12 +17,15 @@ export interface LPToken {
   totalLP: string,
   yourShare: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any
+  hasStake: boolean
 }
 
 export interface LPContainerPros {
   networkLink: string,
   title: string,
   lpTokens: LPToken[],
+  toggleActive: boolean,
+  toggleAction: any
 }
 
 /***
@@ -38,7 +43,7 @@ export interface LPContainerPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export const LPContainer = ({ networkLink, title, lpTokens = [] } : LPContainerPros) => {
+export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = false, toggleAction = () => {} } : LPContainerPros) => {
 
   const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
   const toggleDialog = (name: string) => {
@@ -47,7 +52,12 @@ export const LPContainer = ({ networkLink, title, lpTokens = [] } : LPContainerP
 
   return (
     <LiquidityWrapped>
-      <LiquidityTitle>{title}</LiquidityTitle>
+      <TitleWrapped>
+        <LiquidityTitle>{title}</LiquidityTitle>
+        <div>
+          <Toggle variant={Variant.InvertedColors} labelText='Staked' isActive={toggleActive} toggle={() => toggleAction()}/>
+        </div>
+      </TitleWrapped>
       {
         lpTokens.length > 0 &&
         lpTokens.map((item, index) => {
@@ -69,6 +79,10 @@ export const LPContainer = ({ networkLink, title, lpTokens = [] } : LPContainerP
             trashHandler={() => item.onOptionClick(LPOptionType.DELETE, item.firstSymbol, item.secondSymbol)}
             swapHandler={() => item.onOptionClick(LPOptionType.SWAP, item.firstSymbol, item.secondSymbol)}
             viewHandler={() => item.onOptionClick(LPOptionType.VIEW, item.firstSymbol, item.secondSymbol)}
+            stakeHandler={() => item.onOptionClick(LPOptionType.STAKE, item.firstSymbol, item.secondSymbol)}
+            unstakeHandler={() => item.onOptionClick(LPOptionType.UNSTAKE, item.firstSymbol, item.secondSymbol)}
+            claimHandler={() => item.onOptionClick(LPOptionType.CLAIM, item.firstSymbol, item.secondSymbol)}
+            hasStake={item.hasStake}
             addLiquidityHandler={() => item.onOptionClick(LPOptionType.ADD_LIQUIDITY, item.firstSymbol, item.secondSymbol)}
             favoriteHandler={() => {}}
             toggleDialog={() => toggleDialog(`${item.firstSymbol}-${item.secondSymbol}`)}

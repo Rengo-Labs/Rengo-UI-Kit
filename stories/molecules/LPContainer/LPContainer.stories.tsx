@@ -116,7 +116,62 @@ LPFavorite.args = {
             totalLP: '23000',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
-            }
+            },
+            hasStake: false
+        },
+    ]
+};
+
+export const HasStake = Template.bind({});
+// @ts-ignore
+HasStake.args = {
+    title: 'My Liquidity',
+    networkLink: 'https://testnet.cspr.live/contract-package/',
+    lpTokens: [
+        {
+            firstTokenIcon: ethToken,
+            secondTokenIcon: csprToken,
+            isFavorite: true,
+            firstSymbol: 'ETH',
+            secondSymbol: 'CSPR',
+            firstAmount: '200.00000002',
+            secondAmount: '4000000.00000122',
+            userLP: '10',
+            totalLP: '232000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            },
+            hasStake: true
+        },
+        {
+            firstTokenIcon: btcToken,
+            secondTokenIcon: csprToken,
+            isFavorite: true,
+            firstSymbol: 'BTC',
+            secondSymbol: 'CSPR',
+            firstAmount: '0.05',
+            secondAmount: '9000000.00000122',
+            userLP: '1.02124355',
+            totalLP: '34000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            },
+            hasStake: true
+        },
+        {
+            firstTokenIcon: usdIcon,
+            secondTokenIcon: csprToken,
+            isFavorite: true,
+            firstSymbol: 'USDT',
+            secondSymbol: 'CSPR',
+            firstAmount: '50.00000002',
+            secondAmount: '4000.00000122',
+            userLP: '19.22110000',
+            totalLP: '23000',
+            contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+            onOptionClick: (option, firstSymbol, secondSymbol) => {
+            },
+            hasStake: true
         },
     ]
 };
