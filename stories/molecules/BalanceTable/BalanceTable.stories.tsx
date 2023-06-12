@@ -24,6 +24,8 @@ Default.args = {
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
       mycrypto: 0.0,
+      marketprice: 0.0,
+      mybalance: 0.0,
       '24h': -80.6,
       '7d': -10.0,
       '15d': 20.0,
@@ -36,6 +38,8 @@ Default.args = {
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
       mycrypto: -5.0,
+      marketprice: 0.0,
+      mybalance: 0.0,
       '24h': -5.0,
       '7d': 5.0,
       '15d': -5.0,
@@ -48,6 +52,8 @@ Default.args = {
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
       mycrypto: 10.0,
+      marketprice: 0.0,
+      mybalance: 0.0,
       '24h': 10.0,
       '7d': 50.4,
       '15d': 50.3,
@@ -60,6 +66,8 @@ Default.args = {
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
       mycrypto: 207,
+      marketprice: 0.0,
+      mybalance: 0.0,
       '24h': 207,
       '7d': 1.0,
       '15d': 0.0,
@@ -72,6 +80,8 @@ Default.args = {
       cryptoIcon:
         'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
       mycrypto: -180.6,
+      marketprice: 0.0,
+      mybalance: 0.0,
       '24h': -180.6,
       '7d': 0.0,
       '15d': 0.0,

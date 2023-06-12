@@ -11,6 +11,8 @@ export interface IHeader {
   crypto: string
   cryptoIcon: string
   mycrypto: number
+  marketprice: number
+  mybalance: number
   '24h': number
   '7d': number
   '15d': number
@@ -32,7 +34,17 @@ const columns = [
   },
   {
     key: 'mycrypto',
-    name: 'My Crypto',
+    name: 'My Token Balance',
+    isSorteable: true
+  },
+  {
+    key: 'marketprice',
+    name: 'Market Price',
+    isSorteable: true
+  },
+  {
+    key: 'mybalance',
+    name: 'My Balance',
     isSorteable: true
   },
   {
