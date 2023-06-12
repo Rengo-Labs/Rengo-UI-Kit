@@ -215,9 +215,9 @@ export const HorizontalCard = ({
             {pairsLiquidity && pairsLiquidity.slice(0, pairsLiquidityMiddleIndex).map((pair, i) => (
 
               <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
-              <MobileTextContent>
-                <PairLiquidityName>{pair.name}</PairLiquidityName>
-                <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+                <MobileTextContent>
+                  <PairLiquidityName>{pair.name}</PairLiquidityName>
+                  <PairLiquidityValue>{pair.value}</PairLiquidityValue>
                 </MobileTextContent>
               </PairsLiquidityMobileWrapper>
 
@@ -228,9 +228,9 @@ export const HorizontalCard = ({
             {pairsLiquidity && pairsLiquidity.slice(pairsLiquidityMiddleIndex).map((pair, i) => (
 
             <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
-            <MobileTextContent>
-              <PairLiquidityName>{pair.name}</PairLiquidityName>
-              <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+              <MobileTextContent>
+                <PairLiquidityName>{pair.name}</PairLiquidityName>
+                <PairLiquidityValue>{pair.value}</PairLiquidityValue>
               </MobileTextContent>
             </PairsLiquidityMobileWrapper>
 

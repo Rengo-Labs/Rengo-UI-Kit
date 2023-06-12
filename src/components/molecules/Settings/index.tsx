@@ -3,25 +3,25 @@ import {Button, Input, Row, SettingOption, Dialog, SettingOptionButton, SettingI
 import {CloseIcon, Text, Wrapper} from './styles'
 import {Status, Type} from '../../atoms/Input/types'
 export interface SettingsProps {
-    slippageToleranceValue: number
+    slippageToleranceValue: string
     customNodeUrlValue: string
-    handleSave: (slippage: number, node: string ) => void
+    handleSave: (slippage: string, node: string ) => void
     handleClose: () => void
     isOpen: boolean
 }
 export const Settings = ({
-                             slippageToleranceValue = 0.1,
+                             slippageToleranceValue = "0.1",
                              customNodeUrlValue = '',
                              handleSave,
                              handleClose,
                              isOpen
                          }: SettingsProps) => {
-    const [slippageTolerance, setSlippageTolerance] = React.useState<number>(slippageToleranceValue)
+    const [slippageTolerance, setSlippageTolerance] = React.useState<string>(slippageToleranceValue)
     const [customNodeUrl, setCustomNodeUrl] = React.useState<string>(customNodeUrlValue)
     const [isCustomInput, setIsCustomInput] = React.useState<boolean>(false)
-    const valuesToSettingOption = [0.1, 0.5, 1.0]
+    const valuesToSettingOption = ["0.1", "0.5", "1.0"]
 
-    const handleSlippageTolerance = (value: number) => {
+    const handleSlippageTolerance = (value: string) => {
         setSlippageTolerance(value)
     }
     const handlerInput = (value: string) => {

@@ -2,9 +2,9 @@ import React, { ChangeEvent } from 'react'
 import { WrapperStyled, Text, Input, InputWrapper } from './styles'
 
 export interface SettingOptionProps {
-  value: number
+  value: string
   isInput?: boolean
-  handleValue: (value: number) => void
+  handleValue: (value: string) => void
   isSelect?: boolean
 }
 
@@ -24,7 +24,7 @@ export const SettingOption = ({
             value={value}
             placeholder="_ _ _"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              handleValue(Number(e.target.value))
+              handleValue(e.target.value)
             }
           />
           <Text>%</Text>
