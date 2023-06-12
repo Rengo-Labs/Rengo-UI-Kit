@@ -11,10 +11,13 @@ export const Head = styled.thead`
   }
 `
 
-export const TR = styled.tr<{ columnsQty: number }>`
+export const TR = styled.tr<{ columnsQty: number, centerItems?: boolean }>`
   width: 100%;
   gap: 15px;
   display: grid;
+  ${({ centerItems }) => centerItems && css`
+    justify-items: center;
+  `}
   grid-template-columns: ${({ columnsQty }) => {
     let gridColumns = ''
     Array.from({ length: columnsQty - 1 }, (_, index) => {

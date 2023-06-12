@@ -40,6 +40,12 @@ export const Footer = styled.div`
   width: 100%;
 `
 
+export const MiddleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`
+
 export const Title = styled.p<any>`
   font-family: ${({ theme }) => theme.typography.secondaryFont};
   font-style: normal;

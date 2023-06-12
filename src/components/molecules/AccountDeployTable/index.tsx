@@ -100,7 +100,6 @@ export const AccountDeployTable = ({
         <TableHeader
           columns={columns}
           onSort={handleSort}
-          firstColumnRef={cryptoColumnRef}
         />
       )}
       <Body>
