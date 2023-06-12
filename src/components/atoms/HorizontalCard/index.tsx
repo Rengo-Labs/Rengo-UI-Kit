@@ -84,6 +84,7 @@ export const HorizontalCard = ({
   const theme = useTheme() as theme;
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
+  const IDX_LAST_COLUMN_PAIRS_LP = 4;
   const redirectToNetwork = (contractPackage: string) => {
     const link = `${networkLink}${contractPackage}`
     window.open(link, '_blank')
@@ -225,7 +226,20 @@ export const HorizontalCard = ({
           </MobileRow>
 
           <MobileRow>
-            {pairsLiquidity && pairsLiquidity.slice(pairsLiquidityMiddleIndex).map((pair, i) => (
+            {pairsLiquidity && pairsLiquidity.slice(pairsLiquidityMiddleIndex, IDX_LAST_COLUMN_PAIRS_LP).map((pair, i) => (
+
+            <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
+              <MobileTextContent>
+                <PairLiquidityName>{pair.name}</PairLiquidityName>
+                <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+              </MobileTextContent>
+            </PairsLiquidityMobileWrapper>
+
+            ))}
+          </MobileRow>
+          
+          <MobileRow>
+            {pairsLiquidity && pairsLiquidity.slice(IDX_LAST_COLUMN_PAIRS_LP).map((pair, i) => (
 
             <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
               <MobileTextContent>

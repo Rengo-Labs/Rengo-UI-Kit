@@ -37,6 +37,7 @@ export interface IPoolTableItem {
   assetsPoolToken0: string
   assetsPoolToken1: string
   yourShare: string
+  apr: string
   isFavorite?: boolean
   favoriteHandler?: () => void
   handleTrash: () => void
@@ -62,6 +63,7 @@ export const PoolTableItem = ({
   assetsPoolToken0,
   assetsPoolToken1,
   yourShare,
+  apr,
   isFavorite,
   favoriteHandler,
   handleTrash,
@@ -130,6 +132,9 @@ export const PoolTableItem = ({
       </TD>
       <TD>
         <Text>{yourShare} %</Text>
+      </TD>
+      <TD>
+        <Text>{apr} %</Text>
       </TD>
       <TD isLastItem={true}>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
