@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import TableHeader from '../../atoms/TableHeader'
-import { Wrapper } from './styles'
+import { Body, Wrapper } from './styles'
 import { useDeviceType } from '../../../hooks/useDeviceType'
 import { DeviceType } from '../../../hooks/types'
 import { BalanceMobileItem, TableBalanceBody } from '../../atoms'
@@ -33,18 +33,18 @@ const columns = [
     isSorteable: true
   },
   {
-    key: 'mycrypto',
-    name: 'My Token Balance',
-    isSorteable: true
-  },
-  {
     key: 'marketprice',
-    name: 'Market Price',
+    name: 'Market Price($)',
     isSorteable: true
   },
   {
     key: 'mybalance',
-    name: 'My Balance',
+    name: 'My Balance($)',
+    isSorteable: true
+  },
+  {
+    key: 'mycrypto',
+    name: 'My Crypto($)',
     isSorteable: true
   },
   {
@@ -76,22 +76,36 @@ export const BalanceTable = ({
   heightIcon = 30
 }: BalaceTableProps) => {
   const [balanceData, setBalanceData] = useState<IHeader[]>([])
+  const [cryptoColumnWidth, setCryptoColumnWidth] = useState<string[]>([])
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
-  const cryptoColumnRef = useRef<HTMLTableCellElement>(null);
-  const cryptoColumnWidth = cryptoColumnRef.current?.clientWidth || 0
+  const HeadTRRef = useRef<HTMLTableCellElement>(null);
 
+  useEffect(() => {
+    if (!HeadTRRef.current) {
+      return
+    }
+    const gridStyle = getComputedStyle(HeadTRRef.current);
+    const gridColumnTemplate = gridStyle.gridTemplateColumns;
+    const columnWidths = gridColumnTemplate.split(' ');
+    
+    setCryptoColumnWidth(columnWidths)
+  }, []);
   useEffect(() => {
     setBalanceData(data)
   }, [data])
 
   const handleSort = (key: string, isAscending: boolean) => {
+    
     const sortedData = [...balanceData].sort((a, b) => {
       const sortMultiplier = isAscending ? 1 : -1
+      
       return a[key as keyof IHeader] > b[key as keyof IHeader]
         ? sortMultiplier
         : -sortMultiplier
     })
+
+  
     setBalanceData(sortedData)
   }
 
@@ -101,28 +115,32 @@ export const BalanceTable = ({
         <TableHeader
           columns={columns}
           onSort={handleSort}
-          firstColumnRef={cryptoColumnRef} />
+          HeadTRRef={HeadTRRef}
+          centerItems={true} />
       )}
-      {balanceData.map((row) =>
-        isMobile ? (
-          <BalanceMobileItem
-            networkLink={networkLink}
-            key={row.id}
-            row={row}
-            widthIcon={widthIcon}
-            heightIcon={heightIcon}
-          />
-        ) : (
-          <TableBalanceBody
-            networkLink={networkLink}
-            key={row.id}
-            row={row}
-            widthIcon={widthIcon}
-            heightIcon={heightIcon}
-            cryptoColumnWidth={cryptoColumnWidth}
-          />
-        )
-      )}
+      <Body>
+        {balanceData.map((row, idx) =>
+          isMobile ? (
+            <BalanceMobileItem
+              networkLink={networkLink}
+              key={row.id}
+              row={row}
+              widthIcon={widthIcon}
+              heightIcon={heightIcon}
+            />
+          ) : (
+              <TableBalanceBody
+                key={`table-bTr-${idx}`}
+                networkLink={networkLink}
+                row={row}
+                widthIcon={widthIcon}
+                heightIcon={heightIcon}
+                cryptoColumnWidth={cryptoColumnWidth}
+              />
+          )
+        )}
+      </Body>
+
     </Wrapper>
   )
 }

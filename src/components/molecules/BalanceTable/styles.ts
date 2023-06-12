@@ -4,6 +4,13 @@ interface IWrapperProps {
   isMobile: boolean;
 }
 
+export const Body = styled.tbody`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+
 export const Wrapper = styled.table<IWrapperProps>`
   display: flex;
   flex-direction: column;

@@ -7,8 +7,10 @@ interface TableProps {
   row: IHeader
   heightIcon: number
   widthIcon: number
-  cryptoColumnWidth: number
+  cryptoColumnWidth: string[]
 }
+
+const DLL_COLUMNS = ['marketprice', 'mybalance', 'mycrypto']
 
 export const TableBalanceBody = ({ networkLink, row, heightIcon, widthIcon, cryptoColumnWidth }: TableProps) => {
   const redirectToNetwork = (hash: string) => {
@@ -17,7 +19,6 @@ export const TableBalanceBody = ({ networkLink, row, heightIcon, widthIcon, cryp
   }
 
   return (
-    <Body>
       <TR cryptoColumnWidth={cryptoColumnWidth}>
         {Object.keys(row).filter(key => key !== 'contractPackage').map((key: string) => {
           if (key !== 'id' && key !== 'cryptoIcon') {
@@ -26,8 +27,7 @@ export const TableBalanceBody = ({ networkLink, row, heightIcon, widthIcon, cryp
             return (
               <TD
                 key={key}
-                isCryptoColumn={isCryptoColumn}
-                cryptoColumnWidth={cryptoColumnWidth}>
+                isCryptoColumn={isCryptoColumn}>
                 {key === 'crypto' && (
                   <Icon src={row['cryptoIcon'] as string} alt={key} sizes='14' height={heightIcon} width={widthIcon}/>
                 )}
@@ -37,7 +37,12 @@ export const TableBalanceBody = ({ networkLink, row, heightIcon, widthIcon, cryp
                   )
                 }
                 {
-                  key !== 'crypto' && (
+                  DLL_COLUMNS.includes(key) && (
+                    <Text>${row[key as keyof IHeader]}</Text>
+                  )
+                }
+                {
+                  key !== 'crypto' && !DLL_COLUMNS.includes(key) && (
                     <Text>{row[key as keyof IHeader]}{key !== 'mycrypto' && key !== 'crypto' && '%'}</Text>
                   )
                 }
@@ -46,6 +51,5 @@ export const TableBalanceBody = ({ networkLink, row, heightIcon, widthIcon, cryp
           }
         })}
       </TR>
-    </Body>
   )
 }

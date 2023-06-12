@@ -9,9 +9,9 @@ export default {
 
 // Create a master template for mapping args to render the LiquidityDetail component
 const Template: ComponentStory<typeof BalanceTable> = (args) => (
-  <div style={{ width: '1150px' }}>
+  // <div style={{ width: '2300px' }}>
     <BalanceTable {...args} />
-  </div>
+  // </div>
 )
 export const Default = Template.bind({})
 Default.args = {

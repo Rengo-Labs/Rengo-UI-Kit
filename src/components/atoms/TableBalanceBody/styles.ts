@@ -5,17 +5,15 @@ export const Body = styled.tbody`
   display: flex;
 `;
 
-export const TR = styled.tr<{ cryptoColumnWidth: number }>`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+export const TR = styled.tr<{ cryptoColumnWidth: string[] }>`
   gap: 15px;
   width: 100%;
+  display: grid;
+  grid-template-columns: ${({ cryptoColumnWidth }) => `${cryptoColumnWidth.join(' ')}`} ;
 `
-export const TD = styled.td<{ isCryptoColumn: boolean, cryptoColumnWidth: number }>`
+export const TD = styled.td<{ isCryptoColumn: boolean }>`
   flex: 1;
-  width: ${({ cryptoColumnWidth, isCryptoColumn }) => isCryptoColumn && `${cryptoColumnWidth}px` };
-  min-height: 32px;
+  min-height: 60px;
   padding: 10px 0 10px 10px;
   display: flex;
   align-items: center;
