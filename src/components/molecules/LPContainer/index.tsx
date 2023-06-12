@@ -13,7 +13,9 @@ export interface LPToken {
   secondSymbol: string,
   firstAmount: string,
   secondAmount: string,
+  userUSDLP: string,
   userLP: string,
+  totalUSDLP: string,
   totalLP: string,
   yourShare: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any
@@ -72,10 +74,10 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
             pairsLiquidity={[
               { name: `Your Pooled (${item.firstSymbol})`, value: `${item.firstAmount}` },
               { name: `Your Pooled (${item.secondSymbol})`, value: `${item.secondAmount}` },
-              { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.totalLP}` },
+              { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.userLP}` },
               { name: "Your Share", value: `${item.yourShare}%`}
             ]}
-            userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalLP}`}, {title: "Your Liquidity ($)", value: `${item.userLP}`}]}
+            userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
             trashHandler={() => item.onOptionClick(LPOptionType.DELETE, item.firstSymbol, item.secondSymbol)}
             swapHandler={() => item.onOptionClick(LPOptionType.SWAP, item.firstSymbol, item.secondSymbol)}
             viewHandler={() => item.onOptionClick(LPOptionType.VIEW, item.firstSymbol, item.secondSymbol)}
