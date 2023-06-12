@@ -1,8 +1,8 @@
 import React from "react";
 interface SettingInputOptionProps {
-    value: number;
+    value: string;
     placeholder?: string;
-    handleValue: (value: number) => void;
+    handleValue: (value: string) => void;
 }
 export declare const SettingInputOption: ({ value, placeholder, handleValue }: SettingInputOptionProps) => React.JSX.Element;
 export {};

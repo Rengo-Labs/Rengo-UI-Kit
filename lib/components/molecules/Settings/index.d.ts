@@ -1,8 +1,8 @@
 import React from 'react';
 export interface SettingsProps {
-    slippageToleranceValue: number;
+    slippageToleranceValue: string;
     customNodeUrlValue: string;
-    handleSave: (slippage: number, node: string) => void;
+    handleSave: (slippage: string, node: string) => void;
     handleClose: () => void;
     isOpen: boolean;
 }

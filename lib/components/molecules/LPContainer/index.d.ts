@@ -8,7 +8,9 @@ export interface LPToken {
     secondSymbol: string;
     firstAmount: string;
     secondAmount: string;
+    userUSDLP: string;
     userLP: string;
+    totalUSDLP: string;
     totalLP: string;
     yourShare: string;
     onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any;
