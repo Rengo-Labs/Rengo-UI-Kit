@@ -51,6 +51,7 @@ export const PoolItemMobile = ({
   assetsPoolToken0,
   assetsPoolToken1,
   yourShare,  
+  apr,
   isFavorite,
   favoriteHandler,
   handleTrash,
@@ -192,6 +193,15 @@ export const PoolItemMobile = ({
             <SubtitleValue>{fees7d}</SubtitleValue>
           </HeaderSubtitle>
         </TD>
+      </BTR>
+      <BTR>
+        <TD>
+          <HeaderSubtitle>
+            <Subtitle>APR</Subtitle>
+            <SubtitleValue>{apr} %</SubtitleValue>
+          </HeaderSubtitle>
+        </TD>
+        <TD/>
       </BTR>
 
       </tbody>
