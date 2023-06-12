@@ -12,7 +12,7 @@ export const Backdrop = styled.div`
 `;
 
 export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, withoutEffect: boolean }>`
-  top: ${({ withoutEffect }) => withoutEffect ? '0px' : 'calc(50% + 53px)'};
+  top: ${({ withoutEffect }) => withoutEffect ? '0px' : 'calc(50% + 43px)'};
   left: ${({ withoutEffect }) => withoutEffect ? '0px' : '50%'};
   transform: translate(-50%, -50%);
   display: flex;
@@ -25,6 +25,17 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   box-shadow: 0px 0px 15px 15px rgba(227, 223, 253, 0.05);
   border-radius: ${({ isMobile }) => isMobile ? '0px' : '16px'};
   position: fixed;
+
+  overflow-y: scroll;
+  max-height: 75%;
+
+  &::-webkit-scrollbar {
+    display: none; 
+  }
+
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
 
   ${({ isMobile }) => isMobile && css`
     margin-top: 0;
@@ -39,6 +50,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
     z-index: 9999;
     position: fixed;
     transform: none;
+    max-height: none;
   `}
 
   ${({ isMobile, isOpen }) => {

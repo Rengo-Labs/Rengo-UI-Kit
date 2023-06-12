@@ -12,18 +12,18 @@ interface Column {
 interface TableHeaderProps {
   columns: Column[]
   onSort: (key: string, isAscending: boolean) => void
-  firstColumnRef?: Ref<HTMLTableCellElement>
+  HeadTRRef?: Ref<HTMLTableCellElement>
+  centerItems?: boolean
 }
 
-export const TableHeader = ({ columns, onSort, firstColumnRef }: TableHeaderProps) => {
+export const TableHeader = ({ columns, onSort, HeadTRRef, centerItems }: TableHeaderProps) => {
   
   return (
     <Head>
-      <TR columnsQty={columns.length}>
+      <TR ref={HeadTRRef as  Ref<any>} columnsQty={columns.length} centerItems={centerItems}>
         {columns.map((column, i) => {
-        const Ref = column.key === 'crypto' || column.key === 'pool' ? firstColumnRef : null;
           return (
-            <TD key={column.key} ref={Ref} customWidth={column.width} isFirstColumn={i === 0} lastColumn={i === columns.length -1}>
+            <TD key={column.key}  customWidth={column.width} isFirstColumn={i === 0} lastColumn={i === columns.length -1}>
               <Text>{column.name}</Text>
               {column.isSorteable && (
                 <Icon>

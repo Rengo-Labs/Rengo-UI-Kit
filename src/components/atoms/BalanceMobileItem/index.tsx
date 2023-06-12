@@ -4,6 +4,7 @@ import {
   Header,
   HeaderSubtitle,
   HeaderTitle,
+  MiddleContainer,
   Subtitle,
   SubtitleValue,
   Title,
@@ -21,6 +22,8 @@ interface BalanceMobileItemProps {
 
 export const BalanceMobileItem = ({ networkLink, row, heightIcon, widthIcon}: BalanceMobileItemProps) => {
   const {
+    marketprice,
+    mybalance,
     contractPackage,
     crypto,
     cryptoIcon,
@@ -30,7 +33,7 @@ export const BalanceMobileItem = ({ networkLink, row, heightIcon, widthIcon}: Ba
     '15d': d15,
     '30d': d30
   } = row
-  
+
   const redirectToNetwork = (contractPackage: string) => {
     const link = `${networkLink}${contractPackage}`
     window.open(link, '_blank')
@@ -48,6 +51,18 @@ export const BalanceMobileItem = ({ networkLink, row, heightIcon, widthIcon}: Ba
           <SubtitleValue>${mycrypto}</SubtitleValue>
         </HeaderSubtitle>
       </Header>
+      <Divider/>
+      <MiddleContainer>
+        <HeaderSubtitle>
+          <Subtitle>Market Price($)</Subtitle>
+          <SubtitleValue>{marketprice}</SubtitleValue>
+        </HeaderSubtitle>
+        <HeaderSubtitle>
+          <Subtitle>MyBalance($)</Subtitle>
+          <SubtitleValue>{mybalance}</SubtitleValue>
+        </HeaderSubtitle>
+      </MiddleContainer>
+
       <Divider/>
       <Footer>
         <HeaderSubtitle>

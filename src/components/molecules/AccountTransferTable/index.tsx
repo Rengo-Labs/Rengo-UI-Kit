@@ -101,7 +101,6 @@ export const AccountTransferTable = ({
         <TableHeader
           columns={columns}
           onSort={handleSort}
-          firstColumnRef={cryptoColumnRef}
         />
       )}
       <Body>

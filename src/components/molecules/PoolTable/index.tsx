@@ -113,8 +113,6 @@ export const PoolTable = ({
   }
 
   const handleSort = (key: string, isAscending: boolean, initialSort?: IHeaderPool[]) => {
-    console.log('sort');
-    
     const EXCLUDED_KEYS =['yourShare', 'actions', 'pool']
     const originalData = initialSort && initialSort?.length > 0 ? initialSort : balanceData
     
@@ -228,7 +226,7 @@ export const PoolTable = ({
 
   return (
     <Wrapper isMobile={isMobile} ref={tableRef}>
-      {!isMobile && <TableHeader columns={columns} onSort={handleSort} firstColumnRef={cryptoColumnRef} />}
+      {!isMobile && <TableHeader columns={columns} onSort={handleSort} />}
       <Body isMobile={isMobile}>
 
         {balanceData && balanceData?.length > 0 ? (
