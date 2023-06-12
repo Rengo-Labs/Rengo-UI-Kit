@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   width: 100%;
   border-radius: 16px;
   background-color: ${({ theme }) => theme.color.table.header.background};
+  margin-bottom: 10px;
 `
 
 export const Header = styled.div`
