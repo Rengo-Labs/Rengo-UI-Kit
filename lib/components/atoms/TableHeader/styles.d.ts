@@ -1,6 +1,7 @@
 export declare const Head: import("styled-components").StyledComponent<"thead", any, {}, never>;
 export declare const TR: import("styled-components").StyledComponent<"tr", any, {
     columnsQty: number;
+    centerItems?: boolean | undefined;
 }, never>;
 export declare const TD: import("styled-components").StyledComponent<"th", any, {
     customWidth?: string | undefined;

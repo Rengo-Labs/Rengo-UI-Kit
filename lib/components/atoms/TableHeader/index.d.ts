@@ -8,7 +8,8 @@ interface Column {
 interface TableHeaderProps {
     columns: Column[];
     onSort: (key: string, isAscending: boolean) => void;
-    firstColumnRef?: Ref<HTMLTableCellElement>;
+    HeadTRRef?: Ref<HTMLTableCellElement>;
+    centerItems?: boolean;
 }
-export declare const TableHeader: ({ columns, onSort, firstColumnRef }: TableHeaderProps) => React.JSX.Element;
+export declare const TableHeader: ({ columns, onSort, HeadTRRef, centerItems }: TableHeaderProps) => React.JSX.Element;
 export default TableHeader;

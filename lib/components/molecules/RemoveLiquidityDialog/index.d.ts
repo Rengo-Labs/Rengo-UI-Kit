@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { RemoveLiquidityDialogProps } from "./types";
 /**
  React component for a Remove Liquidity dialog box.

@@ -5,7 +5,7 @@ interface TableProps {
     row: IHeader;
     heightIcon: number;
     widthIcon: number;
-    cryptoColumnWidth: number;
+    cryptoColumnWidth: string[];
 }
 export declare const TableBalanceBody: ({ networkLink, row, heightIcon, widthIcon, cryptoColumnWidth }: TableProps) => React.JSX.Element;
 export {};

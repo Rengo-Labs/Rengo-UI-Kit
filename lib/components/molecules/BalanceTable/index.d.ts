@@ -5,6 +5,8 @@ export interface IHeader {
     crypto: string;
     cryptoIcon: string;
     mycrypto: number;
+    marketprice: number;
+    mybalance: number;
     '24h': number;
     '7d': number;
     '15d': number;
