@@ -82,15 +82,28 @@ export const BalanceTable = ({
   const HeadTRRef = useRef<HTMLTableCellElement>(null);
 
   useEffect(() => {
-    if (!HeadTRRef.current) {
-      return
-    }
-    const gridStyle = getComputedStyle(HeadTRRef.current);
-    const gridColumnTemplate = gridStyle.gridTemplateColumns;
-    const columnWidths = gridColumnTemplate.split(' ');
-    
-    setCryptoColumnWidth(columnWidths)
+    const handleResize = () => {
+      if (!HeadTRRef.current) {
+        return;
+      }
+      const gridStyle = getComputedStyle(HeadTRRef.current);
+      const gridColumnTemplate = gridStyle.gridTemplateColumns;
+      const columnWidths = gridColumnTemplate.split(' ');
+  
+      setCryptoColumnWidth(columnWidths);
+    };
+  
+    handleResize();
+  
+    window.addEventListener('resize', handleResize);
+  
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
+  
+
+
   useEffect(() => {
     setBalanceData(data)
   }, [data])
