@@ -19,6 +19,7 @@ export interface HorizontalCardProps {
   toggleDialog: () => void
   actionsDialogActive: boolean
   hasStake: boolean
+  hasGauge: boolean
 }
 
 export interface PoolInfoProps {
