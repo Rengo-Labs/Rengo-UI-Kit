@@ -11,6 +11,7 @@ export interface IHeaderPool {
     assetsPoolToken0: string;
     assetsPoolToken1: string;
     yourShare: string;
+    apr: string;
     actions?: string;
     isFavorite?: boolean;
     balance: string;

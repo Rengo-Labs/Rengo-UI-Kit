@@ -13,8 +13,10 @@ export interface LPToken {
     totalUSDLP: string;
     totalLP: string;
     yourShare: string;
+    apr: string;
     onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any;
     hasStake: boolean;
+    hasGauge: boolean;
 }
 export interface LPContainerPros {
     networkLink: string;
