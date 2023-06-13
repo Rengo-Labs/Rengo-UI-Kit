@@ -35,6 +35,7 @@ Default.args = {
             secondAmount: '4000000.00000122',
             userLP: '10.22110000',
             totalLP: '232000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
@@ -49,6 +50,7 @@ Default.args = {
             secondAmount: '9000000.00000122',
             userLP: '1.22110000',
             totalLP: '34000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
@@ -63,6 +65,7 @@ Default.args = {
             secondAmount: '4000.00000122',
             userLP: '19.22110000',
             totalLP: '23000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
@@ -86,6 +89,7 @@ LPFavorite.args = {
             secondAmount: '4000000.00000122',
             userLP: '10',
             totalLP: '232000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
@@ -100,6 +104,7 @@ LPFavorite.args = {
             secondAmount: '9000000.00000122',
             userLP: '1.02124355',
             totalLP: '34000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             }
@@ -114,6 +119,7 @@ LPFavorite.args = {
             secondAmount: '4000.00000122',
             userLP: '19.22110000',
             totalLP: '23000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             },
@@ -138,6 +144,7 @@ HasStake.args = {
             secondAmount: '4000000.00000122',
             userLP: '10',
             totalLP: '232000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             },
@@ -153,6 +160,7 @@ HasStake.args = {
             secondAmount: '9000000.00000122',
             userLP: '1.02124355',
             totalLP: '34000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             },
@@ -168,6 +176,7 @@ HasStake.args = {
             secondAmount: '4000.00000122',
             userLP: '19.22110000',
             totalLP: '23000',
+            apr: '0.99',
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             },
