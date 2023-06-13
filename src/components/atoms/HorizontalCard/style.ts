@@ -76,7 +76,7 @@ export const RowWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 15px;
-  flex: 4;
+  flex: 6;
 
   @media (max-width: 900px) {
     width: 100%;

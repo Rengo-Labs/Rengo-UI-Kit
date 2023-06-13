@@ -79,7 +79,8 @@ export const HorizontalCard = ({
   favoriteHandler,
   toggleDialog,
   actionsDialogActive,
-  hasStake = false
+  hasStake = false,
+  hasGauge = false
   }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
   const deviceType = useDeviceType()
@@ -302,14 +303,17 @@ export const HorizontalCard = ({
             <ActionName>View</ActionName>
           </ActionItem>
 
-          <ActionItem
-            onClick={actionsDialogActive ? handleStake : undefined}>
-            <AddLiquidityIcon
-              color={theme?.color.modalText}
-              size={20}
-              onClick={actionsDialogActive ? undefined : handleStake}/>
-            <ActionName>Stake</ActionName>
-          </ActionItem>
+          {
+            hasGauge &&
+            <ActionItem
+                onClick={actionsDialogActive ? handleStake : undefined}>
+                <AddLiquidityIcon
+                    color={theme?.color.modalText}
+                    size={20}
+                    onClick={actionsDialogActive ? undefined : handleStake}/>
+                <ActionName>Stake</ActionName>
+            </ActionItem>
+          }
 
           {
             hasStake &&
