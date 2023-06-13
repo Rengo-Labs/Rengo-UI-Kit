@@ -98,7 +98,7 @@ export const StakeDialog = ({
                         <TransactionsContainer>
                           <TransactionsInnerContainer>
                             <TransactionDetails
-                                key={`transaction-details-${liquidityPoolData.id}`}
+                                key={`transaction-details-${liquidityPoolData.id}-stake`}
                                 containerWidth="80%"
                                 distribution={Distribution.SpaceBetween}
                                 Icon={liquidityPoolData.firstIcon}
