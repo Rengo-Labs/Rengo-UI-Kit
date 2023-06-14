@@ -75,7 +75,8 @@ export const HorizontalCard = ({
   itemHandler,
   stakeHandler,
   unstakeHandler,
-  claimHandler,
+  claimHandlerWETH,
+  claimHandlerCST,
   addLiquidityHandler,
   favoriteHandler,
   toggleDialog,
@@ -125,12 +126,20 @@ export const HorizontalCard = ({
     }
   }
 
-  const handleClaim = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
+  const handleClaimWETH = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
     e.stopPropagation()
-    if (claimHandler != undefined) {
-      claimHandler()
+    if (claimHandlerWETH != undefined) {
+      claimHandlerWETH()
     }
   }
+
+  const handleClaimCST = (e: React.MouseEvent<HTMLDivElement | SVGElement, MouseEvent>) => {
+    e.stopPropagation()
+    if (claimHandlerCST != undefined) {
+      claimHandlerCST()
+    }
+  }
+
 
   const pairsLiquidityMiddleIndex = Math.floor(pairsLiquidity.length / 2);
 
@@ -331,15 +340,26 @@ export const HorizontalCard = ({
           {
             hasStake &&
               <ActionItem
-                  onClick={actionsDialogActive ? handleClaim : undefined}>
+                  onClick={actionsDialogActive ? handleClaimWETH : undefined}>
                   <DollarSign
                       color={theme?.color.modalText}
                       size={20}
-                      onClick={actionsDialogActive ? undefined : handleClaim}/>
-                  <ActionName>Claim</ActionName>
+                      onClick={actionsDialogActive ? undefined : handleClaimWETH}/>
+                  <ActionName>Claim WETH</ActionName>
               </ActionItem>
           }
 
+          {
+              hasStake &&
+              <ActionItem
+                  onClick={actionsDialogActive ? handleClaimCST : undefined}>
+                <DollarSign
+                    color={theme?.color.modalText}
+                    size={20}
+                    onClick={actionsDialogActive ? undefined : handleClaimWETH}/>
+                <ActionName>Claim CST</ActionName>
+              </ActionItem>
+          }
         </ActionsInnerWrapper>
       </ActionsWrapper>
     </Wrapper>
