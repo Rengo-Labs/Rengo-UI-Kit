@@ -30,13 +30,14 @@ import {
   MobilleContainer,
   MobileRow,
   MobileTextContent,
-  ImageContainer
+  ImageContainer, AddStakeIcon, UnStakeIcon
 } from './style'
 import { useTheme } from 'styled-components'
 import {theme} from '../../../styles/themes/themes'
 import { HorizontalCardProps } from './types'
 import { useDeviceType } from '../../../hooks'
 import { DeviceType } from '../../../hooks/types'
+import {DollarSign} from "react-feather";
 
 /**
   HorizontalCard Component.
@@ -238,7 +239,7 @@ export const HorizontalCard = ({
 
             ))}
           </MobileRow>
-          
+
           <MobileRow>
             {pairsLiquidity && pairsLiquidity.slice(IDX_LAST_COLUMN_PAIRS_LP).map((pair, i) => (
 
@@ -307,7 +308,7 @@ export const HorizontalCard = ({
             hasGauge &&
             <ActionItem
                 onClick={actionsDialogActive ? handleStake : undefined}>
-                <AddLiquidityIcon
+                <AddStakeIcon
                     color={theme?.color.modalText}
                     size={20}
                     onClick={actionsDialogActive ? undefined : handleStake}/>
@@ -319,7 +320,7 @@ export const HorizontalCard = ({
             hasStake &&
             <ActionItem
               onClick={actionsDialogActive ? handleUnstake : undefined}>
-              <DeleteIcon
+              <UnStakeIcon
                 color={theme?.color.modalText}
                 size={20}
                 onClick={actionsDialogActive ? undefined : handleUnstake}/>
@@ -331,7 +332,7 @@ export const HorizontalCard = ({
             hasStake &&
               <ActionItem
                   onClick={actionsDialogActive ? handleClaim : undefined}>
-                  <AddLiquidityIcon
+                  <DollarSign
                       color={theme?.color.modalText}
                       size={20}
                       onClick={actionsDialogActive ? undefined : handleClaim}/>

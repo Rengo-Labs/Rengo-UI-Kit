@@ -1,5 +1,15 @@
 import styled from 'styled-components'
-import { Trash2, Shuffle, PlusCircle, Star, MoreHorizontal, Eye } from 'react-feather'
+import {
+  Trash2,
+  Shuffle,
+  PlusCircle,
+  Star,
+  MoreHorizontal,
+  Eye,
+  TrendingUp,
+  MinusCircle,
+  DollarSign
+} from 'react-feather'
 import { Props } from './types';
 
 export const Wrapper = styled.div`
@@ -261,8 +271,8 @@ export const ActionsWrapper = styled.div<Props>`
     position: absolute;
     width: 117px;
     height: auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -331,12 +341,44 @@ export const ShuffleIcon = styled(Shuffle)`
     filter: brightness(0.8);
   }
 `;
-
 export const AddLiquidityIcon = styled(PlusCircle)`
   user-select: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
  
+  &:active {
+    transform: scale(0.9);
+    filter: brightness(0.8);
+  }
+`;
+
+export const AddStakeIcon = styled(TrendingUp)`
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:active {
+    transform: scale(0.9);
+    filter: brightness(0.8);
+  }
+`;
+
+export const UnStakeIcon = styled(MinusCircle)`
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:active {
+    transform: scale(0.9);
+    filter: brightness(0.8);
+  }
+`;
+
+export const ClaimIcon = styled(DollarSign)`
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
   &:active {
     transform: scale(0.9);
     filter: brightness(0.8);
