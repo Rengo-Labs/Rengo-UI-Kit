@@ -17,9 +17,7 @@ import {
     Dialog,
     Icons,
     Slider,
-    Toggle,
-    TransactionDetails,
-    TransactionDetailsTextOnly
+    TransactionDetails
 } from "../../atoms"
 import {StakeDialogProps} from "./types"
 import {Distribution} from "../../atoms/TransactionDetails/types"
@@ -52,14 +50,11 @@ export const StakeDialog = ({
                                           isOpen,
                                           disabledButton,
                                           disabledAllowanceButton,
-                                          disabledGaugeAllowanceButton,
                                           handleChangeInput,
                                           handleAction,
                                           handleAllowance,
-                                          handleGaugeAllowance,
                                           calculatedAmounts,
                                           showAllowance,
-                                          showGaugeAllowance,
                                           defaultValue,
                                       }: StakeDialogProps): JSX.Element => {
     const deviceType = useDeviceType()
@@ -113,22 +108,14 @@ export const StakeDialog = ({
 
                     <BottomSubContainer>
                         {
-                            (showAllowance || showGaugeAllowance) ?
-                                !showGaugeAllowance ?
-                                  <Button
-                                    type="large"
-                                    props={
-                                      {disabled: disabledAllowanceButton, onClick: () => handleAllowance(), style: {padding: 0}}
-                                    }>
-                                    Approve {calculatedAmounts.allowance} {liquidityPoolData.tokenName}
-                                  </Button>:
-                                  <Button
-                                    type="large"
-                                    props={
-                                      {disabled: disabledGaugeAllowanceButton, onClick: () => handleGaugeAllowance(), style: {padding: 0}}
-                                    }>
-                                    Approve Gauge {calculatedAmounts.gaugeAllowance} {liquidityPoolData.tokenName}
-                                  </Button>
+                            showAllowance ?
+                                <Button
+                                  type="large"
+                                  props={
+                                    {disabled: disabledAllowanceButton, onClick: () => handleAllowance(), style: {padding: 0}}
+                                  }>
+                                  Approve {calculatedAmounts.allowance} {liquidityPoolData.tokenName}
+                                </Button>
                                 :
                                 <Button
                                     type="large"
