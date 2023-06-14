@@ -17,7 +17,7 @@ export default {
 } as ComponentMeta<typeof LPContainer>;
 
 // Create a master template for mapping args to render the LPContainer component
-const Template: ComponentStory<typeof LPContainer> = (args) => 
+const Template: ComponentStory<typeof LPContainer> = (args) =>
     <LPContainer {...args} />
 export const Default = Template.bind({});
 // @ts-ignore
@@ -148,7 +148,8 @@ HasStake.args = {
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             },
-            hasStake: true
+            hasStake: true,
+            hasGauge: true
         },
         {
             firstTokenIcon: btcToken,
@@ -164,7 +165,8 @@ HasStake.args = {
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             },
-            hasStake: true
+            hasStake: true,
+            hasGauge: true
         },
         {
             firstTokenIcon: usdIcon,
@@ -180,7 +182,8 @@ HasStake.args = {
             contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
             onOptionClick: (option, firstSymbol, secondSymbol) => {
             },
-            hasStake: true
+            hasStake: true,
+            hasGauge: true
         },
     ]
 };
