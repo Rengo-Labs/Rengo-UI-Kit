@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 4px;
   padding: 8px;
@@ -13,6 +13,8 @@ export const Container = styled.div`
 
 export const Icon = styled.img`
   margin-right: 5px;
+  width: 24px;
+  height: 24px;
 `
 
 export const Text = styled.p`
