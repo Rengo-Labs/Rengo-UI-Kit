@@ -110,7 +110,7 @@ export const RemoveLiquidityDialog = ({
                         <TransactionsContainer>
                           <TransactionsInnerContainer>
                             <TransactionDetails
-                                key={`transaction-details-${liquidityPoolData.id}`}
+                                key={`transaction-details-${liquidityPoolData.id}-remove-liquidity`}
                                 containerWidth="80%"
                                 distribution={Distribution.SpaceBetween}
                                 Icon={liquidityPoolData.firstIcon}
@@ -122,7 +122,7 @@ export const RemoveLiquidityDialog = ({
                           </TransactionsInnerContainer>
                           <TransactionsInnerContainer>
                             <TransactionDetails
-                                key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.firstName}`}
+                                key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.firstName}-remove-liquidity`}
                                 containerWidth="80%"
                                 distribution={Distribution.SpaceBetween}
                                 Icon={liquidityPoolData.firstIcon}
@@ -133,7 +133,7 @@ export const RemoveLiquidityDialog = ({
                           </TransactionsInnerContainer>
                           <TransactionsInnerContainer>
                             <TransactionDetails
-                                key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.secondName}`}
+                                key={`transaction-details-${liquidityPoolData.id}-${liquidityPoolData.secondName}-remove-liquidity-c`}
                                 containerWidth="80%"
                                 distribution={Distribution.SpaceBetween}
                                 Icon={liquidityPoolData.secondIcon}
@@ -170,7 +170,7 @@ export const RemoveLiquidityDialog = ({
                                 </Button>
                         }
                       {
-                        showToggle && 
+                        showToggle &&
                         <ToggleContainer>
                           <Toggle
                             isActive={isRemoveLiquidityCSPR}
