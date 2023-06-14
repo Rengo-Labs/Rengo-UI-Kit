@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { StakeDialogProps } from "./types";
 /**
  React component for a Remove Liquidity dialog box.
@@ -15,4 +16,4 @@ import { StakeDialogProps } from "./types";
 
  @returns {JSX.Element} - A JSX element representing the Remove Liquidity dialog box.
  */
-export declare const StakeDialog: ({ titleDialog, titleConfirmButton, closeCallback, liquidityPoolData, isOpen, disabledButton, disabledAllowanceButton, disabledGaugeAllowanceButton, handleChangeInput, handleAction, handleAllowance, handleGaugeAllowance, calculatedAmounts, showAllowance, showGaugeAllowance, defaultValue, }: StakeDialogProps) => JSX.Element;
+export declare const StakeDialog: ({ titleDialog, titleConfirmButton, closeCallback, liquidityPoolData, isOpen, disabledButton, disabledAllowanceButton, handleChangeInput, handleAction, handleAllowance, calculatedAmounts, showAllowance, defaultValue, }: StakeDialogProps) => JSX.Element;

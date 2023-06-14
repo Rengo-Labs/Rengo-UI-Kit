@@ -3,7 +3,6 @@ export interface PairData {
     tokenName: string;
     liquidity: string;
     allowance: string;
-    gaugeAllowance: string;
     firstIcon: any;
     firstName: string;
     firstSymbol: string;
@@ -18,17 +17,13 @@ export interface StakeDialogProps {
     handleChangeInput: (value: number) => void;
     handleAction: () => void;
     handleAllowance: () => void;
-    handleGaugeAllowance: () => void;
     liquidityPoolData: PairData;
     isOpen: boolean;
     disabledButton: boolean;
     disabledAllowanceButton: boolean;
-    disabledGaugeAllowanceButton: boolean;
     showAllowance: boolean;
-    showGaugeAllowance: boolean;
     defaultValue: number;
     calculatedAmounts: {
-        gaugeAllowance: string;
         lpAmount: number;
         firstAmount: number;
         secondAmount: number;
