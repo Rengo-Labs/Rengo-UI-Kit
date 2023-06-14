@@ -16,7 +16,8 @@ export interface HorizontalCardProps {
     itemHandler?: () => void;
     stakeHandler?: () => void;
     unstakeHandler?: () => void;
-    claimHandler?: () => void;
+    claimHandlerWETH?: () => void;
+    claimHandlerCST?: () => void;
     addLiquidityHandler: () => void;
     favoriteHandler: () => void;
     toggleDialog: () => void;
