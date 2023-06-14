@@ -86,7 +86,8 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
             viewHandler={() => item.onOptionClick(LPOptionType.VIEW, item.firstSymbol, item.secondSymbol)}
             stakeHandler={() => item.onOptionClick(LPOptionType.STAKE, item.firstSymbol, item.secondSymbol)}
             unstakeHandler={() => item.onOptionClick(LPOptionType.UNSTAKE, item.firstSymbol, item.secondSymbol)}
-            claimHandler={() => item.onOptionClick(LPOptionType.CLAIM, item.firstSymbol, item.secondSymbol)}
+            claimHandlerWETH={() => item.onOptionClick(LPOptionType.CLAIM, item.firstSymbol, item.secondSymbol)}
+            claimHandlerCST={() => item.onOptionClick(LPOptionType.CLAIMCST, item.firstSymbol, item.secondSymbol)}
             hasStake={item.hasStake}
             hasGauge={item.hasGauge}
             addLiquidityHandler={() => item.onOptionClick(LPOptionType.ADD_LIQUIDITY, item.firstSymbol, item.secondSymbol)}

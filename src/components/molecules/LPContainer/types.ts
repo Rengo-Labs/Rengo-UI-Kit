@@ -6,5 +6,6 @@ export enum LPOptionType {
   VIEW = 'ViewLP',
   STAKE = 'StakeLP',
   UNSTAKE = 'UnstakeLP',
-  CLAIM = 'ClaimLP'
+  CLAIM = 'ClaimLP',
+  CLAIMCST = 'ClaimLPCST',
 }
