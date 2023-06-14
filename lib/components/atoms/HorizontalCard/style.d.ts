@@ -27,6 +27,9 @@ export declare const ActionName: import("styled-components").StyledComponent<"p"
 export declare const DeleteIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
 export declare const ShuffleIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
 export declare const AddLiquidityIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
+export declare const AddStakeIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
+export declare const UnStakeIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
+export declare const ClaimIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
 export declare const FavoriteIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
 export declare const SeeActionsIconWrapper: import("styled-components").StyledComponent<"div", any, Props, never>;
 export declare const SeeActionsIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, Props, never>;
