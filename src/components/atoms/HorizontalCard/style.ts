@@ -269,7 +269,7 @@ export const UserPoolInfoValue = styled.p`
 export const ActionsWrapper = styled.div<Props>`
     z-index: 10;
     position: absolute;
-    width: 117px;
+    width: 155px;
     height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
