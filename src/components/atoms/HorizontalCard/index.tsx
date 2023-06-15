@@ -87,7 +87,7 @@ export const HorizontalCard = ({
   const theme = useTheme() as theme;
   const deviceType = useDeviceType()
   const isMobile = deviceType === DeviceType.MOBILE
-  const IDX_LAST_COLUMN_PAIRS_LP = 4;
+  const IDX_LAST_COLUMN_PAIRS_LP = 6;
   const redirectToNetwork = (contractPackage: string) => {
     const link = `${networkLink}${contractPackage}`
     window.open(link, '_blank')
