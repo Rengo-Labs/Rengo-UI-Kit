@@ -136,7 +136,7 @@ export const PoolTableItem = ({
       <TD>
         <Text>{apr} %</Text>
       </TD>
-      <TD isLastItem={true}>
+      <TD>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
             color={

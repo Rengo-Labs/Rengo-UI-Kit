@@ -1,4 +1,4 @@
-import React, {createContext} from 'react'
+import React, {createContext, useState, useEffect} from 'react'
 import {ThemeProvider} from 'styled-components/macro'
 import {GlobalStyles} from '../styles'
 // import {theme as themeVersions} from './index'
@@ -10,9 +10,21 @@ interface IUiProvider {
 }
 
 export const UIProviderContext = createContext({} as any)
+
 const UiProvider = (props: IUiProvider) => {
-    const {children, themeName} = props
-    const [selectedTheme, toggleTheme] = useTheme(themeName || 'default')
+  const {children, themeName} = props
+  const [selectedTheme, setSelectedTheme] = useState<string>('default');
+
+  const toggleTheme = (theme: string) => {
+    setSelectedTheme(theme)
+  }
+
+    useEffect(() => {
+      if (!themeName) {
+        return
+      }
+      toggleTheme(themeName as string)
+  }, [themeName])
 
     return (
         <UIProviderContext.Provider value={{toggleTheme, selectedTheme}}>

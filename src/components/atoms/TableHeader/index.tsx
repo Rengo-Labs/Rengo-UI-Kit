@@ -23,7 +23,7 @@ export const TableHeader = ({ columns, onSort, HeadTRRef, centerItems }: TableHe
       <TR ref={HeadTRRef as  Ref<any>} columnsQty={columns.length} centerItems={centerItems}>
         {columns.map((column, i) => {
           return (
-            <TD key={column.key}  customWidth={column.width} isFirstColumn={i === 0} lastColumn={i === columns.length -1}>
+            <TD key={column.key}  customWidth={column.width} isFirstColumn={i === 0}>
               <Text>{column.name}</Text>
               {column.isSorteable && (
                 <Icon>
