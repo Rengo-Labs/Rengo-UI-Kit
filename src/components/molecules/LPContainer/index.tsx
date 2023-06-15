@@ -18,6 +18,7 @@ export interface LPToken {
   totalUSDLP: string,
   totalLP: string,
   yourShare: string,
+  lpStaked: string,
   apr: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any,
   hasStake: boolean,
@@ -78,6 +79,7 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
               { name: `Your Pooled (${item.secondSymbol})`, value: `${item.secondAmount}` },
               { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.userLP}` },
               { name: "Your Share", value: `${item.yourShare}%`},
+              { name: "LP Stack", value: `${item.lpStaked}%`},
               { name: "APR", value: `${item.apr}`}
             ]}
             userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
