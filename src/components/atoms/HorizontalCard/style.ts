@@ -33,7 +33,7 @@ export const TokenInfoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1.7;
+  flex: 1.4;
 
   @media (max-width: 900px) {
     height: 50px;
@@ -114,7 +114,7 @@ export const TableRow = styled.div`
 export const RowUserPoolInfo = styled.div`
   display: flex;
   gap: 15px;
-  flex: 2.8;
+  flex: 2.2;
   flex-direction: row;
 
   @media (max-width: 900px) {
