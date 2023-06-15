@@ -9,7 +9,7 @@ export declare const TokenName: import("styled-components").StyledComponent<"p",
 export declare const RowWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TableRow: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const RowUserPoolInfo: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const PairsLiquidityWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const PairsLiquidityWrapper: import("styled-components").StyledComponent<"div", any, any, never>;
 export declare const PairsLiquidityMobileWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const PairLiquidityName: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const PairLiquidityValue: import("styled-components").StyledComponent<"p", any, {}, never>;
