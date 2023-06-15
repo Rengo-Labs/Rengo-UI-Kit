@@ -19,7 +19,7 @@ export const TR = styled.tr`
   border-bottom: 1px solid #EAEBEC;
   border-bottom: ${({ theme }) => `1px solid ${theme.border.default}`};
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
 `
 export const TD = styled.td<{ isFirstItem?: boolean, isLastItem?: boolean }>`
