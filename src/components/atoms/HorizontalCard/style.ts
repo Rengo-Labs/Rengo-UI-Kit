@@ -127,12 +127,11 @@ export const RowUserPoolInfo = styled.div`
   }
 `;
 
-export const PairsLiquidityWrapper = styled.div`
+export const PairsLiquidityWrapper = styled.div<any>`
   display: flex;
-  flex: 1;
+  flex: ${props => props.isLastItem ? '0.5': '1'};
   flex-direction: column;
   justify-content: center;
-  flex: 1;
 
   @media (max-width: 900px) {
     width: 50%;
