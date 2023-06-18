@@ -78,8 +78,8 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
               { name: `Your Pooled (${item.firstSymbol})`, value: `${item.firstAmount}` },
               { name: `Your Pooled (${item.secondSymbol})`, value: `${item.secondAmount}` },
               { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.userLP}` },
-              { name: "Your Share", value: `${item.yourShare}%`},
-              { name: "LP Stack", value: `${item.lpStaked}%`},
+              { name: "Your Share", value: `${item.yourShare}`},
+              { name: "LP Stack", value: `${item.lpStaked}`},
               { name: "APR", value: `${item.apr}`}
             ]}
             userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
