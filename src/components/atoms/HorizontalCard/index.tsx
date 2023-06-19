@@ -200,7 +200,7 @@ export const HorizontalCard = ({
       {!isMobile && (
           <RowWrapper>
             {pairsLiquidity && pairsLiquidity.map((pair, i) => (
-              <PairsLiquidityWrapper key={`pairs-liquidity-${pair.name}-${pair.value}-${i}`} isLastItem={i == 4}>
+              <PairsLiquidityWrapper key={`pairs-liquidity-${pair.name}-${pair.value}-${i}`} isLastItem={i == 3 || i == pairsLiquidity.length -1}>
                 <PairLiquidityName>{pair.name}</PairLiquidityName>
                 <PairLiquidityValue>{pair.value}</PairLiquidityValue>
               </PairsLiquidityWrapper>
