@@ -22,7 +22,9 @@ export interface LPToken {
   apr: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any,
   hasStake: boolean,
-  hasGauge: boolean
+  hasGauge: boolean,
+  hasClaimWETH: boolean,
+  hasClaimCST: boolean
 }
 
 export interface LPContainerPros {
@@ -79,7 +81,7 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
               { name: `Your Pooled (${item.secondSymbol})`, value: `${item.secondAmount}` },
               { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.userLP}` },
               { name: "Your Share", value: `${item.yourShare}`},
-              { name: "LP Stack", value: `${item.lpStaked}`},
+              { name: "LP Stake", value: `${item.lpStaked}`},
               { name: "APR", value: `${item.apr}`}
             ]}
             userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
@@ -92,6 +94,8 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
             claimHandlerCST={() => item.onOptionClick(LPOptionType.CLAIMCST, item.firstSymbol, item.secondSymbol)}
             hasStake={item.hasStake}
             hasGauge={item.hasGauge}
+            hasClaimWETH={item.hasClaimWETH}
+            hasClaimCST={item.hasClaimCST}
             addLiquidityHandler={() => item.onOptionClick(LPOptionType.ADD_LIQUIDITY, item.firstSymbol, item.secondSymbol)}
             favoriteHandler={() => {}}
             toggleDialog={() => toggleDialog(`${item.firstSymbol}-${item.secondSymbol}`)}

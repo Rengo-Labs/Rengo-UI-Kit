@@ -82,7 +82,9 @@ export const HorizontalCard = ({
   toggleDialog,
   actionsDialogActive,
   hasStake = false,
-  hasGauge = false
+  hasGauge = false,
+  hasClaimWETH = false,
+  hasClaimCST = false,
   }: HorizontalCardProps) => {
   const theme = useTheme() as theme;
   const deviceType = useDeviceType()
@@ -338,7 +340,7 @@ export const HorizontalCard = ({
           }
 
           {
-            hasStake &&
+            hasStake && hasClaimWETH &&
               <ActionItem
                   onClick={actionsDialogActive ? handleClaimWETH : undefined}>
                   <DollarSign
@@ -350,7 +352,7 @@ export const HorizontalCard = ({
           }
 
           {
-              hasStake &&
+              hasStake && hasClaimCST &&
               <ActionItem
                   onClick={actionsDialogActive ? handleClaimCST : undefined}>
                 <DollarSign
