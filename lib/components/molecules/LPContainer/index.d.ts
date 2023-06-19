@@ -18,6 +18,8 @@ export interface LPToken {
     onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any;
     hasStake: boolean;
     hasGauge: boolean;
+    hasClaimWETH: boolean;
+    hasClaimCST: boolean;
 }
 export interface LPContainerPros {
     networkLink: string;

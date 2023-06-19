@@ -24,6 +24,8 @@ export interface HorizontalCardProps {
     actionsDialogActive: boolean;
     hasStake: boolean;
     hasGauge: boolean;
+    hasClaimWETH?: boolean;
+    hasClaimCST?: boolean;
 }
 export interface PoolInfoProps {
     title: string;
