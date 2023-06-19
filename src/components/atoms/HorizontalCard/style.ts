@@ -129,7 +129,7 @@ export const RowUserPoolInfo = styled.div`
 
 export const PairsLiquidityWrapper = styled.div<any>`
   display: flex;
-  flex: ${props => props.isLastItem ? '0.5': '1'};
+  flex: ${props => props.isLastItem ? '0.7': '1'};
   flex-direction: column;
   justify-content: center;
 
