@@ -53,7 +53,7 @@ export const Settings = ({
                             )
                         })
                     }
-                    <SettingOptionButton value='Custom' handleValue={handleCustomInput} isSelect={!valuesToSettingOption.includes(slippageTolerance)} />
+                    <SettingOptionButton value='Custom' handleValue={handleCustomInput} isSelect={isCustomInput || !valuesToSettingOption.includes(slippageTolerance)} />
                 </Row>
                 <Row>
                     {isCustomInput &&
@@ -63,7 +63,7 @@ export const Settings = ({
                 <Row>
                     <Text>You have a custom node URL?</Text>
                 </Row>
-                <Row className='p-1'>
+                <Row className='m-1'>
                     <Input
                         placeholder='Node URL'
                         helperText='Something is wrong!'
