@@ -10,7 +10,7 @@ interface TableProps {
   cryptoColumnWidth: string[]
 }
 
-const DLL_COLUMNS = ['marketprice', 'mybalance', 'mycrypto']
+const DLL_COLUMNS = ['marketprice', 'mybalance']
 
 export const TableBalanceBody = ({ networkLink, row, heightIcon, widthIcon, cryptoColumnWidth }: TableProps) => {
   const redirectToNetwork = (hash: string) => {
