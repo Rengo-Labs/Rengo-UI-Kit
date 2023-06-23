@@ -38,12 +38,12 @@ export const TokenInnerWrapper = styled.div<Props>`
   align-items: center;
   gap: 8px;
   padding: ${({ distribution }) => {
-    if (Distribution.Center !== distribution) {
-      return '16px 0 16px 0;'
-    }
-
+  if (Distribution.Center !== distribution) {
     return '16px 0 16px 0;'
-  }};
+  }
+
+  return '16px 0 16px 0;'
+}};
 `;
 
 export const Image = styled.img<Props>`
@@ -69,25 +69,25 @@ export const TokenNamesWrapper = styled.div<Props>`
   gap: 5px;
 
   padding-left: ${({ tokenNames, distribution }) =>{
-    if (distribution !== Distribution.Center && distribution !== Distribution.SpaceEvenly) {
-      return '0px;'
-    }
+  if (distribution !== Distribution.Center && distribution !== Distribution.SpaceEvenly) {
+    return '0px;'
+  }
 
-    return '16px;'
-  }};
+  return '16px;'
+}};
 
   flex-direction: ${({tokenNames}) => {
-    if (tokenNames && tokenNames?.length > 1) {
-      return 'column;'
-    }
-    return 'row;'
-  } };
+  if (tokenNames && tokenNames?.length > 1) {
+    return 'column;'
+  }
+  return 'row;'
+} };
 `;
 
 export const TokenName = styled.p<Props>`
   font-family: ${({theme}) => theme.typography.secondaryFont};
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 16px;
   letter-spacing: 0.02em;
   font-weight: 400;
   color: ${({ theme }) => theme.color.keyPairText.keyTextColor};
@@ -107,8 +107,8 @@ export const TokenFullName = styled.p`
 export const TokenNameSymbol = styled.p`
   font-family: ${({theme}) => theme.typography.secondaryFont};
   font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 16px;
   letter-spacing: 0.02em;
   color: ${({ theme }) => theme.color.textInactive};
   text-transform: uppercase;
@@ -132,34 +132,34 @@ export const AmountWrapper = styled.div<Props>`
   overflow-wrap: anywhere;
   padding: 16px 0px 16px 0px;
   font-size: ${({ distribution }) => {
-    if (distribution !== Distribution.Center) {
-      return '16px;'
-    }
+  if (distribution !== Distribution.Center) {
+    return '14px;'
+  }
 
-    return '18px;'
-  }};
+  return '16px;'
+}};
 
   line-height: ${({ distribution }) => {
-    if (distribution !== Distribution.Center) {
-      return '24px;'
-    }
+  if (distribution !== Distribution.Center) {
+    return '16px;'
+  }
 
-    return '26px;'
-  }};
+  return '18px;'
+}};
   letter-spacing: 0.02em;
   color: ${({ theme, containerWidth }) => {
-    if (containerWidth !== '100%') {
-      return theme.color.modalText
-    }
+  if (containerWidth !== '100%') {
+    return theme.color.modalText
+  }
 
-    return theme.color.default
-  }};
+  return theme.color.default
+}};
 `;
 
 export const IconImage = styled.img<Props>`
   ${({ optIconExists }) => {
-    if (optIconExists) {
-      return css`
+  if (optIconExists) {
+    return css`
         &:first-child {
           margin-right: -15px;
         }
@@ -168,8 +168,8 @@ export const IconImage = styled.img<Props>`
           margin-left: -15px;
         }
       `;
-      }
-  }}
+  }
+}}
 `;
 
 export const TokenNamesInnerContainer = styled.div`
