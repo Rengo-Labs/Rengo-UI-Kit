@@ -35,4 +35,7 @@ Default.args = {
   yourLiquidity: '$607,636.83',
   volume7D: '$4,653,213',
   fees7D: '$4,653,213',
+  yourStaked: '323.03232',
+  stakedPercentage: '23.22 %',
+  yourAPR: '22.22 %'
 }
