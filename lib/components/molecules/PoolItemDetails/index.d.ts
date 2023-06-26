@@ -19,5 +19,8 @@ export interface PoolItemDetailsProps {
     yourShare?: string;
     volume7D?: string;
     fees7D?: string;
+    yourStaked: string;
+    stakedPercentage: string;
+    yourAPR: string;
 }
-export declare const PoolItemDetails: ({ closeCallback, isOpen, token0Icon, token1Icon, widthIcon, heightIcon, token0Symbol, token1Symbol, isFavorite, handleFavorite, yourLiquidityTokens, yourLiquidity, assetsPooled, yourShare, volume7D, fees7D, }: PoolItemDetailsProps) => React.JSX.Element;
+export declare const PoolItemDetails: ({ closeCallback, isOpen, token0Icon, token1Icon, widthIcon, heightIcon, token0Symbol, token1Symbol, isFavorite, handleFavorite, yourLiquidityTokens, yourLiquidity, assetsPooled, yourShare, volume7D, fees7D, yourStaked, stakedPercentage, yourAPR }: PoolItemDetailsProps) => React.JSX.Element;
