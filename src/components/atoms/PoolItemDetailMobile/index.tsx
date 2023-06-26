@@ -40,6 +40,9 @@ export const PoolItemDetailMobile = ({
   yourShare,
   volume7D,
   fees7D,
+  yourStaked,
+  stakedPercentage,
+  yourAPR
 }: PoolItemDetailsProps) => {
   const theme = useTheme() as theme
 
@@ -103,6 +106,21 @@ export const PoolItemDetailMobile = ({
           <PoolKeyPairContainer>
             <PoolKey>FEES 7D</PoolKey>
             <PoolValue>{fees7D}</PoolValue>
+          </PoolKeyPairContainer>
+
+          <PoolKeyPairContainer>
+            <PoolKey>Your APR</PoolKey>
+            <PoolValue>{yourAPR}</PoolValue>
+          </PoolKeyPairContainer>
+
+          <PoolKeyPairContainer>
+            <PoolKey>Your Staked</PoolKey>
+            <PoolValue>{yourStaked}</PoolValue>
+          </PoolKeyPairContainer>
+
+          <PoolKeyPairContainer>
+            <PoolKey>Staked %</PoolKey>
+            <PoolValue>{stakedPercentage}</PoolValue>
           </PoolKeyPairContainer>
      
         </InnerContainer>

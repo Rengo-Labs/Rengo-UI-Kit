@@ -29,9 +29,6 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   overflow-y: scroll;
   max-height: 75%;
 
-  &::-webkit-scrollbar {
-    display: none; 
-  }
 
   &::-webkit-scrollbar-track {
     display: none;
