@@ -18,4 +18,5 @@ export const Default = Template.bind({})
 
 Default.args = {
   handleOnlyShowStaked: (e) => console.log('LPSearch', e),
+    getProgress: () => 0,
 };
