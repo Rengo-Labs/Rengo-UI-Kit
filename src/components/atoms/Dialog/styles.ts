@@ -26,7 +26,7 @@ export const Container = styled.dialog<{ isOpen?: boolean, isMobile: boolean, wi
   border-radius: ${({ isMobile }) => isMobile ? '0px' : '16px'};
   position: fixed;
 
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 75%;
 
 

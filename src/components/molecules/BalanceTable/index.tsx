@@ -44,7 +44,7 @@ const columns = [
   },
   {
     key: 'mycrypto',
-    name: 'My Crypto($)',
+    name: 'My Crypto',
     isSorteable: true
   },
   {
@@ -89,19 +89,19 @@ export const BalanceTable = ({
       const gridStyle = getComputedStyle(HeadTRRef.current);
       const gridColumnTemplate = gridStyle.gridTemplateColumns;
       const columnWidths = gridColumnTemplate.split(' ');
-  
+
       setCryptoColumnWidth(columnWidths);
     };
-  
+
     handleResize();
-  
+
     window.addEventListener('resize', handleResize);
-  
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
+
 
 
   useEffect(() => {
@@ -109,16 +109,16 @@ export const BalanceTable = ({
   }, [data])
 
   const handleSort = (key: string, isAscending: boolean) => {
-    
+
     const sortedData = [...balanceData].sort((a, b) => {
       const sortMultiplier = isAscending ? 1 : -1
-      
+
       return a[key as keyof IHeader] > b[key as keyof IHeader]
         ? sortMultiplier
         : -sortMultiplier
     })
 
-  
+
     setBalanceData(sortedData)
   }
 
