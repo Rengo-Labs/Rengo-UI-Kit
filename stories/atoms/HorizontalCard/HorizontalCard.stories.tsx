@@ -39,5 +39,7 @@ Default.args = {
   unstakeHandler: () => console.log('horizontal card: unstake'),
   claimHandler: () => console.log('horizontal card: claim'),
   addLiquidityHandler: () => console.log('horizontal card: add liquidity'),
-  favoriteHandler: () => console.log('horizontal card: favorite')
+  favoriteHandler: () => console.log('horizontal card: favorite'),
+  rewardETHTitle: 'ETH',
+  rewardCSTTitle: 'CST'
 };

@@ -39,6 +39,8 @@ const LPTokensDefault = [
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
+        rewardETHTitle: 'ETH',
+        rewardCSTTitle: 'CST',
         hasStake: false,
         hasGauge: false
     },
@@ -182,6 +184,8 @@ const LPTokensHasStake = [
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
+        rewardETHTitle: 'ETH',
+        rewardCSTTitle: 'CST',
         hasStake: true,
         hasGauge: true
     },
@@ -203,6 +207,8 @@ const LPTokensHasStake = [
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
+        rewardETHTitle: 'ETH',
+        rewardCSTTitle: 'CST',
         hasStake: true,
         hasGauge: true
     },
@@ -224,6 +230,8 @@ const LPTokensHasStake = [
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
+        rewardETHTitle: 'ETH',
+        rewardCSTTitle: 'CST',
         hasStake: true,
         hasGauge: true
     }
@@ -257,6 +265,8 @@ const LPTokensHasStakeBoleans = [
         },
         hasStake: true,
         hasGauge: true,
+        rewardETHTitle: 'ETH',
+        rewardCSTTitle: 'CST',
         hasClaimWETH: true,
         hasClaimCST: false,
     },
@@ -280,6 +290,8 @@ const LPTokensHasStakeBoleans = [
         },
         hasStake: true,
         hasGauge: true,
+        rewardETHTitle: 'ETH',
+        rewardCSTTitle: 'CST',
         hasClaimWETH: true,
         hasClaimCST: true,
     },
@@ -303,6 +315,8 @@ const LPTokensHasStakeBoleans = [
         },
         hasStake: true,
         hasGauge: true,
+        rewardETHTitle: 'ETH',
+        rewardCSTTitle: 'CST',
         hasClaimWETH: false,
         hasClaimCST: true,
     }
