@@ -23,6 +23,8 @@ export interface LPToken {
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any,
   hasStake: boolean,
   hasGauge: boolean,
+  rewardETHTitle?: string,
+  rewardCSTTitle?: string,
   hasClaimWETH: boolean,
   hasClaimCST: boolean
 }
@@ -94,6 +96,8 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
             claimHandlerCST={() => item.onOptionClick(LPOptionType.CLAIMCST, item.firstSymbol, item.secondSymbol)}
             hasStake={item.hasStake}
             hasGauge={item.hasGauge}
+            rewardETHTitle={item.rewardETHTitle}
+            rewardCSTTitle={item.rewardCSTTitle}
             hasClaimWETH={item.hasClaimWETH}
             hasClaimCST={item.hasClaimCST}
             addLiquidityHandler={() => item.onOptionClick(LPOptionType.ADD_LIQUIDITY, item.firstSymbol, item.secondSymbol)}

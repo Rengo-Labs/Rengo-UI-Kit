@@ -83,6 +83,8 @@ export const HorizontalCard = ({
   actionsDialogActive,
   hasStake = false,
   hasGauge = false,
+  rewardETHTitle = 'WETH',
+  rewardCSTTitle = 'CST',
   hasClaimWETH = false,
   hasClaimCST = false,
   }: HorizontalCardProps) => {
@@ -347,7 +349,7 @@ export const HorizontalCard = ({
                       color={theme?.color.modalText}
                       size={20}
                       onClick={actionsDialogActive ? undefined : handleClaimWETH}/>
-                  <ActionName>Claim WETH</ActionName>
+                  <ActionName>Claim {rewardETHTitle}</ActionName>
               </ActionItem>
           }
 
@@ -359,7 +361,7 @@ export const HorizontalCard = ({
                     color={theme?.color.modalText}
                     size={20}
                     onClick={actionsDialogActive ? undefined : handleClaimWETH}/>
-                <ActionName>Claim CST</ActionName>
+                <ActionName>Claim {rewardCSTTitle}</ActionName>
               </ActionItem>
           }
         </ActionsInnerWrapper>

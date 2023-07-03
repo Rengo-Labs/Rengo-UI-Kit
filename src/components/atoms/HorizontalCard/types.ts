@@ -21,6 +21,8 @@ export interface HorizontalCardProps {
   actionsDialogActive: boolean
   hasStake: boolean
   hasGauge: boolean
+  rewardETHTitle?: string,
+  rewardCSTTitle?: string,
   hasClaimWETH?: boolean
   hasClaimCST?: boolean
 }
