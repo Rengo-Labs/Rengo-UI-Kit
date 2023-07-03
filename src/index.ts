@@ -55,7 +55,8 @@ export {
     NotificationMessage,
     MyAccountInfoTable,
     AccountTabs,
-    StakeDialog
+    StakeDialog,
+    StakeMessage,
 } from './components';
 export {
     InputType,
