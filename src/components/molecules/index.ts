@@ -21,4 +21,4 @@ export * from './AccountTabs'
 export * from './AccountTransferTable'
 export * from './AccountDeployTable'
 export * from './StakeDialog'
-
+export * from './StakeMessage'
