@@ -4,5 +4,6 @@ export interface StakeMessageProps {
     tokenImg: string;
     tokenName: string;
     amount: string;
+    closeCallback: () => void;
 }
-export declare const StakeMessage: ({ isOpen, tokenImg, tokenName, amount }: StakeMessageProps) => React.JSX.Element;
+export declare const StakeMessage: ({ isOpen, tokenImg, tokenName, amount, closeCallback }: StakeMessageProps) => React.JSX.Element;
