@@ -17,4 +17,5 @@ Default.args = {
     tokenImg: csprToken,
     tokenName: "CST",
     amount: "0,65000000",
+    closeCallback: () => console.log("close"),
 }
