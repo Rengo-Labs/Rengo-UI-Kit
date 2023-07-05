@@ -19,6 +19,8 @@ export interface LPToken {
   totalLP: string,
   yourShare: string,
   lpStaked: string,
+  lpStakedPercentage: string,
+  hasBalance: boolean,
   apr: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any,
   hasStake: boolean,
@@ -94,6 +96,7 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
             unstakeHandler={() => item.onOptionClick(LPOptionType.UNSTAKE, item.firstSymbol, item.secondSymbol)}
             claimHandlerWETH={() => item.onOptionClick(LPOptionType.CLAIM, item.firstSymbol, item.secondSymbol)}
             claimHandlerCST={() => item.onOptionClick(LPOptionType.CLAIMCST, item.firstSymbol, item.secondSymbol)}
+            hasBalance={item.hasBalance}
             hasStake={item.hasStake}
             hasGauge={item.hasGauge}
             rewardETHTitle={item.rewardETHTitle}

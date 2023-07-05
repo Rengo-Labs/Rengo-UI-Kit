@@ -29,7 +29,8 @@ Default.args = {
     { name: 'Your Pooled (WCSPR)', value: '1543.804256310 WCSPR' },
     { name: 'Your Pooled (WETH)', value: '0.016286696 WETH' },
     { name: `Your Balance (WCSPR-CST)`, value: '217250.092919301' },
-    { name: 'Your Share', value: '0.19%'}
+    { name: 'Your Share', value: '0.19%'},
+    { name: 'Lp Stake', value: '200'}
   ],
   userPoolInfo: [{title: 'Total liquidity ($)', value: '$ 608K'}, {title: "Your Liquidity ($)", value: `$ 22`}],
   trashHandler: () => console.log('horizontal card: delete'),
@@ -41,5 +42,6 @@ Default.args = {
   addLiquidityHandler: () => console.log('horizontal card: add liquidity'),
   favoriteHandler: () => console.log('horizontal card: favorite'),
   rewardETHTitle: 'ETH',
-  rewardCSTTitle: 'CST'
+  rewardCSTTitle: 'CST',
+  hasLPBalance: true
 };
