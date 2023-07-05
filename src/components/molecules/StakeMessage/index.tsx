@@ -35,7 +35,7 @@ export const StakeMessage = ({
                             <ImageContainer>
                                 <img src={casperIcon} alt="casper icon"/>
                             </ImageContainer>
-                            <Title isMobile={isMobile}>Congratulation you earned</Title>
+                            <Title isMobile={isMobile}>Congratulations you earned</Title>
                             <ImageContainer>
                                 <img src={tokenImg} alt={tokenName} width="160" height="160"/>
                             </ImageContainer>
