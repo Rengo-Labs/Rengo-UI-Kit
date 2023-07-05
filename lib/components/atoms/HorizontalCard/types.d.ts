@@ -22,6 +22,7 @@ export interface HorizontalCardProps {
     favoriteHandler: () => void;
     toggleDialog: () => void;
     actionsDialogActive: boolean;
+    hasBalance?: boolean;
     hasStake: boolean;
     hasGauge: boolean;
     rewardETHTitle?: string;

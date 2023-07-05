@@ -10,6 +10,7 @@ export const Container = styled.div`
   background: rgb(113, 95, 245, 0.5);
   color: #FFFFFF;
   display: flex;
+  z-index: 999999;
 `;
 export const Wrapper = styled.div`
   display: flex;
@@ -24,12 +25,10 @@ export const Wrapper = styled.div`
   color: #FFFFFF;
   background: transparent;
   opacity: 1;
-  z-index: 999;
-  //box-shadow: 0 0 15px 15px rgba(227, 223, 253, 0.05);
+  z-index: 999999;
 `;
 
-export const ImageContainer = styled.div`
-`;
+export const ImageContainer = styled.div``;
 export const ButtonContainer = styled.div<{isMobile: boolean}>`
   display: flex;
   width: ${({isMobile}) => isMobile ? '100%' : '366px'};

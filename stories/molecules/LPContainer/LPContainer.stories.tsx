@@ -41,6 +41,7 @@ const LPTokensDefault = [
         },
         rewardETHTitle: 'ETH',
         rewardCSTTitle: 'CST',
+        hasBalance: true,
         hasStake: false,
         hasGauge: false
     },
@@ -61,6 +62,7 @@ const LPTokensDefault = [
         contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
+        hasBalance: true,
         hasStake: false,
         hasGauge: false
     },
@@ -81,6 +83,7 @@ const LPTokensDefault = [
         contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
+        hasBalance: true,
         hasStake: false,
         hasGauge: false
     }
@@ -94,26 +97,27 @@ Default.args = {
 export const LPFavorite = Template.bind({});
 // @ts-ignore
 const LPFavoriteTokens = [{
-    contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
-    firstTokenIcon: ethToken,
-    secondTokenIcon: csprToken,
-    isFavorite: false,
-    firstSymbol: 'ETH',
-    secondSymbol: 'CSPR',
-    firstAmount: '200.00000002',
-    secondAmount: '4000000.00000122',
-    userUSDLP: '100.00000000',
-    userLP: '10.22110000',
-    totalUSDLP: '232000',
-    totalLP: '232000',
-    yourShare: '0.00',
-    lpStaked: '0.00',
-    apr: '0.99',
-    onOptionClick: (option, firstSymbol, secondSymbol) => {
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        firstTokenIcon: ethToken,
+        secondTokenIcon: csprToken,
+        isFavorite: false,
+        firstSymbol: 'ETH',
+        secondSymbol: 'CSPR',
+        firstAmount: '200.00000002',
+        secondAmount: '4000000.00000122',
+        userUSDLP: '100.00000000',
+        userLP: '10.22110000',
+        totalUSDLP: '232000',
+        totalLP: '232000',
+        yourShare: '0.00',
+        lpStaked: '0.00',
+        apr: '0.99',
+        onOptionClick: (option, firstSymbol, secondSymbol) => {
+        },
+        hasBalance: true,
+        hasStake: false,
+        hasGauge: false
     },
-    hasStake: false,
-    hasGauge: false
-},
     {
         firstTokenIcon: btcToken,
         secondTokenIcon: csprToken,
@@ -132,6 +136,7 @@ const LPFavoriteTokens = [{
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
+        hasBalance: true,
         hasStake: false,
         hasGauge: false
     },
@@ -153,6 +158,7 @@ const LPFavoriteTokens = [{
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
+        hasBalance: true,
         hasStake: false,
         hasGauge: false
     }
@@ -186,6 +192,7 @@ const LPTokensHasStake = [
         },
         rewardETHTitle: 'ETH',
         rewardCSTTitle: 'CST',
+        hasBalance: true,
         hasStake: true,
         hasGauge: true
     },
@@ -209,6 +216,7 @@ const LPTokensHasStake = [
         },
         rewardETHTitle: 'ETH',
         rewardCSTTitle: 'CST',
+        hasBalance: true,
         hasStake: true,
         hasGauge: true
     },
@@ -232,6 +240,7 @@ const LPTokensHasStake = [
         },
         rewardETHTitle: 'ETH',
         rewardCSTTitle: 'CST',
+        hasBalance: true,
         hasStake: true,
         hasGauge: true
     }

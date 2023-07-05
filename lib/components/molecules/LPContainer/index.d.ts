@@ -14,6 +14,8 @@ export interface LPToken {
     totalLP: string;
     yourShare: string;
     lpStaked: string;
+    lpStakedPercentage: string;
+    hasBalance: boolean;
     apr: string;
     onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any;
     hasStake: boolean;
