@@ -81,6 +81,7 @@ export const HorizontalCard = ({
   favoriteHandler,
   toggleDialog,
   actionsDialogActive,
+  hasBalance = false,
   hasStake = false,
   hasGauge = false,
   rewardETHTitle = 'WETH',
@@ -145,7 +146,8 @@ export const HorizontalCard = ({
   }
 
 
-  const pairsLiquidityMiddleIndex = Math.floor(pairsLiquidity.length / 2);
+  const pairsLiquidityMiddleIndex = 2;
+  const pairsLiquiditySecondMiddleIndex = 4;
 
   return (
     <Wrapper onClick={handleItemDetails}>
@@ -241,7 +243,7 @@ export const HorizontalCard = ({
           </MobileRow>
 
           <MobileRow>
-            {pairsLiquidity && pairsLiquidity.slice(pairsLiquidityMiddleIndex, IDX_LAST_COLUMN_PAIRS_LP).map((pair, i) => (
+            {pairsLiquidity && pairsLiquidity.slice(pairsLiquidityMiddleIndex, pairsLiquiditySecondMiddleIndex).map((pair, i) => (
 
             <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
               <MobileTextContent>
@@ -249,6 +251,19 @@ export const HorizontalCard = ({
                 <PairLiquidityValue>{pair.value}</PairLiquidityValue>
               </MobileTextContent>
             </PairsLiquidityMobileWrapper>
+
+            ))}
+          </MobileRow>
+
+          <MobileRow>
+            {pairsLiquidity && pairsLiquidity.slice(pairsLiquiditySecondMiddleIndex, IDX_LAST_COLUMN_PAIRS_LP).map((pair, i) => (
+
+              <PairsLiquidityMobileWrapper key={`pairs-mobile-liquidity-${pair.name}-${pair.value}`}>
+                <MobileTextContent>
+                  <PairLiquidityName>{pair.name}</PairLiquidityName>
+                  <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+                </MobileTextContent>
+              </PairsLiquidityMobileWrapper>
 
             ))}
           </MobileRow>
@@ -289,14 +304,17 @@ export const HorizontalCard = ({
             <ActionName>Add</ActionName>
           </ActionItem>
 
-          <ActionItem
-            onClick={actionsDialogActive ? handleTrash : undefined}>
-            <DeleteIcon
-              color={theme?.color.modalText}
-              size={20}
-              onClick={actionsDialogActive ? undefined : handleTrash}/>
-            <ActionName>Remove</ActionName>
-          </ActionItem>
+          {
+            hasBalance &&
+            <ActionItem
+                onClick={actionsDialogActive ? handleTrash : undefined}>
+                <DeleteIcon
+                    color={theme?.color.modalText}
+                    size={20}
+                    onClick={actionsDialogActive ? undefined : handleTrash}/>
+                <ActionName>Remove</ActionName>
+            </ActionItem> 
+          }
 
           <ActionItem
             onClick={actionsDialogActive ? handleSwap : undefined}>

@@ -19,6 +19,8 @@ export interface LPToken {
   totalLP: string,
   yourShare: string,
   lpStaked: string,
+  lpStakedPercentage: string,
+  hasBalance: boolean,
   apr: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any,
   hasStake: boolean,
@@ -84,6 +86,7 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
               { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.userLP}` },
               { name: "Your Share", value: `${item.yourShare}`},
               { name: "LP Stake", value: `${item.lpStaked}`},
+              { name: "Staked %", value: `${item.lpStakedPercentage}`},
               { name: "APR", value: `${item.apr}`}
             ]}
             userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
@@ -94,6 +97,7 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
             unstakeHandler={() => item.onOptionClick(LPOptionType.UNSTAKE, item.firstSymbol, item.secondSymbol)}
             claimHandlerWETH={() => item.onOptionClick(LPOptionType.CLAIM, item.firstSymbol, item.secondSymbol)}
             claimHandlerCST={() => item.onOptionClick(LPOptionType.CLAIMCST, item.firstSymbol, item.secondSymbol)}
+            hasBalance={item.hasBalance}
             hasStake={item.hasStake}
             hasGauge={item.hasGauge}
             rewardETHTitle={item.rewardETHTitle}
