@@ -39,7 +39,12 @@ const columns = [
   },
   {
     key: 'mybalance',
-    name: 'My Balance($)',
+    name: 'Your Balance($)',
+    isSorteable: true
+  },
+  {
+    key: 'mypools',
+    name: 'Your Pooled($)',
     isSorteable: true
   },
   {
