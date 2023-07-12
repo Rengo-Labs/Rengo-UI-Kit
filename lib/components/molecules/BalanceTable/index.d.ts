@@ -7,6 +7,7 @@ export interface IHeader {
     mycrypto: number;
     marketprice: number;
     mybalance: number;
+    mypools: number;
     '24h': number;
     '7d': number;
     '15d': number;
