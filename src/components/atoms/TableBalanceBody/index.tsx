@@ -42,8 +42,13 @@ export const TableBalanceBody = ({ networkLink, row, heightIcon, widthIcon, cryp
                   )
                 }
                 {
-                  key !== 'crypto' && !DLL_COLUMNS.includes(key) && (
+                  key !== 'crypto' && !DLL_COLUMNS.includes(key) && key !== 'mypools' && (
                     <Text>{row[key as keyof IHeader]}{key !== 'mycrypto' && key !== 'crypto' && '%'}</Text>
+                  )
+                }
+                {
+                  key !== 'crypto' && !DLL_COLUMNS.includes(key) && key === 'mypools' && (
+                    <Text>{'$'}{row[key as keyof IHeader]}</Text>
                   )
                 }
               </TD>
