@@ -13,6 +13,7 @@ export interface IHeader {
   mycrypto: number
   marketprice: number
   mybalance: number
+  mypools: number
   '24h': number
   '7d': number
   '15d': number
@@ -39,7 +40,12 @@ const columns = [
   },
   {
     key: 'mybalance',
-    name: 'My Balance($)',
+    name: 'Your Balance($)',
+    isSorteable: true
+  },
+  {
+    key: 'mypools',
+    name: 'Your Pooled($)',
     isSorteable: true
   },
   {
