@@ -22,3 +22,5 @@ export * from './AccountTransferTable'
 export * from './AccountDeployTable'
 export * from './StakeDialog'
 export * from './StakeMessage'
+export * from './GeolocationMessage'
+
