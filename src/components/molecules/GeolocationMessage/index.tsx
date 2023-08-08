@@ -1,10 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Container, Icons, Logo, Title} from "./styles";
 import {DeviceType} from "../../../hooks/types";
 import {useDeviceType} from "../../../hooks";
-export interface GeolocationMessageProps {}
-
-export const GeolocationMessage =   ({}:GeolocationMessageProps) => {
+export const GeolocationMessage = () => {
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
 
