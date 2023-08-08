@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // @ts-ignore
-import hero from '../../../assets/background/hero.png'
+import hero from '../../../assets/background/hero.svg'
 import logo from '../../../assets/icons/casper-logo.svg'
 import tokens from '../../../assets/icons/token-group.svg'
 
