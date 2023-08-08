@@ -57,6 +57,7 @@ export {
     AccountTabs,
     StakeDialog,
     StakeMessage,
+    GeolocationMessage
 } from './components';
 export {
     InputType,
