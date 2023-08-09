@@ -4,7 +4,7 @@ export const Head = styled.thead`
   width: 100%;
   display: flex;
   border-bottom: 1px solid ${({ theme }) => theme.color.table.header.text};
-  padding: 20px 16px 20px 0;
+  padding: 20px 0px 20px 0;
   th {
     text-align: left;
     white-space: nowrap;
@@ -28,7 +28,7 @@ export const TR = styled.tr<{ columnsQty: number, centerItems?: boolean }>`
       return `1fr ${gridColumns}`
     }
     
-    return `2fr ${gridColumns}`
+    return `1fr ${gridColumns}`
   }};
   ${({ columnsQty }) => columnsQty <= 6 && css`
       justify-items: center;
