@@ -20,4 +20,6 @@ export const Body = styled.tbody`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow-y: scroll;
+  height: 20.5rem;
 `

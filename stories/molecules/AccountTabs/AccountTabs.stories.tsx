@@ -9,7 +9,7 @@ export default {
 
 // Create a master template for mapping args to render the AccountTabs component
 const Template: ComponentStory<typeof AccountTabs> = (args) => (
-  <div style={{ width: '1150px' }}>
+  <div style={{ width: '1550px' }}>
     <AccountTabs {...args} />
   </div>
 )
@@ -90,7 +90,106 @@ Default.args = {
       transference_id:'-',
       amount: -2.29277,
       price: 0.1025
-    }
+    },
+    {
+      id: 4,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: 2.29277,
+      price: 0.1025
+    },
+    {
+      id: 5,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: 4.29277,
+      price: 0.1025
+    },
+    {
+      id: 6,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: -2.29277,
+      price: 0.1025
+    },
+    {
+      id: 7,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: 2.29277,
+      price: 0.1025
+    },
+    {
+      id: 8,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: 4.29277,
+      price: 0.1025
+    },
+    {
+      id: 9,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: -2.29277,
+      price: 0.1025
+    },
+    {
+      id: 10,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: 2.29277,
+      price: 0.1025
+    },
+    {
+      id: 11,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: 4.29277,
+      price: 0.1025
+    },
+    {
+      id: 12,
+      deploy_hash: '0da51...2191c',
+      block_hash: 'cff58...3789d',
+      antiquity: '3 days ago',
+      of: '012b3...7f525',
+      for: '012b3...7f525',
+      transference_id:'-',
+      amount: -2.29277,
+      price: 0.1025
+    },
   ],
   widthIcon: 25,
   heightIcon: 25
