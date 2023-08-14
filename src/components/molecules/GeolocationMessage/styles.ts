@@ -14,7 +14,7 @@ export const Container = styled.section`
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  background-size: 100% 100%;
+  background-size: cover;
   justify-content: space-evenly;
 `;
 
