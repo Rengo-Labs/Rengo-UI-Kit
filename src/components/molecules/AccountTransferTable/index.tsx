@@ -101,6 +101,7 @@ export const AccountTransferTable = ({
         <TableHeader
           columns={columns}
           onSort={handleSort}
+          isCenterHeader={true}
         />
       )}
       <Body>

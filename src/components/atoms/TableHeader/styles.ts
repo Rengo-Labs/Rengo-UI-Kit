@@ -24,11 +24,11 @@ export const TR = styled.tr<{ columnsQty: number, centerItems?: boolean }>`
       gridColumns += ' 1fr'
     });
 
-    if (columnsQty <= 6) {
+    if (columnsQty <= 7) {
       return `1fr ${gridColumns}`
     }
     
-    return `1fr ${gridColumns}`
+    return `2fr ${gridColumns}`
   }};
   ${({ columnsQty }) => columnsQty <= 6 && css`
       justify-items: center;

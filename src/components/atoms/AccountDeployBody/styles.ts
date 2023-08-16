@@ -21,7 +21,7 @@ export const TR = styled.tr`
 export const TD = styled.td<{ isFirstItem?: boolean }>`
   flex: 1;
   min-height: 32px;
-  padding: 10px 0 10px 10px;
+  padding: ${({isFirstItem}) => isFirstItem ? '10px 0 10px 10px':'10px 0 10px 0'};
   display: flex;
   align-items: center;
   justify-content: ${({ isFirstItem }) =>
