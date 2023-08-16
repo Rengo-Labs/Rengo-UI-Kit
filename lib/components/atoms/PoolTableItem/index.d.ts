@@ -24,5 +24,6 @@ export interface IPoolTableItem {
     toggleDialog?: () => void;
     actionsDialogActive?: boolean;
     hideRemoveLiquidity: boolean;
+    isLastItem?: boolean;
 }
-export declare const PoolTableItem: ({ networkLink, contractPackage, token0Icon, token1Icon, widthIcon, heightIcon, pool, yourLiquidity, volume7d, fees7d, assetsPoolToken0, assetsPoolToken1, yourShare, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity }: IPoolTableItem) => React.JSX.Element;
+export declare const PoolTableItem: ({ networkLink, contractPackage, token0Icon, token1Icon, widthIcon, heightIcon, pool, yourLiquidity, volume7d, fees7d, assetsPoolToken0, assetsPoolToken1, yourShare, apr, isFavorite, favoriteHandler, handleTrash, handleSwap, handleView, handleAddLiquidity, toggleDialog, actionsDialogActive, hideRemoveLiquidity, isLastItem }: IPoolTableItem) => React.JSX.Element;
