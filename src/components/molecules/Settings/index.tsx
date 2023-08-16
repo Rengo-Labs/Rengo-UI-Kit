@@ -23,7 +23,13 @@ export const Settings = ({
 
     const handleSlippageTolerance = (value: string) => {
         setSlippageTolerance(value)
+        setIsCustomInput(false)
     }
+
+    const handleCustomSlippageTolerance = (value: string) => {
+        setSlippageTolerance(value)
+    }
+
     const handlerInput = (value: string) => {
         setCustomNodeUrl(value)
     }
@@ -49,7 +55,7 @@ export const Settings = ({
                     {
                         valuesToSettingOption.map((value, index) => {
                             return (
-                                <SettingOption key={index} value={value} handleValue={handleSlippageTolerance} isSelect={slippageTolerance === value}/>
+                                <SettingOption key={index} value={value} handleValue={handleSlippageTolerance} isSelect={!isCustomInput && slippageTolerance === value}/>
                             )
                         })
                     }
@@ -57,7 +63,7 @@ export const Settings = ({
                 </Row>
                 <Row>
                     {isCustomInput &&
-                        <SettingInputOption value={slippageTolerance} handleValue={handleSlippageTolerance}/>
+                        <SettingInputOption value={slippageTolerance} handleValue={handleCustomSlippageTolerance}/>
                     }
                 </Row>
                 <Row>

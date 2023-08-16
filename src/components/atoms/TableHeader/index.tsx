@@ -13,17 +13,18 @@ interface TableHeaderProps {
   columns: Column[]
   onSort: (key: string, isAscending: boolean) => void
   HeadTRRef?: Ref<HTMLTableCellElement>
-  centerItems?: boolean
+  centerItems?: boolean,
+  isCenterHeader?: boolean
 }
 
-export const TableHeader = ({ columns, onSort, HeadTRRef, centerItems }: TableHeaderProps) => {
+export const TableHeader = ({ columns, onSort, HeadTRRef, centerItems, isCenterHeader = false }: TableHeaderProps) => {
   
   return (
     <Head>
       <TR ref={HeadTRRef as  Ref<any>} columnsQty={columns.length} centerItems={centerItems}>
         {columns.map((column, i) => {
           return (
-            <TD key={column.key}  customWidth={column.width} isFirstColumn={true}>
+            <TD key={column.key}  customWidth={column.width} isFirstColumn={isCenterHeader || i == 0}>
               <Text>{column.name}</Text>
               {column.isSorteable && (
                 <Icon>
