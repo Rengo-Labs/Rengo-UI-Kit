@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from 'react'
 import { WrapperStyled, Text, Input, InputWrapper } from './styles'
+import {Status} from '../Input/types'
 
 export interface SettingOptionProps {
   value: string
