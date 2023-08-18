@@ -48,7 +48,7 @@ export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tok
   }
 
   return (
-    <CoinCardWrapped>
+    <CoinCardWrapped id={title}>
       <Header text={title} balance={tokenBalance}/>
       <InputWrapped>
         <Input
