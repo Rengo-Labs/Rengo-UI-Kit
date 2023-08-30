@@ -182,6 +182,7 @@ export const HorizontalCard = ({
 
         <SeeActionsIconWrapper hidden={true} actionsDialogActive={actionsDialogActive}>
           <SeeActionsIcon
+            id={`see-actions-icon-mobile-${contractPackage}`}
             hidden={true}
             color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
             size={20}
@@ -207,7 +208,14 @@ export const HorizontalCard = ({
             {pairsLiquidity && pairsLiquidity.map((pair, i) => (
               <PairsLiquidityWrapper key={`pairs-liquidity-${pair.name}-${pair.value}-${i}`} isLastItem={i == 3 || i == pairsLiquidity.length -1}>
                 <PairLiquidityName>{pair.name}</PairLiquidityName>
-                <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+                {
+                  (pair.name != 'APR' || hasGauge && pair.name == 'APR') &&
+                  <PairLiquidityValue>{pair.value}</PairLiquidityValue>
+                }
+                {
+                  !hasGauge && pair.name == 'APR' &&
+                  <PairLiquidityValue>N/A</PairLiquidityValue>
+                }
               </PairsLiquidityWrapper>
             ))}
           </RowWrapper>
@@ -274,6 +282,7 @@ export const HorizontalCard = ({
       <SeeActionsIconWrapper hidden={false} actionsDialogActive={actionsDialogActive}>
         <SeeActionsIcon
           hidden={false}
+          id={`see-actions-icon-desktop-${contractPackage}`}
           color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
           size={20}
           onClick={() => toggleDialog()}/>
@@ -348,6 +357,7 @@ export const HorizontalCard = ({
           {
             hasStake && hasClaimWETH &&
               <ActionItem
+                  id={`eth-action-item-desktop-${contractPackage}`}
                   onClick={actionsDialogActive ? handleClaimWETH : undefined}>
                   <DollarSign
                       color={theme?.color.modalText}
@@ -360,6 +370,7 @@ export const HorizontalCard = ({
           {
               hasStake && hasClaimCST &&
               <ActionItem
+                  id={`cst-action-item-desktop-${contractPackage}`}
                   onClick={actionsDialogActive ? handleClaimCST : undefined}>
                 <DollarSign
                     color={theme?.color.modalText}
