@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { StakeDialogProps } from "./types";
 /**
  React component for a Remove Liquidity dialog box.
