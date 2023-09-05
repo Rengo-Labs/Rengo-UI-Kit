@@ -15,6 +15,7 @@ export interface IHeaderPool {
     actions?: string;
     isFavorite?: boolean;
     balance: string;
+    accumulatedReward: string;
 }
 export interface PoolTableProps {
     networkLink: string;
