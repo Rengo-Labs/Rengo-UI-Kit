@@ -47,7 +47,8 @@ export interface IPoolTableItem {
   toggleDialog?: () => void
   actionsDialogActive?: boolean
   hideRemoveLiquidity: boolean,
-  isLastItem?: boolean
+  isLastItem?: boolean,
+  accumulatedReward?: string
 }
 
 export const PoolTableItem = ({
@@ -74,7 +75,8 @@ export const PoolTableItem = ({
   toggleDialog,
   actionsDialogActive,
   hideRemoveLiquidity = false,
-  isLastItem = false
+  isLastItem = false,
+  accumulatedReward = ''
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
@@ -137,6 +139,9 @@ export const PoolTableItem = ({
       </TD>
       <TD>
         <Text>{apr} %</Text>
+      </TD>
+      <TD>
+        <Text>{accumulatedReward}</Text>
       </TD>
       <TD isLastItem={isLastItem}>
         <SeeActionsIconWrapper actionsDialogActive={actionsDialogActive}>
