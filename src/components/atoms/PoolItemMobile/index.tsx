@@ -59,7 +59,8 @@ export const PoolItemMobile = ({
   handleView,
   handleAddLiquidity,
   toggleDialog,
-  actionsDialogActive
+  actionsDialogActive,
+  accumulatedReward
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
@@ -201,7 +202,12 @@ export const PoolItemMobile = ({
             <SubtitleValue>{apr} %</SubtitleValue>
           </HeaderSubtitle>
         </TD>
-        <TD/>
+        <TD>
+          <HeaderSubtitle>
+            <Subtitle>Accumulated Reward</Subtitle>
+            <SubtitleValue>{accumulatedReward}</SubtitleValue>
+          </HeaderSubtitle>
+        </TD>
       </BTR>
 
       </tbody>
