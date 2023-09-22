@@ -138,7 +138,7 @@ export const PoolTableItem = ({
         <Text>{yourShare} %</Text>
       </TD>
       <TD>
-        <Text>{apr} %</Text>
+        <Text>{apr}</Text>
       </TD>
       <TD>
         <Text>{accumulatedReward}</Text>
