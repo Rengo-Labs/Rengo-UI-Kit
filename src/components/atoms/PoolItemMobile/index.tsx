@@ -35,7 +35,6 @@ import {
 } from '../PoolTableItem/styles'
 import { useTheme } from 'styled-components'
 import { theme } from '../../../styles/themes/themes'
-import { convertNumber } from '../../../utils'
 
 export const PoolItemMobile = ({
   networkLink,
@@ -59,7 +58,8 @@ export const PoolItemMobile = ({
   handleView,
   handleAddLiquidity,
   toggleDialog,
-  actionsDialogActive
+  actionsDialogActive,
+  accumulatedReward
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
@@ -198,10 +198,15 @@ export const PoolItemMobile = ({
         <TD>
           <HeaderSubtitle>
             <Subtitle>APR</Subtitle>
-            <SubtitleValue>{apr} %</SubtitleValue>
+            <SubtitleValue>{apr}</SubtitleValue>
           </HeaderSubtitle>
         </TD>
-        <TD/>
+        <TD>
+          <HeaderSubtitle>
+            <Subtitle>Accumulated Reward</Subtitle>
+            <SubtitleValue>{accumulatedReward}</SubtitleValue>
+          </HeaderSubtitle>
+        </TD>
       </BTR>
 
       </tbody>

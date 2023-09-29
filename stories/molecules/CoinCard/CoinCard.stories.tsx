@@ -19,8 +19,9 @@ const Template: ComponentStory<typeof CoinCard> = (args) => <div style={{width: 
 </div>;
 export const Default = Template.bind({});
 export const UsingCSPR = Template.bind({});
-
 export const UsindDToken = Template.bind({});
+
+export const Disabled = Template.bind({});
 
 // @ts-ignore
 Default.args = {
@@ -70,4 +71,21 @@ UsindDToken.args = {
     validator:() => {},
     value: 0,
     gasFee: 20
+}
+
+Disabled.args = {
+    startIcon:ethToken,
+    endIcon:downwardsArrowIcon,
+    iconSize:'large',
+    title:'To',
+    tokenBalance:'20000.000000',
+    tokenName:'dWBTC',
+    tokenPrice:'34.33',
+    placeholder:'0.000000000',
+    onChangeToken:() => {},
+    onChangeValue:() => {},
+    validator:() => {},
+    value: 0,
+    gasFee: 20,
+    disabled: true
 }
