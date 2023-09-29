@@ -44,3 +44,4 @@ export * from './PoolItemDetailDesktop';
 export * from './PoolItemDetailMobile';
 export * from './AccountDeployBody';
 export * from './AccountTransferBody';
+export * from './LoaderSmall';

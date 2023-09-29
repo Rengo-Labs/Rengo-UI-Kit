@@ -30,7 +30,9 @@ export var PoolTableItem = function PoolTableItem(_ref) {
     _ref$hideRemoveLiquid = _ref.hideRemoveLiquidity,
     hideRemoveLiquidity = _ref$hideRemoveLiquid === void 0 ? false : _ref$hideRemoveLiquid,
     _ref$isLastItem = _ref.isLastItem,
-    isLastItem = _ref$isLastItem === void 0 ? false : _ref$isLastItem;
+    isLastItem = _ref$isLastItem === void 0 ? false : _ref$isLastItem,
+    _ref$accumulatedRewar = _ref.accumulatedReward,
+    accumulatedReward = _ref$accumulatedRewar === void 0 ? '' : _ref$accumulatedRewar;
   var theme = useTheme();
   var _useState = useState(theme),
     _useState2 = _slicedToArray(_useState, 2),
@@ -68,7 +70,7 @@ export var PoolTableItem = function PoolTableItem(_ref) {
     onClick: function onClick() {
       return redirectToNetwork(contractPackage);
     }
-  }, pool)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, yourLiquidity)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, assetsPoolToken0)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, assetsPoolToken1)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, volume7d)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, fees7d)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, yourShare, " %")), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, apr, " %")), /*#__PURE__*/React.createElement(TD, {
+  }, pool)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, yourLiquidity)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, assetsPoolToken0)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, assetsPoolToken1)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, volume7d)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, fees7d)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, yourShare, " %")), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, apr)), /*#__PURE__*/React.createElement(TD, null, /*#__PURE__*/React.createElement(Text, null, accumulatedReward)), /*#__PURE__*/React.createElement(TD, {
     isLastItem: isLastItem
   }, /*#__PURE__*/React.createElement(SeeActionsIconWrapper, {
     actionsDialogActive: actionsDialogActive

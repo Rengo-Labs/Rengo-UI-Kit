@@ -47,7 +47,7 @@ export var HelperText = styled.span.withConfig({
 export var InputStyled = styled.input.withConfig({
   displayName: "styles__InputStyled",
   componentId: "sc-1kdn6jr-4"
-})(["width:100%;box-sizing:border-box;display:flex;flex-direction:row;align-items:center;padding:8px 16px;gap:4px;height:50px;background:", ";border-radius:50px;flex:none;order:1;align-self:stretch;flex-grow:0;font-family:", ";font-style:normal;font-weight:400;font-size:16px;line-height:24px;letter-spacing:0.02em;text-align:", ";color:", ";::placeholder{color:", ";}@media (min-width:800px){", " ", "}color:", ";border:", ";", ";&:focus{outline:none;border:", "}&:active{border:none;outline:", "}&:hover{border:", "}&:active:hover{border:none;}"], function (_ref5) {
+})(["width:100%;box-sizing:border-box;display:flex;flex-direction:row;align-items:center;padding:8px 16px;gap:4px;height:50px;background:", ";border-radius:50px;flex:none;order:1;align-self:stretch;flex-grow:0;font-family:", ";font-style:normal;font-weight:400;font-size:16px;line-height:24px;letter-spacing:0.02em;text-align:", ";color:", ";::placeholder{color:", ";}@media (min-width:800px){", " ", "}color:", ";border:", ";", ";&:focus{outline:none;border:", "}&:active{border:none;outline:", "}&:hover{border:", "}&:active:hover{border:none;}&:disabled{}"], function (_ref5) {
   var theme = _ref5.theme;
   return theme.background.default;
 }, function (_ref6) {

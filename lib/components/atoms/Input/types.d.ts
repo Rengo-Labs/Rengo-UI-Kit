@@ -18,6 +18,7 @@ export interface InputProps {
     hasBackground?: boolean;
     iconWrapperBackground?: string;
     textAlign?: string;
+    disabled?: boolean;
 }
 export declare enum Status {
     Default = "default",

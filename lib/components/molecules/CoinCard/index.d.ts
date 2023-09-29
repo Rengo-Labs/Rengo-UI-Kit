@@ -13,6 +13,7 @@ export interface CoinCardPros {
     onChangeValue: any;
     validator?: any;
     gasFee?: number;
+    disabled?: boolean;
 }
 /***
  *
@@ -30,4 +31,4 @@ export interface CoinCardPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export declare const CoinCard: ({ startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value, gasFee }: CoinCardPros) => React.JSX.Element;
+export declare const CoinCard: ({ startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value, gasFee, disabled }: CoinCardPros) => React.JSX.Element;

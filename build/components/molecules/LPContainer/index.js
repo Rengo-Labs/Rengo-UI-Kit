@@ -1,8 +1,8 @@
 import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LiquidityWrapped, LiquidityTitle, TitleWrapped } from './styles';
 import { LPOptionType } from './types';
-import { HorizontalCard, Toggle } from '../../atoms';
+import { HorizontalCard, LoaderSmall, Toggle } from '../../atoms';
 import { Variant } from '../../atoms/Toggle/types';
 /***
  *
@@ -32,6 +32,15 @@ export var LPContainer = function LPContainer(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     actionsDialogActive = _useState2[0],
     setActionsDialogActive = _useState2[1];
+  var _useState3 = useState(true),
+    _useState4 = _slicedToArray(_useState3, 2),
+    isLoading = _useState4[0],
+    setIsLoading = _useState4[1];
+  useEffect(function () {
+    setTimeout(function () {
+      setIsLoading(false);
+    }, 3000);
+  }, [lpTokens.length]);
   var _toggleDialog = function toggleDialog(name) {
     setActionsDialogActive(function (prev) {
       return prev === name ? null : name;
@@ -44,7 +53,7 @@ export var LPContainer = function LPContainer(_ref) {
     toggle: function toggle() {
       return toggleAction();
     }
-  }))), lpTokens.length > 0 && lpTokens.map(function (item, index) {
+  }))), isLoading ? /*#__PURE__*/React.createElement(LoaderSmall, null) : /*#__PURE__*/React.createElement(React.Fragment, null, lpTokens.length > 0 && lpTokens.map(function (item, index) {
     return /*#__PURE__*/React.createElement(HorizontalCard, {
       networkLink: networkLink,
       contractPackage: item.contractPackage,
@@ -116,5 +125,5 @@ export var LPContainer = function LPContainer(_ref) {
       },
       actionsDialogActive: actionsDialogActive === "".concat(item.firstSymbol, "-").concat(item.secondSymbol)
     });
-  }));
+  })));
 };

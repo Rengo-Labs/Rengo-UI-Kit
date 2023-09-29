@@ -31,7 +31,8 @@ export var CoinCard = function CoinCard(_ref) {
     onChangeValue = _ref.onChangeValue,
     validator = _ref.validator,
     value = _ref.value,
-    gasFee = _ref.gasFee;
+    gasFee = _ref.gasFee,
+    disabled = _ref.disabled;
   var onHalfButton = function onHalfButton() {
     onChangeValue(parseFloat(tokenBalance) / 2);
   };
@@ -64,7 +65,8 @@ export var CoinCard = function CoinCard(_ref) {
     onChange: onChangeValue,
     validator: validator,
     hasBackground: true,
-    iconWrapperBackground: "transparent"
+    iconWrapperBackground: "transparent",
+    disabled: disabled
   })), /*#__PURE__*/React.createElement(CoinCardFooter, null, /*#__PURE__*/React.createElement(ButtonWrapped, {
     left: true
   }, "$ ", tokenPrice), /*#__PURE__*/React.createElement(ButtonWrapped, {

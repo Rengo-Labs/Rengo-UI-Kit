@@ -135,6 +135,7 @@ export var HorizontalCard = function HorizontalCard(_ref) {
     hidden: true,
     actionsDialogActive: actionsDialogActive
   }, /*#__PURE__*/React.createElement(SeeActionsIcon, {
+    id: "see-actions-icon-mobile-".concat(contractPackage),
     hidden: true,
     color: actionsDialogActive ? theme === null || theme === void 0 ? void 0 : theme.color.white : theme === null || theme === void 0 ? void 0 : theme.color.modalText,
     size: 20,
@@ -150,7 +151,7 @@ export var HorizontalCard = function HorizontalCard(_ref) {
     return /*#__PURE__*/React.createElement(PairsLiquidityWrapper, {
       key: "pairs-liquidity-".concat(pair.name, "-").concat(pair.value, "-").concat(i),
       isLastItem: i == 3 || i == pairsLiquidity.length - 1
-    }, /*#__PURE__*/React.createElement(PairLiquidityName, null, pair.name), /*#__PURE__*/React.createElement(PairLiquidityValue, null, pair.value));
+    }, /*#__PURE__*/React.createElement(PairLiquidityName, null, pair.name), (pair.name != 'APR' || hasGauge && pair.name == 'APR') && /*#__PURE__*/React.createElement(PairLiquidityValue, null, pair.value), !hasGauge && pair.name == 'APR' && /*#__PURE__*/React.createElement(PairLiquidityValue, null, "N/A"));
   })), isMobile && /*#__PURE__*/React.createElement(MobilleContainer, null, /*#__PURE__*/React.createElement(MobileRow, null, userPoolInfo && userPoolInfo.map(function (info, i) {
     return /*#__PURE__*/React.createElement(UserPoolInfoMobileWrapper, {
       isLiquidity: info.title !== 'Your Share',
@@ -173,6 +174,7 @@ export var HorizontalCard = function HorizontalCard(_ref) {
     actionsDialogActive: actionsDialogActive
   }, /*#__PURE__*/React.createElement(SeeActionsIcon, {
     hidden: false,
+    id: "see-actions-icon-desktop-".concat(contractPackage),
     color: actionsDialogActive ? theme === null || theme === void 0 ? void 0 : theme.color.white : theme === null || theme === void 0 ? void 0 : theme.color.modalText,
     size: 20,
     onClick: function onClick() {
@@ -218,12 +220,14 @@ export var HorizontalCard = function HorizontalCard(_ref) {
     size: 20,
     onClick: actionsDialogActive ? undefined : handleUnstake
   }), /*#__PURE__*/React.createElement(ActionName, null, "Unstake")), hasStake && hasClaimWETH && /*#__PURE__*/React.createElement(ActionItem, {
+    id: "eth-action-item-desktop-".concat(contractPackage),
     onClick: actionsDialogActive ? handleClaimWETH : undefined
   }, /*#__PURE__*/React.createElement(DollarSign, {
     color: theme === null || theme === void 0 ? void 0 : theme.color.modalText,
     size: 20,
     onClick: actionsDialogActive ? undefined : handleClaimWETH
   }), /*#__PURE__*/React.createElement(ActionName, null, "Claim ", rewardETHTitle)), hasStake && hasClaimCST && /*#__PURE__*/React.createElement(ActionItem, {
+    id: "cst-action-item-desktop-".concat(contractPackage),
     onClick: actionsDialogActive ? handleClaimCST : undefined
   }, /*#__PURE__*/React.createElement(DollarSign, {
     color: theme === null || theme === void 0 ? void 0 : theme.color.modalText,

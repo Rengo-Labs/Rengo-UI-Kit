@@ -42,6 +42,10 @@ var columns = [{
   name: 'APR',
   isSorteable: true
 }, {
+  key: 'accumulatedReward',
+  name: 'Ac. Reward',
+  isSorteable: true
+}, {
   key: 'actions',
   name: 'Actions',
   isSorteable: false
@@ -190,6 +194,7 @@ export var PoolTable = function PoolTable(_ref) {
       assetsPoolToken1: row.assetsPoolToken1,
       yourShare: row.yourShare,
       apr: row.apr,
+      accumulatedReward: row.accumulatedReward,
       handleTrash: function handleTrash() {
         return _handleTrash(row.name);
       },
@@ -227,6 +232,7 @@ export var PoolTable = function PoolTable(_ref) {
       assetsPoolToken1: row.assetsPoolToken1,
       yourShare: row.yourShare,
       apr: row.apr,
+      accumulatedReward: row.accumulatedReward,
       handleTrash: function handleTrash() {
         return _handleTrash(row.name);
       },

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export var TR = styled.tr.withConfig({
   displayName: "styles__TR",
   componentId: "sc-1bonc1k-0"
-})(["gap:15px;height:108px;border-bottom:1px solid #EAEBEC;border-bottom:", ";display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;"], function (_ref) {
+})(["gap:15px;height:108px;border-bottom:1px solid #EAEBEC;border-bottom:", ";display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;"], function (_ref) {
   var theme = _ref.theme;
   return "1px solid ".concat(theme.border.default);
 });
