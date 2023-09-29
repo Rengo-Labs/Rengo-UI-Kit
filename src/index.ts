@@ -11,6 +11,7 @@ export {
     Toggle,
     TextIconTouchable,
     Loader,
+    LoaderSmall,
     KeyPairText,
     TokenOption,
     Input,

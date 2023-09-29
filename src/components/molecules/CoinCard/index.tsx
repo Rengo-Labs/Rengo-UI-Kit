@@ -16,7 +16,8 @@ export interface CoinCardPros {
   onChangeToken: any,
   onChangeValue: any,
   validator?: any,
-  gasFee?: number
+  gasFee?: number,
+  disabled?: boolean
 }
 
 /***
@@ -35,7 +36,7 @@ export interface CoinCardPros {
  * @param value - value which will be loaded in the card input
  * @constructor
  */
-export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value, gasFee}: CoinCardPros) => {
+export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value, gasFee, disabled}: CoinCardPros) => {
 
   const onHalfButton = () => {
     onChangeValue(parseFloat(tokenBalance)/2)
@@ -74,6 +75,7 @@ export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tok
           validator={validator}
           hasBackground={true}
           iconWrapperBackground='transparent'
+          disabled={disabled}
         />
       </InputWrapped>
       <CoinCardFooter>

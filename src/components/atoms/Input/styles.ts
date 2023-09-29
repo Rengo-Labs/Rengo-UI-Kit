@@ -206,6 +206,10 @@ export const InputStyled = styled.input<Props>`
   &:active:hover {
     border: none;
   }
+  
+  &:disabled {
+    // TODO: add disabled styles
+  }
 `;
 
 export const IconWrapper = styled.div<Props>`
