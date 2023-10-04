@@ -10,7 +10,7 @@ export const GeolocationMessage = () => {
         <Container>
             <Logo />
             <Title isMobile={isMobile}>
-                I´m sorry casperswap it's not available in your country.
+              Sorry, CasperSwap is not available in your country.
             </Title>
             <Icons />
         </Container>
