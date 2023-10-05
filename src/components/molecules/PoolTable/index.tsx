@@ -82,7 +82,7 @@ const columns = [
   },
   {
     key: 'accumulatedReward',
-    name: 'Weekly Rewards',
+    name: '7D Rewards',
     isSorteable: true,
   },
   {
