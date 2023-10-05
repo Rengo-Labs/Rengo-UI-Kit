@@ -21,7 +21,8 @@ export interface IHeaderPool {
   actions?: string
   isFavorite?: boolean
   balance: string,
-  accumulatedReward: string
+  accumulatedReward1: string
+  accumulatedReward2: string
 }
 
 export interface PoolTableProps {
@@ -83,7 +84,7 @@ const columns = [
   {
     key: 'accumulatedReward',
     name: '7D Rewards',
-    isSorteable: true,
+    isSorteable: false,
   },
   {
     key: 'actions',
@@ -260,7 +261,8 @@ export const PoolTable = ({
                 assetsPoolToken1={row.assetsPoolToken1}
                 yourShare={row.yourShare}
                 apr={row.apr}
-                accumulatedReward={row.accumulatedReward}
+                accumulatedReward1={row.accumulatedReward1}
+                accumulatedReward2={row.accumulatedReward2}
                 handleTrash={() => handleTrash(row.name)}
                 handleSwap={() => handleSwap('/swap', row.pool)}
                 handleView={() => handleView(row.name)}
@@ -290,7 +292,8 @@ export const PoolTable = ({
                 assetsPoolToken1={row.assetsPoolToken1}
                 yourShare={row.yourShare}
                 apr={row.apr}
-                accumulatedReward={row.accumulatedReward}
+                accumulatedReward1={row.accumulatedReward1}
+                accumulatedReward2={row.accumulatedReward2}
                 handleTrash={() => handleTrash(row.name)}
                 handleSwap={() => handleSwap('/swap', row.pool)}
                 handleView={() => handleView(row.name)}

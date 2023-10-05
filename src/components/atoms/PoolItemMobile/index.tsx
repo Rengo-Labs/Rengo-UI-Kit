@@ -56,7 +56,8 @@ export const PoolItemMobile = ({
   handleAddLiquidity,
   toggleDialog,
   actionsDialogActive,
-  accumulatedReward
+  accumulatedReward1,
+  accumulatedReward2
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
@@ -200,8 +201,8 @@ export const PoolItemMobile = ({
         </TD>
         <TD>
           <HeaderSubtitle>
-            <Subtitle>Weekly Rewards</Subtitle>
-            <SubtitleValue>{accumulatedReward}</SubtitleValue>
+            <Subtitle>7D Rewards</Subtitle>
+            <SubtitleValue>{accumulatedReward1}<br/>{accumulatedReward2}</SubtitleValue>
           </HeaderSubtitle>
         </TD>
       </BTR>
