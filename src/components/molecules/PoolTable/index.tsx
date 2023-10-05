@@ -21,8 +21,7 @@ export interface IHeaderPool {
   actions?: string
   isFavorite?: boolean
   balance: string,
-  accumulatedReward1: string,
-  accumulatedReward2: string
+  accumulatedReward: string
 }
 
 export interface PoolTableProps {
@@ -261,8 +260,7 @@ export const PoolTable = ({
                 assetsPoolToken1={row.assetsPoolToken1}
                 yourShare={row.yourShare}
                 apr={row.apr}
-                accumulatedReward1={row.accumulatedReward1}
-                accumulatedReward2={row.accumulatedReward2}
+                accumulatedReward={row.accumulatedReward}
                 handleTrash={() => handleTrash(row.name)}
                 handleSwap={() => handleSwap('/swap', row.pool)}
                 handleView={() => handleView(row.name)}
@@ -292,8 +290,7 @@ export const PoolTable = ({
                 assetsPoolToken1={row.assetsPoolToken1}
                 yourShare={row.yourShare}
                 apr={row.apr}
-                accumulatedReward1={row.accumulatedReward1}
-                accumulatedReward2={row.accumulatedReward2}
+                accumulatedReward={row.accumulatedReward}
                 handleTrash={() => handleTrash(row.name)}
                 handleSwap={() => handleSwap('/swap', row.pool)}
                 handleView={() => handleView(row.name)}

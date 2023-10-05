@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import {
   BTR,
   FavoriteIcon,
-  Footer,
-  Header,
   HeaderSubtitle,
   HeaderTitle,
   Subtitle,
@@ -13,7 +11,6 @@ import {
   TR,
   Table,
   Title,
-  Wrapper
 } from './styles'
 import { Divider } from '../Divider'
 import { IPoolTableItem } from '../PoolTableItem'
@@ -59,8 +56,7 @@ export const PoolItemMobile = ({
   handleAddLiquidity,
   toggleDialog,
   actionsDialogActive,
-  accumulatedReward1,
-  accumulatedReward2
+  accumulatedReward
 }: IPoolTableItem) => {
   const theme = useTheme() as theme
   const [currentTheme, setCurrentTheme] = useState<theme | undefined>(theme)
@@ -205,7 +201,7 @@ export const PoolItemMobile = ({
         <TD>
           <HeaderSubtitle>
             <Subtitle>Weekly Rewards</Subtitle>
-            <SubtitleValue>{accumulatedReward1}<br/>{accumulatedReward2}</SubtitleValue>
+            <SubtitleValue>{accumulatedReward}</SubtitleValue>
           </HeaderSubtitle>
         </TD>
       </BTR>
