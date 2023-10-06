@@ -24,7 +24,7 @@ export const Tab = styled.div<TTab>`
     border-radius: 16px 0 0 0;
   };
   &:last-child {
-    border-radius: 0 16px 0 0; 
+    border-radius: 16px 16px 0 0; 
   };
   
   &:focus {
