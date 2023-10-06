@@ -101,7 +101,7 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
                       { name: "LP Stake", value: `${item.lpStaked}`},
                       { name: "APR", value: `${item.apr}`}
                     ]}
-                    userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
+                    userPoolInfo={[{title: "TVL ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
                     trashHandler={() => item.onOptionClick(LPOptionType.DELETE, item.firstSymbol, item.secondSymbol)}
                     swapHandler={() => item.onOptionClick(LPOptionType.SWAP, item.firstSymbol, item.secondSymbol)}
                     viewHandler={() => item.onOptionClick(LPOptionType.VIEW, item.firstSymbol, item.secondSymbol)}
