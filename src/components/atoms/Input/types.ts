@@ -20,6 +20,7 @@ export interface InputProps {
   hasBackground?: boolean
   iconWrapperBackground?: string
   textAlign?: string
+  disabled?: boolean
 }
 
 export enum Status {

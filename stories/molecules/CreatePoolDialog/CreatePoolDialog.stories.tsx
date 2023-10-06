@@ -40,6 +40,7 @@ const Template: ComponentStory<typeof CreatePoolDialog> = (args: CreatePoolDialo
 export const Default = Template.bind({});
 
 Default.args = {
+  isOpen: true,
   closeCallback: () => console.log('dialog is closed'),
   // @ts-ignore
   tokenListData: TOKEN_LIST_DATA_CREATE_POOL,
@@ -47,5 +48,5 @@ Default.args = {
   popularTokensData: POPULAR_TOKEN_LIST_DATA_CREATE_POOL,
   onSelectToken: () => console.log('token selected'),
   onSelectFavoriteToken: (e) => {console.log('favorite token selected')},
-  isOpen: true
+  handleViewTokenList: () => console.log('view token list'),
 };

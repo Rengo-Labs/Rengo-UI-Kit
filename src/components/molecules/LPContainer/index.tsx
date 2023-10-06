@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {LiquidityWrapped, LiquidityTitle, TitleWrapped} from './styles'
 import {LPOptionType} from './types'
-import {HorizontalCard, Toggle} from '../../atoms'
+import {HorizontalCard, LoaderSmall, Toggle} from '../../atoms'
 import { Variant } from '../../atoms/Toggle/types'
 
 export interface LPToken {
@@ -57,6 +57,14 @@ export interface LPContainerPros {
 export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = false, toggleAction = () => {} } : LPContainerPros) => {
 
   const [actionsDialogActive, setActionsDialogActive] = useState<string | null>()
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, [lpTokens.length]);
+
   const toggleDialog = (name: string) => {
     setActionsDialogActive((prev) => (prev === name ? null : name))
   }
@@ -70,46 +78,53 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
         </div>
       </TitleWrapped>
       {
-        lpTokens.length > 0 &&
-        lpTokens.map((item, index) => {
-          return <HorizontalCard
-            networkLink={networkLink}
-            contractPackage={item.contractPackage}
-            key={`lp-token-${index}-card-${item.firstSymbol}-${item.secondSymbol}`}
-            firstTokenIcon={item.firstTokenIcon}
-            secondTokenIcon={item.secondTokenIcon}
-            hasFavorite={item.isFavorite}
-            tokenPairs={[item.firstSymbol, item.secondSymbol]}
-            pairsLiquidity={[
-              { name: `Your Pooled (${item.firstSymbol})`, value: `${item.firstAmount}` },
-              { name: `Your Pooled (${item.secondSymbol})`, value: `${item.secondAmount}` },
-              { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.userLP}` },
-              { name: "Your Share", value: `${item.yourShare}`},
-              { name: "LP Stake", value: `${item.lpStaked}`},
-              { name: "APR", value: `${item.apr}`}
-            ]}
-            userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
-            trashHandler={() => item.onOptionClick(LPOptionType.DELETE, item.firstSymbol, item.secondSymbol)}
-            swapHandler={() => item.onOptionClick(LPOptionType.SWAP, item.firstSymbol, item.secondSymbol)}
-            viewHandler={() => item.onOptionClick(LPOptionType.VIEW, item.firstSymbol, item.secondSymbol)}
-            stakeHandler={() => item.onOptionClick(LPOptionType.STAKE, item.firstSymbol, item.secondSymbol)}
-            unstakeHandler={() => item.onOptionClick(LPOptionType.UNSTAKE, item.firstSymbol, item.secondSymbol)}
-            claimHandlerWETH={() => item.onOptionClick(LPOptionType.CLAIM, item.firstSymbol, item.secondSymbol)}
-            claimHandlerCST={() => item.onOptionClick(LPOptionType.CLAIMCST, item.firstSymbol, item.secondSymbol)}
-            hasBalance={item.hasBalance}
-            hasStake={item.hasStake}
-            hasGauge={item.hasGauge}
-            rewardETHTitle={item.rewardETHTitle}
-            rewardCSTTitle={item.rewardCSTTitle}
-            hasClaimWETH={item.hasClaimWETH}
-            hasClaimCST={item.hasClaimCST}
-            addLiquidityHandler={() => item.onOptionClick(LPOptionType.ADD_LIQUIDITY, item.firstSymbol, item.secondSymbol)}
-            favoriteHandler={() => {}}
-            toggleDialog={() => toggleDialog(`${item.firstSymbol}-${item.secondSymbol}`)}
-            actionsDialogActive={actionsDialogActive === `${item.firstSymbol}-${item.secondSymbol}`}
-          />
-        })
-      }
+        isLoading ? (
+        <LoaderSmall />
+      ) : (
+        <>
+          {
+              lpTokens.length > 0 &&
+              lpTokens.map((item, index) => {
+                return <HorizontalCard
+                    networkLink={networkLink}
+                    contractPackage={item.contractPackage}
+                    key={`lp-token-${index}-card-${item.firstSymbol}-${item.secondSymbol}`}
+                    firstTokenIcon={item.firstTokenIcon}
+                    secondTokenIcon={item.secondTokenIcon}
+                    hasFavorite={item.isFavorite}
+                    tokenPairs={[item.firstSymbol, item.secondSymbol]}
+                    pairsLiquidity={[
+                      { name: `Your Pooled (${item.firstSymbol})`, value: `${item.firstAmount}` },
+                      { name: `Your Pooled (${item.secondSymbol})`, value: `${item.secondAmount}` },
+                      { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.userLP}` },
+                      { name: "Your Share", value: `${item.yourShare}`},
+                      { name: "LP Stake", value: `${item.lpStaked}`},
+                      { name: "APR", value: `${item.apr}`}
+                    ]}
+                    userPoolInfo={[{title: "Total Liquidity ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
+                    trashHandler={() => item.onOptionClick(LPOptionType.DELETE, item.firstSymbol, item.secondSymbol)}
+                    swapHandler={() => item.onOptionClick(LPOptionType.SWAP, item.firstSymbol, item.secondSymbol)}
+                    viewHandler={() => item.onOptionClick(LPOptionType.VIEW, item.firstSymbol, item.secondSymbol)}
+                    stakeHandler={() => item.onOptionClick(LPOptionType.STAKE, item.firstSymbol, item.secondSymbol)}
+                    unstakeHandler={() => item.onOptionClick(LPOptionType.UNSTAKE, item.firstSymbol, item.secondSymbol)}
+                    claimHandlerWETH={() => item.onOptionClick(LPOptionType.CLAIM, item.firstSymbol, item.secondSymbol)}
+                    claimHandlerCST={() => item.onOptionClick(LPOptionType.CLAIMCST, item.firstSymbol, item.secondSymbol)}
+                    hasBalance={item.hasBalance}
+                    hasStake={item.hasStake}
+                    hasGauge={item.hasGauge}
+                    rewardETHTitle={item.rewardETHTitle}
+                    rewardCSTTitle={item.rewardCSTTitle}
+                    hasClaimWETH={item.hasClaimWETH}
+                    hasClaimCST={item.hasClaimCST}
+                    addLiquidityHandler={() => item.onOptionClick(LPOptionType.ADD_LIQUIDITY, item.firstSymbol, item.secondSymbol)}
+                    favoriteHandler={() => {}}
+                    toggleDialog={() => toggleDialog(`${item.firstSymbol}-${item.secondSymbol}`)}
+                    actionsDialogActive={actionsDialogActive === `${item.firstSymbol}-${item.secondSymbol}`}
+                />
+              })
+          }
+        </>
+      )}
     </LiquidityWrapped>
   )
 }

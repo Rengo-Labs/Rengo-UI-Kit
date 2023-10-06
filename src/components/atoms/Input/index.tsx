@@ -11,6 +11,7 @@ import { useInput } from './useInput'
  * @param {Type} [type='icon-label-helper-text'] - The type of the input field, one of 'icon-label-helper-text', 'icon-helper-text', 'helper-text-only', 'plain', 'label-helper-text', 'label-icon', 'label-plain' or 'icon-plain'.
  * @param {string} label - The label to display above the input field.
  * @param {string} helperText - The helper text to display below the input field.
+ * @param hasBackground
  * @param {string} iconWrapperBackground - The background color for the icon.
  * @param {string} textAlign - The text alignment for the input
  * @param {React.ReactNode} rightAdornment - The adornment to be display at the right of the input, accepts a component or string
@@ -19,10 +20,12 @@ import { useInput } from './useInput'
  * @param {function} onChange - A callback function to be called when the input value changes. Should accept a string argument representing the new value of the input field.
  * @param {function} validator - A callback function to be called when the input changes, the user must implement the validator.
  *
+ * @param value
+ * @param disabled
  * @returns {JSX.Element} The rendered input field.
  */
 
-export const Input = ({ 
+export const Input = ({
   placeholder,
   status,
   type,
@@ -36,7 +39,8 @@ export const Input = ({
   onChange,
   validator,
   value,
-  textAlign = 'right'
+  textAlign = 'right',
+  disabled = false
 }: InputProps) => {
   const { getInputProps } = useInput()
 
@@ -47,7 +51,7 @@ export const Input = ({
           label
         )}
       </LabelStyled>
-      
+
       <InputInnerWrapper>
         {TYPES_WITH_ICON.includes(type) && (
           <IconWrapper
@@ -69,14 +73,15 @@ export const Input = ({
             hasBackground
           })}
           value={value}
+          disabled={disabled}
          />
-         
+
         {rightAdornment && (
           <RightAdornmentWrapper>
             {rightAdornment}
           </RightAdornmentWrapper>
         )}
-        
+
       </InputInnerWrapper>
 
         {TYPES_WITH_HELPER_TEXT.includes(type) && (
