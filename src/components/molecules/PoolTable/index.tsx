@@ -48,7 +48,7 @@ const columns = [
   },
   {
     key: 'yourLiquidity',
-    name: 'Liquidity',
+    name: 'TVL',
     isSorteable: true,
   },
   {
