@@ -80,10 +80,12 @@ export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tok
       </InputWrapped>
       <CoinCardFooter>
         <ButtonWrapped left={true}>$ {tokenPrice}</ButtonWrapped>
-        <ButtonWrapped left={false}>
-          <Button type="small" props={{ onClick: () => onHalfButton()}}>Half</Button>
-          <Button type="small" props={{ onClick: () => onMaxButton()}}>Max</Button>
-        </ButtonWrapped>
+        { !disabled &&
+          <ButtonWrapped left={false}>
+            <Button type="small" props={{ onClick: () => onHalfButton()}}>Half</Button>
+            <Button type="small" props={{ onClick: () => onMaxButton()}}>Max</Button>
+          </ButtonWrapped>
+        }
       </CoinCardFooter>
     </CoinCardWrapped>
   )
