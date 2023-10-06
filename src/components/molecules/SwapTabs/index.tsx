@@ -118,16 +118,11 @@ export const SwapTabs = ({
     )
 
     const tabsElement = [
-        {
-            id: 1,
-            text: 'Price',
-            isActive: tabDefault === 1 ? true : false,
-            component: swapPriceTab
-        },
+
         {
             id: 2,
             text: 'More Info',
-            isActive: tabDefault === 2 ? true : false,
+            isActive: true,
             component: swapMoreInfoTab
         }
     ]
@@ -139,7 +134,7 @@ export const SwapTabs = ({
             prevTabs.map((tab) => (
                 {
                     ...tab,
-                    component: tab.id === 1 ? swapPriceTab : swapMoreInfoTab
+                    component: swapMoreInfoTab
                 }
             ))
         ))
@@ -171,7 +166,7 @@ export const SwapTabs = ({
             } else {
                 return {
                     ...tab,
-                    isActive: false
+                    isActive: true
                 }
             }
         })
@@ -189,9 +184,7 @@ export const SwapTabs = ({
             </Row>
             <TabContent>
                 {tabs.map((tab, index) => {
-                    if (tab.isActive) {
-                        return <Item key={tab.id}>{tab.component}</Item>
-                    }
+                  return <Item key={tab.id}>{tab.component}</Item>
                 })}
             </TabContent>
         </Column>
