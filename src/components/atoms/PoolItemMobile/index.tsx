@@ -149,7 +149,7 @@ export const PoolItemMobile = ({
         <BTR>
           <TD>
             <HeaderSubtitle>
-              <Subtitle>Liquidity</Subtitle>
+              <Subtitle>TVL</Subtitle>
               <SubtitleValue>{yourLiquidity}</SubtitleValue>
             </HeaderSubtitle>
           </TD>
