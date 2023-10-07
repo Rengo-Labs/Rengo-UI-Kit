@@ -3,6 +3,7 @@ import {LiquidityWrapped, LiquidityTitle, TitleWrapped} from './styles'
 import {LPOptionType} from './types'
 import {HorizontalCard, LoaderSmall, Toggle} from '../../atoms'
 import { Variant } from '../../atoms/Toggle/types'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export interface LPToken {
   contractPackage: string,
@@ -78,14 +79,17 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
         </div>
       </TitleWrapped>
       {
-        isLoading ? (
-        <LoaderSmall />
-      ) : (
-        <>
+        <AnimatePresence>
           {
               lpTokens.length > 0 &&
               lpTokens.map((item, index) => {
-                return <HorizontalCard
+                return <motion.div
+                    key={`motion-div-${item.contractPackage}`}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                  <HorizontalCard
                     networkLink={networkLink}
                     contractPackage={item.contractPackage}
                     key={`lp-token-${index}-card-${item.firstSymbol}-${item.secondSymbol}`}
@@ -121,10 +125,11 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
                     toggleDialog={() => toggleDialog(`${item.firstSymbol}-${item.secondSymbol}`)}
                     actionsDialogActive={actionsDialogActive === `${item.firstSymbol}-${item.secondSymbol}`}
                 />
+                </motion.div>
               })
           }
-        </>
-      )}
+        </AnimatePresence>
+      }
     </LiquidityWrapped>
   )
 }
