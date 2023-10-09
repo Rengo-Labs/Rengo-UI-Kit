@@ -39,20 +39,20 @@ export const ButtonContainer = styled.div<{isMobile: boolean}>`
 `;
 
 export const Title = styled.h1<{isMobile: boolean}>`
-  font-size: ${({isMobile}) => isMobile ? '24px' : '36px'};
+  font-size: ${({isMobile}) => isMobile ? '20px' : '36px'};
   font-family: ${({theme}) => theme.typography.primaryFont};
   font-style: normal;
   font-weight: 800;
-  line-height: ${({isMobile}) => isMobile ? '20px' : '71px'};
+  line-height: ${({isMobile}) => isMobile ? '24px' : '71px'};
   letter-spacing: 2.75px;
 `;
 
 export const Subtitle = styled.h2<{isMobile: boolean}>`
-  font-size: 5.371vw;
+  font-size: ${({isMobile}) => isMobile ? '20px' : '36px'};
   font-family: ${({theme}) => theme.typography.primaryFont};
   font-style: normal;
   font-weight: 800;
-  line-height: ${({isMobile}) => isMobile ? '20px' : '71px'};
+  line-height: ${({isMobile}) => isMobile ? '24px' : '71px'};
   letter-spacing: 2.75px;
   text-align: center;
 `;
