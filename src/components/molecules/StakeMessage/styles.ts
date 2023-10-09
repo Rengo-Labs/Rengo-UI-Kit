@@ -39,7 +39,7 @@ export const ButtonContainer = styled.div<{isMobile: boolean}>`
 `;
 
 export const Title = styled.h1<{isMobile: boolean}>`
-  font-size: 5.371vw;
+  font-size: ${({isMobile}) => isMobile ? '24px' : '36px'};
   font-family: ${({theme}) => theme.typography.primaryFont};
   font-style: normal;
   font-weight: 800;
