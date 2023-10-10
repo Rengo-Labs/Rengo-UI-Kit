@@ -37,4 +37,5 @@ export interface PoolInfoProps {
 export interface Props {
     hidden?: boolean;
     actionsDialogActive?: boolean;
+    autoWith?: boolean;
 }
