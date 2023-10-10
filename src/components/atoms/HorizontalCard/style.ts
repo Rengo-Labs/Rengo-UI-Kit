@@ -281,7 +281,7 @@ export const ActionsWrapper = styled.div<Props>`
     border-radius: 16px;
     align-items: center;
     right: 50px;
-    top: 10px;
+    bottom: 20px;
     display: ${({ actionsDialogActive }) => actionsDialogActive ? 'flex;' : 'none;'};
 
 `;
@@ -403,7 +403,7 @@ export const SeeActionsIconWrapper = styled.div<Props>`
   display: ${({ hidden }) => hidden ? 'flex' : 'none'};
   justify-content: ${({ actionsDialogActive }) => actionsDialogActive ? 'center' : 'center'};
   align-items: ${({ actionsDialogActive }) => actionsDialogActive ? 'center' : 'center'};
-  width: 32px;
+  width: ${({ autoWith }) => autoWith ? 'auto' : '32px'};
   height: 32px;
   border-radius: ${({ actionsDialogActive }) => actionsDialogActive ? '6px' : '0'};
   background-color: ${({ actionsDialogActive }) => actionsDialogActive ? '#AA9FF9' : 'transparent'};

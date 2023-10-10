@@ -38,6 +38,7 @@ import { HorizontalCardProps } from './types'
 import { useDeviceType } from '../../../hooks'
 import { DeviceType } from '../../../hooks/types'
 import {DollarSign} from "react-feather";
+import {Button} from '../Button'
 
 /**
   HorizontalCard Component.
@@ -180,13 +181,12 @@ export const HorizontalCard = ({
           </TokenPairsNamesWrapper>
         </TokenInfoInnerWrapper>
 
-        <SeeActionsIconWrapper hidden={true} actionsDialogActive={actionsDialogActive}>
-          <SeeActionsIcon
-            id={`see-actions-icon-mobile-${contractPackage}`}
-            hidden={true}
-            color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
-            size={20}
-            onClick={() => toggleDialog()}/>
+        <SeeActionsIconWrapper hidden={true} autoWith={true} actionsDialogActive={actionsDialogActive}>
+          <Button type="small" props={{
+            onClick: () => {
+              toggleDialog()
+            }
+          }}>Stake</Button>
         </SeeActionsIconWrapper>
 
       </TokenInfoWrapper>
@@ -279,13 +279,12 @@ export const HorizontalCard = ({
       )}
 
 
-      <SeeActionsIconWrapper hidden={false} actionsDialogActive={actionsDialogActive}>
-        <SeeActionsIcon
-          hidden={false}
-          id={`see-actions-icon-desktop-${contractPackage}`}
-          color={actionsDialogActive ? theme?.color.white : theme?.color.modalText}
-          size={20}
-          onClick={() => toggleDialog()}/>
+      <SeeActionsIconWrapper hidden={false} autoWith={true} actionsDialogActive={actionsDialogActive}>
+        <Button type="small" props={{
+          onClick: () => {
+            toggleDialog()
+          }
+        }}>Stake</Button>
       </SeeActionsIconWrapper>
 
       <ActionsWrapper actionsDialogActive={actionsDialogActive}>
