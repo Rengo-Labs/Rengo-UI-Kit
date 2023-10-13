@@ -182,11 +182,12 @@ export const HorizontalCard = ({
         </TokenInfoInnerWrapper>
 
         <SeeActionsIconWrapper hidden={true} autoWith={true} actionsDialogActive={actionsDialogActive}>
-          <Button type="small" props={{
+          <Button key={`mobile-menu-manage-${contractPackage}`} type="small" props={{
+            style: {width: '66px'},
             onClick: () => {
               toggleDialog()
             }
-          }}>Stake</Button>
+          }} outsideClick={() => toggleDialog()}>Manage</Button>
         </SeeActionsIconWrapper>
 
       </TokenInfoWrapper>
@@ -280,11 +281,12 @@ export const HorizontalCard = ({
 
 
       <SeeActionsIconWrapper hidden={false} autoWith={true} actionsDialogActive={actionsDialogActive}>
-        <Button type="small" props={{
+        <Button key={`app-menu-manage-${contractPackage}`} type="small" props={{
+          style: {width: '66px'},
           onClick: () => {
             toggleDialog()
           }
-        }}>Stake</Button>
+        }} outsideClick={() => toggleDialog()}>Manage</Button>
       </SeeActionsIconWrapper>
 
       <ActionsWrapper actionsDialogActive={actionsDialogActive}>
