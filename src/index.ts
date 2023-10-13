@@ -58,7 +58,8 @@ export {
     AccountTabs,
     StakeDialog,
     StakeMessage,
-    GeolocationMessage
+    GeolocationMessage,
+    PlatformBalance
 } from './components';
 export {
     InputType,
