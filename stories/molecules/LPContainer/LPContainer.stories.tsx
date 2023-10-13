@@ -38,6 +38,7 @@ const LPTokensDefault = [
         lpStaked: '0.00',
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
+            console.log("option", option, firstSymbol, secondSymbol)
         },
         rewardETHTitle: 'ETH',
         rewardCSTTitle: 'CST',
@@ -59,8 +60,9 @@ const LPTokensDefault = [
         totalLP: '232000',
         yourShare: '0.00',
         lpStaked: '0.00',
-        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e1',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
+            console.log("option", option, firstSymbol, secondSymbol)
         },
         hasBalance: true,
         hasStake: false,
@@ -80,8 +82,9 @@ const LPTokensDefault = [
         totalLP: '232000',
         yourShare: '0.00',
         lpStaked: '0.00',
-        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e2',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
+            console.log("option", option, firstSymbol, secondSymbol)
         },
         hasBalance: true,
         hasStake: false,
@@ -132,7 +135,7 @@ const LPFavoriteTokens = [{
         totalLP: '232000',
         yourShare: '0.00',
         lpStaked: '0.00',
-        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e1',
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
@@ -154,7 +157,7 @@ const LPFavoriteTokens = [{
         totalLP: '232000',
         yourShare: '0.00',
         lpStaked: '0.00',
-        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e2',
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
@@ -210,7 +213,7 @@ const LPTokensHasStake = [
         totalLP: '232000',
         yourShare: '0.00',
         lpStaked: '0.00',
-        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e1',
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
@@ -234,7 +237,7 @@ const LPTokensHasStake = [
         totalLP: '232000',
         yourShare: '0.00',
         lpStaked: '0.00',
-        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e2',
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
@@ -293,7 +296,7 @@ const LPTokensHasStakeBoleans = [
         totalLP: '232000',
         yourShare: '0.00',
         lpStaked: '0.00',
-        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e1',
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
@@ -318,7 +321,7 @@ const LPTokensHasStakeBoleans = [
         totalLP: '232000',
         yourShare: '0.00',
         lpStaked: '0.00',
-        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e6',
+        contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e2',
         apr: '0.99',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
