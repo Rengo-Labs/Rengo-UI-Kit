@@ -17,7 +17,8 @@ import {
     Dialog,
     Icons,
     Slider,
-    TransactionDetails
+    TransactionDetails,
+    KeyValueInput
 } from "../../atoms"
 import {StakeDialogProps} from "./types"
 import {Distribution} from "../../atoms/TransactionDetails/types"
@@ -25,6 +26,7 @@ import {theme} from '../../../styles/themes/themes'
 import {useTheme} from "styled-components"
 import {useDeviceType} from "../../../hooks"
 import {DeviceType} from "../../../hooks/types"
+import {InputType} from '../../atoms/KeyValueInput/types'
 
 /**
  React component for a Remove Liquidity dialog box.
@@ -56,6 +58,8 @@ export const StakeDialog = ({
                                           calculatedAmounts,
                                           showAllowance,
                                           defaultValue,
+                                          networkGasFee,
+                                          networkGasFeeSetter
                                       }: StakeDialogProps): JSX.Element => {
     const deviceType = useDeviceType()
     const isMobile = deviceType === DeviceType.MOBILE
@@ -108,6 +112,15 @@ export const StakeDialog = ({
                         </TransactionsContainer>
                     </TopSubContainer>
 
+                    <BottomSubContainer>
+                      <KeyValueInput
+                        keyText='Network gas fee'
+                        value={networkGasFee}
+                        inputType={InputType.GASFEE}
+                        onChange={networkGasFeeSetter}
+                      />
+                    </BottomSubContainer>
+                  
                     <BottomSubContainer>
                         {
                             showAllowance ?

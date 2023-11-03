@@ -29,5 +29,7 @@ export interface StakeDialogProps {
     firstAmount: number
     secondAmount: number
     allowance: number
-  }
+  },
+  networkGasFee: number,
+  networkGasFeeSetter: (value: number) => void
 }
