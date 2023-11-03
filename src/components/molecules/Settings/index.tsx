@@ -7,11 +7,27 @@ export interface SettingsProps {
     customNodeUrlValue: string
     handleSave: (slippage: string, node: string ) => void
     handleClose: () => void
-    isOpen: boolean
+    isOpen: boolean,
+    networkGasFeeETHValue: number,
+    handleETHNetworkGasFee: (value: string) => void,
+    networkGasFeeCSTValue: number,
+    handleCSTNetworkGasFee: (value: string) => void,
+    placeholderForCST: string,
+    placeholderForETH: string,
+    titleForCST: string,
+    titleForETH: string
 }
 export const Settings = ({
                              slippageToleranceValue = "0.1",
                              customNodeUrlValue = '',
+                             networkGasFeeETHValue,
+                             handleETHNetworkGasFee,
+                             networkGasFeeCSTValue,
+                             handleCSTNetworkGasFee,
+                             placeholderForCST,
+                             placeholderForETH,
+                             titleForCST,
+                             titleForETH,
                              handleSave,
                              handleClose,
                              isOpen
@@ -79,6 +95,36 @@ export const Settings = ({
                         label='Label test'
                         onChange={handlerInput}
                         hasBackground
+                    />
+                </Row>
+                <Row>
+                    <Text>{titleForCST}</Text>
+                </Row>
+                <Row className='m-1'>
+                    <Input
+                      placeholder={placeholderForCST}
+                      helperText='Something is wrong!'
+                      type={Type.Plain}
+                      value={networkGasFeeCSTValue}
+                      status={Status.Default}
+                      label='Label test'
+                      onChange={handleCSTNetworkGasFee}
+                      hasBackground
+                    />
+                </Row>
+                <Row>
+                    <Text>{titleForETH}</Text>
+                </Row>
+                <Row className='m-1'>
+                    <Input
+                      placeholder={placeholderForETH}
+                      helperText='Something is wrong!'
+                      type={Type.Plain}
+                      value={networkGasFeeETHValue}
+                      status={Status.Default}
+                      label='Label test'
+                      onChange={handleETHNetworkGasFee}
+                      hasBackground
                     />
                 </Row>
                 <Row>

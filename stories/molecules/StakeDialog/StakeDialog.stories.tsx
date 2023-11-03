@@ -49,7 +49,9 @@ Default.args = {
     lpAmount: '0,3',
     firstAmount: '0,3',
     secondAmount: '0,3'
-  }
+  },
+  networkGasFeeStake: 10,
+  setNetworkGasFeeStake: (value) => {console.log(value)}
 };
 
 export const Allowance = Template.bind({});
