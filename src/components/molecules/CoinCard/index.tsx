@@ -2,6 +2,7 @@ import React from 'react'
 import {CoinCardWrapped, CoinCardFooter, InputWrapped, ButtonWrapped} from './styles'
 import {Header, Button, Input, TextIconTouchable} from '../../atoms'
 import {Type, Status} from '../../atoms/Input/types'
+import BigNumber from "bignumber.js";
 
 export interface CoinCardPros {
   startIcon: string,
@@ -39,13 +40,13 @@ export interface CoinCardPros {
 export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tokenName, tokenPrice, placeholder, onChangeToken, onChangeValue, validator, value, gasFee, disabled}: CoinCardPros) => {
 
   const onHalfButton = () => {
-    onChangeValue(parseFloat(tokenBalance)/2)
+    onChangeValue(BigNumber(tokenBalance).div(2).toString())
   }
 
   const onMaxButton = () => {
-    const maxBalance = tokenName === 'CSPR' && gasFee ? parseFloat(tokenBalance) - gasFee : parseFloat(tokenBalance)
+    const maxBalance = tokenName === 'CSPR' && gasFee ? BigNumber(tokenBalance).minus(gasFee) : BigNumber(tokenBalance)
 
-    onChangeValue(maxBalance)
+    onChangeValue(maxBalance.toString())
   }
 
   return (
@@ -57,7 +58,7 @@ export const CoinCard = ({startIcon, endIcon, iconSize, title, tokenBalance, tok
           helperText=''
           label=''
           status={Status.Default}
-          type={Type.Number}
+          type={Type.Text}
           rightAdornment={''}
           Icon={
             <TextIconTouchable
