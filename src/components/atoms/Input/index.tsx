@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react'
 import { HelperText, IconWrapper, InputInnerWrapper, InputStyled, InputWrapper, LabelStyled, RightAdornmentWrapper } from './styles'
-import { InputProps, TYPES_WITH_HELPER_TEXT, TYPES_WITH_ICON, TYPES_WITH_LABEL } from './types'
+import { InputProps, TYPES_WITH_HELPER_TEXT, TYPES_WITH_ICON_TEXT, TYPES_WITH_LABEL } from './types'
 import { useInput } from './useInput'
 
 /**
@@ -53,7 +53,7 @@ export const Input = ({
       </LabelStyled>
 
       <InputInnerWrapper>
-        {TYPES_WITH_ICON.includes(type) && (
+        {TYPES_WITH_ICON_TEXT.includes(type) && (
           <IconWrapper
             status={status}
             iconSize={iconSize}

@@ -36,7 +36,7 @@ Default.args = {
     onChangeToken:() => {},
     onChangeValue:() => {},
     validator:() => {},
-    value: 0,
+    value: '0.200002337651700465',
     gasFee: 20
 };
 
@@ -53,7 +53,7 @@ UsingCSPR.args = {
     onChangeToken:() => {},
     onChangeValue:() => {},
     validator:() => {},
-    value: 0,
+    value: '0.019520449515975537',
     gasFee: 20
 };
 
@@ -69,7 +69,7 @@ UsindDToken.args = {
     onChangeToken:() => {},
     onChangeValue:() => {},
     validator:() => {},
-    value: 0,
+    value: '0',
     gasFee: 20
 }
 
@@ -85,7 +85,7 @@ Disabled.args = {
     onChangeToken:() => {},
     onChangeValue:() => {},
     validator:() => {},
-    value: 0,
+    value: '0',
     gasFee: 20,
     disabled: true
 }
