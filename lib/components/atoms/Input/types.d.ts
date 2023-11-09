@@ -28,6 +28,7 @@ export declare enum Status {
 export declare enum Type {
     IconLabelHelperText = "icon-label-helper-text",
     Number = "number",
+    Text = "text",
     IconHelperText = "icon-helper-text",
     HelperTextOnly = "helper-text-only",
     Plain = "plain",
@@ -37,5 +38,6 @@ export declare enum Type {
     IconPlain = "icon-plain"
 }
 export declare const TYPES_WITH_ICON: Type[];
+export declare const TYPES_WITH_ICON_TEXT: Type[];
 export declare const TYPES_WITH_HELPER_TEXT: Type[];
 export declare const TYPES_WITH_LABEL: Type[];
