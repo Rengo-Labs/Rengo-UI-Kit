@@ -146,7 +146,19 @@ export const HorizontalCard = ({
     }
   }
 
+  const condition = (pairName: string, hasGauge: boolean, hasStake: boolean, value: string) => {
+    if (pairName !== 'APR' && pairName !== 'Stake ($)' || hasGauge && pairName === 'APR' || hasStake && pairName === 'Stake ($)') {
+      
+      return value
+    } else {
+      return !hasGauge && pairName == 'APR' || !hasStake && pairName == 'Stake ($)' ? 'N/A' : value
+    }
+  }
 
+  const naCondition = (pairName: string, label1: string, label2: string, value: string) => {
+    return !hasGauge && (pairName == label1 || pairName == label2) ? value : 'N/A'
+  }
+  
   const pairsLiquidityMiddleIndex = Math.floor(pairsLiquidity.length / 2);
 
   return (
@@ -207,15 +219,10 @@ export const HorizontalCard = ({
       {!isMobile && (
           <RowWrapper>
             {pairsLiquidity && pairsLiquidity.map((pair, i) => (
-              <PairsLiquidityWrapper key={`pairs-liquidity-${pair.name}-${pair.value}-${i}`} isLastItem={i == 3 || i == pairsLiquidity.length -1}>
+              <PairsLiquidityWrapper key={`pairs-liquidity-${pair.name}-${pair.value}-${i}`} isLastItem={i == 3 || i == pairsLiquidity.length -2}>
                 <PairLiquidityName>{pair.name}</PairLiquidityName>
                 {
-                  (pair.name != 'APR' || hasGauge && pair.name == 'APR') &&
-                  <PairLiquidityValue>{pair.value}</PairLiquidityValue>
-                }
-                {
-                  !hasGauge && pair.name == 'APR' &&
-                  <PairLiquidityValue>N/A</PairLiquidityValue>
+                  <PairLiquidityValue>{condition(pair.name, hasGauge, hasStake, pair.value)}</PairLiquidityValue>
                 }
               </PairsLiquidityWrapper>
             ))}
