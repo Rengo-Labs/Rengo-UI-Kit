@@ -31,7 +31,8 @@ Default.args = {
     { name: `Your Balance (WCSPR-CST)`, value: '217250.092919301' },
     { name: 'Your Share', value: '0.19%'},
     { name: 'Lp Stake', value: '200'},
-    { name: 'APR', value: undefined }
+    { name: 'APR', value: undefined },
+    { name: 'Stake ($)', value: '$ 200' },
   ],
   userPoolInfo: [{title: 'Total liquidity ($)', value: '$ 608K'}, {title: "Your Liquidity ($)", value: `$ 22`}],
   trashHandler: () => console.log('horizontal card: delete'),
@@ -63,7 +64,8 @@ LPStake.args = {
     { name: `Your Balance (WCSPR-CST)`, value: '217250.092919301' },
     { name: 'Your Share', value: '0.19%'},
     { name: 'Lp Stake', value: '200'},
-    { name: 'APR', value: '0.22' }
+    { name: 'APR', value: '0.22' },
+    { name: 'Stake ($)', value: '2200.03' }
   ],
   userPoolInfo: [{title: 'Total liquidity ($)', value: '$ 608K'}, {title: "Your Liquidity ($)", value: `$ 22`}],
   trashHandler: () => console.log('horizontal card: delete'),

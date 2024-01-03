@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {LiquidityWrapped, LiquidityTitle, TitleWrapped} from './styles'
 import {LPOptionType} from './types'
-import {HorizontalCard, LoaderSmall, Toggle} from '../../atoms'
+import {HorizontalCard, Toggle} from '../../atoms'
 import { Variant } from '../../atoms/Toggle/types'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -23,6 +23,7 @@ export interface LPToken {
   lpStakedPercentage: string,
   hasBalance: boolean,
   apr: string,
+  usdStake: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any,
   hasStake: boolean,
   hasGauge: boolean,
@@ -103,7 +104,8 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
                       { name: `Your Balance (${item.firstSymbol}-${item.secondSymbol})`, value: `${item.userLP}` },
                       { name: "Your Share", value: `${item.yourShare}`},
                       { name: "LP Stake", value: `${item.lpStaked}`},
-                      { name: "APR", value: `${item.apr}`}
+                      { name: "APR", value: `${item.apr}`},
+                      { name: "Stake ($)", value: `${item.usdStake}`}
                     ]}
                     userPoolInfo={[{title: "TVL ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
                     trashHandler={() => item.onOptionClick(LPOptionType.DELETE, item.firstSymbol, item.secondSymbol)}

@@ -44,7 +44,7 @@ const LPTokensDefault = [
         rewardCSTTitle: 'CST',
         hasBalance: true,
         hasStake: false,
-        hasGauge: false
+        hasGauge: true
     },
     {
         firstTokenIcon: btcToken,
@@ -191,6 +191,7 @@ const LPTokensHasStake = [
         yourShare: '0.00',
         lpStaked: '0.00',
         apr: '0.99',
+        usdStake: '20000.03',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
         rewardETHTitle: 'ETH',
@@ -215,6 +216,7 @@ const LPTokensHasStake = [
         lpStaked: '0.00',
         contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e1',
         apr: '0.99',
+        usdStake: '10000.03',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
         rewardETHTitle: 'ETH',
@@ -239,6 +241,7 @@ const LPTokensHasStake = [
         lpStaked: '0.00',
         contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e2',
         apr: '0.99',
+        usdStake: '50000.03',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
         rewardETHTitle: 'ETH',
@@ -273,6 +276,7 @@ const LPTokensHasStakeBoleans = [
         yourShare: '0.00',
         lpStaked: '0.00',
         apr: '0.99',
+        usdStake: '20000.03',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
         hasStake: true,
@@ -298,6 +302,7 @@ const LPTokensHasStakeBoleans = [
         lpStaked: '0.00',
         contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e1',
         apr: '0.99',
+        usdStake: '500000.03',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
         hasStake: true,
@@ -323,10 +328,11 @@ const LPTokensHasStakeBoleans = [
         lpStaked: '0.00',
         contractPackage: 'a3f3a7c26a0723f56ad74dcb4d9a86642d1d53c6d1add00c237df5199a3025e2',
         apr: '0.99',
+        usdStake: '30000.03',
         onOptionClick: (option, firstSymbol, secondSymbol) => {
         },
-        hasStake: true,
-        hasGauge: true,
+        hasStake: false,
+        hasGauge: false,
         rewardETHTitle: 'ETH',
         rewardCSTTitle: 'CST',
         hasClaimWETH: false,
