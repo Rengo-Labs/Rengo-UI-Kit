@@ -32,7 +32,7 @@ Default.args = {
     { name: 'Your Share', value: '0.19%'},
     { name: 'Lp Stake', value: '200'},
     { name: 'APR', value: undefined },
-    { name: 'Stake ($)', value: '$ 200' },
+    { name: 'Total Stake', value: '2300.33111' },
   ],
   userPoolInfo: [{title: 'Total liquidity ($)', value: '$ 608K'}, {title: "Your Liquidity ($)", value: `$ 22`}],
   trashHandler: () => console.log('horizontal card: delete'),
@@ -65,7 +65,7 @@ LPStake.args = {
     { name: 'Your Share', value: '0.19%'},
     { name: 'Lp Stake', value: '200'},
     { name: 'APR', value: '0.22' },
-    { name: 'Stake ($)', value: '2200.03' }
+    { name: 'Total Stake', value: '2200.0003' }
   ],
   userPoolInfo: [{title: 'Total liquidity ($)', value: '$ 608K'}, {title: "Your Liquidity ($)", value: `$ 22`}],
   trashHandler: () => console.log('horizontal card: delete'),
