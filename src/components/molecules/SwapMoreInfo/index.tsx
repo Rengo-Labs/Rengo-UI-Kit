@@ -10,7 +10,7 @@ export interface ISwapMoreInfoProps {
     secondTokenAmount: number;
     priceImpactMessage: string;
     priceImpact: number | string;
-    platformGasFee: number;
+    gasFeeTokenAmount: number;
     networkGasFee: number;
     networkGasFeeSetter: (value: number) => void;
     slippageTolerance: number;
@@ -45,7 +45,7 @@ export const SwapMoreInfo = ({
                                  secondTokenAmount,
                                  priceImpactMessage,
                                  priceImpact,
-                                 platformGasFee,
+                                 gasFeeTokenAmount,
                                  networkGasFee,
                                  networkGasFeeSetter,
                                  slippageTolerance,
@@ -78,7 +78,7 @@ export const SwapMoreInfo = ({
                     editable={editableSlippage}
                 />
                 <Divider/>
-                <KeyValueText keyText='Swap Fee' valueText={`${firstTokenAmount * platformGasFee} ${feeSymbol}`}/>
+                <KeyValueText keyText='Swap Fee' valueText={`${gasFeeTokenAmount} ${feeSymbol}`}/>
                 <Divider/>
                 <KeyValueInput
                     keyText='Network gas fee'
