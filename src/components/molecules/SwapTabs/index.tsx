@@ -102,7 +102,7 @@ export const SwapTabs = ({
 
     const swapMoreInfoTab = (
         <SwapMoreInfo
-            platformGasFee={platformGasFee}
+            gasFeeTokenAmount={platformGasFee}
             slippageTolerance={slippageTolerance}
             calculateMinimumTokenReceived={calculateMinimumTokenReceived}
             firstSymbolToken={firstSymbolToken}
