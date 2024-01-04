@@ -1444,7 +1444,8 @@ Default.args = {
     chart1Name: 'cspr',
     showChart1: true,
     showChart0: true,
-    charHeight: 300
+    charHeight: 300,
+    feeSymbol: 'cspr'
 }
 
 export const WithoutPair = Template.bind({});
@@ -1474,7 +1475,8 @@ WithoutPair.args = {
     chart0Name: 'eth',
     chart1Name: 'cspr',
     showChart1: true,
-    showChart0: true
+    showChart0: true,
+    feeSymbol: 'cspr'
 }
 
 export const WithMoreThanOnePair = Template.bind({});
@@ -1504,7 +1506,8 @@ WithMoreThanOnePair.args = {
     chart0Name: 'eth',
     chart1Name: 'cspr',
     showChart1: true,
-    showChart0: false
+    showChart0: false,
+    feeSymbol: 'cspr'
 }
 
 export const WithTabDefault = Template.bind({});
@@ -1535,7 +1538,8 @@ WithTabDefault.args = {
     chart1Name: 'cspr',
     showChart1: true,
     showChart0: false,
-    tabDefault: 2
+    tabDefault: 2,
+    feeSymbol: 'cspr'
 }
 
 export const WithNonEditableSlippageDefault = Template.bind({});
@@ -1567,5 +1571,6 @@ WithNonEditableSlippageDefault.args = {
     showChart1: true,
     showChart0: false,
     tabDefault: 2,
-    editableSlippage: false
+    editableSlippage: false,
+    feeSymbol: 'cspr'
 }
