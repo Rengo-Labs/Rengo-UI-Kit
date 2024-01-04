@@ -37,7 +37,8 @@ export interface SwapTabsProps {
     showChart1: boolean,
     showChart0: boolean
     tabDefault?: number
-    editableSlippage?: boolean
+    editableSlippage?: boolean,
+    feeSymbol: string
 }
 
 /**
@@ -76,7 +77,8 @@ export const SwapTabs = ({
                              showChart1,
                              showChart0,
                              tabDefault = 1,
-                             editableSlippage = true
+                             editableSlippage = true,
+                             feeSymbol = firstSymbolToken
                          }: SwapTabsProps) => {
     const swapPriceTab = (
         <SwapPrice
@@ -114,6 +116,7 @@ export const SwapTabs = ({
             priceImpactMessage={priceImpactMessage}
             slippageSetter={slippageSetter}
             editableSlippage={editableSlippage}
+            feeSymbol={feeSymbol}
         />
     )
 

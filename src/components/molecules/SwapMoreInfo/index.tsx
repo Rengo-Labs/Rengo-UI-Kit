@@ -17,7 +17,8 @@ export interface ISwapMoreInfoProps {
     slippageSetter: (value: number) => void;
     pairPath: any[];
     calculateMinimumTokenReceived: (secondTokenAmount: number, slippageTolerance: number) => number;
-    editableSlippage?: boolean
+    editableSlippage?: boolean,
+    feeSymbol: string
 }
 
 /**
@@ -51,7 +52,8 @@ export const SwapMoreInfo = ({
                                  slippageSetter,
                                  pairPath,
                                  calculateMinimumTokenReceived,
-                                 editableSlippage = true
+                                 editableSlippage = true,
+                                 feeSymbol
                              }: ISwapMoreInfoProps) => {
 
     const parirPathValue = pairPath.length > 0 ?
@@ -76,7 +78,7 @@ export const SwapMoreInfo = ({
                     editable={editableSlippage}
                 />
                 <Divider/>
-                <KeyValueText keyText='Swap Fee' valueText={`${firstTokenAmount * platformGasFee} CSPR`}/>
+                <KeyValueText keyText='Swap Fee' valueText={`${firstTokenAmount * platformGasFee} ${feeSymbol}`}/>
                 <Divider/>
                 <KeyValueInput
                     keyText='Network gas fee'
