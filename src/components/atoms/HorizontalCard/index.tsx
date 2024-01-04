@@ -147,16 +147,12 @@ export const HorizontalCard = ({
   }
 
   const condition = (pairName: string, hasGauge: boolean, hasStake: boolean, value: string) => {
-    if (pairName !== 'APR' && pairName !== 'Stake ($)' || hasGauge && pairName === 'APR' || hasStake && pairName === 'Stake ($)') {
+    if (pairName !== 'APR' && pairName !== 'Total Stake' || hasGauge && pairName === 'APR' || hasStake && pairName === 'Total Stake') {
       
       return value
     } else {
-      return !hasGauge && pairName == 'APR' || !hasStake && pairName == 'Stake ($)' ? 'N/A' : value
+      return !hasGauge && pairName == 'APR' || !hasStake && pairName == 'Total Stake' ? 'N/A' : value
     }
-  }
-
-  const naCondition = (pairName: string, label1: string, label2: string, value: string) => {
-    return !hasGauge && (pairName == label1 || pairName == label2) ? value : 'N/A'
   }
   
   const pairsLiquidityMiddleIndex = Math.floor(pairsLiquidity.length / 2);
