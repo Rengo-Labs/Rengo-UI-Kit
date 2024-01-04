@@ -23,7 +23,7 @@ export interface LPToken {
   lpStakedPercentage: string,
   hasBalance: boolean,
   apr: string,
-  usdStake: string,
+  totalStake: string,
   onOptionClick: (action: string, firstSymbol: string, secondSymbol: string) => any,
   hasStake: boolean,
   hasGauge: boolean,
@@ -105,7 +105,7 @@ export const LPContainer = ({ networkLink, title, lpTokens = [], toggleActive = 
                       { name: "Your Share", value: `${item.yourShare}`},
                       { name: "LP Stake", value: `${item.lpStaked}`},
                       { name: "APR", value: `${item.apr}`},
-                      { name: "Stake ($)", value: `${item.usdStake}`}
+                      { name: "Total Stake", value: `${item.totalStake}`}
                     ]}
                     userPoolInfo={[{title: "TVL ($)", value: `${item.totalUSDLP}`}, {title: "Your Liquidity ($)", value: `${item.userUSDLP}`}]}
                     trashHandler={() => item.onOptionClick(LPOptionType.DELETE, item.firstSymbol, item.secondSymbol)}
