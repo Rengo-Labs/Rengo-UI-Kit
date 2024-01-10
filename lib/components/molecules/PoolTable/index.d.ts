@@ -6,8 +6,8 @@ export interface IHeaderPool {
     token0Icon: string;
     token1Icon: string;
     yourLiquidity: string;
-    volume7d: string;
-    fees7d: string;
+    totalStaked: string;
+    yourLPStaked: string;
     assetsPoolToken0: string;
     assetsPoolToken1: string;
     yourShare: string;
