@@ -32,8 +32,8 @@ export interface IPoolTableItem {
   heightIcon: number
   pool: string
   yourLiquidity: string
-  volume7d: string
-  fees7d: string
+  totalStaked: string
+  yourLPStaked: string
   assetsPoolToken0: string
   assetsPoolToken1: string
   yourShare: string
@@ -61,8 +61,8 @@ export const PoolTableItem = ({
   heightIcon,
   pool,
   yourLiquidity,
-  volume7d,
-  fees7d,
+  totalStaked,
+  yourLPStaked,
   assetsPoolToken0,
   assetsPoolToken1,
   yourShare,
@@ -131,13 +131,13 @@ export const PoolTableItem = ({
         <Text>{assetsPoolToken1}</Text>
       </TD>
       <TD>
-        <Text>{volume7d}</Text>
-      </TD>
-      <TD>
-        <Text>{fees7d}</Text>
-      </TD>
-      <TD>
         <Text>{yourShare} %</Text>
+      </TD>
+      <TD>
+        <Text>{totalStaked}</Text>
+      </TD>
+      <TD>
+        <Text>{yourLPStaked}</Text>
       </TD>
       <TD>
         <Text>{apr}</Text>
