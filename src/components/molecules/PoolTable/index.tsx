@@ -12,8 +12,8 @@ export interface IHeaderPool {
   token0Icon: string
   token1Icon: string
   yourLiquidity: string
-  volume7d: string
-  fees7d: string
+  totalStaked: string
+  yourLPStaked: string
   assetsPoolToken0: string
   assetsPoolToken1: string
   yourShare: string
@@ -62,18 +62,18 @@ const columns = [
     isSorteable: true,
   },
   {
-    key: 'volume7d',
-    name: 'Volume 7D',
-    isSorteable: true,
-  },
-  {
-    key: 'fees7d',
-    name: 'Fees 7D',
-    isSorteable: true,
-  },
-  {
     key: 'yourShare',
     name: 'Your Share',
+    isSorteable: true,
+  },
+  {
+    key: 'totalStaked',
+    name: 'Total Staked',
+    isSorteable: true,
+  },
+  {
+    key: 'yourLPStaked',
+    name: 'Your LP Staked',
     isSorteable: true,
   },
   {
@@ -255,8 +255,8 @@ export const PoolTable = ({
                 heightIcon={heightIcon}
                 pool={row.pool}
                 yourLiquidity={row.yourLiquidity}
-                volume7d={row.volume7d}
-                fees7d={row.fees7d}
+                totalStaked={row.totalStaked}
+                yourLPStaked={row.yourLPStaked}
                 assetsPoolToken0={row.assetsPoolToken0}
                 assetsPoolToken1={row.assetsPoolToken1}
                 yourShare={row.yourShare}
@@ -286,8 +286,8 @@ export const PoolTable = ({
                 heightIcon={heightIcon}
                 pool={row.pool}
                 yourLiquidity={row.yourLiquidity}
-                volume7d={row.volume7d}
-                fees7d={row.fees7d}
+                totalStaked={row.totalStaked}
+                yourLPStaked={row.yourLPStaked}
                 assetsPoolToken0={row.assetsPoolToken0}
                 assetsPoolToken1={row.assetsPoolToken1}
                 yourShare={row.yourShare}
