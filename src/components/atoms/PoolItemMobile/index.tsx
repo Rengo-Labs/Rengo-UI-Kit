@@ -42,8 +42,8 @@ export const PoolItemMobile = ({
   heightIcon,
   pool,
   yourLiquidity,
-  volume7d,
-  fees7d,
+  totalStaked,
+  yourLPStaked,
   assetsPoolToken0,
   assetsPoolToken1,
   yourShare,  
@@ -181,14 +181,14 @@ export const PoolItemMobile = ({
       <BTR>
         <TD>
           <HeaderSubtitle>
-            <Subtitle>Volume 7D</Subtitle>
-            <SubtitleValue>{volume7d}</SubtitleValue>
+            <Subtitle>Total Staked</Subtitle>
+            <SubtitleValue>{totalStaked}</SubtitleValue>
           </HeaderSubtitle>
         </TD>
         <TD>
           <HeaderSubtitle>
-            <Subtitle>Fees 7D</Subtitle>
-            <SubtitleValue>{fees7d}</SubtitleValue>
+            <Subtitle>Your LP Staked</Subtitle>
+            <SubtitleValue>{yourLPStaked}</SubtitleValue>
           </HeaderSubtitle>
         </TD>
       </BTR>
