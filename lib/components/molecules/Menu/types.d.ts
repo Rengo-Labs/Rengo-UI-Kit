@@ -6,14 +6,13 @@ export interface PageLink {
     path: string;
     onAction: any;
 }
-export interface OptAction {
+export interface OptActionProps {
     startIcon: any;
     endIcon: any;
     title: string;
     background: string;
     color: string;
     onAction: () => void;
-    onActionConnected?: () => void;
     isWalletConnected?: boolean;
     walletAddress?: string;
 }
@@ -23,7 +22,8 @@ export interface MenuPros {
     title: string;
     links: PageLink[];
     toggle?: ToggleProps;
-    rightAction?: OptAction;
+    rightOptionAction: OptActionProps;
+    rightConnectionAction: OptActionProps;
     children?: React.ReactNode;
     ref?: React.ForwardedRef<HTMLDivElement>;
     handleRedirect?: () => void;
