@@ -11,7 +11,7 @@ export const MenuWrapper = styled.div<IMenuWrapper>`
   left: 0;
   background: ${({ theme }) => theme.background.menu};
   padding: 18px ${props => props.isTablet ? '10px' : '70px'};
-  z-index: 1000;
+  z-index: 14;
   margin-bottom: 95px;
   gap:20px;
 `;

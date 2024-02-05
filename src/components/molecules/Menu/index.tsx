@@ -22,7 +22,8 @@ export const Menu = forwardRef(({
   title,
   links,
   toggle,
-  rightAction,
+  rightOptionAction,
+  rightConnectionAction,
   handleRedirect
 }: MenuPros, ref: ForwardedRef<HTMLDivElement>) => {
   const deviceType = useDeviceType()
@@ -48,11 +49,13 @@ export const Menu = forwardRef(({
             </MobileMenuIcon>
             {isOpen && <MenuItemText size={24}>{title}</MenuItemText>}
             <Icon src={menuIcon} width={45} height={45} alt={`${title} left icon`} onClick={handleRedirect}/>
-            {!isOpen && <ButtonWallet
-                handleClick={rightAction?.isWalletConnected ?
-                    rightAction?.onActionConnected :
-                    rightAction?.onAction}
-                accountHashString={rightAction?.walletAddress} />}
+            {!isOpen && rightOptionAction.isWalletConnected && <ButtonWallet
+                handleClick={() => rightOptionAction.onAction()}
+                accountHashString={rightOptionAction?.walletAddress} />}
+
+            {!isOpen && !rightOptionAction.isWalletConnected && <ButtonWallet
+                handleClick={() => rightConnectionAction.onAction()}
+                accountHashString={rightConnectionAction?.walletAddress} />}
           </MenuWrapperMobile>
           <MobileMenuWrapper isOpen={isOpen}>
             <MobileMenuItemContainer>
@@ -111,11 +114,19 @@ export const Menu = forwardRef(({
               </MenuItem>
             )}
           </CenterTextContainer>
+          {
+            rightOptionAction?.isWalletConnected &&
               <ButtonWallet
-                  handleClick={rightAction?.isWalletConnected ?
-                    rightAction?.onActionConnected :
-                    rightAction?.onAction}
-                    accountHashString={rightAction?.walletAddress} />
+                  handleClick={() => rightOptionAction?.onAction()}
+                  accountHashString={rightOptionAction?.walletAddress} />
+          }
+
+          {
+            !rightOptionAction?.isWalletConnected &&
+              <ButtonWallet
+                  handleClick={() => rightConnectionAction?.onAction()}
+                  accountHashString={rightConnectionAction?.walletAddress} />
+          }
         </MenuWrapper>
       )}
     </>
