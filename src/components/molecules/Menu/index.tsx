@@ -51,7 +51,7 @@ export const Menu = forwardRef(({
             <Icon src={menuIcon} width={45} height={45} alt={`${title} left icon`} onClick={handleRedirect}/>
             {!isOpen && !rightConnectionAction.isWalletConnected && <ButtonWallet
                 handleClick={() => rightOptionAction.onAction()}
-                accountHashString={rightOptionAction?.walletAddress} />}
+                accountHashString={null} />}
 
             {!isOpen && rightConnectionAction.isWalletConnected && <ButtonWallet
                 handleClick={() => rightConnectionAction.onAction()}
@@ -118,7 +118,7 @@ export const Menu = forwardRef(({
             !rightConnectionAction?.isWalletConnected &&
               <ButtonWallet
                   handleClick={() => rightOptionAction?.onAction()}
-                  accountHashString={rightOptionAction?.walletAddress} />
+                  accountHashString={null} />
           }
 
           {
