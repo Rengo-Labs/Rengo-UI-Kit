@@ -43,6 +43,7 @@
   "author": "Sebastian Barcelona",
   "license": "MIT",
   "devDependencies": {
+    "@make-software/csprclick-ui": "^1.3.0",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.12.9",
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
