@@ -1,5 +1,3 @@
-import { CsprClickThemes } from '@make-software/csprclick-ui'
-
 export interface theme {
     layout: {
         breakpoints: number[]
@@ -406,7 +404,6 @@ export const defaultTheme: theme = {
     btnsmallbackgroundColor: '#715FF5',
     borderHoverColor: 'rgb(0, 0, 0)',
 
-    ...CsprClickThemes.light,
 }
 
 export const darkTheme: theme = {
@@ -609,5 +606,4 @@ export const darkTheme: theme = {
     loadingColor: ' #fff',
     loadinglabelColor: '#f1f1ff1',
     borderHoverColor: 'rgb(255, 255, 255)',
-    ...CsprClickThemes.dark,
 }
