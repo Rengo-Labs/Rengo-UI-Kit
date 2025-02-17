@@ -59,7 +59,8 @@ export {
     StakeDialog,
     StakeMessage,
     GeolocationMessage,
-    PlatformBalance
+    PlatformBalance,
+    ClaimDialog
 } from './components';
 export {
     InputType,

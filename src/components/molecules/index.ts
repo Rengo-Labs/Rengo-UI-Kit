@@ -23,4 +23,5 @@ export * from './AccountDeployTable'
 export * from './StakeDialog'
 export * from './StakeMessage'
 export * from './GeolocationMessage'
+export * from './ClaimDialog'
 
