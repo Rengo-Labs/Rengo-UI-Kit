@@ -1,5 +1,8 @@
 import styled from 'styled-components'
-export const BurgerButtonStyled = styled.button.attrs((props: { open?: boolean }) => props)`
+interface BurgerButtonProps {
+  open?: boolean;
+}
+export const BurgerButtonStyled = styled.button<BurgerButtonProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-around;

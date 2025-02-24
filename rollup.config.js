@@ -3,11 +3,10 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
-import babel from 'rollup-plugin-babel'
-import {terser} from 'rollup-plugin-terser'
-import {uglify} from 'rollup-plugin-uglify'
-import url from '@rollup/plugin-url'
-import svgr from '@svgr/rollup'
+import babel from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
+import url from '@rollup/plugin-url';
+import svgr from '@svgr/rollup';
 
 const packageJson = require("./package.json");
 const extensions = ['.js', '.ts', '.tsx']
@@ -42,9 +41,8 @@ const plugins = [
         extensions,
         exclude: 'node_modules/**',
         babelrc: false,
-        runtimeHelpers: true
+        babelHelpers: 'runtime',
     }),
-    uglify(),
     terser(),
 ];
 export default [

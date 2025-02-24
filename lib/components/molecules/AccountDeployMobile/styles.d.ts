@@ -1,16 +1,21 @@
-export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const InnerContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const Title: import("styled-components").StyledComponent<"p", any, {
+/// <reference types="react" />
+export declare const Wrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const InnerContainer: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const Title: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, {
     isPrimary?: boolean | undefined;
-}, never>;
-export declare const SubtilteLink: import("styled-components").StyledComponent<"p", any, {
+}>> & string;
+export declare const SubtilteLink: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<Omit<import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, "isPrimary"> & {
     isPrimary?: boolean | undefined;
-}, never>;
-export declare const Subtitle: import("styled-components").StyledComponent<"p", any, {
+}, "ref"> & {
+    ref?: ((instance: HTMLParagraphElement | null) => void) | import("react").RefObject<HTMLParagraphElement> | null | undefined;
+}, never>> & string;
+export declare const Subtitle: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<Omit<import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, "isPrimary"> & {
     isPrimary?: boolean | undefined;
-}, never>;
-export declare const H5: import("styled-components").StyledComponent<"p", any, {}, never>;
-export declare const IconWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const CheckIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
-export declare const CopyIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
-export declare const AlertIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
+}, "ref"> & {
+    ref?: ((instance: HTMLParagraphElement | null) => void) | import("react").RefObject<HTMLParagraphElement> | null | undefined;
+}, never>> & string;
+export declare const H5: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;
+export declare const IconWrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const CheckIcon: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react-feather").IconProps, never>> & string & Omit<import("react-feather").Icon, keyof import("react").Component<any, {}, any>>;
+export declare const CopyIcon: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react-feather").IconProps, never>> & string & Omit<import("react-feather").Icon, keyof import("react").Component<any, {}, any>>;
+export declare const AlertIcon: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react-feather").IconProps, never>> & string & Omit<import("react-feather").Icon, keyof import("react").Component<any, {}, any>>;

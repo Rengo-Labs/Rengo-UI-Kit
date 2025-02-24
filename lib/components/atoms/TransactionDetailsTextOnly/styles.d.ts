@@ -1,7 +1,8 @@
-export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const InnerWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const LeftWrapper: import("styled-components").StyledComponent<"div", any, {
+/// <reference types="react" />
+export declare const Wrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const InnerWrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const LeftWrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, {
     isMobile: boolean;
-}, never>;
-export declare const RightWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const TokenInfo: import("styled-components").StyledComponent<"p", any, {}, never>;
+}>> & string;
+export declare const RightWrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const TokenInfo: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;

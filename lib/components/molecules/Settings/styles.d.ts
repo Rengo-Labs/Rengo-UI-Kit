@@ -1,4 +1,4 @@
 /// <reference types="react" />
-export declare const Wrapper: import("styled-components").StyledComponent<({ children, className, props }: import("../../atoms").ColumnProps) => import("react").JSX.Element, any, {}, never>;
-export declare const Text: import("styled-components").StyledComponent<"p", any, {}, never>;
-export declare const CloseIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
+export declare const Wrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("../../atoms").ColumnProps, never>> & string & Omit<({ children, className, props }: import("../../atoms").ColumnProps) => import("react").JSX.Element, keyof import("react").Component<any, {}, any>>;
+export declare const Text: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;
+export declare const CloseIcon: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react-feather").IconProps, never>> & string & Omit<import("react-feather").Icon, keyof import("react").Component<any, {}, any>>;

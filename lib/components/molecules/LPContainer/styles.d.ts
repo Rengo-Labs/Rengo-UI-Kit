@@ -1,4 +1,5 @@
-export declare const LiquidityWrapped: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const TitleWrapped: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const LiquidityTitle: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const ToggleWrapped: import("styled-components").StyledComponent<"div", any, {}, never>;
+/// <reference types="react" />
+export declare const LiquidityWrapped: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const TitleWrapped: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const LiquidityTitle: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const ToggleWrapped: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;

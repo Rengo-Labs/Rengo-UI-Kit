@@ -1,6 +1,7 @@
-export declare const WrapperStyled: import("styled-components").StyledComponent<"div", any, {
+/// <reference types="react" />
+export declare const WrapperStyled: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, {
     isSelect: boolean;
-}, never>;
-export declare const Text: import("styled-components").StyledComponent<"p", any, {}, never>;
-export declare const InputWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const Input: import("styled-components").StyledComponent<"input", any, {}, never>;
+}>> & string;
+export declare const Text: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;
+export declare const InputWrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const Input: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, never>> & string;

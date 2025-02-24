@@ -1,1 +1,1 @@
-export declare const WrappedPlatformBalance: import("styled-components").StyledComponent<"div", any, any, never>;
+export declare const WrappedPlatformBalance: import("styled-components/dist/types").IStyledComponentBase<"web", any> & string;

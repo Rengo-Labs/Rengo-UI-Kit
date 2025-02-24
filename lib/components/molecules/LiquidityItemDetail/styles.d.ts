@@ -1,6 +1,7 @@
-export declare const Container: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const KeyPairWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const KeyStyle: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const ValueStyle: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const CloseIcon: import("styled-components").StyledComponent<import("react-feather").Icon, any, {}, never>;
+/// <reference types="react" />
+export declare const Container: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const Wrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const KeyPairWrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const KeyStyle: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const ValueStyle: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const CloseIcon: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react-feather").IconProps, never>> & string & Omit<import("react-feather").Icon, keyof import("react").Component<any, {}, any>>;

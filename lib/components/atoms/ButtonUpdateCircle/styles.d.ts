@@ -1,2 +1,3 @@
-export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const TrailCircular: import("styled-components").StyledComponent<"path", any, any, never>;
+/// <reference types="react" />
+export declare const Wrapper: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLDivElement>, HTMLDivElement>, never>> & string;
+export declare const TrailCircular: import("styled-components/dist/types").IStyledComponentBase<"web", any> & string;

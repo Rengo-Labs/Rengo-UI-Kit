@@ -1,9 +1,10 @@
-export declare const Body: import("styled-components").StyledComponent<"tbody", any, {}, never>;
-export declare const TR: import("styled-components").StyledComponent<"tr", any, {
+/// <reference types="react" />
+export declare const Body: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>, never>> & string;
+export declare const TR: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>, {
     cryptoColumnWidth: string[];
-}, never>;
-export declare const TD: import("styled-components").StyledComponent<"td", any, {
+}>> & string;
+export declare const TD: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>, {
     isCryptoColumn: boolean;
-}, never>;
-export declare const Text: import("styled-components").StyledComponent<"p", any, any, never>;
-export declare const Icon: import("styled-components").StyledComponent<"img", any, {}, never>;
+}>> & string;
+export declare const Text: import("styled-components/dist/types").IStyledComponentBase<"web", any> & string;
+export declare const Icon: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, never>> & string;

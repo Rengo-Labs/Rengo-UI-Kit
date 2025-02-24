@@ -1,1 +1,2 @@
-export declare const GlobalStyles: import("styled-components").GlobalStyleComponent<any, import("styled-components").DefaultTheme>;
+/// <reference types="react" />
+export declare const GlobalStyles: import("react").NamedExoticComponent<import("styled-components").ExecutionProps & object>;

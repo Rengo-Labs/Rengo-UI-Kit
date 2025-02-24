@@ -1,3 +1,4 @@
-export declare const ExchangeRateContainer: import("styled-components").StyledComponent<"section", any, {}, never>;
-export declare const ExchangeRateRow: import("styled-components").StyledComponent<"section", any, {}, never>;
-export declare const ExchangeRateColumn: import("styled-components").StyledComponent<"section", any, {}, never>;
+/// <reference types="react" />
+export declare const ExchangeRateContainer: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLElement>, HTMLElement>, never>> & string;
+export declare const ExchangeRateRow: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLElement>, HTMLElement>, never>> & string;
+export declare const ExchangeRateColumn: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLElement>, HTMLElement>, never>> & string;

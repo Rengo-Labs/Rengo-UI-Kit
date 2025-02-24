@@ -1,12 +1,13 @@
-export declare const Head: import("styled-components").StyledComponent<"thead", any, {}, never>;
-export declare const TR: import("styled-components").StyledComponent<"tr", any, {
+/// <reference types="react" />
+export declare const Head: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>, never>> & string;
+export declare const TR: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>, {
     columnsQty: number;
     centerItems?: boolean | undefined;
-}, never>;
-export declare const TD: import("styled-components").StyledComponent<"th", any, {
+}>> & string;
+export declare const TD: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components/dist/types").Substitute<import("react").DetailedHTMLProps<import("react").ThHTMLAttributes<HTMLTableHeaderCellElement>, HTMLTableHeaderCellElement>, {
     customWidth?: string | undefined;
     isFirstColumn?: boolean | undefined;
     lastColumn?: boolean | undefined;
-}, never>;
-export declare const Text: import("styled-components").StyledComponent<"p", any, {}, never>;
-export declare const Icon: import("styled-components").StyledComponent<"span", any, {}, never>;
+}>> & string;
+export declare const Text: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;
+export declare const Icon: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>, never>> & string;

@@ -1,4 +1,5 @@
-export declare const ButtonWalletDesktop: import("styled-components").StyledComponent<"button", any, {}, never>;
-export declare const ButtonWalletMobile: import("styled-components").StyledComponent<"button", any, {}, never>;
-export declare const ButtonWalletText: import("styled-components").StyledComponent<"p", any, {}, never>;
-export declare const ButtonWalletIcon: import("styled-components").StyledComponent<"img", any, {}, never>;
+/// <reference types="react" />
+export declare const ButtonWalletDesktop: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, never>> & string;
+export declare const ButtonWalletMobile: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, never>> & string;
+export declare const ButtonWalletText: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>, never>> & string;
+export declare const ButtonWalletIcon: import("styled-components/dist/types").IStyledComponentBase<"web", import("styled-components").FastOmit<import("react").DetailedHTMLProps<import("react").ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, never>> & string;

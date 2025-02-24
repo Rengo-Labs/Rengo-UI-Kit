@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect} from 'react'
-import {ThemeProvider} from 'styled-components/macro'
+import { ThemeProvider } from "styled-components";
 import {GlobalStyles} from '../styles'
 import { theme } from './theme'
 interface IUiProvider {
